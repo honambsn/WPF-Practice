@@ -1,0 +1,16 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\bin\Debug\Login Page.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\bin\Debug\Login Page.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\bin\Debug\Login Page.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login_Page.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Login Page\obj\Debug\Login Page.pdb
