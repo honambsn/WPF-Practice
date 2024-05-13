@@ -1,0 +1,24 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Sign Up Form.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Sign Up Form.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Sign Up Form.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\MaterialDesignColors.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\MaterialDesignColors.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign_Up_Form.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.csproj.CopyComplete
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sign Up Form\obj\Debug\Sign Up Form.pdb
