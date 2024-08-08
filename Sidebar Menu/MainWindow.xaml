@@ -1,0 +1,51 @@
+﻿<Window x:Class="Sidebar_Menu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sidebar_Menu"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="600" 
+        Width="800"
+        ResizeMode="NoResize"
+        Topmost="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+
+        <!--backgroung color-->
+        <Grid Background="Black">
+
+            <!--navigation panel-->
+            <Grid x:Name="nav_pnl"
+                  HorizontalAlignment="Left"
+                  Width="65"
+                  Background="#2E333A">
+
+                <StackPanel x:Name="st_pl">
+                    <Grid Height="90">
+                        <ToggleButton x:Name="tg_Btn"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Height="61"
+                                      Width="62"
+                                      BorderThickness="0">
+
+                            <!--//togle button //-->
+                            <ToggleButton.Background>
+
+                                <ImageBrush ImageSource="Assets/tgBtn_default.png"
+                                            Stretch="Fill"/>
+                            </ToggleButton.Background>
+
+                        </ToggleButton>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
