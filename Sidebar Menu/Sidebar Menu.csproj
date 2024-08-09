@@ -86,6 +86,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Roboto-Light.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,7 +95,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\img_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_contact.png" />
+    <Resource Include="Assets\img_map.png" />
+    <Resource Include="Assets\img_message.png" />
+    <Resource Include="Assets\img_setting.png" />
+    <Resource Include="Assets\img_signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\tgBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\closeBtn_default.png" />
+    <Resource Include="Assets\closeBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img_background.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\tgBtn_default.png" />
   </ItemGroup>
