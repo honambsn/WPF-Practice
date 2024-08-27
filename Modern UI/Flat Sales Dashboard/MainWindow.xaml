@@ -9,6 +9,9 @@
         Title="MainWindow" Height="780" Width="1280" AllowsTransparency="True" WindowStyle="None"
         WindowStartupLocation="CenterScreen" Background="Transparent">
 
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter"/>
+    </Window.Resources>
 
     <Border CornerRadius="25" Padding="20" Background="#f7f7f4" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
@@ -66,23 +69,117 @@
 
                     <TextBlock Text="Main" Style="{StaticResource menuTitle}"/>
 
-                    <Button Style="{StaticResource menuButton}">
+                    <Button Style="{StaticResource menuButton}" Background="#f7f6f4" Foreground="#fb7657">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton}" Background="#f7f6f4" Foreground="#fb7657">
+                    <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="ClipboardTextPlayOutline" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Leaderboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
-                    
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ClipboardFileOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Spredsheets" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="AccountCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Administration" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="BasketPlusOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Sales" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="ProgressCheck" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Schedule" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <TextBlock Text="Help" Style="{StaticResource menuTitle}"/>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="MessageSettingsOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Messages" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="CogOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource menuButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="PhonePausedOutline" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Support" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </Button>
+
                 </StackPanel>
             </Border>
+            
+            <!--search section-->
+            <Border Grid.Column="1"  Margin="20 0 20 20" Style="{StaticResource whiteBorder}">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#fb7456" Offset="0"/>
+                                    <GradientStop Color="#fa5654" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Image Width="40" Height="40" Source="/Images/u4.png"/>
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Hello, Team" FontSize="26" FontWeight="Bold" Style="{StaticResource titleText}"/>
+                            <TextBlock Text="Have A Nice Day" Foreground="#6c879a" Margin="0 3 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                    
+                    <!--search textbox-->
+                    <Grid Width="300" HorizontalAlignment="Right">
+                        <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1" Text="Search here ..." IsHitTestVisible="False" Visibility="{Binding ElementName=textBoxSearch, Path=Text.Length, Converter={StaticResource BoolToVisConverter}}"/>
+                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
+                        <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" Foreground="#ff6d46" Margin="0 0 15 0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
+            </Border>            
+            
+        
+            <!--info card-->
+            <Grid Grid.Column="1" Grid.Row="1" Margin="10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    
+                
+                <!--card-->
+                
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

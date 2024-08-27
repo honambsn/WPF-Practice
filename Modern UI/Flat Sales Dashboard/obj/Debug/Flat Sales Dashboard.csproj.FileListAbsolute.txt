@@ -19,3 +19,5 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\bi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\bin\Debug\MahApps.Metro.IconPacks.Material.xml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\obj\Debug\Flat Sales Dashboard.csproj.CopyComplete
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\obj\Debug\UserControl\InfoCard.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Flat Sales Dashboard\obj\Debug\UserControls\InfoCard.g.cs
