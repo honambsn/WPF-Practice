@@ -5,6 +5,8 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flat_Sales_Dashboard"
+        xmlns:uc="clr-namespace:Flat_Sales_Dashboard.UserControls"
+        xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="780" Width="1280" AllowsTransparency="True" WindowStyle="None"
         WindowStartupLocation="CenterScreen" Background="Transparent">
@@ -177,9 +179,156 @@
                     
                 
                 <!--card-->
-                
+                <uc:InfoCard Grid.Column="0" Title="Sales" SubTitle="Compared To ($23456 Last Month)" Amount="1" Image="/Images/sale.png"/>
+                <uc:InfoCard Grid.Column="1" Title="Purchase" SubTitle="Compared To ($1256 Last Month)" Amount="8" Image="/Images/purchase.png"/>
+                <uc:InfoCard Grid.Column="2" Title="Return" SubTitle="Compared To ($73456 Last Month)" Amount="5" Image="/Images/return.png"/>
+
             </Grid>
 
+            <!--main chart section-->
+            <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="20 20 20 0">
+                <Grid Margin="15 5">
+                    <!--title-->
+                    <TextBlock Text="Sales Figures" Style="{StaticResource titleText}"/>
+                    
+                    <!--legends-->
+                    <uc:Legends HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 8 10 0"/>
+                    
+                    <!--chart-->
+                    <lvc:CartesianChart Grid.Row="1" Margin="5 40 0 60" LegendLocation="None">
+                        <lvc:CartesianChart.DataTooltip>
+                            <lvc:DefaultTooltip Background="Red" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
+                        </lvc:CartesianChart.DataTooltip>
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Foreground="#90a3b2" ShowLabels="True">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="0"  Step="2"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+
+
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Foreground="#90a3b2" ShowLabels="True" MinValue="40" MaxValue="350">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="0"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" 
+                                            Values="50,120,110,160,150,180,120,170,165,180">
+                                <lvc:LineSeries.Stroke>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#ffffff" Offset="0.06"/>
+                                        <GradientStop Color="#2889fc" Offset="0.5"/>
+                                        <GradientStop Color="#ffffff" Offset="0.93"/>
+                                    </LinearGradientBrush>
+                                </lvc:LineSeries.Stroke>
+                            </lvc:LineSeries>
+
+                            <lvc:LineSeries Fill="Transparent" StrokeThickness="3" PointGeometrySize="0" 
+                                            Values="170,240,200,220,220,270,200,260,220,240">
+                                <lvc:LineSeries.Stroke>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="#ffffff" Offset="0.06"/>
+                                        <GradientStop Color="#fe6c47" Offset="0.5"/>
+                                        <GradientStop Color="#ffffff" Offset="0.9"/>
+                                    </LinearGradientBrush>
+                                </lvc:LineSeries.Stroke>
+                            </lvc:LineSeries>
+                        </lvc:CartesianChart.Series>
+
+                    </lvc:CartesianChart>
+                    
+                    <!--note-->
+                    <Grid VerticalAlignment="Bottom" Margin="10 0">
+                        <Icon:PackIconMaterial Kind="Information" Foreground="#f96654"/>
+                        <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" LineHeight="18" Foreground="#b7b7b7"
+                                   Text="Net Sales, Found on the income statement are used to calculate this ration Return and refunds must be backed out of total sales to measure the truly measure the firms assets ability to generate sales."/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!--right section-->
+            <Grid Grid.Column="2" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!--sales list-->
+                <Border Style="{StaticResource whiteBorder}">
+                    <StackPanel>
+                        <TextBlock Text="Sales List" Style="{StaticResource titleText}"/>
+                        <TextBlock Style="{StaticResource secondaryText}" TextWrapping="Wrap" Margin="0 10"
+                                   Text="This is the sales data with the most revenue for this month"/>
+                        
+                        <!--user cards-->
+                        <uc:UserCard Title="Ho Nam" IsActive="True" UpPrice="8182$" DownPrice="$337" Image="/Images/u1.png"/>
+                        <uc:UserCard Title="Nam Ho" UpPrice="1212$" DownPrice="6423$" Image="/Images/u3.png"/>
+                        <uc:UserCard Title="Nam Nam" UpPrice="9192$" DownPrice="8953$" Image="/Images/u1.png"/>
+                    </StackPanel>
+                </Border>
+                
+                <!--sales report-->
+                <Border Style="{StaticResource whiteBorder}" Margin="0 20 0 0" Grid.Row="1">
+                    <Grid>
+                        <!--title-->
+                        <TextBlock Text="Sales Report" Style="{StaticResource titleText}"/>
+
+                        <!--chart-->
+                        <lvc:CartesianChart Grid.Row="1" Margin="0 40 0 30" LegendLocation="None">
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="#0074ff" Foreground="#ffffff" Opacity=".8"/>
+                            </lvc:CartesianChart.DataTooltip>
+
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Foreground="#90a3b2" ShowLabels="True">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator StrokeThickness="0" Step="1"/>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Foreground="#90a3b2" ShowLabels="True" MinValue="0" MaxValue="8">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator StrokeThickness="0" Step="2"/>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+
+                            <lvc:CartesianChart.Series>
+                                <lvc:ColumnSeries Values="6.5,3,6,5" MaxColumnWidth="10">
+                                    <lvc:ColumnSeries.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#2888fc" Offset="0"/>
+                                            <GradientStop Color="#ffffff" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </lvc:ColumnSeries.Fill>
+                                </lvc:ColumnSeries>
+                                
+                                <lvc:ColumnSeries Values="7.5,5,4,5.5" MaxColumnWidth="10">
+                                    <lvc:ColumnSeries.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#ff6f4d" Offset="0"/>
+                                            <GradientStop Color="#ffffff" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </lvc:ColumnSeries.Fill>
+                                </lvc:ColumnSeries>
+                            </lvc:CartesianChart.Series>
+                            
+                        </lvc:CartesianChart>
+                        
+                        <!--legends-->
+                        <uc:Legends HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    </Grid>
+
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </Window>

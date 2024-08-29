@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Flat_Sales_Dashboard.UserControls.UserCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             Name="userCard">
+    
+    <Border CornerRadius="10" Padding="3" Margin="0 10">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#f7f6f4"/>
+                    </Trigger>
+
+                    <DataTrigger Binding="{Binding ElementName=userCard, Path=IsActive}" Value="True">
+                        <Setter Property="Background" Value="#f7f6f4"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <StackPanel Orientation="Horizontal">
+            <Border Width="50" Height="50" CornerRadius="10" Margin="0 0 10 0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5, 0" EndPoint="0.5, 1">
+                        <GradientStop Color="#7cb8ff" Offset="0"/>
+                        <GradientStop Color="#b2d3fe" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Image Width="38" Height="38" Source="{Binding ElementName=userCard, Path=Image}"/>
+            </Border>
+
+            <StackPanel>
+                <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#214865" Text="{Binding ElementName=userCard, Path=Title}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <Border Background="#7eb9ff" CornerRadius="50" Width="20" Height="20">
+                        <Icon:PackIconMaterial Kind="ChevronUp"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="8" Height="8" Foreground="#ffffff"/>
+                    </Border>
+
+                    <StackPanel Margin="10 0">
+                        <TextBlock Text="Sales" Foreground="#fc967d" FontSize="10"/>
+                        <TextBlock Text="{Binding ElementName=userCard, Path=UpPrice}" Foreground="#17405e" FontSize="11"/>
+                    </StackPanel>
+
+
+                    <Border Background="#76728b" CornerRadius="50" Width="20" Height="20">
+                        <Icon:PackIconMaterial Kind="ChevronUp"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="8" Height="8" Foreground="#ffffff"/>
+                    </Border>
+
+                    <StackPanel Margin="10 0">
+                        <TextBlock Text="Profit" Foreground="#fc967d" FontSize="10"/>
+                        <TextBlock Text="{Binding ElementName=userCard, Path=DownPrice}" Foreground="#17405e" FontSize="11"/>
+                    </StackPanel>
+                    
+                    
+
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>
