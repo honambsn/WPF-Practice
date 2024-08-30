@@ -1,0 +1,61 @@
+﻿<Window x:Class="Design_TV.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:Page="clr-namespace:Design_TV.Pages"
+        Height="720" Width="1280" MinWidth="650" MinHeight="700" AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent">
+    <!--xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Design_TV"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"-->
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+    
+    <Border CornerRadius="5" MouseLeftButtonDown="Border_MouseLeftButtonDown" MouseDown="Border_MouseDown">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                <GradientStop Color="#2e3967"/>
+                <GradientStop Color="#192559" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <!--status bar-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 15 0">
+                <TextBlock x:Name="timeTextBlock" Text="05:34" Foreground="#fdf9f6" FontSize="28" VerticalAlignment="Center"/>
+
+                <StackPanel Margin="13 0" VerticalAlignment="Center">
+                    <TextBlock x:Name="dateTextBlock" Foreground="#f8fefa" FontSize="10"/>
+                    <TextBlock x:Name="dayTextBlock" Foreground="#f8fefa" FontSize="10"/>
+                </StackPanel>
+
+                <Icon:PackIconMaterial Kind="Wifi" Foreground="#fdf9f6" Width="25" Height="25" VerticalAlignment="Center"/>
+            </StackPanel>
+            
+            <!--back button-->
+            <Button x:Name="backButton" Click="backButton_Click" Style="{StaticResource backButton}">
+                <Icon:PackIconMaterial Kind="ArrowLeft" Width="25" Height="25"/>
+            </Button>
+            
+            <!--page title-->
+            <TextBlock Text="Settings" Name="titleText" Style="{StaticResource pageTitle}" />
+            
+            <!--page content-->
+            <ContentPresenter x:Name="container" Grid.Row="2">
+                <ContentPresenter.Content>
+                    <Page:Time_Page/>
+                </ContentPresenter.Content>
+            </ContentPresenter>
+        </Grid>
+    </Border>
+</Window>

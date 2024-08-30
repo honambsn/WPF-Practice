@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabControl", "TabControl\Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flat Sales Dashboard", "Flat Sales Dashboard\Flat Sales Dashboard.csproj", "{C670485A-77F2-48F0-8AD6-601AEE20F75A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Design TV", "Design TV\Design TV.csproj", "{6D599E0A-6E24-4C21-92AE-BEB344EC51D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C670485A-77F2-48F0-8AD6-601AEE20F75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C670485A-77F2-48F0-8AD6-601AEE20F75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C670485A-77F2-48F0-8AD6-601AEE20F75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D599E0A-6E24-4C21-92AE-BEB344EC51D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D599E0A-6E24-4C21-92AE-BEB344EC51D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D599E0A-6E24-4C21-92AE-BEB344EC51D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D599E0A-6E24-4C21-92AE-BEB344EC51D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
