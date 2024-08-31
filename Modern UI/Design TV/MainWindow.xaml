@@ -4,7 +4,8 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:Page="clr-namespace:Design_TV.Pages"
         Height="720" Width="1280" MinWidth="650" MinHeight="700" AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent"
+        Icon="/Assets/Icon.ico">
     <!--xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Design_TV"
@@ -53,7 +54,7 @@
             <!--page content-->
             <ContentPresenter x:Name="container" Grid.Row="2">
                 <ContentPresenter.Content>
-                    <Page:Time_Page/>
+                    <Page:Setting_Page/>
                 </ContentPresenter.Content>
             </ContentPresenter>
         </Grid>

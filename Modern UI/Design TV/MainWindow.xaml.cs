@@ -19,8 +19,19 @@ namespace Design_TV
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
+	public enum AppPages
+	{
+		About,Setting,Storage,Time,Network
+	}
 	public partial class MainWindow : Window
 	{
+		//init all pages in one time
+		private Pages.Setting_Page settingPage = new Pages.Setting_Page();
+		private Pages.About_Page aboutPage = new Pages.About_Page();
+		private Pages.Storage_Page storagePage = new Pages.Storage_Page();
+		private Pages.Time_Page timePage = new Pages.Time_Page();
+		private Pages.Network_Page networkPage = new Pages.Network_Page();
+
 		private DispatcherTimer _timer;
 
 		public MainWindow()
@@ -30,14 +41,34 @@ namespace Design_TV
 			StartDateUpdate();
 		}
 
+		private bool IsMaximzed = false;
 		private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
+			if(e.ClickCount == 2)
+			{
+				if (IsMaximzed)
+				{
+					this.WindowState = WindowState.Normal;
+					this.Width = 1280;
+					this.Height = 780;
+
+					IsMaximzed = false;
+				}
+				else
+				{
+					this.WindowState = WindowState.Maximized;
+					IsMaximzed = true;
+				}
+			}
 
 		}
 
 		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-
+			if(e.ChangedButton == MouseButton.Left)
+			{
+				this.DragMove();
+			}
 		}
 
 		private void StartClock()
@@ -75,7 +106,40 @@ namespace Design_TV
 
 		private void backButton_Click(object sender, RoutedEventArgs e)
 		{
+			container.Content = settingPage;
+			backButton.Visibility = Visibility.Collapsed;
+			titleText.Text = "Settings";
+		}
 
+		public void ExcutePage(AppPages page)
+		{
+			backButton.Visibility = Visibility.Visible;
+
+			switch(page)
+			{
+				case AppPages.About:
+					container.Content = aboutPage;
+					titleText.Text = "About Us";
+					break;
+				case AppPages.Setting:
+					container.Content = settingPage;
+					titleText.Text = "Settings";
+					break;
+				case AppPages.Storage:
+					container.Content = storagePage;
+					titleText.Text = "Storage";
+					break;
+				case AppPages.Time:
+					container.Content = timePage;
+					titleText.Text = "Time Settings";
+					break;
+				case AppPages.Network:
+					container.Content = networkPage;
+					titleText.Text = "Network Settings";
+					break;
+				default:
+					break;
+			}
 		}
 	}
 }
