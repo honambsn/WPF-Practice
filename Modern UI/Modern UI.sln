@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Design TV", "Design TV\Desi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music Player", "Music Player\Music Player.csproj", "{37C78C11-3998-40F4-8772-1C90E2772ED3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet Payment", "Wallet Payment\Wallet Payment.csproj", "{BA44749F-D616-40A7-9496-E504175EA730}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{37C78C11-3998-40F4-8772-1C90E2772ED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37C78C11-3998-40F4-8772-1C90E2772ED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37C78C11-3998-40F4-8772-1C90E2772ED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA44749F-D616-40A7-9496-E504175EA730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA44749F-D616-40A7-9496-E504175EA730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA44749F-D616-40A7-9496-E504175EA730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA44749F-D616-40A7-9496-E504175EA730}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
