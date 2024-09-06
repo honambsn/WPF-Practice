@@ -4,9 +4,107 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wallet_Payment"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        Title="MainWindow" Height="690" Width="1180" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent" WindowStyle="None">
+
     <Grid>
+        <!--background grid-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="220" CornerRadius="25 0 0 25">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop  Color="#343155" Offset="0"/>
+                        <GradientStop  Color="#3B2E58" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Border CornerRadius="0 25 25 0" Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <!--<GradientStop  Color="#eE3A65" Offset="0"/>-->
+                        <GradientStop  Color="#3E3A65" Offset="0"/>
+                        <GradientStop  Color="#473765" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </Grid>
         
+        <!--controls-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--main menu-->
+            <StackPanel Width="240">
+                <StackPanel Orientation="Horizontal" Margin="0 50 20 40" HorizontalAlignment="Center">
+                    <fa:ImageAwesome Icon="CheckCircle" Foreground="White" Width="30"/>
+                    <TextBlock Text="Wally" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Foreground="White" Margin="10 0 0 0"/>
+                </StackPanel>
+
+                <Button Style="{StaticResource menuButton}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="FolderOutline" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Wallet" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+
+                        <fa:ImageAwesome Icon="AngleRight" HorizontalAlignment="Center" Visibility="Visible" Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                
+                <Button Style="{StaticResource menuButton}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="FolderOutline" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Wallet" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+
+                        <fa:ImageAwesome Icon="AngleRight" HorizontalAlignment="Center" Visibility="Visible" Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                
+                <Button Style="{StaticResource menuButton}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="BellOutline" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Wallet" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+
+                        <fa:ImageAwesome Icon="AngleRight" HorizontalAlignment="Center" Visibility="Visible" Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                
+                <Button Style="{StaticResource menuButton}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="FolderOutline" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Wallet" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+
+                        <fa:ImageAwesome Icon="AngleRight" HorizontalAlignment="Center" Visibility="Visible" Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+                
+                <Button Style="{StaticResource menuButton}">
+                    <Grid>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <fa:ImageAwesome Icon="FolderOutline" Style="{StaticResource buttonIcon}"/>
+                            <TextBlock Text="Wallet" Style="{StaticResource buttonText}"/>
+                        </StackPanel>
+
+                        <fa:ImageAwesome Icon="AngleRight" HorizontalAlignment="Center" Visibility="Visible" Style="{StaticResource buttonIconExpanded}"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
