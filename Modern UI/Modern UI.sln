@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music Player", "Music Playe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallet Payment", "Wallet Payment\Wallet Payment.csproj", "{BA44749F-D616-40A7-9496-E504175EA730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Info Dashboard", "Info Dashboard\Info Dashboard.csproj", "{F6B8749B-A51E-44AB-B4C1-3D2BD6A27EF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BA44749F-D616-40A7-9496-E504175EA730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA44749F-D616-40A7-9496-E504175EA730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA44749F-D616-40A7-9496-E504175EA730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B8749B-A51E-44AB-B4C1-3D2BD6A27EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B8749B-A51E-44AB-B4C1-3D2BD6A27EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B8749B-A51E-44AB-B4C1-3D2BD6A27EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B8749B-A51E-44AB-B4C1-3D2BD6A27EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
