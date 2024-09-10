@@ -205,5 +205,27 @@
             <Setter Property="Margin" Value="0 5 0 0"/>
             <Setter Property="Foreground" Value="#474747"/>
         </Style>
+
+        <LinearGradientBrush x:Key="InstagramGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#833AB4" Offset="0.0" />
+            <GradientStop Color="#FD1D1D" Offset="0.5" />
+            <GradientStop Color="#FDCB82" Offset="0.75" />
+            <GradientStop Color="#F7B731" Offset="1.0" />
+        </LinearGradientBrush>
+
+        <Style x:Key="iconApp" TargetType="Image">
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+                    
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

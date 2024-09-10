@@ -24,5 +24,21 @@ namespace Info_Dashboard
 		{
 			InitializeComponent();
 		}
+
+		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			if (e.ChangedButton == MouseButton.Left)
+				this.DragMove();
+        }
+
+		private void minimize_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			MessageBox.Show("Mini image clicked!");
+		}
+
+		private void close_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+			Application.Current.Shutdown();
+		}
 	}
 }
