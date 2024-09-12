@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Info Dashboard", "Info Dash
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar App", "Calendar App\Calendar App.csproj", "{5A122F17-E351-4376-8030-32028A7D9D2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram App", "Instagram App\Instagram App.csproj", "{767823F1-CF45-4C21-9D0B-A792F7723708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5A122F17-E351-4376-8030-32028A7D9D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A122F17-E351-4376-8030-32028A7D9D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A122F17-E351-4376-8030-32028A7D9D2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767823F1-CF45-4C21-9D0B-A792F7723708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767823F1-CF45-4C21-9D0B-A792F7723708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767823F1-CF45-4C21-9D0B-A792F7723708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767823F1-CF45-4C21-9D0B-A792F7723708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
