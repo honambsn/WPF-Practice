@@ -58,5 +58,10 @@ namespace Calendar_App
 				lblTime.Visibility = Visibility.Visible;
 			}
 		}
+
+		private void lblTime_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+
+		}
 	}
 }

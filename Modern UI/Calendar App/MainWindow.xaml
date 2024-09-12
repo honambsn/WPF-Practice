@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar_App"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:uc="clr-namespace:Calendar_App.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="900"
         FontFamily="Trebuchet MS" WindowStartupLocation="CenterScreen"
@@ -34,7 +35,7 @@
             <StackPanel>
                 <!--year selection-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 50 0 30">
-                    <Button>
+                    <Button Style="{StaticResource button}">
                         <fa:ImageAwesome Icon="AngleLeft" Style="{StaticResource angle}"/>
                     </Button>
 
@@ -44,7 +45,7 @@
                     <Button Content="2023" Style="{StaticResource button}"/>
                     <Button Content="2024" Style="{StaticResource button}"/>
 
-                    <Button>
+                    <Button Style="{StaticResource button}">
                         <fa:ImageAwesome Icon="AngleRight" Style="{StaticResource angle}"/>
                     </Button>
                 </StackPanel>
@@ -70,7 +71,7 @@
 
                 <TextBlock Text="September" Foreground="#c73f69" FontSize="24" TextAlignment="Center" FontWeight="SemiBold" Margin="0 15 0 20"/>
 
-                <Calendar/>
+                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1">
@@ -137,7 +138,12 @@
                 </Border>
                 
                 <!--notes-->
-                
+                <uc:Item Title="Post on social networks" Time="09:45 - 10:30" Color="#eba5bb" Icon="CheckCircle" IconBell="BellSlash"/>
+                <uc:Item Title="Review the app design" Time="11:30 - 12:00" Color="#eba5bb" Icon="CheckCircle" IconBell="BellSlash"/>
+                <uc:Item Title="Build a demo of the app" Time="14:00 - 15:30" Color="#f1f1f1" Icon="CircleThin" IconBell="BellSlash"/>
+                <uc:Item Title="Dinner" Time="09:45 - 10:30" Color="#f1f1f1" Icon="CircleThin" IconBell="BellSlash"/>
+                <uc:Item Title="Send email" Time="09:45 - 10:30" Color="#f1f1f1" Icon="CircleThin" IconBell="BellSlash"/>
+
             </StackPanel>
         </Grid>
     </Grid>
