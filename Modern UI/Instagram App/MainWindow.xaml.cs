@@ -24,5 +24,15 @@ namespace Instagram_App
 		{
 			InitializeComponent();
 		}
-	}
+
+		private void textSearch_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+
+        }
+
+		private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+		{
+
+        }
+    }
 }
