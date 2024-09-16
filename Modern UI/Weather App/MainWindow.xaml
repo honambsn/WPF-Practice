@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:uc="clr-namespace:Weather_App.UserControls"
-        xmlns:local="clr-namespace:Weather_App" 
+        xmlns:local="clr-namespace:Weather_App"
         xmlns:locall="clr-namespace:Weather_App.ViewModel"
+        xmlns:local2="clr-namespace:Weather_App.ViewModel"
         mc:Ignorable="d"
         Height="685" Width="995"
         Background="Transparent" WindowStyle="None"
@@ -44,8 +45,12 @@
                     <Separator Background="#dadada" Height="0.8" Margin="3 30 40 30"/>
 
                     <StackPanel Orientation="Horizontal">
+                        
                         <Image Source="/Images/cloud.png" Width="20" Height="20"/>
-                        <TextBlock  Text="MostlyCloudy" FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center"/>
+
+                        <TextBlock Text="{Binding Description}" FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                        
+                        
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0 15 0 77">

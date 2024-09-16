@@ -17,3 +17,6 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\W
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.csproj.CoreCompileInputs.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.exe
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Newtonsoft.Json.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Newtonsoft.Json.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.csproj.CopyComplete
