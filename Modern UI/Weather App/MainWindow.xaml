@@ -39,23 +39,33 @@
                 </Border>
 
                 <StackPanel Margin="50 60 0 0">
-                    <Image Source="/Images/sun_cloud.png" Width="140" HorizontalAlignment="Left"/>
+                    <!--<Image Source="/Images/sun_cloud.png" Width="140" HorizontalAlignment="Left"/>-->
+                    <Image Source="{Binding IconUrl}" Width="140" HorizontalAlignment="Left"/>
                     <TextBlock Text="12°C" FontSize="46" Margin="0 20 0 0"/>
                     <TextBlock Text="Monday, 16:00" FontSize="18" FontWeight="SemiBold" Margin="0 15 0 0"/>
                     <Separator Background="#dadada" Height="0.8" Margin="3 30 40 30"/>
 
                     <StackPanel Orientation="Horizontal">
                         
-                        <Image Source="/Images/cloud.png" Width="20" Height="20"/>
+                        <!--<Image Source="/Images/cloud.png" Width="20" Height="20"/>-->
+                        <Image Source="{Binding IconUrl, FallbackValue='/Images/cloud.png'}" Height="20"/>
+                        
 
-                        <TextBlock Text="{Binding Description}" FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center">
+                            <Run Text="Weather: "/>
+                            <Run Text="{Binding mainWeather}"/>
+                        </TextBlock>
+                                   
                         
                         
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" Margin="0 15 0 77">
                         <Image Source="/Images/water.png" Width="20" Height="20"/>
-                        <TextBlock  Text="Rain - 30%" FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center"/>
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center">
+                            <Run Text="Rain: "/>
+                            <Run Text="{Binding RainAmount}"/>
+                        </TextBlock>
                     </StackPanel>
                 </StackPanel>
 
@@ -65,7 +75,17 @@
                             <ImageBrush ImageSource="/Images/q1.jpg" Stretch="Fill" Opacity="0.65"/>
                         </Border.Background>
 
-                        <TextBlock Text="New York, NY, USA" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                        <!--<TextBlock Text="New York, NY, USA" Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14">-->
+                        <StackPanel>
+                            <TextBlock Text="Location"  Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" TextWrapping="WrapWithOverflow">            
+                                <Run Text="{Binding CityName}"/>
+                                <Run Text=", "/>
+                                <Run Text="{Binding CountryName}"/> 
+                            </TextBlock>
+
+                        </StackPanel>
+                        
                     </Border>
                 </Border>
             </StackPanel>

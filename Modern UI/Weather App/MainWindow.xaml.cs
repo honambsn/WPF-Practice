@@ -67,7 +67,8 @@ namespace Weather_App
 
 		private async void LoadWeatherData()
 		{
-			string url = $"{BaseUrl}?id={CityId}&appid={ApiKey}&units=metric";
+			//string url = $"{BaseUrl}?id={CityId}&appid={ApiKey}";
+			string url = $"https://api.openweathermap.org/data/2.5/weather?id=1566083&appid=d4c56fcae54bbc960c8385227bee335b";
 
 			using (HttpClient client = new HttpClient())
 			{
@@ -80,12 +81,29 @@ namespace Weather_App
 					// Parse the JSON data
 					JObject weatherData = JObject.Parse(responseBody);
 					string temperature = weatherData["main"]["temp"].ToString();
+					string mainWeather = weatherData["weather"][0]["main"].ToString();
 					string description = weatherData["weather"][0]["description"].ToString();
+
+					if (weatherData["rain"] != null)
+					{
+						_viewModel.RainAmount = $"{weatherData["rain"]["1h"]} mm";
+					}
+					else
+					{
+						_viewModel.RainAmount = "No rain";
+					}
+
+
 					string icon = weatherData["weather"][0]["icon"].ToString(); // Get the weather icon code
 
+					string cityName = weatherData["name"].ToString();
+					string countryName = weatherData["sys"]["country"].ToString();
 					// Update ViewModel properties
+					_viewModel.mainWeather = $"{mainWeather}";
 					_viewModel.Description = $"{description}";
 					_viewModel.Temperature = $"{temperature}°C";
+					_viewModel.CityName = $"{cityName}";
+					_viewModel.CountryName = $"{countryName}";
 					_viewModel.IconUrl = $"http://openweathermap.org/img/wn/{icon}@2x.png";
 				}
 				catch (HttpRequestException ex)
