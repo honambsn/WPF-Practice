@@ -17,6 +17,11 @@ namespace Weather_App.ViewModel
 		private string _cityName;
 		private string _countryName;
 		private string _iconUrl;
+		private string _localTime;
+		private string _localDate;
+		private string _localDoWeek;
+		private string _windSpeed;
+		private string _humidity;
 
 		public string Description
 		{
@@ -87,6 +92,66 @@ namespace Weather_App.ViewModel
 			}
 		}
 
+		public string LocalTime
+		{
+			get { return _localTime; }
+			set
+			{
+				_localTime = value;
+				OnPropertyChanged("LocalTime");
+			}
+		}
+
+		public string LocalDate
+		{
+			get
+			{
+				return _localDate;
+			}
+			set
+			{
+				_localDate = value;
+				OnPropertyChanged("LocalDate");
+			}
+		}
+
+		public string LocalDoWeek
+		{
+			get
+			{
+				return _localDoWeek;
+			}
+			set
+			{
+				_localDoWeek = value;
+				OnPropertyChanged("LocalDoWeek");
+			}
+		}
+		public string WindSpeed
+		{
+			get
+			{
+				return _windSpeed;
+			}
+			set
+			{
+				_windSpeed = value;
+				OnPropertyChanged("WindSpeed");
+			}
+		}
+
+		public string Humidity
+		{
+			get
+			{
+				return _humidity;
+			}
+			set
+			{
+				_humidity = value;
+				OnPropertyChanged("Humidity");
+			}
+		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

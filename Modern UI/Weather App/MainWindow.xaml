@@ -38,11 +38,31 @@
                     </Grid>
                 </Border>
 
-                <StackPanel Margin="50 60 0 0">
+                <StackPanel Margin="50 10 0 0">
                     <!--<Image Source="/Images/sun_cloud.png" Width="140" HorizontalAlignment="Left"/>-->
                     <Image Source="{Binding IconUrl}" Width="140" HorizontalAlignment="Left"/>
-                    <TextBlock Text="12°C" FontSize="46" Margin="0 20 0 0"/>
-                    <TextBlock Text="Monday, 16:00" FontSize="18" FontWeight="SemiBold" Margin="0 15 0 0"/>
+                    <StackPanel >
+                        <!--<TextBlock Text="Now:" FontSize="30" Margin="0 20 0 0"></TextBlock>-->
+                        <TextBlock FontSize="46" Margin="0 20 0 0">
+                            <Run Text="{Binding Temperature}"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock FontSize="20" Margin="0 20 0 0" FontWeight="SemiBold">
+                            <Run Text="{Binding mainWeather}"/>
+                        </TextBlock>
+                    </StackPanel>
+
+                    <TextBlock FontSize="18" FontWeight="SemiBold" Margin="0 15 0 0">
+                        <Run Text="{Binding LocalDoWeek}"/>
+                        <Run Text=", "/>
+                        <Run Text="{Binding LocalDate}"/>
+                    </TextBlock>
+
+                    <TextBlock Text="Time: " FontSize="18" FontWeight="SemiBold" Margin="0 15 0 0">
+                        <Run Text="{Binding LocalTime}"/>
+                    </TextBlock>
                     <Separator Background="#dadada" Height="0.8" Margin="3 30 40 30"/>
 
                     <StackPanel Orientation="Horizontal">
@@ -53,7 +73,7 @@
 
                         <TextBlock FontSize="14" FontWeight="SemiBold" Margin="10 0 0 0" VerticalAlignment="Center">
                             <Run Text="Weather: "/>
-                            <Run Text="{Binding mainWeather}"/>
+                            <Run Text="{Binding Description}"/>
                         </TextBlock>
                                    
                         
@@ -69,7 +89,7 @@
                     </StackPanel>
                 </StackPanel>
 
-                <Border CornerRadius="15" Background="Black" Margin="30 0">
+                <Border CornerRadius="15" Background="Black" Margin="30 -50 30 0">
                     <Border CornerRadius="15" Padding="0 30">
                         <Border.Background>
                             <ImageBrush ImageSource="/Images/q1.jpg" Stretch="Fill" Opacity="0.65"/>
@@ -160,8 +180,11 @@
                             <TextBlock Text="Wind Status" Style="{StaticResource titleText}"/>
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="7.70" FontSize="34" FontWeight="SemiBold"/>
-                                <TextBlock Text="km/h" FontSize="14" VerticalAlignment="Bottom" Margin="5 0 0 3"/>
+                                <TextBlock FontSize="34" FontWeight="SemiBold">
+                                    <Run Text="{Binding WindSpeed}"/>
+                                </TextBlock>
+                                
+                                <TextBlock Text="m/s" FontSize="14" VerticalAlignment="Bottom" Margin="5 0 0 3"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
@@ -208,7 +231,9 @@
                             <TextBlock Text="Humidity" Style="{StaticResource titleText}"/>
 
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                <TextBlock Text="56" FontSize="34" FontWeight="SemiBold"/>
+                                <TextBlock FontSize="34" FontWeight="SemiBold">
+                                    <Run Text="{Binding Humidity}"/>
+                                </TextBlock>
                                 <TextBlock Text="%" FontSize="14" VerticalAlignment="Bottom" Margin="5 0 0 3"/>
                             </StackPanel>
 

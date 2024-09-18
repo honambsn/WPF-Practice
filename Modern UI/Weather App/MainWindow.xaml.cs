@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -68,7 +70,7 @@ namespace Weather_App
 		private async void LoadWeatherData()
 		{
 			//string url = $"{BaseUrl}?id={CityId}&appid={ApiKey}";
-			string url = $"https://api.openweathermap.org/data/2.5/weather?id=1566083&appid=d4c56fcae54bbc960c8385227bee335b";
+			string url = $"https://api.openweathermap.org/data/2.5/weather?id=1566083&appid=d4c56fcae54bbc960c8385227bee335b&units=metric";
 
 			using (HttpClient client = new HttpClient())
 			{
@@ -105,6 +107,67 @@ namespace Weather_App
 					_viewModel.CityName = $"{cityName}";
 					_viewModel.CountryName = $"{countryName}";
 					_viewModel.IconUrl = $"http://openweathermap.org/img/wn/{icon}@2x.png";
+
+
+					//get time
+					int timezone = int.Parse(weatherData["timezone"].ToString());
+
+					//int offsetSeconds = timezone; // 7 hours in seconds
+
+					//// Convert offset to TimeSpan
+					//TimeSpan offset = TimeSpan.FromSeconds(offsetSeconds);
+
+					//// Example: Get current UTC time
+					//DateTime utcNow = DateTime.UtcNow;
+
+					//// Apply the offset to get the local time
+					//DateTime localTime = utcNow.Add(offset);
+
+					//// Output the results
+					//MessageBox.Show("UTC Time: " + utcNow);
+					//MessageBox.Show("Local Time with Offset: " + localTime);
+
+
+					int offsetSeconds = timezone; // 7 hours in seconds
+
+					// Convert offset to TimeSpan
+					TimeSpan offset = TimeSpan.FromSeconds(offsetSeconds);
+
+					// Example: Get current UTC time
+					DateTime utcNow = DateTime.UtcNow;
+
+					// Apply the offset to get the local time
+					DateTime localTime = utcNow.Add(offset);
+
+					// Extract date and time components
+					string datePart = localTime.ToString("dd/MM/yyyy"); // Format as Day/Month/Year
+					string timePart = localTime.ToString("HH:mm:ss");   // Format as Hour:Minute:Second
+
+					// Output the results
+					//MessageBox.Show("UTC Time: " + utcNow);
+					//MessageBox.Show("Local Time with Offset: " + localTime);
+					//MessageBox.Show("Date Part: " + datePart);
+
+					//MessageBox.Show("Time Part: " + timePart);
+					
+					
+					_viewModel.LocalTime = timePart;
+					_viewModel.LocalDate = datePart;
+
+
+
+					// date of week
+					DateTime today = DateTime.Today;					
+					// Get the abbreviated name for today
+					string todayAbbreviation = today.ToString("ddd"); // "ddd" gives abbreviated day name
+
+					_viewModel.LocalDoWeek = todayAbbreviation;
+
+					string windSpeed = weatherData["wind"]["speed"].ToString();
+					_viewModel.WindSpeed = $"{windSpeed}";
+
+					string humidity = weatherData["main"]["humidity"].ToString();
+					_viewModel.Humidity = $"{humidity}";
 				}
 				catch (HttpRequestException ex)
 				{
@@ -112,5 +175,6 @@ namespace Weather_App
 				}
 			}
 		}
+
 	}
 }
