@@ -32,6 +32,10 @@ namespace Weather_App
 			_viewModel = new WeatherViewModel();
 			DataContext = _viewModel;
 
+
+			//DataContext = new UVIndexViewModel();
+			//DataContext = new MainViewModel();
+
 			// Optionally, you can fetch the weather data when the window loads
 			LoadWeatherData();
 		}
@@ -59,6 +63,16 @@ namespace Weather_App
 			}	
 		}
 
+		private static string CapitalizeFirstLetter(string str)
+		{
+			if (string.IsNullOrEmpty(str))
+			{
+				return str; // Return the original string if it's null or empty
+			}
+
+			// Capitalize the first letter and concatenate with the rest of the string
+			return char.ToUpper(str[0]) + str.Substring(1);
+		}
 
 		private WeatherViewModel _viewModel;
 
@@ -85,6 +99,7 @@ namespace Weather_App
 					string temperature = weatherData["main"]["temp"].ToString();
 					string mainWeather = weatherData["weather"][0]["main"].ToString();
 					string description = weatherData["weather"][0]["description"].ToString();
+					description = CapitalizeFirstLetter(description); // Capitalize the first letter
 
 					if (weatherData["rain"] != null)
 					{
@@ -168,6 +183,30 @@ namespace Weather_App
 
 					string humidity = weatherData["main"]["humidity"].ToString();
 					_viewModel.Humidity = $"{humidity}";
+					string visibility = weatherData["visibility"].ToString();
+					_viewModel.Visibility = $"{visibility}";
+
+
+
+					//time sunrise and sunset
+					long unixTimestamp_sunrise = long.Parse(weatherData["sys"]["sunrise"].ToString());
+					long unixTimestamp_sunset = long.Parse(weatherData["sys"]["sunset"].ToString());
+
+					// Convert Unix timestamp to DateTimeOffset
+					DateTimeOffset dateTimeOffset_sunrise = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp_sunrise);
+					DateTimeOffset dateTimeOffset_sunset = DateTimeOffset.FromUnixTimeSeconds(unixTimestamp_sunset);
+
+					// Convert to local time
+					DateTime sunriseTime = dateTimeOffset_sunrise.ToLocalTime().DateTime;
+					DateTime sunsetTime = dateTimeOffset_sunset.ToLocalTime().DateTime;
+
+					string sunriseString = sunriseTime.ToString("HH:mm:ss");
+					string sunsetString = sunsetTime.ToString("HH:mm:ss");
+
+					
+					_viewModel.Sunrise = $"{sunriseString}";
+					_viewModel.Sunset = $"{sunsetString}";
+
 				}
 				catch (HttpRequestException ex)
 				{

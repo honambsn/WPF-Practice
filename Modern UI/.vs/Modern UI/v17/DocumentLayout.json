@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\weather app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|solutionrelative:weather app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\weather app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|solutionrelative:weather app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\weather app\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|solutionrelative:weather app\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\weather app\\viewmodel\\uvindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|solutionrelative:weather app\\viewmodel\\uvindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\weather app\\viewmodel\\weatherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{358B71E1-7664-4820-B7D9-7A5840351497}|Weather App\\Weather App.csproj|solutionrelative:weather app\\viewmodel\\weatherviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Weather App\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\MainWindow.xaml",
+              "RelativeToolTip": "Weather App\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-14T01:28:58.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Weather App\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Weather App\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAADEAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T01:28:57.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "Weather App\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "Weather App\\ViewModel\\MainViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T02:44:47.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UVIndexViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\UVIndexViewModel.cs",
+              "RelativeDocumentMoniker": "Weather App\\ViewModel\\UVIndexViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\UVIndexViewModel.cs",
+              "RelativeToolTip": "Weather App\\ViewModel\\UVIndexViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T02:28:10.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\WeatherViewModel.cs",
+              "RelativeDocumentMoniker": "Weather App\\ViewModel\\WeatherViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Weather App\\ViewModel\\WeatherViewModel.cs",
+              "RelativeToolTip": "Weather App\\ViewModel\\WeatherViewModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T03:26:57.498Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

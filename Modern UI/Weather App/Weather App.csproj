@@ -61,6 +61,7 @@
     <Compile Include="UserControls\CardDay.xaml.cs">
       <DependentUpon>CardDay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\UVIndexViewModel.cs" />
     <Compile Include="ViewModel\WeatherViewModel.cs" />
     <Page Include="MainWindow.xaml">

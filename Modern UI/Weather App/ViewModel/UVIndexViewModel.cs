@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Weather_App.ViewModel
 {
-	internal class UVIndexViewModel : INotifyPropertyChanged
+	public class UVIndexViewModel : INotifyPropertyChanged
 	{
 		private double _slider1Value;
 		private double _slider2Value;
 		private double _slider3Value;
-		private double _average;
+
+		public event PropertyChangedEventHandler PropertyChanged;
 
 		public double Slider1Value
 		{
@@ -23,8 +24,8 @@ namespace Weather_App.ViewModel
 				if (_slider1Value != value)
 				{
 					_slider1Value = value;
-					OnPropertyChanged();
-					UpdateAverage();
+					OnPropertyChanged(nameof(Slider1Value));
+					OnPropertyChanged(nameof(Average));
 				}
 			}
 		}
@@ -37,8 +38,8 @@ namespace Weather_App.ViewModel
 				if (_slider2Value != value)
 				{
 					_slider2Value = value;
-					OnPropertyChanged();
-					UpdateAverage();
+					OnPropertyChanged(nameof(Slider2Value));
+					OnPropertyChanged(nameof(Average));
 				}
 			}
 		}
@@ -51,35 +52,17 @@ namespace Weather_App.ViewModel
 				if (_slider3Value != value)
 				{
 					_slider3Value = value;
-					OnPropertyChanged();
-					UpdateAverage();
+					OnPropertyChanged(nameof(Slider3Value));
+					OnPropertyChanged(nameof(Average));
 				}
 			}
 		}
 
-		public double Average
-		{
-			get => _average;
-			private set
-			{
-				if (_average != value)
-				{
-					_average = value;
-					OnPropertyChanged();
-				}
-			}
-		}
+		public double Average => (Slider1Value + Slider2Value + Slider3Value) / 3;
 
-		private void UpdateAverage()
-		{
-			Average = (Slider1Value + Slider2Value + Slider3Value) / 3;
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		protected void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+		}	
 	}
 }

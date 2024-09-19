@@ -22,6 +22,9 @@ namespace Weather_App.ViewModel
 		private string _localDoWeek;
 		private string _windSpeed;
 		private string _humidity;
+		private string _visibility;
+		private string _sunrise;
+		private string _sunset;
 
 		public string Description
 		{
@@ -150,6 +153,46 @@ namespace Weather_App.ViewModel
 			{
 				_humidity = value;
 				OnPropertyChanged("Humidity");
+			}
+		}
+
+		
+		public string Visibility
+		{
+			get
+			{
+				return _visibility;
+			}
+			set
+			{
+				_visibility = value;
+				OnPropertyChanged("Visibility");
+			}
+		}
+		
+		public string Sunrise
+		{
+			get
+			{
+				return _sunrise;
+			}
+			set
+			{
+				_sunrise = value;
+				OnPropertyChanged("Sunrise");
+			}
+		}
+
+		public string Sunset
+		{
+			get
+			{
+				return _sunset;
+			}
+			set
+			{
+				_sunset = value;
+				OnPropertyChanged("Sunset");
 			}
 		}
 
