@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram App", "Instagram 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather App", "Weather App\Weather App.csproj", "{358B71E1-7664-4820-B7D9-7A5840351497}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart Home", "Smart Home\Smart Home.csproj", "{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{358B71E1-7664-4820-B7D9-7A5840351497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358B71E1-7664-4820-B7D9-7A5840351497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358B71E1-7664-4820-B7D9-7A5840351497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
