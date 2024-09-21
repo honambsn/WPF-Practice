@@ -3,11 +3,19 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -22,28 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\App.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
-              "RelativeToolTip": "Smart Home\\App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-20T00:53:29.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
               "RelativeToolTip": "Smart Home\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-20T00:44:44.959Z"
             },
@@ -58,6 +55,42 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-09-20T00:39:04.334Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Card.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml",
+              "RelativeDocumentMoniker": "Smart Home\\UserControls\\Card.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml",
+              "RelativeToolTip": "Smart Home\\UserControls\\Card.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-21T01:21:07.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
+              "RelativeDocumentMoniker": "Smart Home\\App.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
+              "RelativeToolTip": "Smart Home\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-20T00:53:29.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Card.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml.cs",
+              "RelativeDocumentMoniker": "Smart Home\\UserControls\\Card.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml.cs",
+              "RelativeToolTip": "Smart Home\\UserControls\\Card.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T01:24:43.625Z"
             }
           ]
         }
