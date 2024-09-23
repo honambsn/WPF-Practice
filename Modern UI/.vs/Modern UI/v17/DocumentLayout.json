@@ -7,20 +7,28 @@
       "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\usercontrols\\addbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\addbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\usercontrols\\addbutton.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\addbutton.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,20 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Smart Home\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-20T00:44:44.959Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -59,6 +55,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Smart Home\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T00:44:44.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddButton.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml",
+              "RelativeDocumentMoniker": "Smart Home\\UserControls\\AddButton.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml",
+              "RelativeToolTip": "Smart Home\\UserControls\\AddButton.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-23T00:48:02.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddButton.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml.cs",
+              "RelativeDocumentMoniker": "Smart Home\\UserControls\\AddButton.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml.cs",
+              "RelativeToolTip": "Smart Home\\UserControls\\AddButton.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAACEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T00:49:11.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Card.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml",
               "RelativeDocumentMoniker": "Smart Home\\UserControls\\Card.xaml",
@@ -82,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Card.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml.cs",
               "RelativeDocumentMoniker": "Smart Home\\UserControls\\Card.xaml.cs",
