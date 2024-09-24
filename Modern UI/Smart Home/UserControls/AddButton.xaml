@@ -12,7 +12,7 @@
             <TextBlock Text="{Binding ElementName=addButton, Path=Title}" VerticalAlignment="Center"/>
 
             <Border Margin="20 0 0 0" Width="37" Padding="10" Background="#3256f1" CornerRadius="50">
-                <Image Source="../Images/add.png"/>
+                <Image Source="../Icons/add.png" Opacity="1"/>
             </Border>
         </StackPanel>
     </Button>

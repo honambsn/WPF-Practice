@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Width="1080" Height="720" WindowStartupLocation="CenterScreen"
         Background="Transparent" WindowStyle="None" AllowsTransparency="True" Name="window"
-        Icon="/Images/icon.ico">
+        Icon="/Icons/icon.ico">
 
     <Border Background="#ffffff" Padding="30" CornerRadius="25" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
@@ -28,61 +28,120 @@
                     <StackPanel>
                         <Button Style="{StaticResource menuButton}" Margin="15 40 15 20" Background="#ffffff">
 
+                            <Button.ToolTip>
+                                <TextBlock Text="LOUNGE AND KITCHEN"/>
+                            </Button.ToolTip>
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="0" Duration="0:0:0.5"/>
                                             <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            
                                             <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.5"/>
                                             <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Image Source="/Images/_home2.png" Width="20"/>
+                            <Image Source="/Icons/_home2.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
 
+                            <Button.ToolTip>
+                                <TextBlock Text="MAIN LOUNGE AND LIVING ROOM"/>
+                            </Button.ToolTip>
                             <Button.Triggers>
                                 <EventTrigger RoutedEvent="Button.Click">
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
                                             <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            
                                             <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
                                             <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger>
                             </Button.Triggers>
-                            <Image Source="/Images/_bed.png" Width="20"/>
+                            <Image Source="/Icons/_bed.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/_users.png" Width="20"/>
+
+                            <Button.ToolTip>
+                                <TextBlock Text="DINING ROOM"/>
+                            </Button.ToolTip>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            
+                                            <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+
+                            <Image Source="/Icons/_users.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/_shield.png" Width="20"/>
+
+                            <Button.ToolTip>
+                                <TextBlock Text="NEW ROOM"/>
+                            </Button.ToolTip>
+                            <Button.Triggers>
+                                <EventTrigger RoutedEvent="Button.Click">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="{Binding ElementName=window, Path=ActualHeight}" Duration="0:0:0.3"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="(Border.RenderTransform).(TranslateTransform.Y)" To="0" Duration="0:0:0.5"/>
+
+                                            <DoubleAnimation Storyboard.TargetName="page1" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page2" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page3" Storyboard.TargetProperty="Opacity" To="0.0" Duration="0:0:0.5"/>
+                                            <DoubleAnimation Storyboard.TargetName="page4" Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.5"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Button.Triggers>
+                            <Image Source="/Icons/_shield.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/_location.png" Width="20"/>
+                            <Image Source="/Icons/_location.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/_chart.png" Width="20"/>
+                            <Image Source="/Icons/_chart.png" Width="20"/>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}">
-                            <Image Source="/Images/_setting.png" Width="20"/>
+                            <Image Source="/Icons/_setting.png" Width="20"/>
                         </Button>
                     </StackPanel>
 
                     <Button Style="{StaticResource menuButton}" Margin="15 0 15 25" VerticalAlignment="Bottom">
-                        <Image Source="/Images/_logout.png" Width="20"/>
+                        <Image Source="/Icons/_logout.png" Width="20"/>
                     </Button>
                 </Grid>
             </Border>
@@ -129,21 +188,62 @@
                                 </Grid.RowDefinitions>
 
                                 <!--cards-->
-                                <uc:Card Grid.Row="0" Grid.Column="0" Margin="0 0 8 8" Title="Refridgerator" ImageOff="/Images/fridge_off.png" ImageOn="/Images/fridge_on.png"/>
-                                <uc:Card Grid.Row="0" Grid.Column="1" Margin="8 0 0 8" Title="Temprature" ImageOff="/Images/electric_off.png" ImageOn="/Images/electric_on.png" IsChecked="True"/>
-                                <uc:Card Grid.Row="1" Grid.Column="0" Margin="0 8 8 0" Title="Air Conditioner" ImageOff="/Images/cordinator_off.png" ImageOn="/Images/cordinator_on.png"/>
-                                <uc:Card Grid.Row="1" Grid.Column="1" Margin="8 8 0 0" Title="Lights" ImageOff="/Images/light_off.png" ImageOn="/Images/light_on.png"/>
+                                <uc:Card Grid.Row="0" Grid.Column="0" Margin="0 0 8 8" Title="Refridgerator" ImageOff="/Icons/fridge_off.png" ImageOn="/Icons/fridge_on.png"/>
+                                <uc:Card Grid.Row="0" Grid.Column="1" Margin="8 0 0 8" Title="Temprature" ImageOff="/Icons/electric_off.png" ImageOn="/Icons/electric_on.png" IsChecked="True"/>
+                                <uc:Card Grid.Row="1" Grid.Column="0" Margin="0 8 8 0" Title="Air Conditioner" ImageOff="/Icons/cordinator_off.png" ImageOn="/Icons/cordinator_on.png"/>
+                                <uc:Card Grid.Row="1" Grid.Column="1" Margin="8 8 0 0" Title="Lights" ImageOff="/Icons/light_off.png" ImageOn="/Icons/light_on.png"/>
 
                             </Grid>
-                            
+
                             <!--add button-->
                             <uc:AddButton Title="Add New Room" Grid.Column="1" Margin="0 50 0 0" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
                 </Border>
             </Border>
-            
+
+
+            <Border x:Name="page2" Style="{StaticResource borderPage}" Grid.Column="1">
+
+                <Border.RenderTransform>
+                    <TranslateTransform Y="{Binding ElementName=window, Path=ActualHeight}"/>
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill" Opacity="0.6" ImageSource="/Images/p2.jpg"/>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border x:Name="page3" Style="{StaticResource borderPage}">
+
+                <Border.RenderTransform>
+                    <TranslateTransform Y="{Binding ElementName=window, Path=ActualHeight}"/>
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill" Opacity="0.6" ImageSource="/Images/p3.jpg"/>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border x:Name="page4" Style="{StaticResource borderPage}">
+
+                <Border.RenderTransform>
+                    <TranslateTransform Y="{Binding ElementName=window, Path=ActualHeight}"/>
+                </Border.RenderTransform>
+
+                <Border CornerRadius="25">
+                    <Border.Background>
+                        <ImageBrush Stretch="Fill" Opacity="0.6" ImageSource="/Images/p2.jpg"/>
+                    </Border.Background>
+                </Border>
+            </Border>
+
             <!--page 2-->
+            <!--
             <Border x:Name="page2" Style="{StaticResource borderPage}">
                 
                 <Border.RenderTransform>
@@ -161,10 +261,14 @@
                             <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
 
-                        <!--add button-->
+                        -->
+            <!--add button-->
+            <!--
                         <uc:AddButton Title="Add New Device" Margin="0 40 40 0" />
 
-                        <!--titles-->
+                        -->
+            <!--titles-->
+            <!--
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 40 0 0">
                             <TextBlock Foreground="#ffffff" FontSize="32" TextAlignment="Center">
                                 <Run Text="32"/>
@@ -175,7 +279,9 @@
                             <TextBlock Text="Main Lounge and Living Room" Foreground="#ffffff" FontSize="36" FontWeight="Bold" TextAlignment="Center"/>
                         </StackPanel>
 
-                        <!--panels-->
+                        -->
+            <!--panels-->
+            <!--
                         <Grid Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 30">
                             <Grid>
                                 
@@ -186,7 +292,9 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <!--cards-->
+                                -->
+            <!--cards-->
+            <!--
                                 <uc:Card Grid.Column="0" IsHorizontal="True" Margin="12 0 12 0" Title="Refridgerator" ImageOff="/Images/fridge_off.png" ImageOn="/Images/fridge_on.png"/>
                                 <uc:Card Grid.Column="1" IsHorizontal="True" Margin="12 0 12 0" Title="Temprature" ImageOff="/Images/electric_off.png" ImageOn="/Images/electric_on.png" IsChecked="True"/>
                                 <uc:Card Grid.Column="2" IsHorizontal="True" Margin="12 0 12 0" Title="Air Conditioner" ImageOff="/Images/cordinator_off.png" ImageOn="/Images/cordinator_on.png"/>
@@ -198,7 +306,9 @@
                         </Grid>
                     </Grid>
                 </Border>
-            </Border>
+            </Border>-->
+
+
         </Grid>
     </Border>
 </Window>
