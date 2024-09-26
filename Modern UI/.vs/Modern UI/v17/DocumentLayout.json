@@ -3,27 +3,48 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mvvm\\view\\discoveryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mvvm\\view\\discoveryview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\usercontrols\\addbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\addbutton.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mvvm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mvvm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\addbutton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\addbutton.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mvvm\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mvvm\\viewmodel\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\usercontrols\\card.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mvvm\\viewmodel\\discoveryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mvvm\\viewmodel\\discoveryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|solutionrelative:smart home\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\theme\\menubuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\theme\\menubuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\theme\\textboxtheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\theme\\textboxtheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\core\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\discover\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74A567C-6B3F-4763-8865-7B3B875970CF}|Discover\\Discover.csproj|solutionrelative:discover\\core\\observableobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,72 +59,138 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AddButton.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml.cs",
-              "RelativeDocumentMoniker": "Smart Home\\UserControls\\AddButton.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml.cs",
-              "RelativeToolTip": "Smart Home\\UserControls\\AddButton.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "Discover\\MVVM\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "Discover\\MVVM\\ViewModel\\MainViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T03:12:59.721Z"
+              "WhenOpened": "2024-09-26T02:41:02.083Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Storyboard.cs",
-              "DocumentMoniker": "C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs",
-              "ToolTip": "C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs [Read Only]",
-              "ViewState": "AgIAADMBAAAAAAAAAIAwwCsBAAAAAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T02:33:40.581Z",
-              "EditorCaption": " [Read Only]"
+              "DocumentIndex": 6,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\App.xaml",
+              "RelativeDocumentMoniker": "Discover\\App.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\App.xaml",
+              "RelativeToolTip": "Discover\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-26T02:23:23.538Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\App.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\App.xaml",
-              "RelativeToolTip": "Smart Home\\App.xaml",
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Discover\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MainWindow.xaml",
+              "RelativeToolTip": "Discover\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-24T01:50:05.972Z",
+              "WhenOpened": "2024-09-26T01:51:02.262Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
-              "RelativeToolTip": "Smart Home\\MainWindow.xaml",
+              "Title": "DiscoveryView.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\View\\DiscoveryView.xaml",
+              "RelativeDocumentMoniker": "Discover\\MVVM\\View\\DiscoveryView.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\View\\DiscoveryView.xaml",
+              "RelativeToolTip": "Discover\\MVVM\\View\\DiscoveryView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-20T00:39:04.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddButton.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\UserControls\\AddButton.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\AddButton.xaml",
-              "RelativeToolTip": "Smart Home\\UserControls\\AddButton.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-24T01:53:42.688Z",
+              "WhenOpened": "2024-09-26T03:29:42.801Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Card.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\UserControls\\Card.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\UserControls\\Card.xaml",
-              "RelativeToolTip": "Smart Home\\UserControls\\Card.xaml",
+              "Title": "DiscoveryViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\DiscoveryViewModel.cs",
+              "RelativeDocumentMoniker": "Discover\\MVVM\\ViewModel\\DiscoveryViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\DiscoveryViewModel.cs",
+              "RelativeToolTip": "Discover\\MVVM\\ViewModel\\DiscoveryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T03:30:21.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MenuButtonTheme.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Theme\\MenuButtonTheme.xaml",
+              "RelativeDocumentMoniker": "Discover\\Theme\\MenuButtonTheme.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Theme\\MenuButtonTheme.xaml",
+              "RelativeToolTip": "Discover\\Theme\\MenuButtonTheme.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-24T01:53:44.104Z",
+              "WhenOpened": "2024-09-26T02:17:33.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeView.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\View\\HomeView.xaml",
+              "RelativeDocumentMoniker": "Discover\\MVVM\\View\\HomeView.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\View\\HomeView.xaml",
+              "RelativeToolTip": "Discover\\MVVM\\View\\HomeView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-26T02:45:50.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "Discover\\MVVM\\ViewModel\\HomeViewModel.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\MVVM\\ViewModel\\HomeViewModel.cs",
+              "RelativeToolTip": "Discover\\MVVM\\ViewModel\\HomeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T03:17:29.227Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TextboxTheme.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Theme\\TextboxTheme.xaml",
+              "RelativeDocumentMoniker": "Discover\\Theme\\TextboxTheme.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Theme\\TextboxTheme.xaml",
+              "RelativeToolTip": "Discover\\Theme\\TextboxTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-26T02:30:16.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ObservableObject.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Core\\ObservableObject.cs",
+              "RelativeDocumentMoniker": "Discover\\Core\\ObservableObject.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Core\\ObservableObject.cs",
+              "RelativeToolTip": "Discover\\Core\\ObservableObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T02:00:56.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Core\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "Discover\\Core\\RelayCommand.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Discover\\Core\\RelayCommand.cs",
+              "RelativeToolTip": "Discover\\Core\\RelayCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T02:04:24.076Z",
               "EditorCaption": ""
             }
           ]
