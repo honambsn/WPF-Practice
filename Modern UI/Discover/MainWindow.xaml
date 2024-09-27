@@ -33,13 +33,24 @@
                 <RadioButton Content="Discovery" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" Command="{Binding DiscoveryViewCommand}"/>
 
                 <RadioButton Content="Featured" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
 
+                <Grid Height="365">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="310"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="1">
+                        <RadioButton Content="Exit" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" Margin="0 5 0 0" Command="{Binding ExitCommand}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            
             <TextBox Width="250" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5" Grid.Column="1" Style="{StaticResource MordernTextbox}"/>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="10"
+                            Margin="10 0 10 10"
                             Content="{Binding CurrentView}"/>
         </Grid>
 
