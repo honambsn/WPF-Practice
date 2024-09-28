@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Discover.MVVM.ViewModel
 {
-	internal class HomeViewModel
+	internal class FeaturedViewModel
 	{
 	}
 }

@@ -9,7 +9,6 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -17,25 +16,13 @@ using System.Windows.Shapes;
 namespace Discover.MVVM.View
 {
 	/// <summary>
-	/// Interaction logic for HomeView.xaml
+	/// Interaction logic for FeaturedView.xaml
 	/// </summary>
-	public partial class HomeView : UserControl
+	public partial class FeaturedView : UserControl
 	{
-		public HomeView()
+		public FeaturedView()
 		{
 			InitializeComponent();
 		}
-
-		private void Border_MouseEnter(object sender, MouseEventArgs e)
-		{
-			var storyboard = (Storyboard)FindResource("HoverEnterStoryboard");
-			storyboard.Begin();
-		}
-
-		private void Border_MouseLeave(object sender, MouseEventArgs e)
-		{
-			var storyboard = (Storyboard)FindResource("HoverLeaveStoryboard");
-			storyboard.Begin();
-		}
-    }
+	}
 }

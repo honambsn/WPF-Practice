@@ -18,7 +18,7 @@
             <TextBlock Text="Discover" Foreground="White" FontSize="28" HorizontalAlignment="Left" Margin="20 5 0 20"/>
 
             <StackPanel Orientation="Horizontal">
-                <Border Width="400" Height="200" Margin="25 0 0 0">
+                <Border Width="400" Height="200" Margin="25 0 0 0" CornerRadius="20">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                             <GradientStop Color="#5bc3ff" Offset="0.0"/>
@@ -41,7 +41,7 @@
                     </Grid>
                 </Border>
 
-                <Border Width="200" Height="200" CornerRadius="10" Margin="45 0 0 0">
+                <Border Width="200" Height="200" CornerRadius="20" Margin="45 0 0 0">
 
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -68,13 +68,13 @@
                Margin="25 0 0 10"/>
 
                     <StackPanel Orientation="Horizontal" Margin="25 0 0 0">
-                        <Border Width="150" Height="150" Background="#844eff" CornerRadius="10" Margin="0"/>
+                        <Border Width="150" Height="150" Background="#844eff" CornerRadius="20" Margin="0"/>
 
-                        <Border Width="150" Height="150" Background="#4e99ff" CornerRadius="10"/>
+                        <Border Width="150" Height="150" Background="#4e99ff" CornerRadius="20"/>
 
-                        <Border Width="150" Height="150" Background="#4eff91" CornerRadius="10"/>
+                        <Border Width="150" Height="150" Background="#4eff91" CornerRadius="20"/>
 
-                        <Border Width="150" Height="150" Background="#ecff4e" CornerRadius="10"/>
+                        <Border Width="150" Height="150" Background="#ecff4e" CornerRadius="20"/>
 
                     </StackPanel>
                 </StackPanel>

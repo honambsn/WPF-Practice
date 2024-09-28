@@ -32,7 +32,7 @@
 
                 <RadioButton Content="Discovery" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" Command="{Binding DiscoveryViewCommand}"/>
 
-                <RadioButton Content="Featured" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Featured" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" Command="{Binding FeaturedViewCommand}"/>
 
                 <Grid Height="365">
                     <Grid.RowDefinitions>
