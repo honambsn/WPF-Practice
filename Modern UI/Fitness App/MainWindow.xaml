@@ -1,0 +1,156 @@
+﻿<Window x:Class="Fitness_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Fitness_App"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Height="760" Width="1280" Background="Transparent" ResizeMode="NoResize"
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+    
+    <Border Background="#cfd5e5" CornerRadius="40" BorderThickness="2" BorderBrush="#ebedf3" Padding="20" MouseDown="Border_MouseDown">
+        <Border CornerRadius="40">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#cfd5e5" Offset="0.0"/>
+                    <GradientStop Color="#ebedf3" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="260"/>
+                </Grid.ColumnDefinitions>
+                
+                <!--left menu-->
+                <Border CornerRadius="30" Background="#7163ba" Margin="20">
+                    <Grid>
+                        <StackPanel VerticalAlignment="Top">
+                            <Button Style="{StaticResource topMenuButton}">
+                                <Icon:PackIconMaterial Kind="BellCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Separator Background="#877cc5" Margin="20 0 20 10" Height="0.8"/>
+
+                            <Button Style="{StaticResource menuButton}" Background="#5a5080">
+                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="FileDocumentEditOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="Finance" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="MotionPlayOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="AlarmMultiple" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="BellCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="BellCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}">
+                                <Icon:PackIconMaterial Kind="BellCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                            </Button>
+
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                
+                <!--main section-->
+                <Grid Grid.Column="1" Margin="5 20 25 20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--title section-->
+                    <StackPanel Margin="7 10 0 25">
+                        <TextBlock Text="Primary" Foreground="#797295" FontSize="13"/>
+                        <TextBlock Text="Dashboard" Style="{StaticResource titleText}"/>
+                    </StackPanel>
+                    
+                    <!--search section-->
+                    <Grid Grid.Column="2" VerticalAlignment="Top" Margin="0 10 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <!--search textbox-->
+                        <Grid>
+                            <TextBlock Margin="40 0 0 0" VerticalAlignment="Center" Foreground="#594f7f"
+                                       IsHitTestVisible="False" Panel.ZIndex="1" Text="Search ..."
+                                       Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+
+                            <TextBox x:Name="txtSearch" Style="{StaticResource searchTextbox}"/>
+
+                            <Icon:PackIconMaterial Kind="Magnify" Width="14" Height="14" Foreground="#594f7f"
+                                                   HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0"/>
+                        </Grid>
+                        
+                        <!--user image-->
+                        <Ellipse Width="45" Height="45" Margin="15 0 7 0" Grid.Column="1">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Images/img1.jpg" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                    
+                    <!--main middle chart section-->
+                    <Border Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="30" Margin="0 0 20 50">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Color="#6a5dae" Offset="0.0"/>
+                                <GradientStop Color="#54479c" Offset="1.2"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Background="#6e60b5" BorderThickness="2" BorderBrush="#8276c0" CornerRadius="30" Margin="0 0 0 -10"/>
+                            
+                            <!--titles-->
+                            <TextBlock Text="Overview" Foreground="#f0eff6" FontSize="18" FontWeight="SemiBold" Margin="35 25 0 0"/>
+                            <TextBlock Text="Monthly" Foreground="#f0eff6" FontSize="16" FontWeight="SemiBold" Margin="0 27 35 0" HorizontalAlignment="Right"/>
+                            
+                            <!--main chart 11-->
+                        </Grid>
+                    </Border>
+                    
+                </Grid>
+                <!--right section-->
+            </Grid>
+        </Border>
+    </Border>
+</Window>

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smart Home", "Smart Home\Sm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discover", "Discover\Discover.csproj", "{C74A567C-6B3F-4763-8865-7B3B875970CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitness App", "Fitness App\Fitness App.csproj", "{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{C74A567C-6B3F-4763-8865-7B3B875970CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74A567C-6B3F-4763-8865-7B3B875970CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74A567C-6B3F-4763-8865-7B3B875970CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
