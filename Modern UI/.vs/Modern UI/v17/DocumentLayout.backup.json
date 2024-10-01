@@ -7,11 +7,19 @@
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\textinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\textinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\textinfo.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\textinfo.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,11 +30,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TextInfo.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "RelativeToolTip": "Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwDcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:47:17.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "TextInfo.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\TextInfo.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml",
+              "RelativeToolTip": "Fitness App\\UserControls\\TextInfo.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-01T01:47:11.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\App.xaml",
               "RelativeDocumentMoniker": "Fitness App\\App.xaml",
@@ -38,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Fitness App\\MainWindow.xaml.cs",
@@ -46,8 +79,7 @@
               "RelativeToolTip": "Fitness App\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T02:20:30.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-30T02:20:30.617Z"
             },
             {
               "$type": "Document",
@@ -55,8 +87,8 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Fitness App\\MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml",
-              "RelativeToolTip": "Fitness App\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml*",
+              "RelativeToolTip": "Fitness App\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-09-30T02:16:14.341Z",
               "EditorCaption": ""

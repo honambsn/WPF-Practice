@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fitness_App"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:uc="clr-namespace:Fitness_App.UserControls"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Height="760" Width="1280" Background="Transparent" ResizeMode="NoResize"
@@ -144,9 +145,149 @@
                             <TextBlock Text="Overview" Foreground="#f0eff6" FontSize="18" FontWeight="SemiBold" Margin="35 25 0 0"/>
                             <TextBlock Text="Monthly" Foreground="#f0eff6" FontSize="16" FontWeight="SemiBold" Margin="0 27 35 0" HorizontalAlignment="Right"/>
                             
-                            <!--main chart 11-->
+                            <!--main chart-->
+                            <lvc:CartesianChart LegendLocation="None" Margin="10">
+                                <lvc:CartesianChart.ToolTip>
+                                    <lvc:DefaultTooltip Background="#5a5080" Foreground="#f4f3f6" BulletSize="0"/>
+                                </lvc:CartesianChart.ToolTip>
+
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Foreground="#a79fd1" FontSize="14" ShowLabels="True" Labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0" Step="1"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis ShowLabels="False" MinValue="0" MaxValue="170">
+                                        <lvc:Axis.Separator>
+                                            <lvc:Separator StrokeThickness="0"/>
+                                        </lvc:Axis.Separator>
+                                    </lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+
+                                <lvc:CartesianChart.Series>
+                                    <lvc:LineSeries Fill="#7164b2" StrokeThickness="4" PointGeometrySize="0" Values="10,15,100,10,100,10,50,30,110,20,70,10">
+                                        <lvc:LineSeries.Stroke>
+                                            <LinearGradientBrush>
+                                                <GradientStop Color="Transparent" Offset="0"/>
+                                                <GradientStop Color="#f782ab" Offset="0.23"/>
+                                                <GradientStop Color="Transparent" Offset="2.5"/>
+                                            </LinearGradientBrush>
+                                        </lvc:LineSeries.Stroke>
+                                    </lvc:LineSeries>
+                                </lvc:CartesianChart.Series>
+                            </lvc:CartesianChart>
+
+                            <Grid Grid.Row="1" Margin="10 20 10 15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                
+                                <!--text info card-->
+                                <uc:TextInfo TextTop="Total Time" TextMiddle="748 Hr" TextBottom="April" IsActive="False"/>
+                                <uc:TextInfo TextTop="Total Steps" TextMiddle="9.178 St" TextBottom="April" IsActive="True" Grid.Column="1"/>
+                                <uc:TextInfo TextTop="Target" TextMiddle="9200 St" TextBottom="April" IsActive="False" Grid.Column="2"/>
+                            </Grid>
                         </Grid>
                     </Border>
+                    
+                    <!--middle right section-->
+                    <Grid Grid.Column="2" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <!--top box-->
+                        <Border CornerRadius="30" Background="#7164ba">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="#8d82c8" CornerRadius="22" Width="70" Height="70" BorderThickness="1" BorderBrush="#aea6d8" Margin="20">
+                                    <Icon:PackIconMaterial Kind="ShoeCleat" Width="35" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                </Border>
+
+                                <TextBlock Text="Daily Jogging" FontSize="20" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        
+                        <!--bottom box-->
+                        <Border CornerRadius="30" Background="#e95e89" Grid.Row="1" Margin="0 20 0 50" ClipToBounds="True">
+                            <Border.Clip>
+                                <RectangleGeometry RadiusX="30" RadiusY="30" Rect="0,0,271.9, 250.45"/>
+                            </Border.Clip>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Border CornerRadius="30" Background="#fd91b3" VerticalAlignment="Top" BorderThickness="1" BorderBrush="#fc9cba">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Background="#feaec7" CornerRadius="25" Width="70" Height="70" Margin="20" BorderThickness="1" BorderBrush="#fec5d6">
+                                            <Icon:PackIconMaterial Kind="Run" Width="35" Height="35" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                        </Border>
+                                        <TextBlock Text="My Jogging" FontSize="20" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                    </StackPanel>
+                                </Border>
+
+                                <!--chart-->
+                                <lvc:CartesianChart LegendLocation="None" Margin="-7" Grid.Row="1" DataTooltip="{x:Null}">
+                                    <lvc:CartesianChart.AxisX>
+                                        <lvc:Axis ShowLabels="False">
+                                            <lvc:Axis.Separator>
+                                                <lvc:Separator StrokeThickness="0"/>
+                                            </lvc:Axis.Separator>
+                                        </lvc:Axis>
+                                    </lvc:CartesianChart.AxisX>
+
+                                    <lvc:CartesianChart.AxisY>
+                                        <lvc:Axis ShowLabels="False" MinValue="0">
+                                            <lvc:Axis.Separator>
+                                                <lvc:Separator StrokeThickness="0"/>
+                                            </lvc:Axis.Separator>
+                                        </lvc:Axis>
+                                    </lvc:CartesianChart.AxisY>
+
+                                    <lvc:CartesianChart.Series>
+                                        <lvc:LineSeries StrokeThickness="2" PointGeometrySize="0" Values="10,10,50,30,100,80,120,110">
+                                            <lvc:LineSeries.Fill>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#e95e89" Offset="0"/>
+                                                    <GradientStop Color="#ef779c" Offset="0.9"/>
+                                                </LinearGradientBrush>
+                                            </lvc:LineSeries.Fill>
+
+                                            <lvc:LineSeries.Stroke>
+                                                <LinearGradientBrush>
+                                                    <GradientStop Color="#e95e89" Offset="0"/>
+                                                    <GradientStop Color="#ee7fa2" Offset="0.9"/>
+                                                </LinearGradientBrush>
+                                            </lvc:LineSeries.Stroke>
+                                        </lvc:LineSeries>
+                                    </lvc:CartesianChart.Series>
+                                </lvc:CartesianChart>
+
+                                <!--titles-->
+                                <StackPanel Grid.Row="1" Margin="30 0 0 0" VerticalAlignment="Center">
+                                    <TextBlock Foreground="#fbc8f9" FontSize="14" Text="Total Time"/>
+                                    <TextBlock Foreground="#ffffff" FontSize="24" FontWeight="SemiBold" Text="748 hr"/>
+                                    <TextBlock Foreground="#fbc8f9" FontSize="16" FontWeight="SemiBold" Text="July"/>
+                                </StackPanel>
+
+
+                                <Icon:PackIconMaterial Kind="ChevronRightCircleOutline" Foreground="#ffffff" Width="28" Height="28" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 40 25 0"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    
+                    <!--bottom info card-->
+                    
                     
                 </Grid>
                 <!--right section-->
