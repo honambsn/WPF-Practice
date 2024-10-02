@@ -90,20 +90,20 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!--title section-->
                     <StackPanel Margin="7 10 0 25">
                         <TextBlock Text="Primary" Foreground="#797295" FontSize="13"/>
                         <TextBlock Text="Dashboard" Style="{StaticResource titleText}"/>
                     </StackPanel>
-                    
+
                     <!--search section-->
                     <Grid Grid.Column="2" VerticalAlignment="Top" Margin="0 10 0 0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <!--search textbox-->
                         <Grid>
                             <TextBlock Margin="40 0 0 0" VerticalAlignment="Center" Foreground="#594f7f"
@@ -115,7 +115,7 @@
                             <Icon:PackIconMaterial Kind="Magnify" Width="14" Height="14" Foreground="#594f7f"
                                                    HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0"/>
                         </Grid>
-                        
+
                         <!--user image-->
                         <Ellipse Width="45" Height="45" Margin="15 0 7 0" Grid.Column="1">
                             <Ellipse.Fill>
@@ -123,7 +123,7 @@
                             </Ellipse.Fill>
                         </Ellipse>
                     </Grid>
-                    
+
                     <!--main middle chart section-->
                     <Border Grid.Row="1" Grid.ColumnSpan="2" CornerRadius="30" Margin="0 0 20 50">
                         <Border.Background>
@@ -140,11 +140,11 @@
                             </Grid.RowDefinitions>
 
                             <Border Background="#6e60b5" BorderThickness="2" BorderBrush="#8276c0" CornerRadius="30" Margin="0 0 0 -10"/>
-                            
+
                             <!--titles-->
                             <TextBlock Text="Overview" Foreground="#f0eff6" FontSize="18" FontWeight="SemiBold" Margin="35 25 0 0"/>
                             <TextBlock Text="Monthly" Foreground="#f0eff6" FontSize="16" FontWeight="SemiBold" Margin="0 27 35 0" HorizontalAlignment="Right"/>
-                            
+
                             <!--main chart-->
                             <lvc:CartesianChart LegendLocation="None" Margin="10">
                                 <lvc:CartesianChart.ToolTip>
@@ -186,8 +186,8 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                
-                                
+
+
                                 <!--text info card-->
                                 <uc:TextInfo TextTop="Total Time" TextMiddle="748 Hr" TextBottom="April" IsActive="False"/>
                                 <uc:TextInfo TextTop="Total Steps" TextMiddle="9.178 St" TextBottom="April" IsActive="True" Grid.Column="1"/>
@@ -195,14 +195,14 @@
                             </Grid>
                         </Grid>
                     </Border>
-                    
+
                     <!--middle right section-->
                     <Grid Grid.Column="2" Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        
+
                         <!--top box-->
                         <Border CornerRadius="30" Background="#7164ba">
                             <StackPanel Orientation="Horizontal">
@@ -213,7 +213,7 @@
                                 <TextBlock Text="Daily Jogging" FontSize="20" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Border>
-                        
+
                         <!--bottom box-->
                         <Border CornerRadius="30" Background="#e95e89" Grid.Row="1" Margin="0 20 0 50" ClipToBounds="True">
                             <Border.Clip>
@@ -285,10 +285,10 @@
                             </Grid>
                         </Border>
                     </Grid>
-                    
+
                     <!--bottom info card-->
-                    
-                    
+                    <uc:InfoCard Grid.Column="0" Grid.Row="2" Title="Bicycle Drill" Desc="36 km / weeks" Percentage="45%" BottomText="17 / 36 km" Days="2 days left"/>
+
                 </Grid>
                 <!--right section-->
             </Grid>
