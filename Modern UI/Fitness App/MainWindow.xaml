@@ -9,7 +9,8 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Height="760" Width="1280" Background="Transparent" ResizeMode="NoResize"
-        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Icon="/Icon/icon.png">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
@@ -74,6 +75,14 @@
                             </Button>
 
                         </StackPanel>
+
+                        
+                        <Separator Background="#877cc5" Margin="20 0 20 90" Height="0.8" VerticalAlignment="Bottom"/>
+                        
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" Margin="0 0 0 25">
+                            <Icon:PackIconMaterial Kind="LocationExit" Style="{StaticResource menuButtonIcon}"/>
+                        </Button>
+
                     </Grid>
                 </Border>
                 
@@ -147,9 +156,9 @@
 
                             <!--main chart-->
                             <lvc:CartesianChart LegendLocation="None" Margin="10">
-                                <lvc:CartesianChart.ToolTip>
+                                <lvc:CartesianChart.DataTooltip>
                                     <lvc:DefaultTooltip Background="#5a5080" Foreground="#f4f3f6" BulletSize="0"/>
-                                </lvc:CartesianChart.ToolTip>
+                                </lvc:CartesianChart.DataTooltip>
 
                                 <lvc:CartesianChart.AxisX>
                                     <lvc:Axis Foreground="#a79fd1" FontSize="14" ShowLabels="True" Labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec">
@@ -287,10 +296,62 @@
                     </Grid>
 
                     <!--bottom info card-->
-                    <uc:InfoCard Grid.Column="0" Grid.Row="2" Title="Bicycle Drill" Desc="36 km / weeks" Percentage="45%" BottomText="17 / 36 km" Days="2 days left"/>
+                    <uc:InfoCard Grid.Column="0" Grid.Row="2" Title="Bicycle Drill" Desc="36 km / weeks" Percentage="45%" BottomText="17 / 36 km" Days="2 days left" Icon="Bike" Value="5"/>
+                    <uc:InfoCard Grid.Column="1" Grid.Row="2" Title="Jogging Hero" Desc="11 km / weeks" Percentage="13%" BottomText="2 / 12 km" Days="12 days left" Icon="Run" Value="3" IsActive="True"/>
+                    <uc:InfoCard Grid.Column="2" Grid.Row="2" Title="Healthy Busy" Desc="3499 steps" Percentage="90%" BottomText="3200 / 3600 steps" Days="6 days left" Icon="ShoeSneaker" Value="9"/>
 
                 </Grid>
+                
+                
                 <!--right section-->
+                <Border Background="White" Grid.Column="2" CornerRadius="0 40 40 0">
+                    <StackPanel>
+                        <!--top titlebar-->
+                        <Grid Margin="10 30 0 5">
+                            <Icon:PackIconMaterial Kind="AccountGroupOutline" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="Friends" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <Button Content="View All" Style="{StaticResource titleButton}"/>
+                        </Grid>
+                        
+                        <!--tab button-->
+                        <Border CornerRadius="20" Background="#ebecf0" Padding="0" Margin="20 15">
+                            <Grid Margin="10 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Content="Activities" Background="#7163ba" Foreground="White" Style="{StaticResource tabButton}"/>
+                                <Button Content="Online" Grid.Column="1" Style="{StaticResource tabButton}"/>
+                            </Grid>
+                        </Border>
+                        
+                        <!--user info-->
+                        <StackPanel>
+                            <uc:UserCard FullName="Rosé" Title="Weekly Bicycle" Time="10 min ago" Image="/Images/img2.jpg" />
+                            <uc:UserCard FullName="Chaeyoung" Title="Slow Joggin" Time="22 min ago" Image="/Images/img4.jpg" />
+                            <uc:UserCard FullName="Rosie" Title="Morning Swim" Time="1 min ago" Image="/Images/img3.jpg" />
+                            <uc:UserCard FullName="RS" Title="Hiking" Time="43 min ago" Image="/Images/img6.jpg" />
+                            <uc:UserCard FullName="Roses" Title="Quick Sprint" Time="11 min ago" Image="/Images/img6.jpg" />
+                        </StackPanel>
+
+                        <Separator Background="#e7e5f3" Margin="20 15" Height="0.8"/>
+                        
+                        <!--bottom titlebar-->
+                        <Grid Margin="10 0 0 0">
+                            <Icon:PackIconMaterial Kind="MapMarkerOutline" Style="{StaticResource titleIcon}"/>
+                            <TextBlock Text="Friends" Margin="40 0 0 0" Style="{StaticResource titleText}"/>
+                            <Button Content="View" Margin="0 3 15 0" Style="{StaticResource titleButton}"/>
+                        </Grid>
+                        
+                        <!--map image-->
+                        <Border CornerRadius="10" Height="125" Margin="25 10">
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Images/map.png"/>
+                            </Border.Background>
+                        </Border>
+                    </StackPanel>
+                </Border>
             </Grid>
         </Border>
     </Border>

@@ -3,15 +3,31 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\infocard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\usercard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\usercard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\usercard.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\usercard.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\usercontrols\\infocard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\infocard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\usercontrols\\infocard.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\usercontrols\\infocard.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\infocard.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
@@ -21,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\usercontrols\\textinfo.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\usercontrols\\textinfo.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\fitness app\\usercontrols\\textinfo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -38,24 +50,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InfoCard.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\InfoCard.xaml.cs",
-              "RelativeDocumentMoniker": "Fitness App\\UserControls\\InfoCard.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\InfoCard.xaml.cs",
-              "RelativeToolTip": "Fitness App\\UserControls\\InfoCard.xaml.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwBUAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UserCard.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\UserCard.xaml.cs",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\UserCard.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\UserCard.xaml.cs",
+              "RelativeToolTip": "Fitness App\\UserControls\\UserCard.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAUwEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T01:35:44.288Z",
+              "WhenOpened": "2024-10-03T02:41:21.627Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "UserCard.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\UserCard.xaml",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\UserCard.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\UserCard.xaml",
+              "RelativeToolTip": "Fitness App\\UserControls\\UserCard.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-03T02:39:29.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\Properties\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Fitness App\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\Properties\\AssemblyInfo.cs",
+              "RelativeToolTip": "Fitness App\\Properties\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T02:01:09.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "InfoCard.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\InfoCard.xaml",
               "RelativeDocumentMoniker": "Fitness App\\UserControls\\InfoCard.xaml",
@@ -67,20 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TextInfo.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
-              "RelativeDocumentMoniker": "Fitness App\\UserControls\\TextInfo.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
-              "RelativeToolTip": "Fitness App\\UserControls\\TextInfo.xaml.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAADwvzEAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T01:47:17.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\App.xaml",
               "RelativeDocumentMoniker": "Fitness App\\App.xaml",
@@ -92,20 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Fitness App\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Fitness App\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-30T02:20:30.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Fitness App\\MainWindow.xaml",
@@ -118,6 +129,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "InfoCard.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\InfoCard.xaml.cs",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\InfoCard.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\InfoCard.xaml.cs",
+              "RelativeToolTip": "Fitness App\\UserControls\\InfoCard.xaml.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAxwGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T01:35:44.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Fitness App\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Fitness App\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T02:20:30.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TextInfo.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "RelativeDocumentMoniker": "Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "RelativeToolTip": "Fitness App\\UserControls\\TextInfo.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvzEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T01:47:17.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "TextInfo.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\UserControls\\TextInfo.xaml",
               "RelativeDocumentMoniker": "Fitness App\\UserControls\\TextInfo.xaml",
