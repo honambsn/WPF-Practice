@@ -72,6 +72,9 @@
     <Compile Include="UserControls\InfoCard.xaml.cs">
       <DependentUpon>InfoCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TextInfo.xaml.cs">
       <DependentUpon>TextInfo.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\InfoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
