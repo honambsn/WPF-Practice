@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GMap.NET.WindowsPresentation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,14 +24,21 @@ namespace Fitness_App
 		public MainWindow()
 		{
 			InitializeComponent();
+			AddMarkers();
 		}
 
 		private void Border_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left)
 			{
-				this.DragMove();
+				//this.DragMove();
 			}
+		}
+
+		private void AddMarkers()
+		{
+			map.AddMarker(10.8231, 106.6297); 
+			
 		}
 	}
 }

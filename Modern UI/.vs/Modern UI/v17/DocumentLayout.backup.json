@@ -7,8 +7,7 @@
       "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{94E0A9AC-7C61-4DFA-8E72-7370B3EADFAE}|Fitness App\\Fitness App.csproj|solutionrelative:fitness app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A9843E5-97C2-4B86-A00A-8F1CAA6D481A}|Smart Home\\Smart Home.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\smart home\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -22,37 +21,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
-              "RelativeToolTip": "Smart Home\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-04T02:23:38.003Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "App.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\App.xaml",
-              "RelativeDocumentMoniker": "Fitness App\\App.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\App.xaml*",
-              "RelativeToolTip": "Fitness App\\App.xaml*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-04T02:38:38.965Z",
-              "EditorCaption": ""
+              "Title": "Storyboard.cs",
+              "DocumentMoniker": "C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs",
+              "ToolTip": "C:\\Users\\honam\\AppData\\Local\\Temp\\.vsdbgsrc\\0657caa957679302be63a6a2a2482219b63f54b054b1fc7ab70c1dd346e09b37\\Storyboard.cs [Read Only]",
+              "ViewState": "AgIAAE4BAAAAAAAAAAAAAEoBAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-07T03:16:54.364Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
@@ -63,7 +43,40 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Fitness App\\MainWindow.xaml*",
               "RelativeToolTip": "Fitness App\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-30T02:16:14.341Z",
+              "WhenOpened": "2024-10-07T01:20:18.297Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "3ef8182d-3359-4f60-a272-645212100ca2",
+        "Display": 0,
+        "X": 320,
+        "Y": 162,
+        "Width": 926,
+        "Height": 1005,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Smart Home\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Smart Home\\MainWindow.xaml",
+              "RelativeToolTip": "Smart Home\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-07T02:32:33.149Z",
               "EditorCaption": ""
             }
           ]
