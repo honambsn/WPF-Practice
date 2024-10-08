@@ -1,0 +1,48 @@
+﻿<Window x:Class="Chat_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat_App"
+        mc:Ignorable="d"
+        x:Name="mainWindow"
+        AllowsTransparency="True"
+        Background="Transparent"
+        FontSize="15"
+        ResizeMode="NoResize"
+        Title="Chat App" Height="768" Width="1250"
+        WindowStyle="None"
+        Icon="/Assets/Icon/icon.ico"
+        WindowStartupLocation="CenterScreen">
+    
+    <!--structing the window-->
+    <Border CornerRadius="20" Background="WhiteSmoke">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <!--title bar-->
+            <Border Background="#49a078" CornerRadius="20,20,0,0" Grid.ColumnSpan="3" MouseDown="Border_MouseDown">
+                <Grid>
+                    <TextBlock Text="{Binding Title, ElementName=mainWindow}" 
+                               HorizontalAlignment="Left" Margin="15,0" VerticalAlignment="Center" 
+                               Foreground="White" FontSize="22" FontWeight="Bold"/>
+                    
+                    <!--window button-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                        <Button x:Name="btnMinimize" Content="{StaticResource minimize}" Style="{StaticResource IconButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+    
+    
+</Window>

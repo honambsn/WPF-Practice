@@ -1,0 +1,19 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Assets\Database1.mdf
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Assets\icons.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_Content.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat_App.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.pdb
