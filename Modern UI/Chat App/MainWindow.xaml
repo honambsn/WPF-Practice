@@ -17,19 +17,19 @@
     
     <!--structing the window-->
     <Border CornerRadius="20" Background="WhiteSmoke">
-        <Grid>
+        <Grid Margin="0,2,0,-2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/> <!--column for contact chatlist-->
+                <ColumnDefinition/> <!--conversation area-->
+                <ColumnDefinition Width="Auto"/> <!--profile info-->
             </Grid.ColumnDefinitions>
             
             <!--title bar-->
-            <Border Background="#49a078" CornerRadius="20,20,0,0" Grid.ColumnSpan="3" MouseDown="Border_MouseDown">
+            <Border Background="#49a078" CornerRadius="20,20,0,0" Grid.ColumnSpan="3" MouseDown="Border_MouseDown" Margin="0, -5, 0, -5"> <!--// margin fix-->
                 <Grid>
                     <TextBlock Text="{Binding Title, ElementName=mainWindow}" 
                                HorizontalAlignment="Left" Margin="15,0" VerticalAlignment="Center" 
@@ -37,10 +37,55 @@
                     
                     <!--window button-->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-                        <Button x:Name="btnMinimize" Content="{StaticResource minimize}" Style="{StaticResource IconButtonStyle}"/>
+                        <Button x:Name="btnMinimize" Content="{StaticResource minimize}" Style="{StaticResource IconButtonStyle}" Click="btnMinimize_Click"/>
+
+                        <Button x:Name="btnMaximize" Content="{StaticResource maximize}" Style="{StaticResource IconButtonStyle}" Click="btnMaximize_Click"/>
+
+                        <Button x:Name="btnClose" Content="{StaticResource close}" Style="{StaticResource IconButtonStyle}" Click="btnClose_Click" Foreground="Red"/>
                     </StackPanel>
                 </Grid>
             </Border>
+            
+            <!--contact chat list-->
+            <Grid Grid.Row="1" MaxWidth="406">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/> <!--title & search bar options etc-->
+                    <RowDefinition Height="Auto"/> <!--searchbox-->
+                    <RowDefinition Height="Auto"/> <!--status thumbs-->
+                    <RowDefinition/> <!--chat list-->
+                </Grid.RowDefinitions>
+
+                <!--title & search bar options etc-->
+                <Grid Margin="15,0" Height="75">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/> <!--title-->
+                        <ColumnDefinition/> <!--blank-->
+                        <ColumnDefinition Width="40"/> <!--search button-->
+                        <ColumnDefinition Width="40"/> <!--more options button-->
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Chats" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
+                    
+                    <!--search button-->
+                    <Button Grid.Column="2" x:Name="btnChatSearchButton" Content="{StaticResource search}" Style="{StaticResource IconButtonStyle}"/>
+                    
+                    <!--more options popup menu-->
+                    <ToggleButton x:Name="btnMoreOptions" Grid.Column="3"
+                                  Content="{StaticResource more}"
+                                  Style="{StaticResource ToggleIconButtonStyle}"/>
+                </Grid>
+                
+                <!--#region SearchBoxk-->
+                <!--to do: add search box open/close triggers-->
+                <Border Margin="20" Height="50" x:Name="searchBoxBorder" CornerRadius="15" Background="#dce1de" Grid.Row="1"
+                        FocusManager.FocusedElement="{Binding ElementName=searchQuery}">
+                    <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
+
+                    <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0" Text="Search text"
+                             VerticalContentAlignment="Center" VerticalAlignment="Stretch"/>
+                </Border>
+                <!--#endregion-->
+            </Grid>
         </Grid>
     </Border>
     
