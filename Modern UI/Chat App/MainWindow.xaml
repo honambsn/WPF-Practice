@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Chat_App"
+        xmlns:local="clr-namespace:Chat_App" xmlns:customcontrols="clr-namespace:Chat_App.CustomControls"
         mc:Ignorable="d"
         x:Name="mainWindow"
         AllowsTransparency="True"
@@ -47,7 +47,7 @@
             </Border>
             
             <!--contact chat list-->
-            <Grid Grid.Row="1" MaxWidth="406">
+            <Grid Grid.Row="1" MinWidth="406">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/> <!--title & search bar options etc-->
                     <RowDefinition Height="Auto"/> <!--searchbox-->
@@ -84,6 +84,11 @@
                     <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0" Text="Search text"
                              VerticalContentAlignment="Center" VerticalAlignment="Stretch"/>
                 </Border>
+                <!--#endregion-->
+                
+                
+                <!--region status thumbnails-->
+                <customcontrols:StatusThumbs Grid.Row="2"/>
                 <!--#endregion-->
             </Grid>
         </Grid>

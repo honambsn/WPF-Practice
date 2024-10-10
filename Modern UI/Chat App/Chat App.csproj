@@ -70,9 +70,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="Assets\icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\StatusThumbs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,12 +87,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CustomControls\StatusThumbs.xaml.cs">
+      <DependentUpon>StatusThumbs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\StatusDataModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -137,6 +146,17 @@
     <Resource Include="Assets\7.png" />
     <Resource Include="Assets\8.jpg" />
     <Resource Include="Assets\connectedworld.png" />
+    <Resource Include="Assets\assets\img1.jpg" />
+    <Resource Include="Assets\assets\img10.jpg" />
+    <Resource Include="Assets\assets\img11.jpg" />
+    <Resource Include="Assets\assets\img2.jpg" />
+    <Resource Include="Assets\assets\img3.jpg" />
+    <Resource Include="Assets\assets\img4.jpg" />
+    <Resource Include="Assets\assets\img5.jpg" />
+    <Resource Include="Assets\assets\img6.jpg" />
+    <Resource Include="Assets\assets\img7.jpg" />
+    <Resource Include="Assets\assets\img8.jpg" />
+    <Resource Include="Assets\assets\img9.jpg" />
     <Content Include="Assets\Database1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
