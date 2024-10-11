@@ -3,16 +3,25 @@ using Chat_App.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Chat_App.ViewModels
 {
-	public class ViewModel
+	public class ViewModel : INotifyPropertyChanged
 	{
-		public ObservableCollection<StatusDataModel> statusThumbsCollection;
-		public ViewModel()
+		#region status thumbs
+		#region Properties
+		public ObservableCollection<StatusDataModel> statusThumbsCollection { get; set; }
+		#endregion
+
+
+		#region Logics
+		void LoadStatusThumbs()
 		{
 			statusThumbsCollection = new ObservableCollection<StatusDataModel>()
 			{
@@ -23,18 +32,50 @@ namespace Chat_App.ViewModels
 				new StatusDataModel
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/img1.jpg", UriKind.RelativeOrAbsolute),
-					StatusImage=new Uri("/assets/img5.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					StatusImage=new Uri("/Assets/assets/img1.jpg", UriKind.RelativeOrAbsolute),
 					IsMeAddStatus=false
 				},
 				new StatusDataModel
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/img1.jpg", UriKind.RelativeOrAbsolute),
-					StatusImage=new Uri("/assets/img5.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					StatusImage=new Uri("/Assets/assets/img1.jpg", UriKind.RelativeOrAbsolute),
+					IsMeAddStatus=false
+				},
+				new StatusDataModel
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					StatusImage=new Uri("/Assets/assets/img1.jpg", UriKind.RelativeOrAbsolute),
+					IsMeAddStatus=false
+				},
+				new StatusDataModel
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					StatusImage=new Uri("/Assets/assets/img1.jpg", UriKind.RelativeOrAbsolute),
 					IsMeAddStatus=false
 				},
 			};
+			OnPropertyChanged("statusThumbsCollection");
+		}
+		#endregion
+
+		#endregion
+
+		#region Chats List
+		public ObservableCollection<ChatListData> Chats { get; set; }
+		#endregion
+		public ViewModel()
+		{
+			LoadStatusThumbs();
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }

@@ -90,6 +90,13 @@
                 <!--region status thumbnails-->
                 <customcontrols:StatusThumbs Grid.Row="2"/>
                 <!--#endregion-->
+                
+                
+                
+                <!--region chatlist-->
+                <customcontrols:ChatList Grid.Row="3"/>
+                <!--#endregion-->
+                
             </Grid>
         </Grid>
     </Border>

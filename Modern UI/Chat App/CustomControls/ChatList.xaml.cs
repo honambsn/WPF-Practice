@@ -1,5 +1,4 @@
-﻿using Chat_App.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace Chat_App.CustomControls
 {
 	/// <summary>
-	/// Interaction logic for StatusThumbs.xaml
+	/// Interaction logic for ChatList.xaml
 	/// </summary>
-	public partial class StatusThumbs : UserControl
+	public partial class ChatList : UserControl
 	{
-		public StatusThumbs()
+		public ChatList()
 		{
 			InitializeComponent();
-			//DataContext = new ViewModel();
 		}
 	}
 }
