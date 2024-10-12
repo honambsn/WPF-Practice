@@ -65,11 +65,60 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#region Chats List
+		#region Properties
 		public ObservableCollection<ChatListData> Chats { get; set; }
+		#endregion
+
+		#region Logics
+		void LoadChats()
+		{
+			Chats = new ObservableCollection<ChatListData>()
+			{
+				new ChatListData
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					Message="Hello",
+					LatestMessageTime="12:00",
+					ChatIsSelected=true
+				},
+				new ChatListData
+				{
+					ContactName="Rosé",		
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					Message="Hello",
+					LatestMessageTime="12:00"
+				},
+				new ChatListData
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					Message="Hello",
+					LatestMessageTime="12:00"
+				},
+				new ChatListData
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					Message="Hello",
+					LatestMessageTime="12:00"
+				},
+				new ChatListData
+				{
+					ContactName="Rosé",
+					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					Message="Hello",
+					LatestMessageTime="12:00"
+				},
+			};
+			OnPropertyChanged("Chats");
+		}
+		#endregion
 		#endregion
 		public ViewModel()
 		{
 			LoadStatusThumbs();
+			LoadChats();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
