@@ -10,6 +10,15 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Assets/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
+            <!--default style for path's-->
+            <Style TargetType="{x:Type Path}">
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Width" Value="20"/>
+                <Setter Property="Stretch" Value="Uniform"/>
+
+                <!--//to-do: add animations later-->
+            </Style>
 
             <!--style for the window buttons-->
             <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}">
@@ -22,23 +31,18 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}">
-                                <Path Data="{TemplateBinding Content}" Fill="{TemplateBinding Foreground}"
+                                <Path Data="{TemplateBinding Content}" 
+                                      Fill="{TemplateBinding Foreground}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/> 
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Style="{StaticResource {x:Type Path}}"/> 
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
             
-            <!--default style for path's-->
-            <Style TargetType="{x:Type Path}">
-                <Setter Property="Height" Value="20"/>
-                <Setter Property="Width" Value="20"/>
-                <Setter Property="Stretch" Value="Uniform"/>
-                
-                <!--//to-do: add animations later-->
-            </Style>
+            
 
             <Style x:Key="ToggleIconButtonStyle" TargetType="{x:Type ToggleButton}">
                 <Setter Property="Background" Value="Transparent"/>
@@ -51,7 +55,8 @@
                             <Border Background="{TemplateBinding Background}">
                                 <Path Data="{TemplateBinding Content}" Fill="{TemplateBinding Foreground}"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>          
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Style="{StaticResource {x:Type Path}}"/>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>

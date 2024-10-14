@@ -8,94 +8,144 @@
     <UserControl.Resources>
         <DataTemplate x:Key="ChatButtonItemTemplate">
             <RadioButton GroupName="ChatButton">
-                <Style TargetType="{x:Type ToggleButton}">
-                    <Setter Property="SnapsToDevicePixels" Value="True"/>
-                    <Setter Property="MinHeight" Value="80"/>
-                    <Setter Property="Padding" Value="10"/>
-                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="Content" Value="{Binding ContactName}"/>
+                <RadioButton.Style>
+                    <Style TargetType="{x:Type ToggleButton}">
+                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                        <Setter Property="MinHeight" Value="80"/>
+                        <Setter Property="Padding" Value="10"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Content" Value="{Binding ContactName}"/>
+                        <!--<Setter Property="IsChecked" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
 
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
-                                        BorderBrush="{TemplateBinding BorderBrush}" x:Name="border" CornerRadius="20" 
-                                        Padding="{TemplateBinding Padding}"
-                                        SnapsToDevicePixels="True">     
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}" x:Name="border" CornerRadius="20" 
+                                            Padding="{TemplateBinding Padding}"
+                                            SnapsToDevicePixels="True">     
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
 
-                                        <!--#region Contact details-->
-                                        <Grid Grid.Row="0">
-                                            <Grid.ColumnDefinitions>
-                                                <!--profile photo-->
-                                                <ColumnDefinition Width="auto"/>
+                                            <!--#region Contact details-->
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <!--profile photo-->
+                                                    <ColumnDefinition Width="auto"/>
 
-                                                <!--contact name & last message-->
-                                                <ColumnDefinition/>
+                                                    <!--contact name & last message-->
+                                                    <ColumnDefinition/>
 
+                                                    <!--last message time-->
+                                                    <ColumnDefinition Width="auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Ellipse Width="50" Height="50">
+                                                    <Ellipse.Fill>
+                                                        <!--<ImageBrush ImageSource="{Binding ContactPhoto, TargetNullValue="/assets/6.jpg",  Stretch="UniformToFill"/>-->
+                                                        <ImageBrush Stretch="UniformToFill" 
+                                                                    ImageSource="{Binding ContactPhoto, FallbackValue='/assets/6.jpg', TargetNullValue='/assets/6.jpg',UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
+
+
+                                                <!--#region contact name & last message-->
+                                                <Grid Grid.Column="1" Margin="20,0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <TextBlock Text="{Binding ContactName}" FontSize="20">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" Value="True">
+                                                                        <Setter Property="FontWeight" Value="Bold"/>
+
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+
+                                                    <TextBlock Grid.Row="1" Text="{Binding Message}">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="{x:Type TextBlock}">
+                                                                <Setter Property="FontWeight" Value="Normal"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" Value="True">
+                                                                        <Setter Property="FontWeight" Value="SemiBold"/>
+
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Grid>
+                                                <!--#endregion-->
+                                                
                                                 <!--last message time-->
-                                                <ColumnDefinition Width="auto"/>
-                                            </Grid.ColumnDefinitions>
-
-                                            <Ellipse>
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="{Binding ContactPhoto}" Stretch="UniformToFill"/>
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-
-
-                                            <!--contact name & last message-->
-                                            <Grid Grid.Column="1" Margin="20,0">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto"/>
-                                                    <RowDefinition Height="Auto"/>
-                                                </Grid.RowDefinitions>
-
-                                                <TextBlock Text="{Binding ContactName}" FontSize="20" FontWeight="SemiBold"/>
-
-                                                <TextBlock Text="{Binding Message}" FontSize="20" FontWeight="SemiBold"/>
+                                                <Grid Grid.Column="2">
+                                                    <TextBlock Text="{Binding LatestMessageTime}" HorizontalAlignment="Right"/>
+                                                </Grid>
+                                                <Separator VerticalAlignment="Bottom" BorderThickness=".5" 
+                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>
                                             </Grid>
+                                            <!--#endregion-->
+
+
+                                            <!--#region Options-->
+                                            <Grid Grid.Row="1" Height="auto">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="50"/>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+                                                <UniformGrid Columns="4" Grid.Column="1">
+                                                    <Button Content="{StaticResource pinned}" Style="{StaticResource IconButtonStyle}"/>
+                                                    <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
+                                                    <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
+                                                    <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
+                                                </UniformGrid>
+                                            </Grid>
+                                            <!--#endregion-->
+
                                         </Grid>
-                                        <!--#endregion-->
 
-
-                                        <!--#region Options-->
-
-                                        <!--#endregion-->
-
-                                    </Grid>
-
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </RadioButton.Style>
             </RadioButton>
         </DataTemplate>
     </UserControl.Resources>
-    
-    <Grid Margin="25,15">
-        <StackPanel>
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="25,15">
+            <StackPanel>
 
-            <!--title-->
-            <StackPanel Orientation="Horizontal">
-                <Path Data="{StaticResource allchats}" Fill="Black"/>
-                <TextBlock Text="All Chats" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
+                <!--title-->
+                <StackPanel Orientation="Horizontal">
+                    <Path Data="{StaticResource allchats}" Fill="Black"/>
+                    <!--Style="{StaticResource {x:Type Path}}"/>-->
+                    <TextBlock Text="All Chats" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
+                </StackPanel>
+
+                <!--chatlist-->
+                <ItemsControl ItemsSource="{Binding Chats}" ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
+                    <ItemsControl.DataContext>
+                        <viewmodel:ViewModel/>
+                    </ItemsControl.DataContext>
+                </ItemsControl>
             </StackPanel>
-            
-            <!--chatlist-->
-            <ItemsControl ItemsSource="{Binding Chats}" ItemTemplate="{StaticResource ChatButtonItemTemplate}">
-                <ItemsControl.DataContext>
-                    <viewmodel:ViewModel/>
-                </ItemsControl.DataContext>
-            </ItemsControl>
-        </StackPanel>
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

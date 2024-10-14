@@ -77,36 +77,36 @@ namespace Chat_App.ViewModels
 				new ChatListData
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/Assets/assets/img2.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LatestMessageTime="12:00",
-					ChatIsSelected=true
+					ChatIsSelected=true,
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",		
-					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/Assets/assets/img4.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LatestMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/Assets/assets/img6.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LatestMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/Assets/assets/img9.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LatestMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
-					ContactPhoto=new Uri("/assets/2.jpg", UriKind.RelativeOrAbsolute),
+					ContactPhoto=new Uri("/Assets/assets/img10.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LatestMessageTime="12:00"
 				},
