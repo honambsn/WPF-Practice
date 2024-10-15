@@ -14,6 +14,15 @@ namespace Chat_App.ViewModels
 {
 	public class ViewModel : INotifyPropertyChanged
 	{
+		#region MainWindow
+		#region Properties
+		public string ContactName { get; set; }
+		public Uri ContactPhoto { get; set; }
+		public string LatestSeen { get; set; }
+		#endregion
+
+		#endregion
+
 		#region status thumbs
 		#region Properties
 		public ObservableCollection<StatusDataModel> statusThumbsCollection { get; set; }
@@ -115,10 +124,25 @@ namespace Chat_App.ViewModels
 		}
 		#endregion
 		#endregion
+
+		#region Converation
+		#region Properties
+		public ObservableCollection<ChatConversation> Conversation;
+		#endregion
+
+		#region Logics
+		void LoadChatConversation()
+		{
+
+		}
+		#endregion
+
+		#endregion
 		public ViewModel()
 		{
 			LoadStatusThumbs();
 			LoadChats();
+			LoadChatConversation();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

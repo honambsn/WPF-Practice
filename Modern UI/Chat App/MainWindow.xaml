@@ -14,6 +14,58 @@
         WindowStyle="None"
         Icon="/Assets/Icon/icon.ico"
         WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="ContactInfoButonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <ControlTemplate x:Key="ContactInfoButtonTemplate" TargetType="{x:Type Button}">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid  VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                    
+                        <!--profile photo-->
+                        <ColumnDefinition Width="75"/>
+                    
+                        <!--name & online status-->
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Ellipse Height="40" Width="40">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding ContactPhoto, 
+                                TargetNullValue='/Assets/assets/img2.jpg',
+                                UpdateSourceTrigger=PropertyChanged, FallbackValue='/Assets/assets/img2.jpg'}"
+                                        Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Grid Grid.Column="1">
+                        <!--<Grid.RowDefinitions>
+                        
+                            <RowDefinition/>
+                        
+                        
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>-->
+
+                        <TextBlock>
+                            <!--name-->
+                            <Run Text="{Binding ContactName, UpdateSourceTrigger=PropertyChanged, FallbackValue='Contact Name',TargetNullValue='Contact Name'}" 
+                                 FontSize="20" FontWeight="Bold"/>
+                            <LineBreak/>
+                        
+                            <!--online status-->
+                            <Run Text="{Binding LastSeen, UpdateSourceTrigger=PropertyChanged, FallbackValue='Last Seen', TargetNullValue='Last Seen'}" FontSize="15"/>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
     
     <!--structing the window-->
     <Border CornerRadius="20" Background="WhiteSmoke">
@@ -96,8 +148,65 @@
                 <!--region chatlist-->
                 <customcontrols:ChatList Grid.Row="3"/>
                 <!--#endregion-->
-                
             </Grid>
+
+            <!--#region Conversation Screen-->
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <!--conversation header-->
+                    <RowDefinition Height="Auto"/> 
+                    
+                    <!--body-->
+                    <RowDefinition/>
+                    
+                    <!--reply popup-->
+                    <RowDefinition Height="Auto"/>
+                    
+                    <!--send message box-->
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid VerticalAlignment="Center" Height="75" Margin="0,5,5,0">
+                    <Grid.ColumnDefinitions>
+                        <!--contact header name and onl status-->
+                        <ColumnDefinition/>
+                        
+                        <!--video call btn-->
+                        <ColumnDefinition Width="50"/>
+                        
+                        <!--call btn-->
+                        <ColumnDefinition Width="50"/>
+                        
+                        <!--search msg btn-->
+                        <ColumnDefinition Width="50"/>
+                        
+                        <!--more opts-->
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--contact info btn-->
+                    <Button Template="{StaticResource ContactInfoButtonTemplate}" Style="{StaticResource ContactInfoButonStyle}"/>
+                    
+                    <!--videocall btn-->
+                    <Button Grid.Column="1" Style="{StaticResource IconButtonStyle}" Content="{StaticResource videocall}"/>
+                    
+                    <!--call btn-->
+                    <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}" Content="{StaticResource call}"/>
+                    
+                    <!--search btn-->
+                    <Button Grid.Column="3" Style="{StaticResource IconButtonStyle}" Content="{StaticResource search}"/>
+                    
+                    <!--more opts btn-->
+                    <ToggleButton Grid.Column="4"
+                                  Content="{StaticResource more}"
+                                  Style="{StaticResource ToggleIconButtonStyle}"/>      
+
+                </Grid>
+                
+                <!--conversation msg body-->
+                <customcontrols:Conversation Grid.Row="1"/>
+            </Grid>
+            <!--#endregion-->
         </Grid>
     </Border>
     

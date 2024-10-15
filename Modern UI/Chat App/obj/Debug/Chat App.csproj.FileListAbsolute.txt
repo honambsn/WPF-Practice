@@ -5,6 +5,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.AssemblyReference.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Assets\icons.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\StatusThumbs.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.g.cs
@@ -14,6 +15,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.lref
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\StatusThumbs.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.g.resources

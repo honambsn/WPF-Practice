@@ -73,6 +73,10 @@
     <Compile Include="CustomControls\ChatList.xaml.cs">
       <DependentUpon>ChatList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\Conversation.xaml.cs">
+      <DependentUpon>Conversation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChatConversation.cs" />
     <Compile Include="ViewModels\ChatListData.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="Assets\icons.xaml">
@@ -80,6 +84,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\ChatList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\Conversation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
