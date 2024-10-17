@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
@@ -127,17 +129,55 @@ namespace Chat_App.ViewModels
 
 		#region Converation
 		#region Properties
-		public ObservableCollection<ChatConversation> Conversation;
+		public ObservableCollection<ChatConversation> Conversations;
 		#endregion
 
 		#region Logics
 		void LoadChatConversation()
 		{
+			if (connection.State == ConnectionState.Closed)
+			{
+				connection.Open();
+			}
+			using (SqlCommand com = new SqlCommand("select * from conversations where ContactName=Test", connection))
+			{
+				using (SqlDataReader reader = com.ExecuteReader())
+				{
+					Conversations = new ObservableCollection<ChatConversation>();
+					while (reader.Read())
+					{
+						//Conversation.Add(new ChatConversation
+						//{
+						//	ContactName = reader["ContactName"].ToString(),
+						//	ReceivedMessage = reader["ReceivedMessage"].ToString(),
+						//	SentMessage = reader["SentMessage"].ToString(),
+						//	MsgSentOn = reader["MsgSentOn"].ToString(),
+						//	IsMessageReceived = Convert.ToBoolean(reader["IsMessageReceived"]),
+						//	MessageContainsReply = Convert.ToBoolean(reader["MessageContainsReply"])
+						//});
+						string MsgReceivedOn = !string.IsNullOrEmpty(reader["MsgReceivedOn"].ToString()) ? Convert.ToDateTime(reader["MsgReceivedOn"].ToString()).ToString("MMM dd, hh:mm tt") : "";
 
+						string MsgSentOn = !string.IsNullOrEmpty(reader["MsgSentOn"].ToString()) ? Convert.ToDateTime(reader["MsgSentOn"].ToString()).ToString("MMM dd, hh:mm tt") : "";
+
+						var conversation = new ChatConversation
+						{
+							ContactName = reader["ContactName"].ToString(),
+							ReceivedMessage = reader["ReceivedMsgs"].ToString(),
+							MsgReceivedOn = reader["MsgReceivedOn"].ToString(),
+							SentMessage = reader["SentMsgs"].ToString(),
+							MsgSentOn = reader["MsgSentOn"].ToString(),
+							IsMessageReceived = string.IsNullOrEmpty(reader["ReceivedMsgs"].ToString()) ? false : true
+						};
+						Conversations.Add(conversation);
+					}
+				}
+			}
 		}
 		#endregion
 
 		#endregion
+		
+		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\Database\chatdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
 		public ViewModel()
 		{
 			LoadStatusThumbs();

@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/chatdb_.mdf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/database1.mdf")]
 
 
