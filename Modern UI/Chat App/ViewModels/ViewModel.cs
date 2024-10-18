@@ -129,7 +129,16 @@ namespace Chat_App.ViewModels
 
 		#region Converation
 		#region Properties
-		public ObservableCollection<ChatConversation> Conversations;
+		protected ObservableCollection<ChatConversation> mConversations;
+		public ObservableCollection<ChatConversation> Conversations 
+		{
+			get => mConversations;
+			set
+			{
+				mConversations = value;
+				OnPropertyChanged();
+			}
+		}
 		#endregion
 
 		#region Logics
@@ -139,7 +148,11 @@ namespace Chat_App.ViewModels
 			{
 				connection.Open();
 			}
-			using (SqlCommand com = new SqlCommand("select * from conversations where ContactName=Test", connection))
+			if(Conversations == null)
+			{
+				Conversations = new ObservableCollection<ChatConversation>();
+			}
+			using (SqlCommand com = new SqlCommand("select * from conversations where ContactName='Mike'", connection))
 			{
 				using (SqlDataReader reader = com.ExecuteReader())
 				{
@@ -163,12 +176,15 @@ namespace Chat_App.ViewModels
 						{
 							ContactName = reader["ContactName"].ToString(),
 							ReceivedMessage = reader["ReceivedMsgs"].ToString(),
-							MsgReceivedOn = reader["MsgReceivedOn"].ToString(),
+							//MsgReceivedOn = reader["MsgReceivedOn"].ToString(),
+							MsgReceivedOn = MsgReceivedOn,
 							SentMessage = reader["SentMsgs"].ToString(),
-							MsgSentOn = reader["MsgSentOn"].ToString(),
+							//MsgSentOn = reader["MsgSentOn"].ToString(),
+							MsgSentOn = MsgSentOn,
 							IsMessageReceived = string.IsNullOrEmpty(reader["ReceivedMsgs"].ToString()) ? false : true
 						};
 						Conversations.Add(conversation);
+						OnPropertyChanged("Conversations");
 					}
 				}
 			}
@@ -176,8 +192,7 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#endregion
-		
-		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\Database\chatdb.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True");
+		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf"";Integrated Security=True;Connect Timeout=30");
 		public ViewModel()
 		{
 			LoadStatusThumbs();
