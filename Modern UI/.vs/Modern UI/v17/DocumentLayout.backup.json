@@ -3,15 +3,38 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.conversations.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\chat app\\customcontrols\\conversation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\customcontrols\\conversation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\chat app\\viewmodels\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\viewmodels\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\customcontrols\\conversation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\customcontrols\\conversation.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.conversations.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.contacts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\models\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\models\\chatconversation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\customcontrols\\chatlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\customcontrols\\chatlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\customcontrols\\chatlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\customcontrols\\chatlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,16 +49,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "dbo.conversations [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.conversations.sql",
-              "ToolTip": "dbo.conversations [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-10-18T02:25:40.857Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Conversation.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\Conversation.xaml",
               "RelativeDocumentMoniker": "Chat App\\CustomControls\\Conversation.xaml",
@@ -53,9 +66,92 @@
               "RelativeDocumentMoniker": "Chat App\\ViewModels\\ViewModel.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\ViewModels\\ViewModel.cs",
               "RelativeToolTip": "Chat App\\ViewModels\\ViewModel.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAIsAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAgwIMAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T02:09:50.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Chat App\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
+              "RelativeToolTip": "Chat App\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-21T01:51:30.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "dbo.contacts [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.contacts.sql",
+              "ToolTip": "dbo.contacts [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-10-21T02:30:18.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.conversations [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/D__BA_NAM_OWN_PROJECT_PRACTICE_C__WPF_PRACTICE_MODERN_UI_CHAT_APP_DATABASE_CHATDB.MDF/True/SqlTable/dbo.conversations.sql",
+              "ToolTip": "dbo.conversations [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-10-21T02:31:27.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ChatConversation.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\Models\\ChatConversation.cs",
+              "RelativeDocumentMoniker": "Chat App\\Models\\ChatConversation.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\Models\\ChatConversation.cs",
+              "RelativeToolTip": "Chat App\\Models\\ChatConversation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T02:25:22.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChatList.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml",
+              "RelativeDocumentMoniker": "Chat App\\CustomControls\\ChatList.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml",
+              "RelativeToolTip": "Chat App\\CustomControls\\ChatList.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-21T02:12:27.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChatList.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml.cs",
+              "RelativeDocumentMoniker": "Chat App\\CustomControls\\ChatList.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml.cs",
+              "RelativeToolTip": "Chat App\\CustomControls\\ChatList.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T02:12:25.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Chat App\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Chat App\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T01:51:29.365Z",
               "EditorCaption": ""
             }
           ]

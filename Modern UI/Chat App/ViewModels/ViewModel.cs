@@ -127,7 +127,7 @@ namespace Chat_App.ViewModels
 		#endregion
 		#endregion
 
-		#region Converation
+		#region Converations
 		#region Properties
 		protected ObservableCollection<ChatConversation> mConversations;
 		public ObservableCollection<ChatConversation> Conversations 
@@ -172,7 +172,7 @@ namespace Chat_App.ViewModels
 
 						string MsgSentOn = !string.IsNullOrEmpty(reader["MsgSentOn"].ToString()) ? Convert.ToDateTime(reader["MsgSentOn"].ToString()).ToString("MMM dd, hh:mm tt") : "";
 
-						var conversation = new ChatConversation
+						var conversation = new ChatConversation()
 						{
 							ContactName = reader["ContactName"].ToString(),
 							ReceivedMessage = reader["ReceivedMsgs"].ToString(),
