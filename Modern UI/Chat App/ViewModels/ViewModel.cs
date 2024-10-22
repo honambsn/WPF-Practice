@@ -1,4 +1,5 @@
-﻿using Chat_App.CustomControls;
+﻿using Chat_App.Commands;
+using Chat_App.CustomControls;
 using Chat_App.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Chat_App.ViewModels
 {
@@ -124,6 +126,27 @@ namespace Chat_App.ViewModels
 			};
 			OnPropertyChanged("Chats");
 		}
+		#endregion
+
+		#region Commands
+		//protected ICommand _getSelectedChatCommand;
+		//public ICommand GetSelectedChatCommand => _getSelectedChatCommand ??= new RelayCommand(parameter =>
+		//{
+
+		//});
+
+		protected ICommand _getSelectedChatCommand;
+		public ICommand GetSelectedChatCommand => _getSelectedChatCommand ??= new RelayCommand(parameter =>
+		{
+			if(parameter is ChatListData v)
+			{
+				ContactName = v.ContactName;
+				OnPropertyChanged("ContactName");
+				ContactPhoto = v.ContactPhoto;
+				OnPropertyChanged("ContactPhoto");
+			}
+		});
+
 		#endregion
 		#endregion
 

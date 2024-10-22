@@ -277,7 +277,15 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
-            <Setter Property="Text" Value="{Binding ReceivedMessage}"/>
+            
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMessageReceived}" Value="True">
+                    <Setter Property="Text" Value="{Binding ReceivedMessage}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsMessageReceived}" Value="False">
+                    <Setter Property="Text" Value="{Binding SentMessage}"/>        
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
         <DataTemplate x:Key="ItemTemplate">
@@ -318,6 +326,9 @@
                                             <Grid
                                     Grid.Row="1">
                                                 <Grid.ColumnDefinitions>
+                                                    <!--column reply button-->
+                                                    <ColumnDefinition Width="auto"/>
+                                                    
                                                     <!--column message bubble-->
                                                     <ColumnDefinition/>
 
@@ -326,8 +337,8 @@
                                                 </Grid.ColumnDefinitions>
 
                                                 <!--message bubble-->
-                                                <Border Height="auto" 
-                                            HorizontalAlignment="Right"
+                                                <Border Height="auto"
+                                                        Grid.Column="1"
                                             MinHeight="60" 
                                             Width="auto" 
                                             VerticalAlignment="Center">
@@ -335,10 +346,12 @@
                                                         <Style TargetType="{x:Type Border}">
                                                             <Setter Property="CornerRadius" Value="30 30 30 0"/>
                                                             <Setter Property="Background" Value="#dce1de"/>
+                                                            <Setter Property="HorizontalAlignment" Value="Left"/>
                                                             <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding IsReceived}" Value="False">
+                                                                <DataTrigger Binding="{Binding IsMessageReceived}" Value="False">
                                                                     <Setter Property="CornerRadius" Value="30 30 0 30"/>
                                                                     <Setter Property="Background" Value="#49a078"/>
+                                                                    <Setter Property="HorizontalAlignment" Value="Right"/>
                                                                 </DataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
@@ -353,22 +366,25 @@
 
                                                 <!--reply button-->
                                                 <Button Content="{StaticResource reply}"
+                                                        x:Name="ReplyButton"
                                             Visibility="Collapsed"
                                             Grid.Column="2"
                                             Style="{StaticResource IconButtonStyle}"/>
                                             </Grid>
-                                            <TextBlock
+
+                                            <!--message time-->
+                                            <TextBlock    
                                     Grid.Row="2">
                                                 <TextBlock.Style>
                                                     <Style TargetType="{x:Type TextBlock}">
                                                         <Setter Property="VerticalAlignment" Value="Center"/>
                                                         <Setter Property="Margin" Value="0 10 20 0"/>
                                                         <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding IsReceived}" Value="True">
+                                                            <DataTrigger Binding="{Binding IsMessageReceived}" Value="True">
                                                                 <Setter Property="Text" Value="{Binding MsgReceivedOn}"/>
                                                                 <Setter Property="HorizontalAlignment" Value="Left"/>
                                                             </DataTrigger>
-                                                            <DataTrigger Binding="{Binding IsReceived}" Value="False">
+                                                            <DataTrigger Binding="{Binding IsMessageReceived}" Value="False">
                                                                 <Setter Property="Text" Value="{Binding MsgSentOn}"/>
                                                                 <Setter Property="HorizontalAlignment" Value="Right"/>
                                                             </DataTrigger>
@@ -378,8 +394,15 @@
 
                                             </TextBlock>
                                         </Grid>
-
                                     </Border>
+                                    <ControlTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding IsMessageReceived}" Value="False">
+                                            <Setter TargetName="ReplyButton" Property="Grid.Column" Value="0"/>
+                                        </DataTrigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ReplyButton" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

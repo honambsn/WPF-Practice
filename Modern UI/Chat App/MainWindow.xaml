@@ -44,14 +44,6 @@
                     </Ellipse>
 
                     <Grid Grid.Column="1">
-                        <!--<Grid.RowDefinitions>
-                        
-                            <RowDefinition/>
-                        
-                        
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>-->
-
                         <TextBlock>
                             <!--name-->
                             <Run Text="{Binding ContactName, UpdateSourceTrigger=PropertyChanged, FallbackValue='Contact Name',TargetNullValue='Contact Name'}" 
@@ -185,7 +177,8 @@
                     </Grid.ColumnDefinitions>
                     
                     <!--contact info btn-->
-                    <Button Template="{StaticResource ContactInfoButtonTemplate}" Style="{StaticResource ContactInfoButonStyle}"/>
+                    <Button Template="{StaticResource ContactInfoButtonTemplate}" 
+                            Style="{StaticResource ContactInfoButonStyle}"/>
                     
                     <!--videocall btn-->
                     <Button Grid.Column="1" Style="{StaticResource IconButtonStyle}" Content="{StaticResource videocall}"/>
@@ -204,6 +197,7 @@
                 </Grid>
                 
                 <!--conversation msg body-->
+                <!--<customcontrols:Conversation Grid.Row="1"/>-->
                 <customcontrols:Conversation Grid.Row="1"/>
             </Grid>
             <!--#endregion-->
