@@ -1,0 +1,24 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\bin\Debug\Calendar App.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\bin\Debug\Calendar App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\bin\Debug\Calendar App.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\bin\Debug\FontAwesome.WPF.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\bin\Debug\FontAwesome.WPF.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\UserControls\Item.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\UserControls\MenuButton.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\UserControls\Item.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\UserControls\MenuButton.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar_App.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar.A45FFE98.Up2Date
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Calendar App\obj\Debug\Calendar App.pdb

@@ -1,0 +1,99 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Weather App.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Weather App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Weather App.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.CircumIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Codicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Coolicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Entypo.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FileIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Fontisto.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.GameIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Ionicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.JamIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Lucide.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MemoryIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Microns.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Modern.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Octicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PhosphorIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Typicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Unicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Zondicons.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Newtonsoft.Json.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.BootstrapIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.BoxIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.CircumIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Codicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Coolicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Entypo.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.EvaIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FeatherIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FileIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Fontaudio.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.FontAwesome.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Fontisto.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.ForkAwesome.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.GameIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Ionicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.JamIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Lucide.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MaterialDesign.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MaterialLight.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.MemoryIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Microns.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Modern.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Octicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PhosphorIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PicolIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.PixelartIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RadixIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RemixIcon.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.RPGAwesome.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.SimpleIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Typicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Unicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.VaadinIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.WeatherIcons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\MahApps.Metro.IconPacks.Zondicons.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\bin\Debug\Newtonsoft.Json.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\UserControls\CardDay.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App_Content.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\UserControls\CardDay.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather_App.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather .E39BF7C3.Up2Date
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Weather App\obj\Debug\Weather App.pdb

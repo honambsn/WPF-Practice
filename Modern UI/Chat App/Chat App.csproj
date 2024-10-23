@@ -75,6 +75,9 @@
     <Compile Include="CustomControls\ChatList.xaml.cs">
       <DependentUpon>ChatList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\ContactInfo.xaml.cs">
+      <DependentUpon>ContactInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\Conversation.xaml.cs">
       <DependentUpon>Conversation.xaml</DependentUpon>
     </Compile>
@@ -86,6 +89,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CustomControls\ChatList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\ContactInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +160,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img1.jpg" />
     <Resource Include="Assets\Icon\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

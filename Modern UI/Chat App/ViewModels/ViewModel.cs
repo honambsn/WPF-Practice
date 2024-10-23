@@ -147,6 +147,16 @@ namespace Chat_App.ViewModels
 			}
 		});
 
+		protected string messageText;
+		public string MessageText
+		{
+			get => messageText;
+			set
+			{
+				messageText = value;
+				OnPropertyChanged("MessageText");
+			}
+		}
 		#endregion
 		#endregion
 
