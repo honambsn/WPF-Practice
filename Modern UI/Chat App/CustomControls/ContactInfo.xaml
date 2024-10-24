@@ -4,7 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chat_App.CustomControls"
-             mc:Ignorable="d">
+             mc:Ignorable="d" MaxWidth="406">
+    <UserControl.Resources>
+        <Style x:Key="MediaButtonsStyle" TargetType="Button">
+            <Setter Property="Width" Value="105"/>
+            <Setter Property="Height" Value="105"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                            <Border.Background>
+                                <ImageBrush 
+                                    ImageSource="{Binding Content, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}"
+                                            Stretch="UniformToFill"/>
+                            </Border.Background>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <!--close contact btn-->
@@ -28,10 +51,10 @@
                 <Ellipse StrokeThickness="2"
                          Stroke="#49a078"
                          Width="150"
-                         Height="150"
-                         Stretch="UniformToFill">
+                         Height="150">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/assets/img1.jpg" Stretch="UniformToFill"/>
+                        
                     </Ellipse.Fill>
                 </Ellipse>
 
@@ -48,7 +71,42 @@
                 <TextBlock
                     HorizontalAlignment="Center"
                     Text="{Binding LastSeen, FallbackValue='Last Seen', TargetNullValue='Last Seen', UpdateSourceTrigger=PropertyChanged}"/>
+                
+                <!--media, links, files-->
+                <TextBlock 
+                    Margin="0, 20, 0, 0"
+                    HorizontalAlignment="Left" FontSize="15" FontWeight="SemiBold"
+                    Text="Media, Links &amp; Files"/>
+
+                <ItemsControl Margin="0, 20, 0,0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <Button Content="/Assets/assets/img1.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                    <Button Content="/Assets/assets/img3.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                    <Button Content="/Assets/assets/img4.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                    <Button Content="/Assets/assets/img5.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                    <Button Content="/Assets/assets/img6.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                    <Button Content="/Assets/assets/img7.jpg"
+                        Style="{StaticResource MediaButtonsStyle}"/>
+                </ItemsControl>
+
+                <TextBlock Margin="0, 20, 0, 0"
+                           HorizontalAlignment="Left" FontSize="15" FontWeight="SemiBold"
+                           Text="About"/>
+                <TextBlock Text="Available"/>
             </StackPanel>
+            
+            <!--status/ about-->
+            
 
         </ScrollViewer>
     </Grid>
