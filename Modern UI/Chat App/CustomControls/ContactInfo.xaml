@@ -10,6 +10,7 @@
             <Setter Property="Width" Value="105"/>
             <Setter Property="Height" Value="105"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -28,7 +29,8 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+    
+    <Grid Margin="0, 0, 0, 10">
         <Grid.RowDefinitions>
             <!--close contact btn-->
             <RowDefinition Height="75"/>
@@ -53,8 +55,8 @@
                          Width="150"
                          Height="150">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/assets/img1.jpg" Stretch="UniformToFill"/>
-                        
+                        <!--<ImageBrush ImageSource="/Assets/assets/img1.jpg" Stretch="UniformToFill"/>-->
+                        <ImageBrush ImageSource="{Binding ContactPhoto}" Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
 
@@ -99,10 +101,17 @@
                         Style="{StaticResource MediaButtonsStyle}"/>
                 </ItemsControl>
 
+                <!--status / about-->
                 <TextBlock Margin="0, 20, 0, 0"
                            HorizontalAlignment="Left" FontSize="15" FontWeight="SemiBold"
                            Text="About"/>
                 <TextBlock Text="Available"/>
+                
+                <!--contact email-->
+                <TextBlock Margin="0, 20, 0, 0"
+                           HorizontalAlignment="Left" FontSize="15" FontWeight="SemiBold"
+                           Text="Contact"/>
+                <TextBlock Text="mail@mail.com"/>
             </StackPanel>
             
             <!--status/ about-->
