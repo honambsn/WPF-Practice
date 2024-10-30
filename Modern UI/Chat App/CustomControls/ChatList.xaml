@@ -131,23 +131,41 @@
             </RadioButton>
         </DataTemplate>
     </UserControl.Resources>
+    
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
         <Grid Margin="25,15">
             <StackPanel>
-
+                
                 <!--title-->
+                <!--pinned chat-->
+                <StackPanel Orientation="Horizontal">
+                    <Path Data="{StaticResource pinned}" Fill="Black" StrokeThickness="1" Stroke="Black"/>
+                    <!--Style="{StaticResource {x:Type Path}}"/>-->
+                    <TextBlock Text="Pinned" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
+                </StackPanel>
+
+                <!--chatlist-->
+                <ItemsControl ItemsSource="{Binding FilteredPinnedChats}" 
+                              ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
+                    <ItemsControl.DataContext>
+                        <viewmodel:ViewModel/>
+                    </ItemsControl.DataContext>
+                </ItemsControl>
+                
+                <!--all chats-->
                 <StackPanel Orientation="Horizontal">
                     <Path Data="{StaticResource allchats}" Fill="Black"/>
                     <!--Style="{StaticResource {x:Type Path}}"/>-->
                     <TextBlock Text="All Chats" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
                 </StackPanel>
 
-                <!--chatlist-->
-                <ItemsControl ItemsSource="{Binding Chats}" ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
+                <ItemsControl ItemsSource="{Binding FilteredChats}" 
+                            ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
                     <ItemsControl.DataContext>
                         <viewmodel:ViewModel/>
                     </ItemsControl.DataContext>
                 </ItemsControl>
+
             </StackPanel>
         </Grid>
     </ScrollViewer>

@@ -79,7 +79,48 @@ namespace Chat_App.ViewModels
 
 		#region Chats List
 		#region Properties
-		public ObservableCollection<ChatListData> Chats { get; set; }
+		public ObservableCollection<ChatListData> mChats;
+		public ObservableCollection<ChatListData> mPinnedChats
+		{
+			get => mChats;
+			set
+			{
+				//change the list
+				if (mChats == value)
+					return;
+
+				//Update the list
+				mChats = value;
+
+				//updating filtered chats to match
+				FilteredChats = new ObservableCollection<ChatListData>(mChats);
+				OnPropertyChanged("Chats");
+			}
+
+		}
+
+		public ObservableCollection<ChatListData> PinnedChats
+		{
+			get => mPinnedChats;
+			set
+			{
+				//change the list
+				if (mPinnedChats == value)
+					return;
+
+				//Update the list
+				mPinnedChats = value;
+
+				//updating filtered chats to match
+				FilteredPinnedChats = new ObservableCollection<ChatListData>(mPinnedChats);
+				OnPropertyChanged();
+			}
+
+		}
+
+		//Filtering Chat, pinned chat
+		public ObservableCollection<ChatListData> FilteredChats { get; set; }
+		public ObservableCollection<ChatListData> FilteredPinnedChats { get; set; }
 		#endregion
 
 		#region Logics
