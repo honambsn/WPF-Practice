@@ -112,7 +112,9 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
                                                 <UniformGrid Columns="4" Grid.Column="1">
-                                                    <Button Content="{StaticResource pinned}" Style="{StaticResource IconButtonStyle}"/>
+                                                    <Button Content="{StaticResource pinned}" Style="{StaticResource IconButtonStyle}"
+                                                            Command="{Binding DataContext.PinChatCommand, ElementName=_Chats}"
+                                                            CommandParameter="{Binding}"/>
                                                     <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
                                                     <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
                                                     <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>

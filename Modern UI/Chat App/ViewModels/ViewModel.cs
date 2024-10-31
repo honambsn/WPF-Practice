@@ -80,7 +80,8 @@ namespace Chat_App.ViewModels
 		#region Chats List
 		#region Properties
 		public ObservableCollection<ChatListData> mChats;
-		public ObservableCollection<ChatListData> mPinnedChats
+		public ObservableCollection<ChatListData> mPinnedChats;
+		public ObservableCollection<ChatListData> Chats
 		{
 			get => mChats;
 			set
@@ -94,7 +95,7 @@ namespace Chat_App.ViewModels
 
 				//updating filtered chats to match
 				FilteredChats = new ObservableCollection<ChatListData>(mChats);
-				OnPropertyChanged("Chats");
+				OnPropertyChanged();
 			}
 
 		}
@@ -176,15 +177,41 @@ namespace Chat_App.ViewModels
 
 		//});
 
-		protected ICommand _getSelectedChatCommand;
-		public ICommand GetSelectedChatCommand => _getSelectedChatCommand ??= new RelayCommand(parameter =>
+		protected ICommand _getSelectChatCommand;
+		public ICommand GetSelectChatCommand => _getSelectChatCommand ??= new RelayCommand(parameter =>
 		{
-			if(parameter is ChatListData v)
+			if (parameter is ChatListData v)
 			{
 				ContactName = v.ContactName;
 				OnPropertyChanged("ContactName");
 				ContactPhoto = v.ContactPhoto;
 				OnPropertyChanged("ContactPhoto");
+			}
+		});
+
+		protected ICommand _pinChatCommand;
+		public ICommand PinChatCommand => _pinChatCommand ??= new RelayCommand(parameter =>
+		{
+			
+			if(parameter is ChatListData v)
+			{
+				if (PinnedChats == null)
+				{
+					PinnedChats = new ObservableCollection<ChatListData>();
+					FilteredPinnedChats = new ObservableCollection<ChatListData>();
+				}
+				//add selected chat to pinned chat
+				PinnedChats.Add(v);
+				FilteredPinnedChats.Add(v);
+
+				//remove selected chat from all chats / unpinned chats
+				Chats.Remove(v);
+				FilteredChats.Remove(v);
+
+				OnPropertyChanged("PinnedChats");
+				OnPropertyChanged("FilteredPinnedChats");
+				OnPropertyChanged("Chats");
+				OnPropertyChanged("FilteredChats");
 			}
 		});
 
