@@ -136,38 +136,48 @@
     
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
         <Grid Margin="25,15">
+            
+            <!--list our contact chats-->
             <StackPanel>
                 
                 <!--title-->
                 <!--pinned chat-->
                 <StackPanel Orientation="Horizontal">
-                    <Path Data="{StaticResource pinned}" Fill="Black" StrokeThickness="1" Stroke="Black"/>
-                    <!--Style="{StaticResource {x:Type Path}}"/>-->
-                    <TextBlock Text="Pinned" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
+                    <Path Fill="Black" Data="{StaticResource pinned}" StrokeThickness="1" Stroke="Black"/>
+                    <TextBlock Margin="10,0" Text="Pinned Chats" FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                    
                 </StackPanel>
 
-                <!--chatlist-->
-                <ItemsControl ItemsSource="{Binding FilteredPinnedChats}" 
-                              ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
-                    <ItemsControl.DataContext>
-                        <viewmodel:ViewModel/>
-                    </ItemsControl.DataContext>
-                </ItemsControl>
                 
-                <!--all chats-->
-                <StackPanel Orientation="Horizontal">
-                    <Path Data="{StaticResource allchats}" Fill="Black"/>
-                    <!--Style="{StaticResource {x:Type Path}}"/>-->
-                    <TextBlock Text="All Chats" FontWeight="SemiBold" VerticalAlignment="Center" Margin="10,0"/>
-                </StackPanel>
-
-                <ItemsControl ItemsSource="{Binding FilteredChats}" 
-                            ItemTemplate="{StaticResource ChatButtonItemTemplate}" Padding="0,15">
+                <!--chat list-->
+                <ItemsControl ItemsSource="{Binding FilteredPinnedChats}"
+                              ItemTemplate="{StaticResource ChatButtonItemTemplate}"
+                              Padding="0,15">
                     <ItemsControl.DataContext>
                         <viewmodel:ViewModel/>
                     </ItemsControl.DataContext>
                 </ItemsControl>
 
+
+                <!--all chats-->
+                <!--title-->
+                <StackPanel Orientation="Horizontal">
+                    <Path Fill="Black" Data="{StaticResource allchats}"/>
+                    <TextBlock Margin="10,0" Text="All Chats" FontWeight="SemiBold"
+               VerticalAlignment="Center"/>
+
+                </StackPanel>
+
+
+                <!--chat list-->
+                <ItemsControl ItemsSource="{Binding FilteredChats}"
+              ItemTemplate="{StaticResource ChatButtonItemTemplate}"
+              Padding="0,15">
+                    <ItemsControl.DataContext>
+                        <viewmodel:ViewModel/>
+                    </ItemsControl.DataContext>
+                </ItemsControl>
             </StackPanel>
         </Grid>
     </ScrollViewer>

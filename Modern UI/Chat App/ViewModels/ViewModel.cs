@@ -177,8 +177,8 @@ namespace Chat_App.ViewModels
 
 		//});
 
-		protected ICommand _getSelectChatCommand;
-		public ICommand GetSelectChatCommand => _getSelectChatCommand ??= new RelayCommand(parameter =>
+		protected ICommand _getSelectedChatCommand;
+		public ICommand GetSelectedChatCommand => _getSelectedChatCommand ??= new RelayCommand(parameter =>
 		{
 			if (parameter is ChatListData v)
 			{
@@ -189,6 +189,8 @@ namespace Chat_App.ViewModels
 			}
 		});
 
+
+		//pin chat
 		protected ICommand _pinChatCommand;
 		public ICommand PinChatCommand => _pinChatCommand ??= new RelayCommand(parameter =>
 		{
@@ -200,6 +202,8 @@ namespace Chat_App.ViewModels
 					PinnedChats = new ObservableCollection<ChatListData>();
 					FilteredPinnedChats = new ObservableCollection<ChatListData>();
 				}
+
+
 				//add selected chat to pinned chat
 				PinnedChats.Add(v);
 				FilteredPinnedChats.Add(v);
