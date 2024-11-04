@@ -112,9 +112,54 @@
                                                     <ColumnDefinition/>
                                                 </Grid.ColumnDefinitions>
                                                 <UniformGrid Columns="4" Grid.Column="1">
-                                                    <Button Content="{StaticResource pinned}" Style="{StaticResource IconButtonStyle}"
-                                                            Command="{Binding DataContext.PinChatCommand, ElementName=_Chats}"
-                                                            CommandParameter="{Binding}"/>
+                                                    <!--<Button Content="{StaticResource pinned}"
+                                                            Command=""
+                                                            CommandParameter="{Binding}">-->
+                                                    <Button CommandParameter="{Binding}">
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                <!--unpinned chat-->
+                                                                <Setter Property="Content" Value="{StaticResource pinned}"/>
+                                                                <Setter Property="Command" Value="{Binding DataContext.PindChatCommand, ElementName=_Chats}"/>
+                                                                
+                                                                <Style.Triggers>
+                                                                    <!--pinned chat style-->
+                                                                    <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
+                                                                        <Setter Property="Content" Value="{StaticResource unpin}"/>
+                                                                        <Setter Property="Command" Value="{Binding DataContext.UnPinChatCommand, ElementName=_Chats}"/>
+                                                                    </DataTrigger>
+
+                                                                    <!--normal unpinned chat style-->
+                                                                    <!--<DataTrigger Binding="{Binding ChatIsPinned}" Value="False">
+                                                                        <Setter Property="Content" Value="{StaticResource pinned}"/>
+                                                                        <Setter Property="Command" Value="{Binding DataContext.PinChatCommand, ElementName=_Chats}"/>
+                                                                    </DataTrigger>-->
+                                                                </Style.Triggers>
+
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
+
+
+                                                    <Button CommandParameter="{Binding}">
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                <!--normal chat style-->
+                                                                <Setter Property="Content" Value="{StaticResource archive}"/>
+                                                                <Setter Property="Command" Value="{Binding DataContext.ArchieChatCommand, ElementName=_Chats}"/>
+
+                                                                <Style.Triggers>
+                                                                    <!-- chat style-->
+                                                                    <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
+                                                                        <Setter Property="Content" Value="{StaticResource unarchive}"/>
+                                                                        <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
+                                                                    </DataTrigger>
+
+                                                                </Style.Triggers>
+
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
                                                     <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
                                                     <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
                                                     <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
