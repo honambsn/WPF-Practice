@@ -125,7 +125,14 @@
                     <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
 
                     <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0" Text="Search text"
-                             VerticalContentAlignment="Center" VerticalAlignment="Stretch"/>
+                             VerticalContentAlignment="Center" VerticalAlignment="Stretch">
+                        
+                        
+                        <TextBox.InputBindings>
+                            <!--key binding to search on 'enter' key press-->
+                            <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
                 </Border>
                 <!--#endregion-->
                 

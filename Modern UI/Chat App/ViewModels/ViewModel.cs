@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
@@ -23,10 +24,94 @@ namespace Chat_App.ViewModels
 		public string ContactName { get; set; }
 		public Uri ContactPhoto { get; set; }
 		public string LatestSeen { get; set; }
-		#endregion
+		
+		# region Search Chats
+		protected string LastSearchText { get; set; }
+		protected string mSearchText { get; set; }
+		public string SearchText
+		{
+			get => mSearchText;
+			set
+			{
+				if (mSearchText == value)
+					return;
+				mSearchText = value;
+
+				//if(string.IsNullOrEmpty(mSearchText))
+				//{
+				//	FilteredChats = new ObservableCollection<ChatListData>(Chats);
+				//	FilteredPinnedChats = new ObservableCollection<ChatListData>(PinnedChats);
+				//}
+				//else
+				//{
+				//	FilteredChats = new ObservableCollection<ChatListData>(Chats.Where(x => x.ContactName.ToLower().Contains(mSearchText.ToLower())));
+				//	FilteredPinnedChats = new ObservableCollection<ChatListData>(PinnedChats.Where(x => x.ContactName.ToLower().Contains(mSearchText.ToLower())));
+				//}
+
+				if (string.IsNullOrEmpty(SearchText))
+					Search();
+			}
+		}
 
 		#endregion
 
+		#endregion
+
+		#region Logics
+		protected void Search()
+		{
+			if (string.IsNullOrEmpty(LastSearchText) && string.IsNullOrEmpty(SearchText) || string.Equals(LastSearchText, SearchText))
+				return;
+			
+			if(string.IsNullOrEmpty(SearchText) || Chats == null || Chats.Count <= 0)
+			{
+				FilteredChats = new ObservableCollection<ChatListData>(Chats ?? Enumerable.Empty<ChatListData>());
+				FilteredPinnedChats = new ObservableCollection<ChatListData>(Chats ?? Enumerable.Empty<ChatListData>());
+
+				//update last search textx
+				LastSearchText = SearchText;
+				return;
+			}
+
+			FilteredChats = new ObservableCollection<ChatListData>(
+				Chats.Where(
+					chat => chat.ContactName.ToLower().Contains(SearchText)
+					|| chat.Message != null && chat.Message.ToLower().Contains(SearchText)
+					));
+			
+			
+			FilteredPinnedChats = new ObservableCollection<ChatListData>(
+				PinnedChats.Where(
+					chat => chat.ContactName.ToLower().Contains(SearchText)
+					|| chat.Message != null && chat.Message.ToLower().Contains(SearchText)
+					));
+
+			LastSearchText = SearchText;
+
+			//FilteredChats = new ObservableCollection<ChatListData>(Chats.Where(chat => chat.ContactName.ToLower(SearchText) || ));
+		}
+		#endregion
+
+		#region Commands
+		/// <summary>
+		/// Search command
+		/// </summary>
+		protected ICommand _searchCommand;
+		public ICommand SearchCommand
+		{
+			get
+			{
+				if (_searchCommand == null)
+					_searchCommand = new CommandViewModel(Search);
+				return _searchCommand;
+			}
+
+			set
+			{
+				_searchCommand = value;
+			}
+		}
+		#endregion
 		#region status thumbs
 		#region Properties
 		public ObservableCollection<StatusDataModel> statusThumbsCollection { get; set; }
@@ -371,4 +456,6 @@ namespace Chat_App.ViewModels
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
+
+	#endregion
 }
