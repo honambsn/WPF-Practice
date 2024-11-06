@@ -58,7 +58,7 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#region Logics
-		protected void Search()
+		public void Search()
 		{
 			if (string.IsNullOrEmpty(LastSearchText) && string.IsNullOrEmpty(SearchText) || string.Equals(LastSearchText, SearchText))
 				return;
@@ -66,8 +66,10 @@ namespace Chat_App.ViewModels
 			if(string.IsNullOrEmpty(SearchText) || Chats == null || Chats.Count <= 0)
 			{
 				FilteredChats = new ObservableCollection<ChatListData>(Chats ?? Enumerable.Empty<ChatListData>());
-				FilteredPinnedChats = new ObservableCollection<ChatListData>(Chats ?? Enumerable.Empty<ChatListData>());
-
+				OnPropertyChanged("FilteredChats");
+				
+				FilteredPinnedChats = new ObservableCollection<ChatListData>(PinnedChats ?? Enumerable.Empty<ChatListData>());
+				OnPropertyChanged("FilteredPinnedChats");
 				//update last search textx
 				LastSearchText = SearchText;
 				return;
@@ -78,14 +80,15 @@ namespace Chat_App.ViewModels
 					chat => chat.ContactName.ToLower().Contains(SearchText)
 					|| chat.Message != null && chat.Message.ToLower().Contains(SearchText)
 					));
-			
-			
+			OnPropertyChanged("FilteredChats");
+
+
 			FilteredPinnedChats = new ObservableCollection<ChatListData>(
 				PinnedChats.Where(
-					chat => chat.ContactName.ToLower().Contains(SearchText)
-					|| chat.Message != null && chat.Message.ToLower().Contains(SearchText)
+					pinnedchat => pinnedchat.ContactName.ToLower().Contains(SearchText)
+					|| pinnedchat.Message != null && pinnedchat.Message.ToLower().Contains(SearchText)
 					));
-
+			OnPropertyChanged("FilteredPinnedChats");
 			LastSearchText = SearchText;
 
 			//FilteredChats = new ObservableCollection<ChatListData>(Chats.Where(chat => chat.ContactName.ToLower(SearchText) || ));
@@ -180,9 +183,14 @@ namespace Chat_App.ViewModels
 
 				//updating filtered chats to match
 				FilteredChats = new ObservableCollection<ChatListData>(mChats);
-				OnPropertyChanged();
+				//OnPropertyChanged("Chats");
+				//OnPropertyChanged("FilteredChats");
+				OnPropertyChanged("Chats");
+				OnPropertyChanged("FilteredChats");
+
 			}
 
+			
 		}
 
 		public ObservableCollection<ChatListData> PinnedChats
@@ -199,7 +207,10 @@ namespace Chat_App.ViewModels
 
 				//updating filtered chats to match
 				FilteredPinnedChats = new ObservableCollection<ChatListData>(mPinnedChats);
-				OnPropertyChanged();
+				//OnPropertyChanged("PinnedChats");
+				//OnPropertyChanged("FilteredPinnedChats");
+				OnPropertyChanged("PinnedChats");
+				OnPropertyChanged("FilteredPinnedChats");
 			}
 
 		}
@@ -251,7 +262,7 @@ namespace Chat_App.ViewModels
 					LatestMessageTime="12:00"
 				},
 			};
-			OnPropertyChanged("Chats");
+			OnPropertyChanged();
 		}
 		#endregion
 
@@ -282,37 +293,23 @@ namespace Chat_App.ViewModels
 			
 			if(parameter is ChatListData v)
 			{
-				//if (PinnedChats == null)
-				//{
-				//	PinnedChats = new ObservableCollection<ChatListData>();
-				//	FilteredPinnedChats = new ObservableCollection<ChatListData>();
-				//}
-
 				if(!FilteredPinnedChats.Contains(v))
 				{
 					//add selected chat to pinned chat
 					PinnedChats.Add(v);
 					FilteredPinnedChats.Add(v);
+					OnPropertyChanged("PinnedChats");
+					OnPropertyChanged("FilteredPinnedChats");
 					v.ChatIsPinned = false;
 
 					//remove selected chat from all chats / unpinned chats
 					Chats.Remove(v);
 					FilteredChats.Remove(v);
-					
+					OnPropertyChanged("Chats");
+					OnPropertyChanged("FilteredChats");
+
 				}
 
-				//add selected chat to pinned chat
-				//PinnedChats.Add(v);
-				//FilteredPinnedChats.Add(v);
-
-				//remove selected chat from all chats / unpinned chats
-				//Chats.Remove(v);
-				//FilteredChats.Remove(v);
-
-				//OnPropertyChanged("PinnedChats");
-				//OnPropertyChanged("FilteredPinnedChats");
-				//OnPropertyChanged("Chats");
-				//OnPropertyChanged("FilteredChats");
 			}
 		});
 
@@ -335,7 +332,9 @@ namespace Chat_App.ViewModels
 					//add selected chat to normal unpinned chat list
 					Chats.Add(v);
 					FilteredChats.Add(v);
-					
+					OnPropertyChanged("Chats");
+					OnPropertyChanged("FilteredChats");
+
 					//PinnedChats.Add(v);
 					//FilteredPinnedChats.Add(v);
 
@@ -344,21 +343,10 @@ namespace Chat_App.ViewModels
 					//FilteredChats.Remove(v);
 					PinnedChats.Remove(v);
 					FilteredPinnedChats.Remove(v);
+					OnPropertyChanged("PinnedChats");
+					OnPropertyChanged("FilteredPinnedChats");
 					v.ChatIsPinned = false;
 				}
-
-				//add selected chat to pinned chat
-				//PinnedChats.Add(v);
-				//FilteredPinnedChats.Add(v);
-
-				//remove selected chat from all chats / unpinned chats
-				//Chats.Remove(v);
-				//FilteredChats.Remove(v);
-
-				//OnPropertyChanged("PinnedChats");
-				//OnPropertyChanged("FilteredPinnedChats");
-				//OnPropertyChanged("Chats");
-				//OnPropertyChanged("FilteredChats");
 			}
 		});
 

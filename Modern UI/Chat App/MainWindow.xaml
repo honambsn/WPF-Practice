@@ -124,7 +124,8 @@
                         FocusManager.FocusedElement="{Binding ElementName=searchQuery}">
                     <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
 
-                    <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0" Text="Search text"
+                    <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0"
+                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                              VerticalContentAlignment="Center" VerticalAlignment="Stretch">
                         
                         
