@@ -169,6 +169,7 @@ namespace Chat_App.ViewModels
 		#region Properties
 		public ObservableCollection<ChatListData> mChats;
 		public ObservableCollection<ChatListData> mPinnedChats;
+		
 		public ObservableCollection<ChatListData> Chats
 		{
 			get => mChats;
@@ -212,8 +213,10 @@ namespace Chat_App.ViewModels
 				OnPropertyChanged("PinnedChats");
 				OnPropertyChanged("FilteredPinnedChats");
 			}
-
 		}
+
+		public ObservableCollection<ChatListData> ArchiveChats { get; set; }
+
 
 		//Filtering Chat, pinned chat
 		public ObservableCollection<ChatListData> FilteredChats { get; set; }
@@ -230,7 +233,7 @@ namespace Chat_App.ViewModels
 					ContactName="Rosé",
 					ContactPhoto=new Uri("/Assets/assets/img2.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
-					LatestMessageTime="12:00",
+					LastMessageTime="12:00",
 					ChatIsSelected=true,
 				},
 				new ChatListData
@@ -238,28 +241,28 @@ namespace Chat_App.ViewModels
 					ContactName="Rosé",		
 					ContactPhoto=new Uri("/Assets/assets/img4.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
-					LatestMessageTime="12:00"
+					LastMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
 					ContactPhoto=new Uri("/Assets/assets/img6.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
-					LatestMessageTime="12:00"
+					LastMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
 					ContactPhoto=new Uri("/Assets/assets/img9.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
-					LatestMessageTime="12:00"
+					LastMessageTime="12:00"
 				},
 				new ChatListData
 				{
 					ContactName="Rosé",
 					ContactPhoto=new Uri("/Assets/assets/img10.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
-					LatestMessageTime="12:00"
+					LastMessageTime="12:00"
 				},
 			};
 			OnPropertyChanged();
@@ -350,6 +353,83 @@ namespace Chat_App.ViewModels
 			}
 		});
 
+		/// <summary>
+		/// archive chat command
+		/// </summary>
+		protected ICommand _archiveChatCommand;
+		public ICommand ArchiveChatCommand => _archiveChatCommand ??= new RelayCommand(parameter =>
+		{
+			//if (parameter is ChatListData v)
+			//{
+			//	//remove selected chat from all chats / unpinned chats
+			//	Chats.Remove(v);
+			//	FilteredChats.Remove(v);
+			//	OnPropertyChanged("Chats");
+			//	OnPropertyChanged("FilteredChats");
+			//}
+			if ( parameter is ChatListData v)
+			{
+				if (!ArchiveChats.Contains(v))
+				{
+
+					//remove chat from pinned & unpinned chat list
+					Chats.Remove(v);
+					FilteredChats.Remove(v);
+
+					PinnedChats.Remove(v);
+					FilteredPinnedChats.Remove(v);
+
+					//add chat in archive list
+					ArchiveChats.Add(v);
+					v.ChatIsArchived = true;
+					v.ChatIsPinned = false;
+					
+					//update lists
+					OnPropertyChanged("Chats");
+					OnPropertyChanged("FilteredChats");
+					OnPropertyChanged("PinnedChats");
+					OnPropertyChanged("FilteredPinnedChats");
+				}
+			}
+		});
+
+
+		/// <summary>
+		/// unarchive chat command
+		/// </summary>
+		protected ICommand _UnArchiveChatCommand;
+		public ICommand UnArchiveChatCommand => _UnArchiveChatCommand ??= new RelayCommand(parameter =>
+		{
+			//if (parameter is ChatListData v)
+			//{
+			//	//remove selected chat from all chats / unpinned chats
+			//	Chats.Remove(v);
+			//	FilteredChats.Remove(v);
+			//	OnPropertyChanged("Chats");
+			//	OnPropertyChanged("FilteredChats");
+			//}
+			if (parameter is ChatListData v)
+			{
+				if (!FilteredChats.Contains(v))
+				{
+					Chats.Add(v);
+					FilteredChats.Add(v);
+				}
+				//add chat in archive list
+				ArchiveChats.Remove(v);
+				v.ChatIsArchived = false;
+				v.ChatIsPinned = false;
+
+					//update lists
+					//OnPropertyChanged("Chats");
+					//OnPropertyChanged("FilteredChats");
+					//OnPropertyChanged("PinnedChats");
+					//OnPropertyChanged("FilteredPinnedChats");
+			}
+		});
+
+		#endregion
+
 
 		protected string messageText;
 		public string MessageText
@@ -436,6 +516,7 @@ namespace Chat_App.ViewModels
 			LoadChats();
 			LoadChatConversation();
 			PinnedChats = new ObservableCollection<ChatListData>();
+			ArchiveChats = new ObservableCollection<ChatListData>();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -445,5 +526,5 @@ namespace Chat_App.ViewModels
 		}
 	}
 
-	#endregion
+	
 }
