@@ -150,7 +150,7 @@
 
                                                                 <Style.Triggers>
                                                                     <!-- chat style-->
-                                                                    <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
+                                                                    <DataTrigger Binding="{Binding ChatIsArchived}" Value="True">
                                                                         <Setter Property="Content" Value="{StaticResource unarchive}"/>
                                                                         <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
                                                                     </DataTrigger>
@@ -195,18 +195,23 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Grid x:Name="bg" Opacity=".6"/>
+                                <Grid Grid.Column="2"
+                                    x:Name="bg" Opacity=".6"/>
 
-                                <Path Data="{TemplateBinding Content}"
+                                <Path Data="{Binding Content, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type RadioButton}}}"
+                                      Fill="Black"
                                     Margin="20,0"
                                       HorizontalAlignment="Left"
                                       Style="{StaticResource {x:Type Path}}"/>
 
                                 <TextBlock
-                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
                                     FontWeight="SemiBold"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    TextAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                    <!--HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">-->
                                     
                                     <Run Text="Archived ("/>
                                     
@@ -255,17 +260,35 @@
             
                 <!--pinned/ unpinned chats list-->
                 <StackPanel>
-                
+                    <StackPanel.Style>
+                        <Style TargetType="{x:Type StackPanel}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding FilteredPinnedChats.Count}" Value="0">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
                     <!--title-->
                     <!--pinned chat-->
                     <StackPanel Orientation="Horizontal">
+                        <!--<StackPanel.Style>
+                            <Style TargetType="{x:Type StackPanel}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding FilteredPinnedChats.Count}" Value="0">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>-->
+
                         <Path Fill="Black" Data="{StaticResource pinned}" StrokeThickness="1" Stroke="Black"/>
                         <TextBlock Margin="10,0" Text="Pinned Chats" FontWeight="SemiBold"
                                    VerticalAlignment="Center"/>
-                    
+
                     </StackPanel>
 
-                
+
                     <!--chat list-->
                     <ItemsControl ItemsSource="{Binding FilteredPinnedChats}"
                                   ItemTemplate="{StaticResource ChatButtonItemTemplate}"
@@ -275,6 +298,9 @@
                         </ItemsControl.DataContext>
                     </ItemsControl>
 
+
+                </StackPanel>
+                <StackPanel Grid.Row="1">
 
                     <!--all chats-->
                     <!--title-->
@@ -326,6 +352,7 @@
                         Content="{StaticResource back}"
                         x:Name="btnCloseArchive"
                         GroupName="Archive"
+                        IsChecked="True"
                         Margin="0,15"
                         Style="{StaticResource ArchiveButtonStyle}"/>
 

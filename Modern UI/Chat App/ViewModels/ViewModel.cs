@@ -215,7 +215,11 @@ namespace Chat_App.ViewModels
 			}
 		}
 
-		public ObservableCollection<ChatListData> ArchiveChats { get; set; }
+		protected ObservableCollection<ChatListData> _archivedChats;
+		public ObservableCollection<ChatListData> ArchiveChats { get=> _archivedChats; set{
+				_archivedChats = value;
+				OnPropertyChanged();
+			} }
 
 
 		//Filtering Chat, pinned chat
@@ -303,7 +307,7 @@ namespace Chat_App.ViewModels
 					FilteredPinnedChats.Add(v);
 					OnPropertyChanged("PinnedChats");
 					OnPropertyChanged("FilteredPinnedChats");
-					v.ChatIsPinned = false;
+					v.ChatIsPinned = true;
 
 					//remove selected chat from all chats / unpinned chats
 					Chats.Remove(v);
@@ -311,8 +315,16 @@ namespace Chat_App.ViewModels
 					OnPropertyChanged("Chats");
 					OnPropertyChanged("FilteredChats");
 
-				}
 
+					if(ArchiveChats != null)
+					{
+						if (!ArchiveChats.Contains(v))
+						{
+							ArchiveChats.Remove(v);
+							v.ChatIsArchived = false;
+						}
+					}
+				}
 			}
 		});
 
@@ -338,12 +350,9 @@ namespace Chat_App.ViewModels
 					OnPropertyChanged("Chats");
 					OnPropertyChanged("FilteredChats");
 
-					//PinnedChats.Add(v);
-					//FilteredPinnedChats.Add(v);
+					
 
 					//remove selected unpinned chats
-					//Chats.Remove(v);
-					//FilteredChats.Remove(v);
 					PinnedChats.Remove(v);
 					FilteredPinnedChats.Remove(v);
 					OnPropertyChanged("PinnedChats");
@@ -359,18 +368,22 @@ namespace Chat_App.ViewModels
 		protected ICommand _archiveChatCommand;
 		public ICommand ArchiveChatCommand => _archiveChatCommand ??= new RelayCommand(parameter =>
 		{
-			//if (parameter is ChatListData v)
-			//{
-			//	//remove selected chat from all chats / unpinned chats
-			//	Chats.Remove(v);
-			//	FilteredChats.Remove(v);
-			//	OnPropertyChanged("Chats");
-			//	OnPropertyChanged("FilteredChats");
-			//}
 			if ( parameter is ChatListData v)
 			{
 				if (!ArchiveChats.Contains(v))
 				{
+
+					//remove chat from pinned & unpinned chat list
+					//Chats.Remove(v);
+					//FilteredChats.Remove(v);
+
+					//PinnedChats.Remove(v);
+					//FilteredPinnedChats.Remove(v);
+
+					//add chat in archive list
+					ArchiveChats.Add(v);
+					v.ChatIsArchived = true;
+					v.ChatIsPinned = false;
 
 					//remove chat from pinned & unpinned chat list
 					Chats.Remove(v);
@@ -379,16 +392,12 @@ namespace Chat_App.ViewModels
 					PinnedChats.Remove(v);
 					FilteredPinnedChats.Remove(v);
 
-					//add chat in archive list
-					ArchiveChats.Add(v);
-					v.ChatIsArchived = true;
-					v.ChatIsPinned = false;
-					
 					//update lists
 					OnPropertyChanged("Chats");
 					OnPropertyChanged("FilteredChats");
 					OnPropertyChanged("PinnedChats");
 					OnPropertyChanged("FilteredPinnedChats");
+					OnPropertyChanged("ArchiveChats");
 				}
 			}
 		});
@@ -400,31 +409,36 @@ namespace Chat_App.ViewModels
 		protected ICommand _UnArchiveChatCommand;
 		public ICommand UnArchiveChatCommand => _UnArchiveChatCommand ??= new RelayCommand(parameter =>
 		{
-			//if (parameter is ChatListData v)
-			//{
-			//	//remove selected chat from all chats / unpinned chats
-			//	Chats.Remove(v);
-			//	FilteredChats.Remove(v);
-			//	OnPropertyChanged("Chats");
-			//	OnPropertyChanged("FilteredChats");
-			//}
 			if (parameter is ChatListData v)
 			{
+				//if (!FilteredChats.Contains(v) && !Chats.Contains(v))
+				//{
+				//	Chats.Add(v);
+				//	FilteredChats.Add(v);
+				//}
+				////add chat in archive list
+				//ArchiveChats.Remove(v);
+				//v.ChatIsArchived = false;
+				//v.ChatIsPinned = false;
+
+				//OnPropertyChanged("Chats");
+				//OnPropertyChanged("FilteredChats");
+				//OnPropertyChanged("ArchivedChats");
 				if (!FilteredChats.Contains(v))
 				{
+					//add selected chat to normal unpinned chat list
 					Chats.Add(v);
 					FilteredChats.Add(v);
-				}
-				//add chat in archive list
-				ArchiveChats.Remove(v);
-				v.ChatIsArchived = false;
-				v.ChatIsPinned = false;
+					OnPropertyChanged("Chats");
+					OnPropertyChanged("FilteredChats");
 
-					//update lists
-					//OnPropertyChanged("Chats");
-					//OnPropertyChanged("FilteredChats");
-					//OnPropertyChanged("PinnedChats");
-					//OnPropertyChanged("FilteredPinnedChats");
+					//remove selected unpinned chats
+					PinnedChats.Remove(v);
+					FilteredPinnedChats.Remove(v);
+					OnPropertyChanged("PinnedChats");
+					OnPropertyChanged("FilteredPinnedChats");
+					v.ChatIsPinned = false;
+				}
 			}
 		});
 
