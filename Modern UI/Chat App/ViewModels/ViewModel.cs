@@ -234,7 +234,7 @@ namespace Chat_App.ViewModels
 			{
 				new ChatListData
 				{
-					ContactName="Rosé",
+					ContactName="Billy",
 					ContactPhoto=new Uri("/Assets/assets/img2.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LastMessageTime="12:00",
@@ -242,21 +242,21 @@ namespace Chat_App.ViewModels
 				},
 				new ChatListData
 				{
-					ContactName="Rosé",		
+					ContactName="Mike",		
 					ContactPhoto=new Uri("/Assets/assets/img4.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LastMessageTime="12:00"
 				},
 				new ChatListData
 				{
-					ContactName="Rosé",
+					ContactName="Steve",
 					ContactPhoto=new Uri("/Assets/assets/img6.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LastMessageTime="12:00"
 				},
 				new ChatListData
 				{
-					ContactName="Rosé",
+					ContactName="John",
 					ContactPhoto=new Uri("/Assets/assets/img9.jpg", UriKind.RelativeOrAbsolute),
 					Message="Hello",
 					LastMessageTime="12:00"
@@ -289,6 +289,8 @@ namespace Chat_App.ViewModels
 				OnPropertyChanged("ContactName");
 				ContactPhoto = v.ContactPhoto;
 				OnPropertyChanged("ContactPhoto");
+
+				LoadChatConversation(v);
 			}
 		});
 
@@ -461,19 +463,50 @@ namespace Chat_App.ViewModels
 		#region Converations
 		#region Properties
 		protected ObservableCollection<ChatConversation> mConversations;
-		public ObservableCollection<ChatConversation> Conversations 
+		
+		public ObservableCollection<ChatConversation> Conversations
 		{
 			get => mConversations;
 			set
 			{
+				if (mConversations == value)
+					return;
+
 				mConversations = value;
-				OnPropertyChanged();
+
+				FilteredConversations = new ObservableCollection<ChatConversation>(mConversations);
+				OnPropertyChanged("Conversations");
+				OnPropertyChanged("FilteredConversations");
 			}
 		}
+
+		/// <summary>
+		/// filterd conversation
+		/// </summary>
+		public ObservableCollection<ChatConversation> FilteredConversations { get; set; }
+
+		protected string LastSearchConversationText;
+		protected string mSearchConversationText;
+		public string SearchConversationText
+		{
+			get => mSearchConversationText;
+
+			set
+			{
+				if (mSearchConversationText == value)
+					return;
+
+				mSearchConversationText = value;
+
+				if (string.IsNullOrEmpty(mSearchConversationText))
+					SearchInConversation();
+			}
+		}
+
 		#endregion
 
 		#region Logics
-		void LoadChatConversation()
+		void LoadChatConversation(ChatListData chat)
 		{
 			if (connection.State == ConnectionState.Closed)
 			{
@@ -483,8 +516,13 @@ namespace Chat_App.ViewModels
 			{
 				Conversations = new ObservableCollection<ChatConversation>();
 			}
-			using (SqlCommand com = new SqlCommand("select * from conversations where ContactName='Mike'", connection))
+
+			Conversations.Clear();
+			FilteredConversations.Clear();
+
+			using (SqlCommand com = new SqlCommand("select * from conversations where ContactName=@ContactName", connection))
 			{
+				com.Parameters.AddWithValue("@ContactName", chat.ContactName);
 				using (SqlDataReader reader = com.ExecuteReader())
 				{
 					Conversations = new ObservableCollection<ChatConversation>();
@@ -516,19 +554,67 @@ namespace Chat_App.ViewModels
 						};
 						Conversations.Add(conversation);
 						OnPropertyChanged("Conversations");
+
+						FilteredConversations.Add(conversation);
+						OnPropertyChanged("FilteredConversations");
+
 					}
 				}
 			}
 		}
+
+		void SearchInConversation()
+		{
+			if (string.IsNullOrEmpty(LastSearchConversationText) && string.IsNullOrEmpty(SearchConversationText) || string.Equals(LastSearchConversationText, SearchConversationText))
+				return;
+
+			if (string.IsNullOrEmpty(SearchConversationText) || Conversations == null || Conversations.Count <= 0)
+			{
+				FilteredConversations = new ObservableCollection<ChatConversation>(Conversations ?? Enumerable.Empty<ChatConversation>());
+				OnPropertyChanged("FilteredConversations");
+
+				//update last search textx
+				LastSearchConversationText = SearchConversationText;
+				return;
+			}
+
+			FilteredConversations = new ObservableCollection<ChatConversation>(
+				Conversations.Where(
+					chat => chat.ReceivedMessage.ToLower().Contains(SearchConversationText)
+					|| chat.SentMessage.ToLower().Contains(SearchConversationText)
+					));
+			OnPropertyChanged("FilteredConversations");
+
+
+			
+			LastSearchConversationText = SearchConversationText;
+		}
 		#endregion
 
+		#region Commands
+		protected ICommand _searchConversationCommand;
+		public ICommand SearchConversationCommand
+		{
+			get
+			{
+				if (_searchConversationCommand == null)
+					_searchConversationCommand = new CommandViewModel(SearchInConversation);
+				return _searchConversationCommand;
+			}
+
+			set
+			{
+				_searchConversationCommand = value;
+			}
+		}
+		#endregion
 		#endregion
 		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf"";Integrated Security=True;Connect Timeout=30");
 		public ViewModel()
 		{
 			LoadStatusThumbs();
 			LoadChats();
-			LoadChatConversation();
+			//LoadChatConversation();
 			PinnedChats = new ObservableCollection<ChatListData>();
 			ArchiveChats = new ObservableCollection<ChatListData>();
 		}
