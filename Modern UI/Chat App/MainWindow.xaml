@@ -111,7 +111,9 @@
                     <TextBlock Text="Chats" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
                     
                     <!--search button-->
-                    <Button Grid.Column="2" x:Name="btnChatSearchButton" Content="{StaticResource search}" Style="{StaticResource IconButtonStyle}"/>
+                    <Button Grid.Column="2" 
+                            Command="{Binding OpenSearchCommand}"
+                            x:Name="btnChatSearchButton" Content="{StaticResource search}" Style="{StaticResource IconButtonStyle}"/>
                     
                     <!--more options popup menu-->
                     <ToggleButton x:Name="btnMoreOptions" Grid.Column="3"
@@ -124,6 +126,18 @@
                         FocusManager.FocusedElement="{Binding ElementName=searchQuery}">
                     <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
 
+                    <!--hide searchbox when not focused-->
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsSearchBoxOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=False}"
+                                             Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
                     <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0"
                              Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                              VerticalContentAlignment="Center" VerticalAlignment="Stretch">
@@ -132,6 +146,9 @@
                         <TextBox.InputBindings>
                             <!--key binding to search on 'enter' key press-->
                             <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>
+                            
+                            <!--key binding to close searchbox on 'esc' key press-->
+                            <KeyBinding Command="{Binding ClearSearchCommand}" Key="Escape"/>
                         </TextBox.InputBindings>
                     </TextBox>
                 </Border>

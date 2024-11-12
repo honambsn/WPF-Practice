@@ -11,8 +11,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace Chat_App.ViewModels
@@ -24,8 +26,27 @@ namespace Chat_App.ViewModels
 		public string ContactName { get; set; }
 		public Uri ContactPhoto { get; set; }
 		public string LatestSeen { get; set; }
-		
-		# region Search Chats
+
+		#region Search Chats
+		protected bool _isSearchConversationBoxOpen;
+		public bool IsSearchConversationBoxOpen
+		{
+			get => _isSearchConversationBoxOpen;
+			set
+			{
+				if (_isSearchConversationBoxOpen == value)
+					return;
+
+				_isSearchConversationBoxOpen = value;
+
+				if(!_isSearchConversationBoxOpen)
+				{
+					SearchConversationText = string.Empty;
+				}
+				OnPropertyChanged("IsSearchConversationBoxOpen");
+				OnPropertyChanged("SearchConversationText");
+			}
+		}
 		protected string LastSearchText { get; set; }
 		protected string mSearchText { get; set; }
 		public string SearchText
@@ -58,6 +79,21 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#region Logics
+		
+		public void OpenSearchBox()
+		{
+			IsSearchBoxOpen = true;
+		}
+
+		public void ClearSearchBox()
+		{
+			if (!string.IsNullOrEmpty(SearchText))
+				SearchText = string.Empty;
+			else CloseSearchBox();
+		}
+
+		public void CloseSearchBox() => IsSearchBoxOpen = false;
+
 		public void Search()
 		{
 			if (string.IsNullOrEmpty(LastSearchText) && string.IsNullOrEmpty(SearchText) || string.Equals(LastSearchText, SearchText))
@@ -97,21 +133,72 @@ namespace Chat_App.ViewModels
 
 		#region Commands
 		/// <summary>
-		/// Search command
+		/// open search command
 		/// </summary>
-		protected ICommand _searchCommand;
-		public ICommand SearchCommand
+		protected ICommand _openConversationSearchCommand;
+		public ICommand OpenConversationSearchCommand
 		{
 			get
 			{
-				if (_searchCommand == null)
-					_searchCommand = new CommandViewModel(Search);
-				return _searchCommand;
+				if (_openConversationSearchCommand == null)
+					_openConversationSearchCommand = new CommandViewModel(OpenConversationSearchBox);
+				return _openConversationSearchCommand;
+			}
+			set
+			{
+				_openConversationSearchCommand = value;
+			}
+		}
+
+		/// <summary>
+		/// clear search command
+		/// </summary>
+		protected ICommand _clearConversationSearchCommand;
+		public ICommand ClearConversationSearchCommand
+		{
+			get
+			{
+				if (_clearConversationSearchCommand == null)
+					_clearConversationSearchCommand = new CommandViewModel(ClearConversationSearchBox);
+				return _clearConversationSearchCommand;
+			}
+			set
+			{
+				_clearConversationSearchCommand = value;
+			}
+		}
+
+		protected ICommand _closeConversationSearchCommand;
+		public ICommand CloseConversationSearchCommand
+		{
+			get
+			{
+				if (_closeConversationSearchCommand == null)
+					_closeConversationSearchCommand = new CommandViewModel(CloseConversationSearchBox);
+				return _closeConversationSearchCommand;
+			}
+			set
+			{
+				_closeConversationSearchCommand = value;
+			}
+		}
+
+		/// <summary>
+		/// Search command
+		/// </summary>
+		protected ICommand _searchConversationCommand;
+		public ICommand SearchConversationCommand
+		{
+			get
+			{
+				if (_searchConversationCommand == null)
+					_searchConversationCommand = new CommandViewModel(SearchInConversation);
+				return _searchConversationCommand;
 			}
 
 			set
 			{
-				_searchCommand = value;
+				_searchConversationCommand = value;
 			}
 		}
 		#endregion
@@ -462,6 +549,29 @@ namespace Chat_App.ViewModels
 
 		#region Converations
 		#region Properties
+
+		protected bool _isConversationSearchBoxOpen;
+		public bool IsConversationSearchBoxOpen
+		{
+			get => _isConversationSearchBoxOpen;
+			set
+			{
+				if (_isConversationSearchBoxOpen == value)
+					return;
+
+				_isConversationSearchBoxOpen = value;
+
+				if (!_isConversationSearchBoxOpen)
+				{
+					//SearchConversationText = string.Empty;
+					SearchConversationText = string.Empty;
+				}
+				OnPropertyChanged("IsConversationSearchBoxOpen");
+				//OnPropertyChanged("SearchConversationText");
+				OnPropertyChanged("SearchConversationText");
+			}
+		}
+
 		protected ObservableCollection<ChatConversation> mConversations;
 		
 		public ObservableCollection<ChatConversation> Conversations
