@@ -139,16 +139,16 @@
                         </Style>
                     </Border.Style>
                     <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0"
-                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                             Text="{Binding SearchConversationText, UpdateSourceTrigger=PropertyChanged}"
                              VerticalContentAlignment="Center" VerticalAlignment="Stretch">
                         
                         
                         <TextBox.InputBindings>
                             <!--key binding to search on 'enter' key press-->
-                            <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>
+                            <KeyBinding Command="{Binding SearchConversationCommand}" Key="Return"/>
                             
                             <!--key binding to close searchbox on 'esc' key press-->
-                            <KeyBinding Command="{Binding ClearSearchCommand}" Key="Escape"/>
+                            <KeyBinding Command="{Binding ClearConversationSearchCommand}" Key="Escape"/>
                         </TextBox.InputBindings>
                     </TextBox>
                 </Border>
@@ -213,7 +213,9 @@
                     <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}" Content="{StaticResource call}"/>
                     
                     <!--search btn-->
-                    <Button Grid.Column="3" Style="{StaticResource IconButtonStyle}" Content="{StaticResource search}"/>
+                    <Button 
+                        Command="{Binding OpenConversationSearchCommand}"
+                        Grid.Column="3" Style="{StaticResource IconButtonStyle}" Content="{StaticResource search}"/>
                     
                     <!--more opts btn-->
                     <ToggleButton Grid.Column="4"

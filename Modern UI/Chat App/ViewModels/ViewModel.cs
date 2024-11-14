@@ -80,19 +80,19 @@ namespace Chat_App.ViewModels
 
 		#region Logics
 		
-		public void OpenSearchBox()
+		public void OpenConversationSearchBox()
 		{
-			IsSearchBoxOpen = true;
+			IsSearchConversationBoxOpen = true;
 		}
 
-		public void ClearSearchBox()
+		public void ClearConversationSearchBox()
 		{
-			if (!string.IsNullOrEmpty(SearchText))
-				SearchText = string.Empty;
-			else CloseSearchBox();
+			if (!string.IsNullOrEmpty(SearchConversationText))
+				SearchConversationText = string.Empty;
+			else CloseConversationSearchBox();
 		}
 
-		public void CloseSearchBox() => IsSearchBoxOpen = false;
+		public void CloseConversationSearchBox() => IsSearchConversationBoxOpen = false;
 
 		public void Search()
 		{
@@ -701,23 +701,7 @@ namespace Chat_App.ViewModels
 		}
 		#endregion
 
-		#region Commands
-		protected ICommand _searchConversationCommand;
-		public ICommand SearchConversationCommand
-		{
-			get
-			{
-				if (_searchConversationCommand == null)
-					_searchConversationCommand = new CommandViewModel(SearchInConversation);
-				return _searchConversationCommand;
-			}
 
-			set
-			{
-				_searchConversationCommand = value;
-			}
-		}
-		#endregion
 		#endregion
 		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf"";Integrated Security=True;Connect Timeout=30");
 		public ViewModel()

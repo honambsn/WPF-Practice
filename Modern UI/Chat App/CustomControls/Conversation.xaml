@@ -172,6 +172,19 @@
                 x:Name="searchBoxBorder"
                 FocusManager.FocusedElement="{Binding ElementName=searchQuery}">
 
+            <!--hide searchbox when no text-->
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsSearchConversationBoxOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=False}"
+                         Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
             <TextBox Name="searchQuery" Padding="12,0" Background="Transparent" BorderThickness="0"
                      Text="{Binding SearchConversationText, UpdateSourceTrigger=PropertyChanged}"
                      VerticalContentAlignment="Center" VerticalAlignment="Stretch">
@@ -180,6 +193,9 @@
                 <TextBox.InputBindings>
                     <!--key binding to search on 'enter' key press-->
                     <KeyBinding Command="{Binding SearchConversationCommand}" Key="Return"/>
+                    
+                    <!--key binding to close searchbox on 'esc' key press-->
+                    <KeyBinding Command="{Binding ClearConversationSearchCommand}" Key="Escape"/>
                 </TextBox.InputBindings>
             </TextBox>
         </Border>
