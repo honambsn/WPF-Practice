@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Chat_App.CustomControls" xmlns:viewmodel="clr-namespace:Chat_App.ViewModels"
+             xmlns:local="clr-namespace:Chat_App.CustomControls" xmlns:viewmodel="clr-namespace:Chat_App.ViewModels" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" MinWidth="406"
              x:Name="_Chats">
     <UserControl.Resources>
@@ -239,6 +239,15 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!--animation on chat item add-->
+        <ItemsPanelTemplate x:Key="dtitemPanel">
+            <StackPanel>
+                <b:Interaction.Behaviors>
+                    <b:FluidMoveBehavior AppliesTo="Children" Duration="00:00:00.25"/>
+                </b:Interaction.Behaviors>
+            </StackPanel>
+        </ItemsPanelTemplate>
     </UserControl.Resources>
     
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
@@ -292,6 +301,7 @@
                     <!--chat list-->
                     <ItemsControl ItemsSource="{Binding FilteredPinnedChats}"
                                   ItemTemplate="{StaticResource ChatButtonItemTemplate}"
+                                  ItemsPanel="{StaticResource dtitemPanel}"
                                   Padding="0,15">
                         <ItemsControl.DataContext>
                             <viewmodel:ViewModel/>
@@ -314,8 +324,9 @@
 
                     <!--chat list-->
                     <ItemsControl ItemsSource="{Binding FilteredChats}"
-                  ItemTemplate="{StaticResource ChatButtonItemTemplate}"
-                  Padding="0,15">
+                      ItemTemplate="{StaticResource ChatButtonItemTemplate}"
+                        ItemsPanel="{StaticResource dtitemPanel}"
+                        Padding="0,15">
                         <ItemsControl.DataContext>
                             <viewmodel:ViewModel/>
                         </ItemsControl.DataContext>
@@ -360,6 +371,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         ItemsSource="{Binding ArchivedChats}"
+                        ItemsPanel="{StaticResource dtitemPanel}"
                         ItemTemplate="{StaticResource ChatButtonItemTemplate}"/>
                 </StackPanel>
             </Grid>

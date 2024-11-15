@@ -235,8 +235,10 @@
                         
                     </Grid.ColumnDefinitions>
                     
+                    <!-- open contact info on contact btn click-->
                     <!--contact info btn-->
-                    <Button Template="{StaticResource ContactInfoButtonTemplate}" 
+                    <Button Command="{Binding OpenContactInfoCommand}"
+                            Template="{StaticResource ContactInfoButtonTemplate}" 
                             Style="{StaticResource ContactInfoButonStyle}"/>
                     
                     <!--videocall btn-->

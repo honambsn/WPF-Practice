@@ -4,8 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Chat_App.CustomControls"
-             mc:Ignorable="d" MaxWidth="406">
+             mc:Ignorable="d"
+             Width="0"
+             MaxWidth="406">
+    <UserControl.Style>
+        
+        <Style TargetType="{x:Type UserControl}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsContactInfoOpen, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="4" AccelerationRatio=".8">
+                                <DoubleAnimation Storyboard.TargetProperty="Width" From="0" To="406"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard SpeedRatio="4" DecelerationRatio="1">
+                                <DoubleAnimation Storyboard.TargetProperty="Width" From="406" To="0"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
     <UserControl.Resources>
+        <!--to hide contactinfo on startup and show it when a contact is selected-->
+
+        
         <Style x:Key="MediaButtonsStyle" TargetType="Button">
             <Setter Property="Width" Value="105"/>
             <Setter Property="Height" Value="105"/>
@@ -41,6 +70,7 @@
 
         <Button Margin="15, 0"
                 HorizontalAlignment="Left"
+                Command="{Binding CloseContactInfoCommand}"
                 Content="{StaticResource close}"
                 Style="{StaticResource IconButtonStyle}"/>
 

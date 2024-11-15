@@ -202,6 +202,8 @@ namespace Chat_App.ViewModels
 			}
 		}
 		#endregion
+		#endregion
+
 		#region status thumbs
 		#region Properties
 		public ObservableCollection<StatusDataModel> statusThumbsCollection { get; set; }
@@ -545,7 +547,6 @@ namespace Chat_App.ViewModels
 			}
 		}
 		#endregion
-		#endregion
 
 		#region Converations
 		#region Properties
@@ -703,6 +704,68 @@ namespace Chat_App.ViewModels
 
 
 		#endregion
+
+		#region ContactInfo
+		#region Properties
+		protected bool _IsContactInfoOpen;
+		public bool IsContactInfoOpen
+		{
+			get => _IsContactInfoOpen;
+			set
+			{
+				_IsContactInfoOpen = value;
+				OnPropertyChanged("IsContactInfoOpen");
+			}
+
+		}
+		#endregion
+
+		#region  Logics
+		public void OpenContactInfo() => IsContactInfoOpen = true;
+		public void CloseContactInfo() => IsContactInfoOpen = false;
+		#endregion
+
+		#region Commands
+		/// <summary>
+		/// open Contactinfo command
+		/// </summary>
+		protected ICommand _openContactInfoCommand;
+		public ICommand OpenContactInfoCommand
+		{
+			get
+			{
+				if (_openContactInfoCommand == null)
+					_openContactInfoCommand = new CommandViewModel(OpenContactInfo);
+				return _openContactInfoCommand;
+			}
+
+			set
+			{
+				_openContactInfoCommand = value;
+			}
+		}
+
+		/// <summary>
+		/// close Contactinfo command
+		/// </summary>
+		protected ICommand _closeContactInfoCommand;
+		public ICommand CloseContactInfoCommand
+		{
+			get
+			{
+				if (_closeContactInfoCommand == null)
+					_closeContactInfoCommand = new CommandViewModel(CloseContactInfo);
+				return _closeContactInfoCommand;
+			}
+
+			set
+			{
+				_closeContactInfoCommand = value;
+			}
+		}
+		#endregion
+		#endregion
+
 		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf"";Integrated Security=True;Connect Timeout=30");
 		public ViewModel()
 		{
