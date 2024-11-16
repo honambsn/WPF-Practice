@@ -29,13 +29,20 @@
                                     <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
                                             BorderBrush="{TemplateBinding BorderBrush}" x:Name="border" CornerRadius="20" 
                                             Padding="{TemplateBinding Padding}"
-                                            SnapsToDevicePixels="True">     
+                                            SnapsToDevicePixels="True">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
                                             </Grid.RowDefinitions>
 
+                                            <Border Grid.RowSpan="3"
+                                                    x:Name="bdChild"
+                                                    CornerRadius="20"
+                                                    Margin="-10"
+                                                    Background="Transparent"
+                                                    HorizontalAlignment="Stretch"
+                                                    VerticalAlignment="Stretch"/>
                                             <!--#region Contact details-->
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
@@ -94,82 +101,133 @@
                                                     </TextBlock>
                                                 </Grid>
                                                 <!--#endregion-->
-                                                
+
                                                 <!--last message time-->
                                                 <Grid Grid.Column="2">
                                                     <TextBlock Text="{Binding LatestMessageTime}" HorizontalAlignment="Right"/>
                                                 </Grid>
-                                                <Separator VerticalAlignment="Bottom" BorderThickness=".5" 
-                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>
+                                                <!--<Separator VerticalAlignment="Bottom" BorderThickness=".5" 
+                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>-->
                                             </Grid>
                                             <!--#endregion-->
 
 
                                             <!--#region Options-->
-                                            <Grid Grid.Row="1" Height="auto">
-                                                <Grid.ColumnDefinitions>
+                                            <Grid x:Name="OptionsGrid"
+                                                Grid.Row="1"
+                                                  Height="0">
+                                                <!--<Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="50"/>
                                                     <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>
-                                                <UniformGrid Columns="4" Grid.Column="1">
-                                                    
-                                                    <!--pin/unpin chat button-->
-                                                    <Button CommandParameter="{Binding}">
-                                                        <Button.Style>
-                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
-                                                                <!--unpinned chat-->
-                                                                <Setter Property="Content" Value="{StaticResource pinned}"/>
-                                                                <Setter Property="Command" Value="{Binding DataContext.PindChatCommand, ElementName=_Chats}"/>
-                                                                
-                                                                <Style.Triggers>
-                                                                    <!--pinned chat style-->
-                                                                    <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
-                                                                        <Setter Property="Content" Value="{StaticResource unpin}"/>
-                                                                        <Setter Property="Command" Value="{Binding DataContext.UnPinChatCommand, ElementName=_Chats}"/>
-                                                                    </DataTrigger>
+                                                </Grid.ColumnDefinitions>-->
 
-                                                                    <!--normal unpinned chat style-->
-                                                                    <!--<DataTrigger Binding="{Binding ChatIsPinned}" Value="False">
+                                                <!--<Separator VerticalAlignment="Bottom" BorderThickness=".5" 
+                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>-->
+
+                                                <StackPanel>
+
+
+                                                    <Separator Margin="0,10,0,0"/>
+
+                                                    <UniformGrid Columns="4" Grid.Column="1">
+
+                                                        <!--pin/unpin chat button-->
+                                                        <Button CommandParameter="{Binding}">
+                                                            <Button.Style>
+                                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                    <!--unpinned chat-->
+                                                                    <Setter Property="Content" Value="{StaticResource pinned}"/>
+                                                                    <Setter Property="Command" Value="{Binding DataContext.PindChatCommand, ElementName=_Chats}"/>
+
+                                                                    <Style.Triggers>
+                                                                        <!--pinned chat style-->
+                                                                        <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
+                                                                            <Setter Property="Content" Value="{StaticResource unpin}"/>
+                                                                            <Setter Property="Command" Value="{Binding DataContext.UnPinChatCommand, ElementName=_Chats}"/>
+                                                                        </DataTrigger>
+
+                                                                        <!--normal unpinned chat style-->
+                                                                        <!--<DataTrigger Binding="{Binding ChatIsPinned}" Value="False">
                                                                         <Setter Property="Content" Value="{StaticResource pinned}"/>
                                                                         <Setter Property="Command" Value="{Binding DataContext.PinChatCommand, ElementName=_Chats}"/>
                                                                     </DataTrigger>-->
-                                                                </Style.Triggers>
+                                                                    </Style.Triggers>
 
-                                                            </Style>
-                                                        </Button.Style>
-                                                    </Button>
+                                                                </Style>
+                                                            </Button.Style>
+                                                        </Button>
 
 
-                                                    <!--archive/unarchive chat button-->
-                                                    <Button CommandParameter="{Binding}">
-                                                        <Button.Style>
-                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
-                                                                <!--normal chat style-->
-                                                                <Setter Property="Content" Value="{StaticResource archive}"/>
-                                                                <Setter Property="Command" Value="{Binding DataContext.ArchiveChatCommand, ElementName=_Chats}"/>
+                                                        <!--archive/unarchive chat button-->
+                                                        <Button CommandParameter="{Binding}">
+                                                            <Button.Style>
+                                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                    <!--normal chat style-->
+                                                                    <Setter Property="Content" Value="{StaticResource archive}"/>
+                                                                    <Setter Property="Command" Value="{Binding DataContext.ArchiveChatCommand, ElementName=_Chats}"/>
 
-                                                                <Style.Triggers>
-                                                                    <!-- chat style-->
-                                                                    <DataTrigger Binding="{Binding ChatIsArchived}" Value="True">
-                                                                        <Setter Property="Content" Value="{StaticResource unarchive}"/>
-                                                                        <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
-                                                                    </DataTrigger>
+                                                                    <Style.Triggers>
+                                                                        <!-- chat style-->
+                                                                        <DataTrigger Binding="{Binding ChatIsArchived}" Value="True">
+                                                                            <Setter Property="Content" Value="{StaticResource unarchive}"/>
+                                                                            <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
+                                                                        </DataTrigger>
 
-                                                                </Style.Triggers>
+                                                                    </Style.Triggers>
 
-                                                            </Style>
-                                                        </Button.Style>
-                                                    </Button>
-                                                    <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
-                                                    <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
-                                                    <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
-                                                </UniformGrid>
+                                                                </Style>
+                                                            </Button.Style>
+                                                        </Button>
+                                                        <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
+                                                        <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
+                                                        <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
+                                                    </UniformGrid>
+                                                </StackPanel>
                                             </Grid>
                                             <!--#endregion-->
 
                                         </Grid>
 
                                     </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard SpeedRatio="5">
+                                                        <DoubleAnimation Storyboard.TargetName="OptionsGrid" Storyboard.TargetProperty="Height" To="40"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="(Background).Color" From="Transparent" To="#49a078"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard SpeedRatio="5">
+                                                        <DoubleAnimation Storyboard.TargetName="OptionsGrid" Storyboard.TargetProperty="Height" To="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="(Background).Color" From="#49a078" To="Transparent"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard SpeedRatio="5">
+                                                        <!--<DoubleAnimation Storyboard.TargetProperty="Height" To="40"/>-->
+                                                        <ColorAnimation Storyboard.TargetName="bdChild" Storyboard.TargetProperty="(Background).Color" From="Transparent" To="#dce1de"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard SpeedRatio="5">
+                                                        <ColorAnimation Storyboard.TargetName="bdChild" Storyboard.TargetProperty="(Background).Color" From="#dce1de" To="Transparent"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

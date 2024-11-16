@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\chat app\\customcontrols\\chatlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\customcontrols\\chatlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\customcontrols\\chatlist.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\modern ui\\chat app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\chat app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FBC9EB9F-2E9E-4437-9FE1-5B09076DBD7D}|Chat App\\Chat App.csproj|solutionrelative:chat app\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -68,20 +68,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Chat App\\MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
-              "RelativeToolTip": "Chat App\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-22T02:47:52.686Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -92,8 +80,7 @@
               "RelativeToolTip": "Chat App\\ViewModels\\ViewModel.cs",
               "ViewState": "AgIAAMECAAAAAAAAAAAjwOwCAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T02:40:56.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T02:40:56.515Z"
             },
             {
               "$type": "Document",
@@ -104,8 +91,30 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\Conversation.xaml",
               "RelativeToolTip": "Chat App\\CustomControls\\Conversation.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-22T02:44:29.979Z",
+              "WhenOpened": "2024-10-22T02:44:29.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChatList.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml",
+              "RelativeDocumentMoniker": "Chat App\\CustomControls\\ChatList.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml",
+              "RelativeToolTip": "Chat App\\CustomControls\\ChatList.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-22T02:43:51.239Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Chat App\\MainWindow.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\MainWindow.xaml",
+              "RelativeToolTip": "Chat App\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-22T02:47:52.686Z"
             },
             {
               "$type": "Document",
@@ -116,20 +125,7 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ContactInfo.xaml",
               "RelativeToolTip": "Chat App\\CustomControls\\ContactInfo.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-23T02:02:03.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChatList.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml",
-              "RelativeDocumentMoniker": "Chat App\\CustomControls\\ChatList.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Modern UI\\Chat App\\CustomControls\\ChatList.xaml*",
-              "RelativeToolTip": "Chat App\\CustomControls\\ChatList.xaml*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-22T02:43:51.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T02:02:03.115Z"
             },
             {
               "$type": "Document",
@@ -141,8 +137,7 @@
               "RelativeToolTip": "Chat App\\Models\\ChatConversation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T02:55:17.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T02:55:17.204Z"
             },
             {
               "$type": "Document",
@@ -154,8 +149,7 @@
               "RelativeToolTip": "Chat App\\ViewModels\\ChatListData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-04T00:55:26.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T00:55:26.318Z"
             },
             {
               "$type": "Document",
@@ -176,8 +170,7 @@
               "RelativeToolTip": "Chat App\\Commands\\CommandViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T02:52:15.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T02:52:15.239Z"
             },
             {
               "$type": "Document",
@@ -189,8 +182,7 @@
               "RelativeToolTip": "Chat App\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T02:56:14.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T02:56:14.631Z"
             },
             {
               "$type": "Document",
@@ -202,8 +194,7 @@
               "RelativeToolTip": "Chat App\\CustomControls\\ContactInfo.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:44:21.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-23T23:44:21.622Z"
             },
             {
               "$type": "Document",
@@ -236,8 +227,7 @@
               "RelativeToolTip": "Chat App\\Commands\\RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T02:45:40.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T02:45:40.92Z"
             },
             {
               "$type": "Document",
@@ -249,8 +239,7 @@
               "RelativeToolTip": "Chat App\\CustomControls\\Conversation.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T02:44:28.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T02:44:28.16Z"
             }
           ]
         }
