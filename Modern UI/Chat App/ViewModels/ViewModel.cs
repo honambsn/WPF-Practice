@@ -314,6 +314,8 @@ namespace Chat_App.ViewModels
 		//Filtering Chat, pinned chat
 		public ObservableCollection<ChatListData> FilteredChats { get; set; }
 		public ObservableCollection<ChatListData> FilteredPinnedChats { get; set; }
+
+		public string MessageToReplyText { get; set; }
 		#endregion
 
 		#region Logics
@@ -614,6 +616,51 @@ namespace Chat_App.ViewModels
 			}
 		}
 
+		public bool FocusMessageBox { get; set; }
+		public bool IsThisAReplyMessage { get; set; }
+		protected ICommand _replyCommand;
+		public ICommand ReplyCommand => _replyCommand ??= new RelayCommand(parameter =>
+		{
+			if (parameter is ChatConversation v)
+			{
+				//if replying sender's message
+				if (v.IsMessageReceived)
+				{
+					MessageToReplyText = v.ReceivedMessage;
+				}
+				//if replying own message
+				else
+                {
+					MessageToReplyText = v.SentMessage;
+				}
+
+				//update
+				OnPropertyChanged("MessageToReplyText");
+
+				//set focus on message box when user click on reply button
+				FocusMessageBox = true;
+				OnPropertyChanged("FocusMessageBox");
+
+				//flag this message as reply message
+				IsThisAReplyMessage = true;
+				OnPropertyChanged("IsThisAReplyMessage");
+			}
+		});
+
+		protected ICommand _cancelReplyCommand;
+		public ICommand CancelReplyCommand
+		{
+			get
+			{
+				if (_cancelReplyCommand == null)
+					_cancelReplyCommand = new CommandViewModel(CancelReply);
+				return _cancelReplyCommand;
+			}
+			set
+			{
+				_cancelReplyCommand = value;
+			}
+		}
 		#endregion
 
 		#region Logics
@@ -668,10 +715,12 @@ namespace Chat_App.ViewModels
 
 						FilteredConversations.Add(conversation);
 						OnPropertyChanged("FilteredConversations");
-
 					}
 				}
 			}
+			//reset reply message text when the new chat is fetched
+			MessageToReplyText = string.Empty;
+			OnPropertyChanged("MessageToReplyText");
 		}
 
 		void SearchInConversation()
@@ -699,6 +748,15 @@ namespace Chat_App.ViewModels
 
 			
 			LastSearchConversationText = SearchConversationText;
+		}
+		
+		public void CancelReply()
+		{
+			IsThisAReplyMessage = false;
+			//reset messagetext
+			MessageToReplyText = string.Empty;
+			OnPropertyChanged("MessageToReplyText");
+
 		}
 		#endregion
 

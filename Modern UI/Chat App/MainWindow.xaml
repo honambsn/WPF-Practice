@@ -262,7 +262,50 @@
                 <!--conversation msg body-->
                 <!--<customcontrols:Conversation Grid.Row="1"/>-->
                 <customcontrols:Conversation Grid.Row="1"/>
-                
+                <!--reply specific message-->
+                <Border CornerRadius="15" Background="#dce1de" Margin="15" Grid.Row="2" Grid.Column="1">
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding MessageToReplyText}" Value="">
+                                    <!--hide border popup when no text in message to reply-->
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--message to reply text container-->
+                        <DockPanel Margin="20">
+                            <TextBlock Text="{Binding MessageToReplyText, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="FontSize" Value="15"/>
+                                        <Setter Property="FontWeight" Value="SemiBold"/>
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DockPanel>
+
+                        <!--button to close reply popup-->
+                        <Button Margin="10,0"
+                HorizontalAlignment="Center"
+                Content="{StaticResource close}"
+                Grid.Column="1"
+                Style="{StaticResource IconButtonStyle}" Command="{Binding CancelReplyCommand}"/>
+                    </Grid>
+                </Border>
                 <!--region textbox to send message-->
                 <Grid Grid.Row="3">
                     <Border Background="#dce1de" CornerRadius="15" Height="50" Margin="15,8">
@@ -283,6 +326,17 @@
                                 VerticalContentAlignment="Center"
                                 VerticalAlignment="Stretch"
                                 Text="{Binding MessageText}">
+                                
+                                <!--set focus on message box when border gets focused-->
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding FocusMessageBox,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=MessageBox}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
                             </TextBox>
 
                             <!--buttons-->
@@ -307,6 +361,8 @@
             
             <!--contact info-->
             <customcontrols:ContactInfo x:Name="ContactInfoScreen" Grid.Row="1" Grid.Column="2"/>
+            
+            
         </Grid>
     </Border>
     
