@@ -661,6 +661,21 @@ namespace Chat_App.ViewModels
 				_cancelReplyCommand = value;
 			}
 		}
+
+		protected ICommand _sendMessageCommand;
+		public ICommand SendMessageCommand
+		{
+			get
+			{
+				if (_sendMessageCommand == null)
+					_sendMessageCommand = new CommandViewModel(SendMessage);
+				return _sendMessageCommand;
+			}
+			set
+			{
+				_sendMessageCommand = value;
+			}
+		}
 		#endregion
 
 		#region Logics
@@ -757,6 +772,41 @@ namespace Chat_App.ViewModels
 			MessageToReplyText = string.Empty;
 			OnPropertyChanged("MessageToReplyText");
 
+		}
+
+		public void SendMessage()
+		{
+			//send message only when the text is not empty
+			if (!string.IsNullOrEmpty(MessageText))
+			{
+				var conversation = new ChatConversation()
+				{
+					ReceivedMessage = MessageToReplyText,
+					SentMessage = MessageText,
+					MsgSentOn = DateTime.Now.ToString("MMM dd, hh:mm tt"),
+					MessageContainsReply = IsThisAReplyMessage,
+				};
+
+				//add message to conversation list
+				FilteredConversations.Add(conversation);
+				Conversations.Add(conversation);
+
+				//clear message properties and textbox when message is sent
+				MessageText = string.Empty;
+				IsThisAReplyMessage = false;
+				MessageToReplyText = string.Empty;
+				
+
+
+				//update
+				OnPropertyChanged("FilteredConversations");
+				OnPropertyChanged("Conversations");
+				OnPropertyChanged("MessageText");
+				OnPropertyChanged("IsThisAReplyMessage");
+				OnPropertyChanged("MessageToReplyText");
+
+
+			}
 		}
 		#endregion
 

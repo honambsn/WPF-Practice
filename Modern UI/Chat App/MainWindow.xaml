@@ -325,22 +325,32 @@
                                 BorderThickness="0"
                                 VerticalContentAlignment="Center"
                                 VerticalAlignment="Stretch"
-                                Text="{Binding MessageText}">
+                                Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}">
                                 
                                 <!--set focus on message box when border gets focused-->
                                 <TextBox.Style>
                                     <Style TargetType="{x:Type TextBox}">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding FocusMessageBox,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                            <DataTrigger Binding="{Binding FocusMessageBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
                                                 <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=MessageBox}"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </TextBox.Style>
+
+                                <TextBox.InputBindings>
+                                    <!--key binding to search on 'enter' key press--><!--
+                                    <KeyBinding Command="{Binding SearchConversationCommand}" Key="Return"/>-->
+
+                                    <!--key binding to send message on 'Enter' key press-->
+                                    <KeyBinding Command="{Binding SendMessageCommand}" Key="Return" CommandParameter="{Binding }"/>
+                                </TextBox.InputBindings>
                             </TextBox>
 
                             <!--buttons-->
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                
+                                <!--to do command-->
                                 <Button 
                                     Content="{StaticResource attach}"
                                     x:Name="AttachButton"
@@ -348,7 +358,7 @@
                                 <Button 
                                     Content="{StaticResource send}"
                                     x:Name="SendMsgButton"
-                                    Style="{StaticResource IconButtonStyle}"/>
+                                    Style="{StaticResource IconButtonStyle}" Command="{Binding SendMessageCommand}"/>
                             </StackPanel>
                         </Grid>
                     </Border>

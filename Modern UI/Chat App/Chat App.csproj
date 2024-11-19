@@ -85,6 +85,9 @@
     <Compile Include="CustomControls\Conversation.xaml.cs">
       <DependentUpon>Conversation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\MoreOptionsPopup.xaml.cs">
+      <DependentUpon>MoreOptionsPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ChatConversation.cs" />
     <Compile Include="ViewModels\ChatListData.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
@@ -101,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CustomControls\Conversation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\MoreOptionsPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
