@@ -16,6 +16,7 @@
                 <Setter Property="Height" Value="20"/>
                 <Setter Property="Width" Value="20"/>
                 <Setter Property="Stretch" Value="Uniform"/>
+                <Setter Property="Fill" Value="Black"/>
 
                 <!--//to-do: add animations later-->
             </Style>

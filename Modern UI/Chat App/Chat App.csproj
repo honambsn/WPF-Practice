@@ -89,6 +89,7 @@
       <DependentUpon>MoreOptionsPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ChatConversation.cs" />
+    <Compile Include="Models\MoreOptionsMenu.cs" />
     <Compile Include="ViewModels\ChatListData.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Page Include="Assets\icons.xaml">

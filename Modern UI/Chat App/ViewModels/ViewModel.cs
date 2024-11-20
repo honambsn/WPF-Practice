@@ -14,13 +14,17 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Chat_App.ViewModels
 {
 	public class ViewModel : INotifyPropertyChanged
 	{
+		//initializing resource dictionary file
+		private readonly ResourceDictionary dictionary = Application.LoadComponent(new Uri("/ChatApp;component/Assets/icons.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 		#region MainWindow
 		#region Properties
 		public string ContactName { get; set; }
@@ -74,12 +78,49 @@ namespace Chat_App.ViewModels
 			}
 		}
 
+		//list containing the window options
+		private ObservableCollection<MoreOptionsMenu> _windowMoreOptionsMenuList;
+		public ObservableCollection<MoreOptionsMenu> WindowMoreOptionsMenuList
+		{
+			get => _windowMoreOptionsMenuList;
+			set
+			{
+				_windowMoreOptionsMenuList = value;
+		//		OnPropertyChanged();
+			}
+		}
+
 		#endregion
 
 		#endregion
 
 		#region Logics
-		
+
+		#region Window: More options popup
+		void WindowMoreOptionsMenu()
+		{
+			WindowMoreOptionsMenuList = new ObservableCollection<MoreOptionsMenu>()
+			{
+				new MoreOptionsMenu()
+				{
+					Icon = (PathGeometry)dictionary["newgroup"],
+					MenuText = "New Group"
+				},
+				new MoreOptionsMenu()
+				{
+					Icon = (PathGeometry)dictionary["newbroadcast"],
+					MenuText = "New Broadcast"
+				},
+				new MoreOptionsMenu()
+				{
+					Icon = (PathGeometry)dictionary["settings"],
+					MenuText = "Settings"
+				},
+			};
+			OnPropertyChanged("WindowMoreOptionsMenuList");
+		}
+
+		#endregion
 		public void OpenConversationSearchBox()
 		{
 			IsSearchConversationBoxOpen = true;
@@ -834,6 +875,24 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#region Commands
+		/// <summary>
+		/// 
+		/// </summary>
+		//protected ICommand _windowsMoreOptionsCommand;
+		//public ICommand WindowMoreOptionsCommand
+		//{
+		//	get
+		//	{
+		//		if (_windowMoreOptionsMenuList == null)
+		//			_windowsMoreOptionsCommand = new CommandViewModel(WindowMoreOptionsMenu);
+		//		return _windowsMoreOptionsCommand;
+		//	}
+		//	set
+		//	{
+		//		_windowMoreOptionsMenuList = value;
+		//	}
+		//}
+
 		/// <summary>
 		/// open Contactinfo command
 		/// </summary>
