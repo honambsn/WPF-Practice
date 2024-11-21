@@ -25,6 +25,8 @@ namespace Chat_App.ViewModels
 	{
 		//initializing resource dictionary file
 		private readonly ResourceDictionary dictionary = Application.LoadComponent(new Uri("/ChatApp;component/Assets/icons.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
+
+
 		#region MainWindow
 		#region Properties
 		public string ContactName { get; set; }
@@ -82,7 +84,10 @@ namespace Chat_App.ViewModels
 		private ObservableCollection<MoreOptionsMenu> _windowMoreOptionsMenuList;
 		public ObservableCollection<MoreOptionsMenu> WindowMoreOptionsMenuList
 		{
-			get => _windowMoreOptionsMenuList;
+			get
+			{
+				return _windowMoreOptionsMenuList;
+			}
 			set
 			{
 				_windowMoreOptionsMenuList = value;
@@ -173,6 +178,41 @@ namespace Chat_App.ViewModels
 		#endregion
 
 		#region Commands
+		protected ICommand _windowsMoreOptionsCommand;
+		public ICommand WindowsMoreOptionsCommand
+		{
+			get
+			{
+				if (_windowsMoreOptionsCommand == null)
+				{
+					_windowsMoreOptionsCommand = new CommandViewModel(WindowMoreOptionsMenu);
+				}
+				return _windowsMoreOptionsCommand;
+
+			}
+			set
+			{
+				_windowsMoreOptionsCommand = value;
+			}
+		}
+		/// <summary>
+		/// search command
+		/// </summary>
+		protected ICommand _openSearchCommand;
+		public ICommand OpenSearchCommand
+		{
+			get
+			{
+				if (_openSearchCommand == null)
+					_openSearchCommand = new CommandViewModel(OpenConversationSearchBox);
+				return _openSearchCommand;
+			}
+			set
+			{
+				_openSearchCommand = value;
+			}
+		}
+
 		/// <summary>
 		/// open search command
 		/// </summary>
