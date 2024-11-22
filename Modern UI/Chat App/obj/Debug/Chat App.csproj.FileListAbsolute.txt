@@ -1,33 +1,50 @@
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Assets\Database1.mdf
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.exe.config
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.exe
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Chat App.pdb
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Microsoft.Xaml.Behaviors.dll
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.AssemblyReference.cache
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ContactInfo.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\MoreOptionsPopup.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\StatusThumbs.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_Content.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.cache
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.lref
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ContactInfo.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\MoreOptionsPopup.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\StatusThumbs.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\MainWindow.baml
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.g.resources
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat_App.Properties.Resources.resources
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.GenerateResource.cache
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.CoreCompileInputs.cache
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.Up2Date
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.exe
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.SuggestedBindingRedirects.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csprojFakesResolveAssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\fakes.args
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\cs\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\de\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\en\Microsoft.Windows.Design.Extensibility.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\en\Microsoft.Windows.Design.Interaction.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\es\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\fr\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\it\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\ja\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\ko\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.fakesconfig
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Extensibility.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.VisualStudio.DesignTools.Interaction.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Windows.Design.Extensibility.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Windows.Design.Extensibility.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Windows.Design.Interaction.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Windows.Design.Interaction.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Xaml.Behaviors.Design.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Xaml.Behaviors.DesignTools.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Xaml.Behaviors.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Xaml.Behaviors.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\Microsoft.Xaml.Behaviors.xml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\pl\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\pt-BR\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\ru\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\tr\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\zh-Hans\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\b\zh-Hant\Microsoft.QualityTools.Testing.Fakes.resources.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.ah
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.ch
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.csproj
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.fakes
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.fakesconfig
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\f.snk
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\.NETFramework,Version=v4.8.AssemblyAttributes.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\f.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\f.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\f.csproj.FileListAbsolute.txt
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\f.csproj.Up2Date
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Fakes\mvsdte\o\Microsoft.VisualStudio.DesignTools.Extensibility.17.0.0.0.Fakes.pdb

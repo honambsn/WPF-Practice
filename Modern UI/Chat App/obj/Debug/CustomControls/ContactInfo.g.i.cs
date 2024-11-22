@@ -10,7 +10,6 @@
 //------------------------------------------------------------------------------
 
 using Chat_App.CustomControls;
-using Chat_App.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Windows;
