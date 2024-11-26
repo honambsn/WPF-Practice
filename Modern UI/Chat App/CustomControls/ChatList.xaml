@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Chat_App.CustomControls" xmlns:viewmodel="clr-namespace:Chat_App.ViewModels" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:local="clr-namespace:Chat_App.CustomControls" 
+             xmlns:viewmodels="clr-namespace:Chat_App.ViewModels" 
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" MinWidth="406"
              x:Name="_Chats">
     <UserControl.Resources>
@@ -18,18 +20,22 @@
                         <Setter Property="VerticalAlignment" Value="Center"/>
                         <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="BorderThickness" Value="0"/>
-                        <Setter Property="Command" Value="{Binding ContactName}"/>
-                        <Setter Property="CommandParameter" Value="{Binding ContactName}"/>
+                        <Setter Property="Command" Value="{Binding DataContext.GetSelectedChatCommand, ElementName=_Chats, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Setter Property="CommandParameter" Value="{Binding}"/>
                         <Setter Property="Content" Value="{Binding ContactName}"/>
                         <!--<Setter Property="IsChecked" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
 
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                    <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}" x:Name="border" CornerRadius="20" 
-                                            Padding="{TemplateBinding Padding}"
-                                            SnapsToDevicePixels="True">
+                                    <Border 
+                                        Background="{TemplateBinding Background}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        CornerRadius="20"
+                                        Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="True"
+                                        x:Name="border">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
@@ -44,35 +50,39 @@
                                                     HorizontalAlignment="Stretch"
                                                     VerticalAlignment="Stretch"/>
                                             <!--#region Contact details-->
-                                            <Grid Grid.Row="0">
+                                            <Grid 
+                                                Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <!--profile photo-->
-                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
 
                                                     <!--contact name & last message-->
                                                     <ColumnDefinition/>
 
                                                     <!--last message time-->
-                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
 
                                                 <Ellipse Width="50" Height="50">
                                                     <Ellipse.Fill>
-                                                        <!--<ImageBrush ImageSource="{Binding ContactPhoto, TargetNullValue="/assets/6.jpg",  Stretch="UniformToFill"/>-->
-                                                        <ImageBrush Stretch="UniformToFill" 
-                                                                    ImageSource="{Binding ContactPhoto, FallbackValue='/assets/6.jpg', TargetNullValue='/assets/6.jpg',UpdateSourceTrigger=PropertyChanged}"/>
+                                                        <ImageBrush 
+                                                            Stretch="UniformToFill"
+                                                            ImageSource="{Binding ContactPhoto, FallbackValue='/assets/5.jpg',TargetNullValue='/assets/5.jpg',
+                                                            UpdateSourceTrigger=PropertyChanged}"/>
                                                     </Ellipse.Fill>
                                                 </Ellipse>
 
 
                                                 <!--#region contact name & last message-->
-                                                <Grid Grid.Column="1" Margin="20,0">
+                                                <Grid 
+                                                    Grid.Column="1"
+                                                    Margin="20,0">
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition/>
+                                                        <RowDefinition/>
                                                     </Grid.RowDefinitions>
 
-                                                    <TextBlock Text="{Binding ContactName}" FontSize="20">
+                                                    <TextBlock Text="{Binding ContactName}" FontSize="15">
                                                         <TextBlock.Style>
                                                             <Style TargetType="{x:Type TextBlock}">
                                                                 <Setter Property="FontWeight" Value="SemiBold"/>
@@ -86,10 +96,12 @@
                                                         </TextBlock.Style>
                                                     </TextBlock>
 
-                                                    <TextBlock Grid.Row="1" Text="{Binding Message}">
+                                                    <TextBlock
+                                                        Grid.Row="1"
+                                                        Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
+                                                        TextTrimming="CharacterEllipsis">
                                                         <TextBlock.Style>
                                                             <Style TargetType="{x:Type TextBlock}">
-                                                                <Setter Property="FontWeight" Value="Normal"/>
                                                                 <Style.Triggers>
                                                                     <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" Value="True">
                                                                         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -104,10 +116,9 @@
 
                                                 <!--last message time-->
                                                 <Grid Grid.Column="2">
-                                                    <TextBlock Text="{Binding LatestMessageTime}" HorizontalAlignment="Right"/>
+                                                    <TextBlock Text="{Binding LastMessageTime, UpdateSourceTrigger=PropertyChanged}"
+                                                               HorizontalAlignment="Right"/>
                                                 </Grid>
-                                                <!--<Separator VerticalAlignment="Bottom" BorderThickness=".5" 
-                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>-->
                                             </Grid>
                                             <!--#endregion-->
 
@@ -115,72 +126,58 @@
                                             <!--#region Options-->
                                             <Grid x:Name="OptionsGrid"
                                                 Grid.Row="1"
-                                                  Height="0">
-                                                <!--<Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="50"/>
-                                                    <ColumnDefinition/>
-                                                </Grid.ColumnDefinitions>-->
-
-                                                <!--<Separator VerticalAlignment="Bottom" BorderThickness=".5" 
-                                                            BorderBrush="WhiteSmoke" Grid.ColumnSpan="2" Grid.Column="1"/>-->
-
+                                                Height="0">
                                                 <StackPanel>
+                                                <Separator Margin="0,10,0,0"/>
+
+                                                    <!--options buttons-->
+                                                <UniformGrid Columns="4" Grid.Column="1">
+
+                                                    <!--pin/unpin chat button-->
+                                                    <Button CommandParameter="{Binding}">
+                                                        <!--To show UnPin icon and Command to unpin when the chat is pinned-->
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                <!--unpinned chat-->
+                                                                <Setter Property="Content" Value="{StaticResource pinned}"/>
+                                                                <Setter Property="Command" Value="{Binding DataContext.PinChatCommand, ElementName=_Chats}"/>
+
+                                                                <Style.Triggers>
+                                                                    <!--pinned chat style-->
+                                                                    <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
+                                                                        <Setter Property="Content" Value="{StaticResource unpin}"/>
+                                                                        <Setter Property="Command" Value="{Binding DataContext.UnPinChatCommand, ElementName=_Chats}"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
 
 
-                                                    <Separator Margin="0,10,0,0"/>
+                                                    <!--archive/unarchive chat button-->
+                                                    <Button CommandParameter="{Binding}">
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
+                                                                <!--normal chat style-->
+                                                                <Setter Property="Content" Value="{StaticResource archive}"/>
+                                                                <Setter Property="Command" Value="{Binding DataContext.ArchiveChatCommand, ElementName=_Chats}"/>
 
-                                                    <UniformGrid Columns="4" Grid.Column="1">
+                                                                <Style.Triggers>
+                                                                    <!-- chat style-->
+                                                                    <DataTrigger Binding="{Binding ChatIsArchived}" Value="True">
+                                                                        <Setter Property="Content" Value="{StaticResource unarchive}"/>
+                                                                        <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
+                                                                    </DataTrigger>
 
-                                                        <!--pin/unpin chat button-->
-                                                        <Button CommandParameter="{Binding}">
-                                                            <Button.Style>
-                                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
-                                                                    <!--unpinned chat-->
-                                                                    <Setter Property="Content" Value="{StaticResource pinned}"/>
-                                                                    <Setter Property="Command" Value="{Binding DataContext.PindChatCommand, ElementName=_Chats}"/>
+                                                                </Style.Triggers>
 
-                                                                    <Style.Triggers>
-                                                                        <!--pinned chat style-->
-                                                                        <DataTrigger Binding="{Binding ChatIsPinned}" Value="True">
-                                                                            <Setter Property="Content" Value="{StaticResource unpin}"/>
-                                                                            <Setter Property="Command" Value="{Binding DataContext.UnPinChatCommand, ElementName=_Chats}"/>
-                                                                        </DataTrigger>
-
-                                                                        <!--normal unpinned chat style-->
-                                                                        <!--<DataTrigger Binding="{Binding ChatIsPinned}" Value="False">
-                                                                        <Setter Property="Content" Value="{StaticResource pinned}"/>
-                                                                        <Setter Property="Command" Value="{Binding DataContext.PinChatCommand, ElementName=_Chats}"/>
-                                                                    </DataTrigger>-->
-                                                                    </Style.Triggers>
-
-                                                                </Style>
-                                                            </Button.Style>
-                                                        </Button>
-
-
-                                                        <!--archive/unarchive chat button-->
-                                                        <Button CommandParameter="{Binding}">
-                                                            <Button.Style>
-                                                                <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonStyle}">
-                                                                    <!--normal chat style-->
-                                                                    <Setter Property="Content" Value="{StaticResource archive}"/>
-                                                                    <Setter Property="Command" Value="{Binding DataContext.ArchiveChatCommand, ElementName=_Chats}"/>
-
-                                                                    <Style.Triggers>
-                                                                        <!-- chat style-->
-                                                                        <DataTrigger Binding="{Binding ChatIsArchived}" Value="True">
-                                                                            <Setter Property="Content" Value="{StaticResource unarchive}"/>
-                                                                            <Setter Property="Command" Value="{Binding DataContext.UnArchiveChatCommand, ElementName=_Chats}"/>
-                                                                        </DataTrigger>
-
-                                                                    </Style.Triggers>
-
-                                                                </Style>
-                                                            </Button.Style>
-                                                        </Button>
-                                                        <Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>
-                                                        <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
-                                                        <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
+                                                    <!--<Button Content="{StaticResource archive}" Style="{StaticResource IconButtonStyle}"/>-->
+                                                    <Button Content="{StaticResource mute}" Style="{StaticResource IconButtonStyle}"/>
+                                                    <Button Content="{StaticResource trash}" Style="{StaticResource IconButtonStyle}"/>
                                                     </UniformGrid>
                                                 </StackPanel>
                                             </Grid>
@@ -194,7 +191,7 @@
                                             <Trigger.EnterActions>
                                                 <BeginStoryboard>
                                                     <Storyboard SpeedRatio="5">
-                                                        <DoubleAnimation Storyboard.TargetName="OptionsGrid" Storyboard.TargetProperty="Height" To="40"/>
+                                                        <DoubleAnimation Storyboard.TargetName="OptionsGrid" Storyboard.TargetProperty="Height" To="50"/>
                                                         <ColorAnimation Storyboard.TargetProperty="(Background).Color" From="Transparent" To="#49a078"/>
                                                     </Storyboard>
                                                 </BeginStoryboard>
@@ -240,8 +237,8 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--<Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>-->
             <Setter Property="Visibility" Value="Visible"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -253,7 +250,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <Grid Grid.Column="2"
+                                <Grid Grid.ColumnSpan="2"
                                     x:Name="bg" Opacity=".6"/>
 
                                 <Path Data="{Binding Content, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type RadioButton}}}"
@@ -274,14 +271,14 @@
                                     <Run Text="Archived ("/>
                                     
                                     <!--archive chats count-->
-                                    <Run Text="{Binding DatacContext.ArchiveChats.Count, Mode=OneWay,ElementName=_Chats}"/> 
+                                    <Run Text="{Binding DataContext.ArchivedChats.Count, Mode=OneWay, ElementName=_Chats}"/> 
                                     <Run Text=")"/>
                                 </TextBlock>
                             </Grid>
                         </Border>
 
                         <ControlTemplate.Triggers>
-                            <DataTrigger Binding="{Binding DatacContext.ArchiveChats.Count, ElementName=_Chats}" Value="0">
+                            <DataTrigger Binding="{Binding DataContext.ArchivedChats.Count, ElementName=_Chats}" Value="0">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                             </DataTrigger>
 
@@ -308,13 +305,13 @@
         </ItemsPanelTemplate>
     </UserControl.Resources>
     
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
-        <Grid Margin="25,15">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="15">
+        <Grid>
             <Grid>
                 <Grid.Style>
                     <Style TargetType="{x:Type Grid}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Visbility, ElementName=ArchivePanel}" Value="Visible">
+                            <DataTrigger Binding="{Binding Visibility, ElementName=ArchivePanel}" Value="Visible">
                                 <Setter Property="Visibility" Value="Collapsed"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -339,18 +336,8 @@
                     <!--title-->
                     <!--pinned chat-->
                     <StackPanel Orientation="Horizontal">
-                        <!--<StackPanel.Style>
-                            <Style TargetType="{x:Type StackPanel}">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding FilteredPinnedChats.Count}" Value="0">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Style>-->
-
                         <Path Fill="Black" Data="{StaticResource pinned}" StrokeThickness="1" Stroke="Black"/>
-                        <TextBlock Margin="10,0" Text="Pinned Chats" FontWeight="SemiBold"
+                        <TextBlock Margin="10,0" Text="Pinned" FontWeight="SemiBold"
                                    VerticalAlignment="Center"/>
 
                     </StackPanel>
@@ -361,9 +348,6 @@
                                   ItemTemplate="{StaticResource ChatButtonItemTemplate}"
                                   ItemsPanel="{StaticResource dtitemPanel}"
                                   Padding="0,15">
-                        <ItemsControl.DataContext>
-                            <viewmodel:ViewModel/>
-                        </ItemsControl.DataContext>
                     </ItemsControl>
 
 
@@ -385,54 +369,52 @@
                       ItemTemplate="{StaticResource ChatButtonItemTemplate}"
                         ItemsPanel="{StaticResource dtitemPanel}"
                         Padding="0,15">
-                        <ItemsControl.DataContext>
-                            <viewmodel:ViewModel/>
-                        </ItemsControl.DataContext>
+
                     </ItemsControl>
 
                     <RadioButton x:Name="btnOpenArchive" 
                                  GroupName="Archive"
                                  Style="{StaticResource ArchiveButtonStyle}"/>
                 </StackPanel>
-            
-                <!--archive chat-->
-                <StackPanel 
-                    Grid.Row="1"
-                    x:Name="ArchivePanel">
-                    <StackPanel.Style>
-                        <Style TargetType="{x:Type StackPanel}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding IsChecked, ElementName=btnOpenArchive}" Value="True">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-
-                                <DataTrigger Binding="{Binding IsChecked, ElementName=btnCloseArchive}" Value="True">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                                
-                                <DataTrigger Binding="{Binding Visibility, ElementName=btnCloseArchive}" Value="Collapsed">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </StackPanel.Style>
-
-                    <RadioButton 
-                        Content="{StaticResource back}"
-                        x:Name="btnCloseArchive"
-                        GroupName="Archive"
-                        IsChecked="True"
-                        Margin="0,15"
-                        Style="{StaticResource ArchiveButtonStyle}"/>
-
-                    <ItemsControl
-                        Background="Transparent"
-                        BorderThickness="0"
-                        ItemsSource="{Binding ArchivedChats}"
-                        ItemsPanel="{StaticResource dtitemPanel}"
-                        ItemTemplate="{StaticResource ChatButtonItemTemplate}"/>
-                </StackPanel>
             </Grid>
+
+            <!--archive chat-->
+            <StackPanel 
+    Grid.Row="1"
+    x:Name="ArchivePanel">
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=btnOpenArchive}" Value="True">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=btnCloseArchive}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding Visibility, ElementName=btnCloseArchive}" Value="Collapsed">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+
+                <RadioButton 
+        Content="{StaticResource back}"
+        x:Name="btnCloseArchive"
+        GroupName="Archive"
+        IsChecked="True"
+        Margin="0,15"
+        Style="{StaticResource ArchiveButtonStyle}"/>
+
+                <ItemsControl
+        Background="Transparent"
+        BorderThickness="0"
+        ItemsSource="{Binding ArchivedChats}"
+        ItemsPanel="{StaticResource dtitemPanel}"
+        ItemTemplate="{StaticResource ChatButtonItemTemplate}"/>
+            </StackPanel>
         </Grid>
     </ScrollViewer>
 </UserControl>

@@ -62,10 +62,10 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.DesignTools.Extensibility, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.DesignTools.Extensibility.17.10.34916.79\lib\net45\Microsoft.VisualStudio.DesignTools.Extensibility.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.DesignTools.Extensibility.17.1.32210.191\lib\net45\Microsoft.VisualStudio.DesignTools.Extensibility.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.DesignTools.Interaction, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.DesignTools.Extensibility.17.10.34916.79\lib\net45\Microsoft.VisualStudio.DesignTools.Interaction.dll</HintPath>
+      <HintPath>..\packages\Microsoft.VisualStudio.DesignTools.Extensibility.17.1.32210.191\lib\net45\Microsoft.VisualStudio.DesignTools.Interaction.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
