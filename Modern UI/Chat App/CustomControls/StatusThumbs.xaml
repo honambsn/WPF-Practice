@@ -86,6 +86,7 @@
         ItemTemplate="{StaticResource thumbsTemplate}" ItemsSource="{Binding statusThumbsCollection, UpdateSourceTrigger=PropertyChanged}">
         <ItemsControl.DataContext>
             <viewmodels:ViewModel/>
+            <!--error-->
         </ItemsControl.DataContext>
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
