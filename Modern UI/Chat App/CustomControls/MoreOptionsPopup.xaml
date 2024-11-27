@@ -105,7 +105,7 @@
             <DropShadowEffect BlurRadius="25" ShadowDepth="5" Direction="270" Color="#dce1de"/>
         </Border.Effect>
 
-        <ItemsControl Margin="10" ItemsSource="{Binding OptionsMenuList}">
+        <ItemsControl Margin="10" ItemsSource="{Binding WindowMoreOptionsMenuList}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Tag="{Binding Icon}" Content="{Binding MenuText}"/>
