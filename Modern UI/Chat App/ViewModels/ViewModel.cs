@@ -26,9 +26,8 @@ namespace Chat_App.ViewModels
 		//private readonly ResourceDictionary dictionary = Application.LoadComponent(new Uri("/ChatApp;component/Assets/icons.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 		private readonly ResourceDictionary dictionary = new ResourceDictionary
 		{
-			Source = new Uri("pack://application:,,,/assets/icons.xaml")
+			Source = new Uri("pack://application:,,,/ChatApp;component/assets/icons.xaml")
 		};
-
 
 		#region MainWindow
 		#region Properties

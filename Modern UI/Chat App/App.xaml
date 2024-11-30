@@ -4,46 +4,82 @@
              xmlns:local="clr-namespace:Chat_App"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
-        <!--loading  our icons-->
+        <!--Loading our icons-->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Assets/icons.xaml"/>
+                <ResourceDictionary Source="assets/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <!--default style for path's-->
+
+
+            <!--Cleaner ;)-->
+
+            <!--#region Animation Story Boards-->
+            <!--Mouse Enter Animation-->
+            <Storyboard x:Key="MouseEnterAnimation" SpeedRatio="5">
+                <DoubleAnimation Storyboard.TargetProperty="Height" To="22"/>
+                <DoubleAnimation Storyboard.TargetProperty="Width" To="22"/>
+            </Storyboard>
+            <!--Mouse Leave Animation-->
+            <Storyboard x:Key="MouseLeaveAnimation" SpeedRatio="5">
+                <DoubleAnimation Storyboard.TargetProperty="Height" To="20"/>
+                <DoubleAnimation Storyboard.TargetProperty="Width" To="20"/>
+            </Storyboard>
+            <!--#endregion-->
+
+            <!--Default Style for Path's-->
             <Style TargetType="{x:Type Path}">
                 <Setter Property="Height" Value="20"/>
                 <Setter Property="Width" Value="20"/>
                 <Setter Property="Stretch" Value="Uniform"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Fill" Value="Black"/>
 
-                <!--//to-do: add animations later-->
-            </Style>
+                <!--Path Animations-->
+                <Style.Triggers>
 
-            <!--style for the window buttons-->
+                    <!--Animation for icon in Buttons-->
+                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Button}}}" Value="True">
+                        <DataTrigger.EnterActions>
+                            <BeginStoryboard Storyboard="{StaticResource MouseEnterAnimation}"/>
+                        </DataTrigger.EnterActions>
+                        <DataTrigger.ExitActions>
+                            <BeginStoryboard Storyboard="{StaticResource MouseLeaveAnimation}"/>
+                        </DataTrigger.ExitActions>
+                    </DataTrigger>
+                    <!--Animation for icon in Toggle Buttons-->
+                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" Value="True">
+                        <DataTrigger.EnterActions>
+                            <BeginStoryboard Storyboard="{StaticResource MouseEnterAnimation}"/>
+                        </DataTrigger.EnterActions>
+                        <DataTrigger.ExitActions>
+                            <BeginStoryboard Storyboard="{StaticResource MouseLeaveAnimation}"/>
+                        </DataTrigger.ExitActions>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <!--Style for buttons with Icon-->
             <Style x:Key="IconButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="BorderThickness" Value="0"/>
                 <Setter Property="Height" Value="50"/>
                 <Setter Property="Width" Value="50"/>
-                <!--<Setter Property="Padding" Value="20"/>-->
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Background="{TemplateBinding Background}">
-                                <Path Data="{TemplateBinding Content}" 
-                                      Fill="{TemplateBinding Foreground}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Style="{StaticResource {x:Type Path}}"/> 
+                            <Border 
+                                Background="{TemplateBinding Background}">
+                                <Path
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Data="{TemplateBinding Content}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Style="{StaticResource {x:Type Path}}"/>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
-
-
 
             <Style x:Key="ToggleIconButtonStyle" TargetType="{x:Type ToggleButton}">
                 <Setter Property="Background" Value="Transparent"/>
@@ -53,35 +89,45 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ToggleButton}">
-                            <Border Background="{TemplateBinding Background}">
-                                <Path Data="{TemplateBinding Content}" Fill="{TemplateBinding Foreground}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                      Style="{StaticResource {x:Type Path}}"/>
+                            <Border 
+                                Background="{TemplateBinding Background}">
+                                <Path
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Data="{TemplateBinding Content}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Style="{StaticResource {x:Type Path}}"/>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
-            
-            <!--styling scroll bar-->
+
+
+            <!--Styling Scroll Bar-->
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Thumb}">
                             <Grid x:Name="Grid">
-                                <Rectangle HorizontalAlignment="Stretch"
-                                           VerticalAlignment="Stretch"
-                                           Width="auto" Height="auto" Fill="Transparent"/>
-                                <Border x:Name="Rectangle1"
-                                        CornerRadius="5"
-                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                        Width="auto" Height="auto" Background="{TemplateBinding Background}"/>
+                                <Rectangle 
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Width="Auto"
+                                    Height="Auto"
+                                    Fill="Transparent"/>
+                                <Border
+                                    x:Name="Rectangle1"
+                                    CornerRadius="5"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Width="Auto"
+                                    Height="Auto"
+                                    Background="{TemplateBinding Background}"/>
                             </Grid>
-
                             <ControlTemplate.Triggers>
                                 <Trigger Property="Tag" Value="Horizontal">
-                                    <Setter TargetName="Rectangle1" Property="Width" Value="auto"/>
+                                    <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
                                     <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
@@ -98,68 +144,76 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Grid x:Name="GridRoot" 
-                                  Width="8" 
-                                  Background="{TemplateBinding Background}">
+                            <Grid 
+                                x:Name="GridRoot" 
+                                Width="8"
+                                Background="{TemplateBinding Background}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                 </Grid.RowDefinitions>
 
-                                <!--scroll track-->
-                                <Track x:Name="PART_Track"
-                                       Grid.Row="0"
-                                       IsDirectionReversed="True" Focusable="False">
+                                <!--Scroll Track-->
+                                <Track 
+                                    x:Name="PART_Track"
+                                    Grid.Row="0"
+                                    IsDirectionReversed="True"
+                                    Focusable="False">
                                     <Track.Thumb>
-                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}"
-                                               Style="{DynamicResource ScrollThumbs}"/>
+                                        <Thumb 
+                                            x:Name="Thumb"
+                                            Background="{TemplateBinding Foreground}"
+                                            Style="{DynamicResource ScrollThumbs}"/>
                                     </Track.Thumb>
 
-                                    <!--scroll up on page up key press-->
+                                    <!--Scroll Up on Page Up key press-->
                                     <Track.IncreaseRepeatButton>
-                                        <RepeatButton x:Name="PageUp" Command="ScrollBar.PageUpCommand" Opacity="0"
-                                                      Focusable="False"/>
+                                        <RepeatButton
+                                            x:Name="PageUp" 
+                                            Command="ScrollBar.PageUpCommand"
+                                            Opacity="0"
+                                            Focusable="False"/>
                                     </Track.IncreaseRepeatButton>
 
-                                    <!--scroll down on page down key press-->
+                                    <!--Scroll Down on Page Down key press-->
                                     <Track.DecreaseRepeatButton>
-                                        <RepeatButton x:Name="PageDown" Command="ScrollBar.PageDownCommand" Opacity="0"
-                                                      Focusable="False"/>
+                                        <RepeatButton
+                                            x:Name="PageDown" 
+                                            Command="ScrollBar.PageDownCommand"
+                                            Opacity="0"
+                                            Focusable="False"/>
                                     </Track.DecreaseRepeatButton>
                                 </Track>
                             </Grid>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsEnabled" Value="False">
-                                    <Setter TargetName="Thumb"
+                                    <Setter TargetName="Thumb" 
                                             Property="Visibility"
                                             Value="Collapsed"/>
                                 </Trigger>
                                 <Trigger Property="Orientation" Value="Horizontal">
-                                    <Setter TargetName="GridRoot"
+                                    <Setter TargetName="GridRoot" 
                                             Property="LayoutTransform">
                                         <Setter.Value>
                                             <RotateTransform Angle="-90"/>
                                         </Setter.Value>
                                     </Setter>
-
-                                    <Setter TargetName="PART_Track"
+                                    <Setter TargetName="PART_Track" 
                                             Property="LayoutTransform">
                                         <Setter.Value>
                                             <RotateTransform Angle="-90"/>
                                         </Setter.Value>
                                     </Setter>
-
-                                    <Setter Property="Width" Value="auto"/>
+                                    <Setter Property="Width" Value="Auto"/>
                                     <Setter Property="Height" Value="12"/>
                                     <Setter TargetName="Thumb" Property="Tag" Value="Horizontal"/>
                                     <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageLeftCommand"/>
                                     <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand"/>
-
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
-        </ResourceDictionary>         
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

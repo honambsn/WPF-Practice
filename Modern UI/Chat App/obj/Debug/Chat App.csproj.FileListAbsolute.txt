@@ -112,6 +112,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.AssemblyReference.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.csproj.SuggestedBindingRedirects.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\AttachFilePopupMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ContactInfo.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.g.cs
@@ -124,6 +125,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Gene
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\Chat App_MarkupCompile.lref
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\AttachFilePopupMenu.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ChatList.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\ContactInfo.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\obj\Debug\CustomControls\Conversation.baml
