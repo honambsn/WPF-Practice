@@ -51,8 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>Chat_App.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -295,11 +294,6 @@
     <Compile Include="Models\MoreOptionsMenu.cs" />
     <Compile Include="ViewModels\ChatListData.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
-    <Resource Include="assets\icons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Page Include="CustomControls\AttachFilePopupMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,10 +317,12 @@
     <Page Include="CustomControls\StatusThumbs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -334,10 +330,12 @@
     </Compile>
     <Compile Include="CustomControls\StatusThumbs.xaml.cs">
       <DependentUpon>StatusThumbs.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -359,7 +357,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Fakes Include="Fakes\Microsoft.VisualStudio.DesignTools.Extensibility.fakes" />
+    <Page Include="Assets\icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -383,84 +384,84 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img1.jpg" />
-    <Resource Include="assets\Icon\icon.ico">
+    <Resource Include="Assets\Icon\icon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\Icon\icon.png">
+    <Resource Include="Assets\Icon\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\1.jpg">
+    <Resource Include="Assets\1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\2.jpg">
+    <Resource Include="Assets\2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\3.jpg">
+    <Resource Include="Assets\3.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\4.jpg">
+    <Resource Include="Assets\4.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\5.jpg">
+    <Resource Include="Assets\5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\6.jpg">
+    <Resource Include="Assets\6.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\7.jpg">
+    <Resource Include="Assets\7.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\8.jpg">
+    <Resource Include="Assets\8.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\connectedworld.png">
+    <Resource Include="Assets\connectedworld.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img1.jpg">
+    <Resource Include="Assets\assets\img1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img10.jpg">
+    <Resource Include="Assets\assets\img10.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img11.jpg">
+    <Resource Include="Assets\assets\img11.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img2.jpg">
+    <Resource Include="Assets\assets\img2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img3.jpg">
+    <Resource Include="Assets\assets\img3.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img4.jpg">
+    <Resource Include="Assets\assets\img4.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img5.jpg">
+    <Resource Include="Assets\assets\img5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img6.jpg">
+    <Resource Include="Assets\assets\img6.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img7.jpg">
+    <Resource Include="Assets\assets\img7.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img8.jpg">
+    <Resource Include="Assets\assets\img8.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="assets\assets\img9.jpg">
+    <Resource Include="Assets\assets\img9.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="assets\Database1.mdf">
+    <Content Include="Assets\Database1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="assets\Media\1.png" />
-    <Resource Include="assets\Media\2.jpg" />
-    <Resource Include="assets\Media\3.jpg" />
-    <Resource Include="assets\Media\4.jpg" />
-    <Resource Include="assets\Media\5.jpg" />
-    <Resource Include="assets\Media\6.jpg" />
-    <Resource Include="assets\Media\7.png" />
-    <Resource Include="assets\Media\8.jpg" />
-    <Resource Include="assets\ok.png">
+    <Resource Include="Assets\Media\1.png" />
+    <Resource Include="Assets\Media\2.jpg" />
+    <Resource Include="Assets\Media\3.jpg" />
+    <Resource Include="Assets\Media\4.jpg" />
+    <Resource Include="Assets\Media\5.jpg" />
+    <Resource Include="Assets\Media\6.jpg" />
+    <Resource Include="Assets\Media\7.png" />
+    <Resource Include="Assets\Media\8.jpg" />
+    <Resource Include="Assets\ok.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

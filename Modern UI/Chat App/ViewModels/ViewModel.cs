@@ -22,14 +22,11 @@ namespace Chat_App.ViewModels
 {
 	public class ViewModel : INotifyPropertyChanged
 	{
-		//initializing resource dictionary file
-		//private readonly ResourceDictionary dictionary = Application.LoadComponent(new Uri("/ChatApp;component/Assets/icons.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
-		private readonly ResourceDictionary dictionary = new ResourceDictionary
-		{
-			Source = new Uri("pack://application:,,,/ChatApp;component/assets/icons.xaml")
-		};
+		//Initializing resource dictionary file
+		private readonly ResourceDictionary dictionary = Application.LoadComponent(new Uri("/ChatApp;component/Assets/icons.xaml", UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 
 		#region MainWindow
+
 		#region Properties
 		public string ContactName { get; set; }
 		public byte[] ContactPhoto { get; set; }
@@ -563,10 +560,10 @@ namespace Chat_App.ViewModels
 						if (string.IsNullOrEmpty(lastmessage))
 							lastmessage = "Start new conversation";
 
-						// Update data in model...
+						//Update data in model...
 						ChatListData chat = new ChatListData()
 						{
-							ContactPhoto = reader["photo"] != DBNull.Value ? (byte[])reader["photo"] : null,
+							ContactPhoto = (byte[])reader["photo"],
 							ContactName = reader["contactname"].ToString(),
 							Message = lastmessage,
 							LastMessageTime = time
@@ -1229,7 +1226,7 @@ namespace Chat_App.ViewModels
 		#endregion
 		#endregion
 
-		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf"";Integrated Security=True;Connect Timeout=30");
+		SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Ba Nam\Own project\Practice\c#\WPF Practice\Modern UI\Chat App\Database\chatdb.mdf;Integrated Security=True");
 		public ViewModel()
 		{
 			LoadStatusThumbs();

@@ -18,8 +18,8 @@
         WindowStyle="None"
         Icon="./assets/Icon/icon.ico"
         WindowStartupLocation="CenterScreen">
-
-    <Window.DataContext>
+<!--region old-->
+    <!--<Window.DataContext>
         <viewmodels:ViewModel/>
     </Window.DataContext>
     <Window.Resources>
@@ -34,10 +34,10 @@
                     <Grid  VerticalAlignment="Center">
                     <Grid.ColumnDefinitions>
                     
-                        <!--profile photo-->
+                        --><!--profile photo--><!--
                         <ColumnDefinition Width="75"/>
                     
-                        <!--name & online status-->
+                        --><!--name & online status--><!--
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
@@ -52,12 +52,12 @@
 
                     <Grid Grid.Column="1">
                         <TextBlock>
-                            <!--name-->
+                            --><!--name--><!--
                             <Run Text="{Binding ContactName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="20" FontWeight="Bold"/>
                             <LineBreak/>
                         
-                            <!--online status-->
+                            --><!--online status--><!--
                             <Run Text="{Binding LastSeen, UpdateSourceTrigger=PropertyChanged, FallbackValue='Last Seen', TargetNullValue='Last Seen'}" FontSize="15"/>
                         </TextBlock>
                     </Grid>
@@ -66,7 +66,7 @@
         </ControlTemplate>
     </Window.Resources>
     
-    <!--structing the window-->
+    --><!--structing the window--><!--
     <Border CornerRadius="20" Background="WhiteSmoke">
         <Grid>
             <Grid.RowDefinitions>
@@ -74,13 +74,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="406"/> <!--column for contact chatlist-->
-                <ColumnDefinition/> <!--conversation area-->
-                <ColumnDefinition Width="Auto"/> <!--profile info-->
+                <ColumnDefinition Width="406"/> --><!--column for contact chatlist--><!--
+                <ColumnDefinition/> --><!--conversation area--><!--
+                <ColumnDefinition Width="Auto"/> --><!--profile info--><!--
             </Grid.ColumnDefinitions>
             
-            <!--title bar-->
-            <Border Background="#49a078" CornerRadius="20,20,0,0" Grid.ColumnSpan="3" MouseDown="Border_MouseDown"> <!--// margin fix-->
+            --><!--title bar--><!--
+            <Border Background="#49a078" CornerRadius="20,20,0,0" Grid.ColumnSpan="3" MouseDown="Border_MouseDown"> --><!--// margin fix--><!--
                 <Grid>
                     <TextBlock Text="{Binding Title, ElementName=mainWindow}" 
                                HorizontalAlignment="Left" 
@@ -88,7 +88,7 @@
                                VerticalAlignment="Center" 
                                Foreground="White" FontSize="22" FontWeight="Bold"/>
                     
-                    <!--window button-->
+                    --><!--window button--><!--
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
                         <Button x:Name="btnMinimize" Content="{StaticResource minimize}" Style="{StaticResource IconButtonStyle}" Click="btnMinimize_Click"/>
 
@@ -99,44 +99,44 @@
                 </Grid>
             </Border>
             
-            <!--contact chat list-->
+            --><!--contact chat list--><!--
             <Grid Grid.Row="1" MinWidth="406">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/> <!--title & search bar options etc-->
-                    <RowDefinition Height="Auto"/> <!--searchbox-->
-                    <RowDefinition Height="Auto"/> <!--status thumbs-->
-                    <RowDefinition/> <!--chat list-->
+                    <RowDefinition Height="Auto"/> --><!--title & search bar options etc--><!--
+                    <RowDefinition Height="Auto"/> --><!--searchbox--><!--
+                    <RowDefinition Height="Auto"/> --><!--status thumbs--><!--
+                    <RowDefinition/> --><!--chat list--><!--
                 </Grid.RowDefinitions>
 
-                <!--title & search bar options etc-->
+                --><!--title & search bar options etc--><!--
                 <Grid Margin="15,0" Height="75">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/> <!--title-->
-                        <ColumnDefinition/> <!--blank-->
-                        <ColumnDefinition Width="40"/> <!--search button-->
-                        <ColumnDefinition Width="40"/> <!--more options button-->
+                        <ColumnDefinition Width="auto"/> --><!--title--><!--
+                        <ColumnDefinition/> --><!--blank--><!--
+                        <ColumnDefinition Width="40"/> --><!--search button--><!--
+                        <ColumnDefinition Width="40"/> --><!--more options button--><!--
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Chats" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
                     
-                    <!--search button-->
+                    --><!--search button--><!--
                     <Button Grid.Column="2" 
                             Command="{Binding OpenSearchCommand}"
                             x:Name="btnChatSearchButton" Content="{StaticResource search}" Style="{StaticResource IconButtonStyle}"/>
                     
-                    <!--more options popup menu-->
+                    --><!--more options popup menu--><!--
                     <ToggleButton x:Name="btnMoreOptions" Grid.Column="3"
                                   Content="{StaticResource more}"
                                   Command="{Binding WindowMoreOptionsCommand}"
                                   Style="{StaticResource ToggleIconButtonStyle}"/>
                 </Grid>
                 
-                <!--#region SearchBox-->
+                --><!--#region SearchBox--><!--
                 <Border Margin="20" Height="50" x:Name="searchBoxBorder" CornerRadius="15" Background="#dce1de" Grid.Row="1"
                         FocusManager.FocusedElement="{Binding ElementName=searchQuery}">
-                    <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
+                    --><!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"> => to focus  our textbox when border gets focused...-->
 
-                    <!--hide searchbox when not focused-->
+                    <!--hide searchbox when not focused--><!--
                     <Border.Style>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="Visibility" Value="Collapsed"/>
@@ -154,29 +154,29 @@
                         
                         
                         <TextBox.InputBindings>
-                            <!--key binding to search on 'enter' key press-->
+                            --><!--key binding to search on 'enter' key press--><!--
                             <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>
                             
-                            <!--key binding to close searchbox on 'esc' key press-->
+                            --><!--key binding to close searchbox on 'esc' key press--><!--
                             <KeyBinding Command="{Binding ClearSearchCommand}" Key="Esc"/>
                         </TextBox.InputBindings>
                     </TextBox>
                 </Border>
-                <!--#endregion-->
+                --><!--#endregion-->
                 
                 
-                <!--region status thumbnails-->
+                <!--region status thumbnails--><!--
                 <customcontrols:StatusThumbs Grid.Row="2"/>
-                <!--#endregion-->
+                --><!--#endregion-->
                 
                 
                 
-                <!--region chatlist-->
+                <!--region chatlist--><!--
                 <customcontrols:ChatList Grid.Row="3"/>
-                <!--#endregion-->
+                --><!--#endregion--><!--
             </Grid>
 
-            <!--hide conversation screen when no chats is selected-->
+            --><!--hide conversation screen when no chats is selected--><!--
             <StackPanel 
                 Grid.Row="1" Grid.Column="1"
                 HorizontalAlignment="Center"
@@ -198,7 +198,7 @@
                     FontSize="40" TextAlignment="Center" Text="Stay Connected To the World"/>
 
             </StackPanel>
-            <!--#region Conversation Screen-->
+            --><!--#region Conversation Screen--><!--
             <Grid 
                 x:Name="GridConv"
                 Grid.Column="1" Grid.Row="1">
@@ -212,57 +212,57 @@
                     </Style>
                 </Grid.Style>
                 <Grid.RowDefinitions>
-                    <!--conversation header-->
+                    --><!--conversation header--><!--
                     <RowDefinition Height="Auto"/> 
                     
-                    <!--body-->
+                    --><!--body--><!--
                     <RowDefinition/>
                     
-                    <!--reply popup-->
+                    --><!--reply popup--><!--
                     <RowDefinition Height="Auto"/>
                     
-                    <!--send message box-->
+                    --><!--send message box--><!--
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid VerticalAlignment="Center" Height="75" Margin="0,0,15,0">
                     <Grid.ColumnDefinitions>
-                        <!--contact header name and onl status-->
+                        --><!--contact header name and onl status--><!--
                         <ColumnDefinition/>
                         
-                        <!--video call btn-->
+                        --><!--video call btn--><!--
                         <ColumnDefinition Width="50"/>
                         
-                        <!--call btn-->
+                        --><!--call btn--><!--
                         <ColumnDefinition Width="50"/>
                         
-                        <!--search msg btn-->
+                        --><!--search msg btn--><!--
                         <ColumnDefinition Width="50"/>
                         
-                        <!--more opts-->
+                        --><!--more opts--><!--
                         <ColumnDefinition Width="50"/>
                         
                         
                     </Grid.ColumnDefinitions>
                     
-                    <!-- open contact info on contact btn click-->
-                    <!--contact info btn-->
+                    --><!-- open contact info on contact btn click-->
+                    <!--contact info btn--><!--
                     <Button Command="{Binding OpenContactinfoCommand}"
                             Template="{StaticResource ContactInfoButtonTemplate}" 
                             Style="{StaticResource ContactInfoButtonStyle}"/>
                     
-                    <!--videocall btn-->
+                    --><!--videocall btn--><!--
                     <Button Grid.Column="1" Style="{StaticResource IconButtonStyle}" Content="{StaticResource videocall}"/>
                     
-                    <!--call btn-->
+                    --><!--call btn--><!--
                     <Button Grid.Column="2" Style="{StaticResource IconButtonStyle}" Content="{StaticResource call}"/>
                     
-                    <!--search btn-->
+                    --><!--search btn--><!--
                     <Button 
                         Command="{Binding OpenConversationSearchCommand}"
                         Grid.Column="3" Style="{StaticResource IconButtonStyle}" Content="{StaticResource search}"/>
                     
-                    <!--more opts btn-->
+                    --><!--more opts btn--><!--
                     <ToggleButton Grid.Column="4"
                                   x:Name="ConversationMoreOptions"
                                   Content="{StaticResource more}"
@@ -271,17 +271,17 @@
 
                 </Grid>
                 
-                <!--conversation msg body-->
-                <!--<customcontrols:Conversation Grid.Row="1"/>-->
+                --><!--conversation msg body-->
+                <!--<customcontrols:Conversation Grid.Row="1"/>--><!--
                 <customcontrols:Conversation Grid.Row="1"/>
-                <!--reply specific message-->
+                --><!--reply specific message--><!--
                 <Border CornerRadius="15" Background="#dce1de" Margin="15" Grid.Row="2">
                     <Border.Style>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="Visibility" Value="Visible"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding MessageToReplyText}" Value="">
-                                    <!--hide border popup when no text in message to reply-->
+                                    --><!--hide border popup when no text in message to reply--><!--
                                     <Setter Property="Visibility" Value="Collapsed"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -294,7 +294,7 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <!--message to reply text container-->
+                        --><!--message to reply text container--><!--
                         <DockPanel Margin="20">
                             <TextBlock Text="{Binding MessageToReplyText, UpdateSourceTrigger=PropertyChanged}">
                                 <TextBlock.Style>
@@ -310,7 +310,7 @@
                             </TextBlock>
                         </DockPanel>
 
-                        <!--button to close reply popup-->
+                        --><!--button to close reply popup--><!--
                         <Button Margin="10,0"
                 HorizontalAlignment="Center"
                 Content="{StaticResource close}"
@@ -318,15 +318,15 @@
                 Style="{StaticResource IconButtonStyle}" Command="{Binding CancelReplyCommand}"/>
                     </Grid>
                 </Border>
-                <!--region textbox to send message-->
+                --><!--region textbox to send message--><!--
                 <Grid Grid.Row="3">
                     <Border Background="#dce1de" CornerRadius="15" Height="50" Margin="15,8">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <!--txtbox btn-->
+                                --><!--txtbox btn--><!--
                                 <ColumnDefinition/>
 
-                                <!--attachment btn & sen msg btn-->
+                                --><!--attachment btn & sen msg btn--><!--
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
@@ -339,7 +339,7 @@
                                 Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}"
                                 x:Name="MessageBox">
                                 
-                                <!--set focus on message box when border gets focused-->
+                                --><!--set focus on message box when border gets focused--><!--
                                 <TextBox.Style>
                                     <Style TargetType="{x:Type TextBox}">
                                         <Style.Triggers>
@@ -351,18 +351,18 @@
                                 </TextBox.Style>
 
                                 <TextBox.InputBindings>
-                                    <!--key binding to search on 'enter' key press--><!--
+                                    --><!--key binding to search on 'enter' key press--><!--
                                     <KeyBinding Command="{Binding SearchConversationCommand}" Key="Return"/>-->
 
-                                    <!--key binding to send message on 'Enter' key press-->
+                                    <!--key binding to send message on 'Enter' key press--><!--
                                     <KeyBinding Command="{Binding SendMessageCommand}" Key="Return" CommandParameter="{Binding}"/>
                                 </TextBox.InputBindings>
                             </TextBox>
 
-                            <!--buttons-->
+                            --><!--buttons--><!--
                             <StackPanel Grid.Column="1" Orientation="Horizontal">
                                 
-                                <!--to do command-->
+                                --><!--to do command--><!--
                                 <ToggleButton 
                                     Content="{StaticResource attach}"
                                     x:Name="AttachButton"
@@ -378,19 +378,562 @@
                     
                     
                 </Grid>
-                <!--#endregion-->
+                --><!--#endregion--><!--
             </Grid>
-            <!--#endregion-->
+            --><!--#endregion-->
             
-            <!--contact info-->
+            <!--contact info--><!--
             <customcontrols:ContactInfo x:Name="ContactInfoScreen" Grid.Row="1" Grid.Column="2"/>
             
  
-            <!--#region More options popup -->
+            --><!--#region More options popup --><!--
             <Popup AllowsTransparency="True" PopupAnimation="Fade" StaysOpen="False">
                 <Popup.Style>
                     <Style TargetType="{x:Type Popup}">
                         <Style.Triggers>
+                            --><!--Open when More Options Button is selected--><!--
+                            <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=btnMoreOptions}" Value="True">
+                                <Setter Property="PlacementTarget" Value="{Binding ElementName=btnMoreOptions}"/>
+                                <Setter Property="IsOpen" Value="{Binding IsChecked, Mode=TwoWay, ElementName=btnMoreOptions}"/>
+                                <Setter Property="HorizontalOffset" Value="0"/>
+                                <Setter Property="VerticalOffset" Value="-10"/>
+                                <Setter Property="Placement" Value="Bottom"/>
+                            </DataTrigger>
+
+                            --><!--Open when More Options Button In Conversation Screen is selected--><!--
+                            <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=ConversationMoreOptions}" Value="True">
+                                <Setter Property="PlacementTarget" Value="{Binding ElementName=ConversationMoreOptions}"/>
+                                <Setter Property="IsOpen" Value="{Binding IsChecked, Mode=TwoWay, ElementName=ConversationMoreOptions}"/>
+                                <Setter Property="HorizontalOffset" Value="0"/>
+                                <Setter Property="VerticalOffset" Value="-10"/>
+                                <Setter Property="Placement" Value="Bottom"/>
+                            </DataTrigger>
+
+                            --><!--Open when Attachment Options Button In Conversation Screen is selected--><!--
+                            <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=AttachButton}" Value="True">
+                                <Setter Property="PlacementTarget" Value="{Binding ElementName=AttachButton}"/>
+                                <Setter Property="IsOpen" Value="{Binding IsChecked, Mode=TwoWay, ElementName=AttachButton}"/>
+                                <Setter Property="HorizontalOffset" Value="0"/>
+                                <Setter Property="VerticalOffset" Value="-10"/>
+                                <Setter Property="Placement" Value="Top"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Popup.Style>
+
+                <Grid>
+                    <customcontrols:MoreOptionsPopup>
+                        <customcontrols:MoreOptionsPopup.Style>
+                            <Style TargetType="{x:Type customcontrols:MoreOptionsPopup}">
+                                --><!--hidden by default--><!--
+                                <Setter Property="Visibility" Value="Collapsed"/>
+
+                                <Style.Triggers>
+                                --><!--show only when more options but is checked--><!--
+                                    <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=btnMoreOptions}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=ConversationMoreOptions}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </customcontrols:MoreOptionsPopup.Style>
+                    </customcontrols:MoreOptionsPopup>
+                    <customcontrols:AttachFilePopupMenu>
+                        <customcontrols:AttachFilePopupMenu.Style>
+                            <Style TargetType="{x:Type customcontrols:AttachFilePopupMenu}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                --><!--Show only when more options but is checked--><!--
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=AttachButton}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </customcontrols:AttachFilePopupMenu.Style>
+                    </customcontrols:AttachFilePopupMenu>
+                </Grid>
+            </Popup>
+            --><!--#endregion--><!--
+
+        </Grid>
+    </Border>
+    
+    
+</Window>-->
+    
+    <!--endregion-->
+    <Window.DataContext>
+        <viewmodels:ViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="ContactInfoButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <ControlTemplate x:Key="ContactInfoButtonTemplate" TargetType="{x:Type Button}">
+            <Border 
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+
+                        <!--Profile photo-->
+                        <ColumnDefinition Width="75"/>
+
+                        <!--Name & Oline status-->
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Ellipse 
+                    Height="40" 
+                    Width="40">
+                        <Ellipse.Fill>
+                            <ImageBrush 
+                            ImageSource="{Binding ContactPhoto, FallbackValue=/assets/5.jpg, TargetNullValue=/assets/5.jpg, UpdateSourceTrigger=PropertyChanged}"
+                            Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+
+                    <Grid
+                    Grid.Column="1">
+                        <TextBlock >
+                        <!--name-->
+                        <Run 
+                            Text="{Binding ContactName, Mode=TwoWay
+                            , UpdateSourceTrigger=PropertyChanged}"
+                        FontWeight="Bold"
+                        FontSize="20"/>
+                        <LineBreak/>
+                        
+                        <!--online status-->
+                        <Run 
+                            Text="{Binding LastSeen, FallbackValue='Last Seen', TargetNullValue='Last Seen', UpdateSourceTrigger=PropertyChanged}"
+                        FontSize="15"/>
+                        </TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <!--Structuring Mainwindow-->
+    <Border 
+        CornerRadius="20"
+        Background="WhiteSmoke">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+                <!--Column for Contact Chat List-->
+                <ColumnDefinition Width="406"/>
+
+                <!--Conversation Area-->
+                <ColumnDefinition/>
+
+                <!--Profile Info-->
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Title Bar-->
+            <Border 
+                Background="#49a078"
+                CornerRadius="20,20,0,0"
+                Grid.ColumnSpan="3"
+                MouseDown="Border_MouseDown">
+                <Grid>
+                    <TextBlock 
+                        Text="{Binding Title, ElementName=mainWindow}"
+                        HorizontalAlignment="Left"
+                        Margin="15,0"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        FontSize="22"
+                        FontWeight="Bold"/>
+
+                    <!--Window Buttons-->
+                    <StackPanel
+                        HorizontalAlignment="Right"
+                        Margin="10,0"
+                        Orientation="Horizontal" >
+                        <Button x:Name="btnMinimize"
+                                Content="{StaticResource minimize}"
+                                Click="btnMinimize_Click"
+                                Style="{StaticResource IconButtonStyle}"/>
+                        <Button x:Name="btnMaximize"
+                                Content="{StaticResource maximize}"
+                                Click="btnMaximize_Click"
+                                Style="{StaticResource IconButtonStyle}"/>
+                        <Button x:Name="btnClose"
+                                Content="{StaticResource close}"
+                                Foreground="Red"
+                                Click="btnClose_Click"
+                                Style="{StaticResource IconButtonStyle}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!--Contact Chat List-->
+            <Grid Grid.Row="1" MinWidth="406">
+                <Grid.RowDefinitions>
+
+                    <!--Title & Search Options etc.-->
+                    <RowDefinition Height="Auto"/>
+
+                    <!--Searchbox-->
+                    <RowDefinition Height="Auto"/>
+
+                    <!--Status Thumbs-->
+                    <RowDefinition Height="Auto"/>
+
+                    <!--Chats List-->
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+                <!--Title & Search Options etc.-->
+                <Grid 
+                    Height="75"
+                    Margin="15,0">
+                    <Grid.ColumnDefinitions>
+
+                        <!--Title-->
+                        <ColumnDefinition Width="Auto"/>
+
+                        <!--Blank-->
+                        <ColumnDefinition/>
+
+                        <!--Search Button-->
+                        <ColumnDefinition Width="40"/>
+
+                        <!--More Options Button-->
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock 
+                        Text="Chats"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="20"
+                        FontWeight="SemiBold"/>
+
+                    <!--Search Button-->
+                    <Button
+                        Grid.Column="2"
+                        x:Name="btnChatSearchButton"
+                        Command="{Binding OpenSearchCommand}"
+                        Content="{StaticResource search}"
+                        Style="{StaticResource IconButtonStyle}"/>
+
+                    <!--More options Popup Menu-->
+                    <ToggleButton 
+                        Grid.Column="3"
+                        x:Name="btnMoreOptions"
+                        Content="{StaticResource more}"
+                        Command="{Binding WindowsMoreOptionsCommand}"
+                        Style="{StaticResource ToggleIconButtonStyle}"/>
+                </Grid>
+
+                <!--#region SearchBox-->
+                <Border 
+                    Background="#dce1de"
+                    CornerRadius="15"
+                    Grid.Row="1"
+                    Margin="20"
+                    Height="50"
+                    x:Name="searchBoxBorder"
+                    FocusManager.FocusedElement="{Binding ElementName=searchQuery}"
+                    >
+
+                    <!--Hide Searchbox when no text-->
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsSearchBoxOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, FallbackValue=False}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <!--FocusManager.FocusedElement="{Binding ElementName=searchQuery}"=> to focus our textbox when border gets focused..-->
+                    <TextBox
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Name="searchQuery"
+                        Padding="12,0"
+                        Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                        VerticalContentAlignment="Center"
+                        VerticalAlignment="Stretch">
+                        <TextBox.InputBindings>
+                            <!--key Binding to Search on 'Enter' key press-->
+                            <KeyBinding Command="{Binding SearchCommand}" Key="Return"/>
+
+                            <!--key Binding to Clear Search text on 'Esc' key press-->
+                            <KeyBinding Command="{Binding ClearSearchCommand}" Key="Esc"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </Border>
+                <!--#endregion-->
+
+                <!--#region Status Thumbnails-->
+                <customcontrols:StatusThumbs Grid.Row="2"/>
+                <!--#endregion-->
+
+                <!--#region ChatsList-->
+                <customcontrols:ChatList Grid.Row="3"/>
+                <!--#endregion-->
+            </Grid>
+
+            <!--Hide Conversation Screen when no chats is selected-->
+            <StackPanel  
+                Grid.Column="1"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Visibility, ElementName=GridConv}" Value="Visible">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+
+                <Image 
+                    Source="/assets/connectedworld.png" 
+                       Stretch="Uniform"
+                       Height="400"/>
+                <TextBlock
+                    Margin="0,10"
+                    FontSize="40"
+                    TextAlignment="Center"
+                    Text="Stay connected to the World!"/>
+            </StackPanel>
+            <!--#region Conversation Screen-->
+            <Grid x:Name="GridConv"
+                Grid.Column="1"
+                Grid.Row="1">
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ContactName}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Grid.RowDefinitions>
+                    <!--Conversation Header-->
+                    <RowDefinition Height="Auto"/>
+
+                    <!--Body-->
+                    <RowDefinition/>
+
+                    <!--Reply popup-->
+                    <RowDefinition Height="Auto"/>
+
+                    <!--Send Message box-->
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid 
+                    Height="75"
+                    Margin="0,0,15,0"
+                    VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <!--Contact Header Name & Online Status-->
+                        <ColumnDefinition/>
+
+                        <!--Video Call Button-->
+                        <ColumnDefinition Width="50"/>
+
+                        <!--Call Button-->
+                        <ColumnDefinition Width="50"/>
+
+                        <!--Search Message Button-->
+                        <ColumnDefinition Width="50"/>
+
+                        <!--More Options-->
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--to open contact info on contact button click-->
+                    <!--Contact Info Button-->
+                    <Button 
+                        Command="{Binding OpenContactinfoCommand}"
+                        Template="{StaticResource ContactInfoButtonTemplate}"
+                        Style="{StaticResource ContactInfoButtonStyle}"/>
+
+                    <!--Videcall Button-->
+                    <Button 
+                        Content="{StaticResource videocall}"
+                        Grid.Column="1"
+                        Style="{StaticResource IconButtonStyle}"/>
+
+                    <!--Call Button-->
+                    <Button
+                        Content="{StaticResource call}"
+                        Grid.Column="2"
+                        Style="{StaticResource IconButtonStyle}"/>
+
+                    <!--SearchButton-->
+                    <Button
+                        Command="{Binding OpenConversationSearchCommand}"
+                        Content="{StaticResource search}"
+                        Grid.Column="3"
+                        Style="{StaticResource IconButtonStyle}"/>
+
+                    <!--More Options Button-->
+                    <ToggleButton 
+                        Grid.Column="4"
+                        x:Name="ConversationMoreOptions"
+                        Content="{StaticResource more}"
+                        Command="{Binding ConversationScreenMoreOptionsCommand}"
+                        Style="{StaticResource ToggleIconButtonStyle}"/>
+                </Grid>
+
+                <!--Conversation Messages Body-->
+                <customcontrols:Conversation Grid.Row="1"/>
+
+                <!--Reply a specific message-->
+                <Border
+                CornerRadius="15"
+                Background="#dce1de"
+                Margin="15"
+                Grid.Row="2">
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding MessageToReplyText}" Value="">
+                                    <!--if there is no text in Message To Reply or User didn't click the reply button then hide the reply border popup-->
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--Message to reply text Container-->
+                        <DockPanel Margin="20">
+                            <TextBlock
+                            Text="{Binding MessageToReplyText, UpdateSourceTrigger=PropertyChanged}">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="FontSize" Value="15"/>
+                                        <Setter Property="FontWeight" Value="SemiBold"/>
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="TextWrapping" Value="Wrap"/>
+                                        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DockPanel>
+
+                        <!--Button to close the reply popup-->
+                        <Button
+                        Margin="10,0"
+                        HorizontalAlignment="Center"
+                        Content="{StaticResource close}"
+                        Grid.Column="1"
+                        Style="{StaticResource IconButtonStyle}"
+                        Command="{Binding CancelReplyCommand}"/>
+                    </Grid>
+                </Border>
+
+                <!--#region Textbox to send message-->
+                <Grid Grid.Row="3">
+                    <Border
+                        Background="#dce1de"
+                        CornerRadius="15"
+                        Height="50"
+                        Margin="15,8">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <!--Textbox Button-->
+                                <ColumnDefinition/>
+
+                                <!--Attachment Button & Send Message Button-->
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox 
+                                Background="Transparent"
+                                BorderThickness="0"
+                                Padding="12,0"
+                                Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center"
+                                x:Name="MessageBox">
+                                <!--Set Focus on MessageBox when FocusMessageBox = true-->
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding FocusMessageBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                                                <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=MessageBox}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                                <TextBox.InputBindings>
+                                    <!--key Binding to Send Message on 'Enter' key press-->
+                                    <KeyBinding Command="{Binding SendMessageCommand}" CommandParameter="{Binding}" Key="Return"/>
+                                </TextBox.InputBindings>
+                            </TextBox>
+
+                            <!--Buttons-->
+                            <StackPanel 
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                                <ToggleButton 
+                            Content="{StaticResource attach}"
+                            x:Name="AttachButton"
+                                    Command="{Binding AttachmentOptionsCommand}"
+                            Style="{StaticResource ToggleIconButtonStyle}"/>
+                                <Button 
+                            Content="{StaticResource send}"
+                            x:Name="SendMsgButton"
+                            Style="{StaticResource IconButtonStyle}"
+                                    Command="{Binding SendMessageCommand}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
+
+            <!--Contact Info-->
+            <customcontrols:ContactInfo 
+                x:Name="ContactInfoScreen"
+                Grid.Row="1"
+                Grid.Column="2"/>
+
+            <!--#region More Options-->
+            <Popup 
+                AllowsTransparency="True"
+                PopupAnimation="Fade"
+                StaysOpen="False">
+                <Popup.Style>
+                    <Style TargetType="{x:Type Popup}">
+                        <Style.Triggers>
+                            <!--Where & Where to place popup-->
+
                             <!--Open when More Options Button is selected-->
                             <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=btnMoreOptions}" Value="True">
                                 <Setter Property="PlacementTarget" Value="{Binding ElementName=btnMoreOptions}"/>
@@ -425,11 +968,10 @@
                     <customcontrols:MoreOptionsPopup>
                         <customcontrols:MoreOptionsPopup.Style>
                             <Style TargetType="{x:Type customcontrols:MoreOptionsPopup}">
-                                <!--hidden by default-->
+                                <!--Hidden By Default-->
                                 <Setter Property="Visibility" Value="Collapsed"/>
-
+                                <!--Show only when more options but is checked-->
                                 <Style.Triggers>
-                                <!--show only when more options but is checked-->
                                     <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, ElementName=btnMoreOptions}" Value="True">
                                         <Setter Property="Visibility" Value="Visible"/>
                                     </DataTrigger>
@@ -456,10 +998,6 @@
                 </Grid>
             </Popup>
             <!--#endregion-->
-
         </Grid>
     </Border>
-    
-    
 </Window>
-    

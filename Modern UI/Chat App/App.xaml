@@ -7,7 +7,7 @@
         <!--Loading our icons-->
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="assets/icons.xaml"/>
+                <ResourceDictionary Source="/assets/icons.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
 
