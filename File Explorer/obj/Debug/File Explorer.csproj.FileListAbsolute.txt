@@ -8,3 +8,11 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\File Explorer\obj\D
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\File Explorer\obj\Debug\File Explorer_MarkupCompile.lref
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\File Explorer\obj\Debug\Styles\Colors.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\File Explorer\obj\Debug\Styles\Fonts.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Resources\Icons.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Styles\Buttons.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Styles\Colors.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Styles\Fonts.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer_MarkupCompile.lref

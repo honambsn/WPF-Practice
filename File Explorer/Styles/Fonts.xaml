@@ -6,6 +6,8 @@
     <FontFamily x:Key="DefaultFontFamily">Segoe UI</FontFamily>
     <FontFamily x:Key="HeadingFontFamily">Arial Black</FontFamily>
     <FontFamily x:Key="CustomFontFamily">'Roboto', sans-serif</FontFamily>
+    <FontFamily x:Key="SegoeMDL2">Segoe MDL2 Assets</FontFamily>
+    <FontFamily x:Key="SegoeMDL2Assets">Segoe MDL2 Assets</FontFamily>
 
     <!-- Define font sizes directly without using <Double> -->
     <Style x:Key="DefaultTextStyle" TargetType="TextBlock">
