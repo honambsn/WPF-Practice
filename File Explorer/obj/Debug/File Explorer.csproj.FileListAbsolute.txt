@@ -16,3 +16,16 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Styles\Fo
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\App.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer_MarkupCompile.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\bin\Debug\File Explorer.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\bin\Debug\File Explorer.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\bin\Debug\File Explorer.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File_Explorer.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\File Explorer.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Views\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\File Explorer\obj\Debug\Views\MainWindow.baml

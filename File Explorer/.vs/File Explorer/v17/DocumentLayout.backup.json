@@ -45,8 +45,8 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\MainWindow.xaml*",
-              "RelativeToolTip": "MainWindow.xaml*",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-09T01:40:43.432Z",
               "EditorCaption": ""
@@ -73,8 +73,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAADwvy4AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T01:40:41.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T01:40:41.781Z"
             },
             {
               "$type": "Document",
@@ -117,8 +116,8 @@
               "Title": "Fonts.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\Styles\\Fonts.xaml",
               "RelativeDocumentMoniker": "Styles\\Fonts.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\Styles\\Fonts.xaml",
-              "RelativeToolTip": "Styles\\Fonts.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\File Explorer\\Styles\\Fonts.xaml*",
+              "RelativeToolTip": "Styles\\Fonts.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-09T03:00:16.026Z",
               "EditorCaption": ""

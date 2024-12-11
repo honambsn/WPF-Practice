@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace File_Explorer
+namespace File_Explorer.Views
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
