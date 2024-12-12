@@ -1,0 +1,15 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Explorer.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Explorer.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Explorer.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files_Explorer.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.pdb
