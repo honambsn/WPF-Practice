@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="PrimaryColor">#3498db</Color>
+    <!-- Blue -->
+    <Color x:Key="SecondaryColor">#2ecc71</Color>
+    <!-- Green -->
+    <Color x:Key="AccentColor">#e74c3c</Color>
+    <!-- Red -->
+    <Color x:Key="BackgroundColor">#ecf0f1</Color>
+    <!-- Light Gray -->
+
+    <!-- Define brush resources (to be used in controls) -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource SecondaryColor}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="InactiveWindowBrush" Color="#FFB3B3B3" />
+    <SolidColorBrush x:Key="Window.TitleFontBrush" Color="Black"/>
+    <SolidColorBrush x:Key="TitleFontBrush" Color="#D3D3D3" />
+    <SolidColorBrush x:Key="IconActiveBrush" Color="#FF1A73E8"/>
+    <!-- Replace with desired color -->
+    <SolidColorBrush x:Key="ButtonMouseOverBrush" Color="#FF3882FF"/>
+    <!-- Replace with desired color -->
+    <SolidColorBrush x:Key="CaptionCloseButtonsMouseOverBrush" Color="#FFEB5757"/>
+    <!-- Example color -->
+    <SolidColorBrush x:Key="CaptionCloseButtonsDownBrush" Color="#FFB71C1C"/>
+    <!-- Example color -->
+    <SolidColorBrush x:Key="NavFontBrush" Color="#FF0000"/>
+    <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="5" Color="Black" Opacity="0.5" Direction="320"/>
+</ResourceDictionary>

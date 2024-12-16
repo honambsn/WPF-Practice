@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\styles\\fonts.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\fonts.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,6 +35,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Buttons.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
+              "RelativeDocumentMoniker": "Styles\\Buttons.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
+              "RelativeToolTip": "Styles\\Buttons.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T03:10:55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Fonts.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Fonts.xaml",
+              "RelativeDocumentMoniker": "Styles\\Fonts.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Fonts.xaml",
+              "RelativeToolTip": "Styles\\Fonts.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T03:01:33.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -34,13 +70,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T01:46:01.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T02:03:39.569Z",
               "EditorCaption": ""
