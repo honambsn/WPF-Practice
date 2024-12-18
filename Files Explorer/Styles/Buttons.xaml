@@ -66,65 +66,8 @@
     
     --><!--#endregion-->
     
-    <!--region drive and folder btn--><!--
-    <Style TargetType="{x:Type cc:DriveAndFolderButton}">
-        <Setter Property="Foreground" Value="{StaticResource NavFontBrush}"/>
-        <Setter Property="GroupName" Value="DNFButton"/>
-        <Setter Property="MinHeight" Value="25"/>
-        <Setter Property="MinWidth" Value="100"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type cc:DriveAndFolderButton}">
-                    <Grid
-                        Background="Transparent">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="47"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Name="bgBorder"
-                                Grid.ColumnSpan="3"
-                                BorderBrush="{DynamicResource  BorderBrush}"
-                                BorderThickness="1"
-                                Opacity=".2"
-                                Visibility="Collapsed">
-                            <Rectangle Fill="{DynamicResource NavFontBrush}"
-                                       Opacity=".2"/>
-                        </Border>
-
-                        <Path
-                            Grid.Column="0"
-                            Data="{StaticResource Folder}"
-                            Stretch="Uniform"
-                            Fill="{DynamicResource NavFontBrush}"
-                            Height="15"
-                            Width="20"
-                            Effect="{DynamicResource DropShadowEffect}"/>
-
-                        <ContentPresenter
-                            Grid.Column="1"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Effect="{DynamicResource DropShadowEffect}"/>
-                        
-                        --><!--unpin btn--><!--
-                        <Button
-                            Name="UnPinButton"
-                            Grid.Column="2"
-                            Width="40"
-                            Foreground="{DynamicResource NavFontBrush}"
-                            Visibility="Collapsed"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    --><!--#endregion-->
-    
-    <!--region nav btn-->
+       
+    <!--#region nav btn-->
     <Style TargetType="{x:Type Button}"
            x:Key="WindowChromeButtonStyle">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
@@ -184,5 +127,69 @@
         </Style.Triggers>
     </Style>
 
-    <!--#end region-->
+    <!--#endregion-->
+
+
+    <!--region drive and folder btn-->
+    
+    <Style TargetType="{x:Type cc:DriveAndFolderButton}">
+        <Setter Property="Foreground" Value="{StaticResource NavFontBrush}"/>
+        <Setter Property="GroupName" Value="DNFButton"/>
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="MinWidth" Value="1    00"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type cc:DriveAndFolderButton}">
+                    <Grid
+                        Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="47"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Name="bgBorder"
+                                Grid.ColumnSpan="3"
+                                BorderBrush="{DynamicResource  BorderBrush}"
+                                BorderThickness="1"
+                                Opacity=".2"
+                                Visibility="Collapsed">
+                            <Rectangle Fill="{DynamicResource NavFontBrush}"
+                                       Opacity=".2"/>
+                        </Border>
+
+                        <Path
+                            Grid.Column="0"
+                            Data="{StaticResource Folder}"
+                            Stretch="Uniform"
+                            Fill="{DynamicResource NavFontBrush}"
+                            Height="15"
+                            Width="20"
+                            Effect="{DynamicResource DropShadowEffect}"/>
+
+                        <ContentPresenter
+                            Grid.Column="1"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Effect="{DynamicResource DropShadowEffect}"/>
+                    
+                    
+        <!--unpin btn-->
+    
+                        <Button
+                            Name="UnPinButton"
+                            Grid.Column="2"
+                            Width="40"
+                            Foreground="{DynamicResource NavFontBrush}"
+                            Visibility="Collapsed"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+
 </ResourceDictionary>

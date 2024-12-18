@@ -18,8 +18,13 @@
         <BitmapImage x:Key="Image4" UriSource="Resources/4.jpg"/>
         <BitmapImage x:Key="Image5" UriSource="Resources/5.jpg"/>
 
+        <DropShadowEffect
+            x:Key="DropShadowEffect"
+            BlurRadius="4"
+            ShadowDepth="0"/>
 
     </Window.Resources>
+    
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Setter Property="AllowsTransparency" Value="True"/>
@@ -166,6 +171,7 @@
         </Grid.ColumnDefinitions>
 
     </Grid>
+    
     <!--#region Left Navigation --><!--
         <Grid>
             <Grid.RowDefinitions>

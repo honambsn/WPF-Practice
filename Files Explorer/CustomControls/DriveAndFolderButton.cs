@@ -23,6 +23,6 @@ namespace File_Explorer.CustomControls
 			}
 		}
 
-		public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(DriveAndFolderButton), new PropertyMetadata(null));
+		public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(DriveAndFolderButton));
 	}
 }
