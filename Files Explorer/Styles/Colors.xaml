@@ -25,6 +25,9 @@
     <SolidColorBrush x:Key="Window.TitleFontBrush" Color="Black"/>
     <SolidColorBrush x:Key="TitleFontBrush" Color="#D3D3D3" />
     <!-- Example color -->
-    <SolidColorBrush x:Key="NavFontBrush" Color="#FF0000"/>
+    <SolidColorBrush x:Key="NavFontBrush" Color="White"/>
     <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="5" Color="Black" Opacity="0.5" Direction="320"/>
+    <SolidColorBrush x:Key="Folder" Color="Blue"/>
+    <SolidColorBrush x:Key="MenuHeader.Checked" Color="#454545"/>
+
 </ResourceDictionary>

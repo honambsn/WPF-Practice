@@ -130,13 +130,13 @@
     <!--#endregion-->
 
 
-    <!--region drive and folder btn-->
+    <!--region drive and folder btn--><!--
     
     <Style TargetType="{x:Type cc:DriveAndFolderButton}">
-        <Setter Property="Foreground" Value="{StaticResource NavFontBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource NavFontBrush}"/>
         <Setter Property="GroupName" Value="DNFButton"/>
         <Setter Property="MinHeight" Value="25"/>
-        <Setter Property="MinWidth" Value="1    00"/>
+        <Setter Property="MinWidth" Value="100"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -162,9 +162,9 @@
 
                         <Path
                             Grid.Column="0"
-                            Data="{StaticResource Folder}"
+                            Data="{TemplateBinding Folder}"
                             Stretch="Uniform"
-                            Fill="{DynamicResource NavFontBrush}"
+                            Fill="{StaticResource NavFontBrush}"
                             Height="15"
                             Width="20"
                             Effect="{DynamicResource DropShadowEffect}"/>
@@ -176,7 +176,7 @@
                             Effect="{DynamicResource DropShadowEffect}"/>
                     
                     
-        <!--unpin btn-->
+                        --><!--unpin btn--><!--
     
                         <Button
                             Name="UnPinButton"
@@ -190,6 +190,159 @@
         </Setter>
     </Style>
 
+    --><!--#endregion-->
+    
+    
+    <!--#region drive and folder btn-->
+
+    <Style TargetType="{x:Type cc:DriveAndFolderButton}">
+        <Setter Property="Foreground" Value="{DynamicResource NavFontBrush}"/>
+        <Setter Property="GroupName" Value="DNFButton"/>
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type cc:DriveAndFolderButton}">
+                    <Grid Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="47"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Name="bgBorder"
+                            Grid.ColumnSpan="3"
+                            BorderBrush="{DynamicResource BorderBrush}"
+                            BorderThickness="1"
+                            Opacity=".2"
+                            Visibility="Collapsed">
+                            <Rectangle Fill="{DynamicResource NavFontBrush}"
+                                   Opacity=".2"/>
+                        </Border>
+
+                        <Path
+                        Grid.Column="0"
+                        Data="{TemplateBinding Icon}"
+                        Stretch="Uniform"
+                        Fill="{DynamicResource NavFontBrush}"
+                        Height="15"
+                        Width="20"
+                        Effect="{DynamicResource DropShadowEffect}"/>
+
+                        <ContentPresenter
+                        Grid.Column="1"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Effect="{DynamicResource DropShadowEffect}"/>
+
+                        <Button
+                        Name="UnPinButton"
+                        Grid.Column="2"
+                        Width="40"
+                        Foreground="{DynamicResource NavFontBrush}"
+                        Visibility="Collapsed"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="bgBorder" Property="Opacity" Value="1"/>
+                            
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="bgBorder" Property="Opacity" Value=".8"/>
+                        </Trigger>
+
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="bgBorder" Property="Opacity" Value=".8"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--#endregion-->
 
+
+    <!--#region menu header btn-->
+    <Style x:Key="MenuHeaderRadioButtonStyle"
+       TargetType="{x:Type RadioButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Padding" Value="20,0"/>
+        <Setter Property="Foreground" Value="{DynamicResource MenuHeader.Static}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="GroupName" Value="MenuHeader"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Padding="{TemplateBinding Padding}">
+                        <ContentPresenter/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <!-- Fixed the incorrect closing quote and curly brace -->
+                            <Setter Property="Foreground" Value="{DynamicResource MenuHeader.Checked}"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+    
+    
+    <!--#region button with icon-->
+    <Style x:Key="ToggleButtonWithIconStyle"
+           TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Width" Value="15"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Path
+                            Name="Path"
+                            Data="{TemplateBinding Content}"
+                            Fill="{TemplateBinding Foreground}"
+                            Height="{TemplateBinding FontSize}"
+                            Stretch="Uniform"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--#endregion-->
+        
+        
+    <!--#region toggle expand/collapse sub menu-->
+    <Style
+        x:Key="ExpandCollapseToggleButtonStyle"
+        TargetType="{x:Type ToggleButton}"
+        BasedOn="{StaticResource ToggleButtonWithIconStyle}">
+
+        <Setter Property="Content" Value="{DynamicResource CollapseArrow}"/>
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Content"
+                        Value="{DynamicResource ExpandArrow}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>
