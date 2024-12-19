@@ -29,5 +29,10 @@
     <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="5" Color="Black" Opacity="0.5" Direction="320"/>
     <SolidColorBrush x:Key="Folder" Color="Blue"/>
     <SolidColorBrush x:Key="MenuHeader.Checked" Color="#454545"/>
+    <SolidColorBrush x:Key="SearchBox.Static" Color="Gray"/>
+    <SolidColorBrush x:Key="DisabledFontBrush" Color="#808080" />
+    <SolidColorBrush x:Key="SearchBox.Active" Color="Blue"/>
+
+
 
 </ResourceDictionary>

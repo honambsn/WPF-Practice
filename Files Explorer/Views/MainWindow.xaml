@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Files_Explorer" xmlns:cc="clr-namespace:File_Explorer.CustomControls"
+        xmlns:prop="clr-namespace:Files_Explorer.Properties"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="782" Width="1235"
@@ -313,15 +314,33 @@
 
                     <ToggleButton
                         x:Name="ToggleExpandCollapseSubMenu"
-                        FontSize="12"
+                        FontSize="10"
                         Style="{DynamicResource ExpandCollapseToggleButtonStyle}"/>
                 </StackPanel>
                 
                 <!--searchbox-->
                 <StackPanel
                     Grid.Column="1"
-                    Orientation="Horizontal">
-                    
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+                    <TextBox
+                        Margin="12,0"
+                        x:Name="SearchBox"
+                        Style="{DynamicResource SearchBoxStyle}"/>
+
+                    <Button
+                        Content="{StaticResource Share}"
+                        FontSize="20"
+                        Width="44"
+                        Style="{DynamicResource ButtonWithIconStyle}"/>
+
+                    <ToggleButton
+                        Width="44"
+                        IsChecked="{Binding DarkMode, Mode=TwoWay, Source={x:Static prop:Settings.Default}}"
+                        FontSize="15"
+                        Click="DarkLightModeToggleButton_OnClick"
+                        Style="{DynamicResource DarkLightModeToggleButtonStyle}"/>
                 </StackPanel>
             </Grid>
             <!--#endregion-->

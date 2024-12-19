@@ -46,5 +46,11 @@ namespace Files_Explorer.Views
 		{
 			Close();
 		}
+
+		private void DarkLightModeToggleButton_OnClick(object sender, RoutedEventArgs e)
+		{
+			Properties.Settings.Default.Save();
+		}
+
 	}
 }
