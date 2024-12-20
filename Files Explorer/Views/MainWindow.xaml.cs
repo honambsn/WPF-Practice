@@ -52,5 +52,6 @@ namespace Files_Explorer.Views
 			Properties.Settings.Default.Save();
 		}
 
+
 	}
 }

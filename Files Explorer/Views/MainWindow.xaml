@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Files_Explorer" xmlns:cc="clr-namespace:File_Explorer.CustomControls"
+        xmlns:local="clr-namespace:Files_Explorer"
+        xmlns:cc="clr-namespace:File_Explorer.CustomControls"
         xmlns:prop="clr-namespace:Files_Explorer.Properties"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -18,8 +19,6 @@
         <BitmapImage x:Key="Image3" UriSource="../Resources/3.jpg"/>
         <BitmapImage x:Key="Image4" UriSource="../Resources/4.jpg"/>
         <BitmapImage x:Key="Image5" UriSource="../Resources/5.jpg"/>
-
-        
 
     </Window.Resources>
     
@@ -341,6 +340,30 @@
                         FontSize="15"
                         Click="DarkLightModeToggleButton_OnClick"
                         Style="{DynamicResource DarkLightModeToggleButtonStyle}"/>
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+            
+            <!--#region SubMenu-->
+            <Grid Grid.Row="1"
+                  HorizontalAlignment="Left">
+                <StackPanel
+                    x:Name="FileOperationsPanel"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Left"
+                    Margin="10,0">
+
+                    <ItemsControl>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel
+                                    Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <cc:SubMenuIconButton
+                            Style="{DynamicResource SubMenuIconButtonStyle}"/>
+                    </ItemsControl>
                 </StackPanel>
             </Grid>
             <!--#endregion-->
