@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Files_Explorer"
         xmlns:cc="clr-namespace:File_Explorer.CustomControls"
+        xmlns:views="clr-namespace:Files_Explorer.Views"
         xmlns:prop="clr-namespace:Files_Explorer.Properties"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -288,7 +289,7 @@
             </Grid.RowDefinitions>
 
             <!--#region explorer header-->
-            <Grid Margin="0,3,0,47" Grid.RowSpan="3">
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="auto"/>
@@ -347,24 +348,100 @@
             <!--#region SubMenu-->
             <Grid Grid.Row="1"
                   HorizontalAlignment="Left">
-                <StackPanel
+                <Grid.Resources>
+                    <views:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+                </Grid.Resources>
+                <ItemsControl
                     x:Name="FileOperationsPanel"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Left"
-                    Margin="10,0">
+                        HorizontalAlignment="Left"
+                        Margin="10,0"
+                    Visibility="{Binding IsChecked, Converter={StaticResource BoolToVisibilityConverter}, ElementName=ToggleExpandCollapseSubMenu}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel
+                                Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
 
-                    <ItemsControl>
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel
-                                    Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
+                    <cc:SubMenuIconButton
+                        Content="Cut"
+                        Icon="{StaticResource Cut}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="Pin"
+                        Icon="{StaticResource Pin}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="Copy"
+                        Icon="{StaticResource Copy}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="Paste"
+                        Icon="{StaticResource Paste}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="Delete"
+                        Icon="{StaticResource Delete}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="Rename"
+                        Icon="{StaticResource Rename}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="NewFolder"
+                        Icon="{StaticResource NewFolder}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        
+                    <cc:SubMenuIconButton
+                        Content="FileSettings"
+                        Icon="{StaticResource FileSettings}"
+                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                       
+                </ItemsControl>
+                
+            </Grid>
+            <!--#endregion-->
 
-                        <cc:SubMenuIconButton
-                            Style="{DynamicResource SubMenuIconButtonStyle}"/>
-                    </ItemsControl>
-                </StackPanel>
+            <!--#region Navigation btn & address bar -->
+            <Grid
+                Grid.Row="2"
+                Margin="3,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Content="{StaticResource Back}"
+                    FontSize="16"
+                    HorizontalContentAlignment="Center"
+                    Style="{StaticResource ButtonWithIconStyle}"/>
+                
+                <Button
+                    Grid.Column="1"
+                    Content="{StaticResource Forward}"
+                    FontSize="16"
+                    HorizontalContentAlignment="Center"
+                    Style="{StaticResource ButtonWithIconStyle}"/>
+                <Button
+                    Grid.Column="2"
+                    Content="{StaticResource Up}"
+                    FontSize="16"
+                    HorizontalContentAlignment="Center"
+                    Style="{StaticResource ButtonWithIconStyle}"/>
+
+                <!--<TextBox 
+                    Grid.Column="3"
+                    Name="AddressBar"
+                    HorizontalAlignment=""-->
             </Grid>
             <!--#endregion-->
         </Grid>

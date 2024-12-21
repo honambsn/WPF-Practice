@@ -13,36 +13,29 @@ namespace File_Explorer.CustomControls
 	{
 		//public PathGeometry Icon
 		//{
-		//	get
-		//	{
-		//		return (PathGeometry)GetValue(IconProperty);
-		//	}
-		//	set
-		//	{
-		//		SetValue(IconProperty, value);
-		//	}
+		//	get => (PathGeometry)GetValue(IconProperty);
+		//	set => SetValue(IconProperty, value);
 		//}
 
-		//public static readonly DependencyProperty IconProperty = DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(DriveAndFolderButton));
+		//public static readonly DependencyProperty IconProperty =
+		//	DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(SubMenuIconButton));
 
-
+		// PathGeometry property
 		public PathGeometry Icon
 		{
-			get { return (PathGeometry)GetValue(IconProperty); }
-			set { SetValue(IconProperty, value); }
+			get => (PathGeometry)GetValue(IconProperty);
+			set => SetValue(IconProperty, value);
 		}
 
+		// Register the Icon dependency property
 		public static readonly DependencyProperty IconProperty =
 			DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(SubMenuIconButton));
 
-		// New Folder property
-		public static readonly DependencyProperty FolderProperty =
-			DependencyProperty.Register("Folder", typeof(Geometry), typeof(SubMenuIconButton));
-
-		public Geometry Folder
+		// Static constructor to associate a default style
+		static SubMenuIconButton()
 		{
-			get { return (Geometry)GetValue(FolderProperty); }
-			set { SetValue(FolderProperty, value); }
+			// Ensures that WPF uses the style defined for SubMenuIconButton
+			DefaultStyleKeyProperty.OverrideMetadata(typeof(SubMenuIconButton), new FrameworkPropertyMetadata(typeof(SubMenuIconButton)));
 		}
 
 	}

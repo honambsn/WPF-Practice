@@ -6,8 +6,8 @@
        TargetType="{x:Type TextBox}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource SearchBox.Static}"/>
-        <Setter Property="Foreground" Value="{StaticResource SearchBox.Static}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SearchBox.Static}"/>
+        <Setter Property="Foreground" Value="{DynamicResource SearchBox.Static}"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
         <Setter Property="Height" Value="28"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>

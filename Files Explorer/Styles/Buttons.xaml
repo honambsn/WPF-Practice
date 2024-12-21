@@ -407,6 +407,7 @@
         <Setter Property="Foreground" Value="{DynamicResource IconActiveBrush}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="60"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type cc:SubMenuIconButton}">
@@ -416,7 +417,7 @@
                         <Grid>
                             <Border
                                 Name="bgBorder"
-                                BorderBrush="{StaticResource BorderBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
                                 BorderThickness="1"
                                 Opacity=".1"
                                 Visibility="Collapsed">
@@ -429,9 +430,9 @@
                                 Margin="5">
 
                                 <Path Name="Path"
-                                      Data="{TemplateBinding Content}"
+                                      Data="{TemplateBinding Icon}"
                                       Fill="{TemplateBinding Foreground}"
-                                      Height="{TemplateBinding FontSize}"
+                                      Height="24"
                                       Stretch="Uniform"/>
 
                                 <TextBlock
@@ -445,16 +446,6 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <!--<MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsEnabled" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="IsMouseCaptured" Value="False"/>
-                            </MultiTrigger.Conditions>
-
-                            <Setter Property="Background" Value="{DynamicResource ButtonMouseOverBrush}"/>
-                        </MultiTrigger>-->
-
                         <Trigger
                             SourceName="TextBlock"
                             Property="Text"

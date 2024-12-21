@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -51,7 +53,20 @@ namespace Files_Explorer.Views
 		{
 			Properties.Settings.Default.Save();
 		}
+	}
 
+    public class BoolToVisibilityConverter : IValueConverter
+	{
+		#region Implementation of IValueConverter
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			return value != null && (bool)value ? Visibility.Visible : Visibility.Collapsed;
+		}
 
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+		#endregion
 	}
 }

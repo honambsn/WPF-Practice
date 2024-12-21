@@ -32,7 +32,9 @@
     <SolidColorBrush x:Key="SearchBox.Static" Color="Gray"/>
     <SolidColorBrush x:Key="DisabledFontBrush" Color="#808080" />
     <SolidColorBrush x:Key="SearchBox.Active" Color="Blue"/>
-    <SolidColorBrush x:Key="BorderBrush" Color="Black"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="Gray"/>
+    <SolidColorBrush x:Key="MenuHeader.Static" Color="Gray"/>
+    <SolidColorBrush x:Key="MenuHeader.MouseOver" Color="Black"/>
 
 
 
