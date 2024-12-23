@@ -2,6 +2,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Ex
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Explorer.exe
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\bin\Debug\Files Explorer.pdb
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\ListView.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\TextBoxes.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Resources\Icons.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\Colors.baml
