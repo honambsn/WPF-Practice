@@ -35,15 +35,24 @@ namespace File_Explorer.CustomControls
 		public static readonly DependencyProperty IconProperty =
 			DependencyProperty.Register("Icon", typeof(PathGeometry), typeof(DriveAndFolderButton));
 
-		// New Folder property
-		public static readonly DependencyProperty FolderProperty =
-			DependencyProperty.Register("Folder", typeof(Geometry), typeof(DriveAndFolderButton));
-
+		// Folder Property
 		public Geometry Folder
 		{
 			get { return (Geometry)GetValue(FolderProperty); }
 			set { SetValue(FolderProperty, value); }
 		}
 
+		public static readonly DependencyProperty FolderProperty =
+			DependencyProperty.Register("Folder", typeof(Geometry), typeof(DriveAndFolderButton));
+
+		// Content Property
+		public object Content
+		{
+			get { return GetValue(ContentProperty); }
+			set { SetValue(ContentProperty, value); }
+		}
+
+		public static readonly DependencyProperty ContentProperty =
+			DependencyProperty.Register("Content", typeof(object), typeof(DriveAndFolderButton));
 	}
 }
