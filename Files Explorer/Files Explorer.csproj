@@ -82,6 +82,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="CustomControls\SubMenuIconButton.cs" />
     <Compile Include="CustomControls\DriveAndFolderButton.cs" />
     <Compile Include="Models\FileDetailsModel.cs" />

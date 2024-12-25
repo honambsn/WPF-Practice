@@ -303,12 +303,14 @@
                 <cc:DriveAndFolderButton
                     Content="User"
                     Icon="{StaticResource User}"
-                    Margin="10,5"/>
+                    Margin="10,5"
+                    Command="{Binding OpenUserProfileSettingsCommand}"/>
                 
                 <cc:DriveAndFolderButton
                     Content="Settings"
                     Icon="{StaticResource Settings}"
-                    Margin="10,5"/>
+                    Margin="10,5"
+                    Command="{Binding OpenSettingsCommand}"/>
             </StackPanel>
         </Grid>
         <!--#endregion-->
