@@ -28,7 +28,7 @@ namespace Files_Explorer.ViewModel
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		readonly ResourceDictionary _iconDictionary = 
+		readonly ResourceDictionary _iconDictionary =
 			Application.LoadComponent(new Uri("/Files Explorer;component/Resources/Icons.xaml",
 				UriKind.RelativeOrAbsolute)) as ResourceDictionary;
 
@@ -38,13 +38,16 @@ namespace Files_Explorer.ViewModel
 		public string NextDirectory { get; set; }
 		public string SelectedDriveSize { get; set; }
 		public string SelectedFolderDetails { get; set; }
-		
+
 
 		public ObservableCollection<FileDetailsModel> FavoriteFolders { get; set; }
 		public ObservableCollection<FileDetailsModel> RemoteFolders { get; set; }
 		public ObservableCollection<FileDetailsModel> LibraryFolders { get; set; }
 		public ObservableCollection<FileDetailsModel> ConnectedDevices { get; set; }
 		public ObservableCollection<FileDetailsModel> NavigatedFolderFiles { get; set; }
+		public ObservableCollection<SubMenuItemDetails> HomeTabSubMenuCollection { get; set; }
+		public ObservableCollection<SubMenuItemDetails> ViewTabSubMenuCollection { get; set; }
+
 		#endregion
 
 		#region Functions
@@ -125,13 +128,13 @@ namespace Files_Explorer.ViewModel
 			};
 
 			ConnectedDevices = new ObservableCollection<FileDetailsModel>();
-			
+
 			foreach (var drive in DriveInfo.GetDrives())
 			{
 				var name = string.IsNullOrEmpty(drive.VolumeLabel) ? "Local Disk" : drive.VolumeLabel;
 				ConnectedDevices.Add(new FileDetailsModel()
 				{
-					Name = $"{name}({drive.Name.Replace(@"\","")})",
+					Name = $"{name}({drive.Name.Replace(@"\", "")})",
 					Path = drive.RootDirectory.FullName,
 					IsDirectory = true,
 					FileIcon = drive.Name.Contains("C:")
@@ -139,6 +142,10 @@ namespace Files_Explorer.ViewModel
 					: (PathGeometry)_iconDictionary["NormalDrive"]
 				});
 			}
+
+			//HomeTabSubMenuCollection = new ObservableCollection<SubMenuItemDetails>();
+
+			LoadSubenuCollectionsCommmand.Execute(null);
 
 			CurrentDirectory = @"C:\";
 		}
@@ -148,12 +155,12 @@ namespace Files_Explorer.ViewModel
 		#region Commands
 
 		private ICommand _openSettingsCommand;
-		
+
 		public ICommand OpenSettingsCommand
 		{
 			get
 			{
-				return _openSettingsCommand ?? 
+				return _openSettingsCommand ??
 					(_openSettingsCommand = new Command(() => Process.Start("ms-settings:home")));
 			}
 		}
@@ -169,6 +176,68 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		private ICommand _loadSubMenuCollectionsCommand;
+		public ICommand LoadSubenuCollectionsCommmand => _openSettingsCommand ??
+			(_openUserProfileSettingsCommand = new Command(() =>
+			{
+				HomeTabSubMenuCollection = new ObservableCollection<SubMenuItemDetails>
+				{
+					new SubMenuItemDetails()
+					{
+						Name = "Pin",
+						Icon = (PathGeometry)_iconDictionary["Pin"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Copy",
+						Icon = (PathGeometry)_iconDictionary["Copy"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Cut",
+						Icon = (PathGeometry)_iconDictionary["Cut"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Paste",
+						Icon = (PathGeometry)_iconDictionary["Paste"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Delete",
+						Icon = (PathGeometry)_iconDictionary["Delete"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Rename",
+						Icon = (PathGeometry)_iconDictionary["Rename"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "New Folder",
+						Icon = (PathGeometry)_iconDictionary["NewFolder"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Properties",
+						Icon = (PathGeometry)_iconDictionary["FileSettings"]
+					},
+				};
+
+				ViewTabSubMenuCollection = new ObservableCollection<SubMenuItemDetails>
+				{
+					new SubMenuItemDetails()
+					{
+						Name = "List",
+						Icon = (PathGeometry)_iconDictionary["ListView"]
+					},
+					new SubMenuItemDetails()
+					{
+						Name = "Tile",
+						Icon = (PathGeometry)_iconDictionary["TileView"]
+					}
+				};
+			}));
 
 		#endregion
 	}

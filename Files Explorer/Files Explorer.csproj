@@ -87,6 +87,7 @@
     <Compile Include="CustomControls\SubMenuIconButton.cs" />
     <Compile Include="CustomControls\DriveAndFolderButton.cs" />
     <Compile Include="Models\FileDetailsModel.cs" />
+    <Compile Include="Models\SubMenuItemDetails.cs" />
     <Compile Include="ViewModel\NotifyPropertyChangedInvocatorAttribute.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

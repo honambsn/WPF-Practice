@@ -344,11 +344,13 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center">
                     <RadioButton
+                        x:Name="HomeTabButton"
                         Content="Home"
                         IsChecked="True"
                         Style="{DynamicResource MenuHeaderRadioButtonStyle}"/>
 
                     <RadioButton
+                        x:Name="ViewTabButton"
                         Content="Computer"
                         Style="{DynamicResource MenuHeaderRadioButtonStyle}"/>
 
@@ -407,7 +409,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
-                    <cc:SubMenuIconButton
+                    <!--<cc:SubMenuIconButton
                         Content="Cut"
                         Icon="{StaticResource Cut}"
                         Style="{StaticResource SubMenuIconButtonStyle}" />
@@ -445,7 +447,29 @@
                     <cc:SubMenuIconButton
                         Content="FileSettings"
                         Icon="{StaticResource FileSettings}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
+                        Style="{StaticResource SubMenuIconButtonStyle}" />-->
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <cc:SubMenuIconButton
+                                Icon="{Binding Icon}"
+                                Content="{Binding Name}"
+                                Style="{StaticResource SubMenuIconButtonStyle}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.Style>
+                        <Style TargetType="{x:Type ItemsControl}">
+                            <Setter Property="ItemsSource" Value="{Binding HomeTabSubMenuCollection,
+                                UpdateSourceTrigger=PropertyChanged}"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=ViewTabButton}"
+                                             Value="True">
+                                    <Setter Property="ItemsSource" Value="{Binding ViewTabSubMenuCollection,
+                                        UpdateSourceTrigger=PropertyChanged}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ItemsControl.Style>
                        
                 </ItemsControl>
                 
