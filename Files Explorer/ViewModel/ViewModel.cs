@@ -1,5 +1,6 @@
 ﻿using Files_Explorer.Commands;
 using Files_Explorer.Models;
+using Microsoft.VisualBasic;
 using Syroot.Windows.IO;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,13 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+
+
 
 namespace Files_Explorer.ViewModel
 {
@@ -47,10 +51,164 @@ namespace Files_Explorer.ViewModel
 		public ObservableCollection<FileDetailsModel> NavigatedFolderFiles { get; set; }
 		public ObservableCollection<SubMenuItemDetails> HomeTabSubMenuCollection { get; set; }
 		public ObservableCollection<SubMenuItemDetails> ViewTabSubMenuCollection { get; set; }
+		internal ReadOnlyCollection<string> tempFolderCollection;
 
+		private BackgroundWorker bgGetFilesBackgroundWorker = new BackgroundWorker()
+		{
+			WorkerReportsProgress = true,
+			WorkerSupportsCancellation = true
+		};
 		#endregion
 
 		#region Functions
+
+		internal bool IsFileHidden(string fileName)
+		{
+			var attr = FileAttribute.Normal;
+			try
+			{
+				attr = File.GetAttributes(fileName);
+			}
+			catch
+			{
+				//return false;
+			}
+			return attr.HasFlag(FileAttributes.Hidden);
+		}
+
+		internal bool IsFileReadOnly(string path)
+		{
+			//var attr = FileAttribute.Normal;
+			try
+			{
+				if (Directory.Exists(path))
+					return (Directory.GetDirectoryInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
+
+				return (FileSystem.GetFileInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return false;
+			}
+			catch (FileNotFoundException)
+			{
+				return false;
+			}
+			catch(DirectoryNotFoundException)
+			{
+				return false;
+			}
+		}
+		
+		internal bool IsDirectory(string fileName)
+		{
+			var attr = FileAttribute.Normal;
+			try
+			{
+				attr = File.GetAttributes(fileName);
+			}
+			catch (FileNotFoundException)
+			{
+				return false;
+			}
+			return attr.HasFlag(FileAttributes.Directory);
+		}
+		internal string GetFileExtension(string fileName)
+		{
+			if (fileName == null) return string.Empty;
+			
+			var extension = Path.GetExtension(fileName);
+			var CultureInfo = Thread.CurrentThread.CurrentCulture;
+			var textInfo = CultureInfo.TextInfo;
+			var data = textInfo.ToTitleCase(extension.Replace(".", string.Empty));
+
+			return data;
+		}
+
+		internal static readonly List<string> ImageExtensions = new List<string>
+		{
+			".jpg", ".jpeg", ".png", ".bmp", ".gif"
+		};
+		internal static readonly List<string> VideoExtensions = new List<string>
+		{
+			"mp4",
+			"m4v",
+			"mov",
+			"wmv",
+			"avi",
+			"avchd",
+			"flv",
+			"f4v",
+			"swf",
+			"mkv",
+			"webm",
+		};
+
+		internal PathGeometry GetImageForExtension(FileDetailsModel file)
+		{
+			var fileExtension = file.FileExtension;
+			if (Directory.Exists(file.Path))
+				return (PathGeometry)_iconDictionary["Folder"];
+
+			if (file.IsImage)
+				return (PathGeometry)_iconDictionary["ImageFile"];
+
+			if (file.IsVideo)
+				return (PathGeometry)_iconDictionary["VideoFile"];
+
+			if((PathGeometry)_iconDictionary[$"{fileExtension}File"]==null)
+				return (PathGeometry)_iconDictionary["File"];
+			
+			return (PathGeometry)_iconDictionary[$"{fileExtension}File"];
+
+		}
+
+		void LoadDirectory(FileDetailsModel fileDetailsModel)
+		{
+			NavigatedFolderFiles.Clear();
+			tempFolderCollection = null;
+
+			if (!bgGetFilesBackgroundWorker.IsBusy)
+				return;
+
+			bgGetFilesBackgroundWorker.CancelAsync();
+
+			bgGetFilesBackgroundWorker.RunWorkerAsync(fileDetailsModel);
+		}
+		private void BgGetFilesBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			var fileOrFolder = (FileDetailsModel)e.Argument;
+
+			tempFolderCollection =
+				new ReadOnlyCollectionBuilder<string>(Directory.GetDirectories(fileOrFolder.Path)
+				.Concat(Directory.GetFiles(fileOrFolder.Path))).ToReadOnlyCollection();
+
+			foreach (var filename in tempFolderCollection)
+				bgGetFilesBackgroundWorker.ReportProgress(1, filename);
+
+			CurrentDirectory = fileOrFolder.Path;
+			OnPropertyChanged(nameof(CurrentDirectory));
+		}
+
+		private void BgGetFilesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+		{
+			var fileName = e.UserState.ToString();
+			var file = new FileDetailsModel();
+			file.Name = Path.GetFileName(fileName);
+			file.Path = fileName;
+			file.IsHidden = IsFileHidden(fileName);
+			file.IsDirectory = IsDirectory(fileName);
+			file.FileExtension = GetFileExtension(fileName);
+			file.IsImage = ImageExtensions.Contains(file.FileExtension.ToLower());
+			file.IsVideo = VideoExtensions.Contains(file.FileExtension.ToLower());
+			file.FileIcon = GetImageForExtension(file);
+
+		}
+
+		private void BgGetFilesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+		{
+			throw new NotImplementedException();
+		}
 
 		public ViewModel()
 		{
@@ -148,7 +306,16 @@ namespace Files_Explorer.ViewModel
 			LoadSubenuCollectionsCommmand.Execute(null);
 
 			CurrentDirectory = @"C:\";
+
+			OnPropertyChanged(nameof(CurrentDirectory));
+			
+			NavigatedFolderFiles = new ObservableCollection<FileDetailsModel>();
+
+			bgGetFilesBackgroundWorker.DoWork += BgGetFilesBackgroundWorker_DoWork;
+			bgGetFilesBackgroundWorker.ProgressChanged += BgGetFilesBackgroundWorker_ProgressChanged;
+			bgGetFilesBackgroundWorker.RunWorkerCompleted += BgGetFilesBackgroundWorker_RunWorkerCompleted;
 		}
+
 		#endregion
 
 

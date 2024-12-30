@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Syroot.KnownFolders, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Syroot.Windows.IO.KnownFolders.1.3.0\lib\netstandard2.0\Syroot.KnownFolders.dll</HintPath>
     </Reference>

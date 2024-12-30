@@ -511,7 +511,7 @@
                     Name="AddressBar"
                     HorizontalAlignment="Stretch"
                     Margin="12,0"
-                    Text="C:/"
+                    Text="{Binding CurrentDirectory, UpdateSourceTrigger=PropertyChanged}"
                     Style="{StaticResource AddressBarTextBoxStyle}"/>
             </Grid>
             <!--#endregion-->
