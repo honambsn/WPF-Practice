@@ -8,6 +8,7 @@
         xmlns:views="clr-namespace:Files_Explorer.Views"
         xmlns:prop="clr-namespace:Files_Explorer.Properties"
         xmlns:viewmodel="clr-namespace:Files_Explorer.ViewModel"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="782" Width="1235"
@@ -200,6 +201,8 @@
                             <cc:DriveAndFolderButton 
                                 Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
                                 Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
+                                Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
+                                CommandParameter="{Binding}"
                                 Margin="0,5,0,0" />
                         </DataTemplate>
                     </StackPanel.Resources>
@@ -527,7 +530,14 @@
                       BorderThickness="0"
                       SelectionMode="Extended"
                       ItemsSource="{Binding NavigatedFolderFiles, UpdateSourceTrigger=PropertyChanged}">
-                <!--<ListViewItem
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="MouseDoubleClick">
+                        <b:InvokeCommandAction
+                            Command="{Binding GetFilesListCommand}"
+                            CommandParameter="{Binding SelectedItem, ElementName=ListViewControl}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+                    <!--<ListViewItem
                     Content="Program Files"
                     Tag ="{StaticResource Folder}"/>
                 <ListViewItem

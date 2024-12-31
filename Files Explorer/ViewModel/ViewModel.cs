@@ -64,7 +64,7 @@ namespace Files_Explorer.ViewModel
 
 		internal bool IsFileHidden(string fileName)
 		{
-			var attr = FileAttribute.Normal;
+			System.IO.FileAttributes attr = (FileAttributes)FileAttribute.Normal;
 			try
 			{
 				attr = File.GetAttributes(fileName);
@@ -82,9 +82,9 @@ namespace Files_Explorer.ViewModel
 			try
 			{
 				if (Directory.Exists(path))
-					return (Directory.GetDirectoryInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
+					return (new DirectoryInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
 
-				return (FileSystem.GetFileInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
+				return (new FileInfo(path).Attributes & FileAttributes.ReadOnly) != 0;
 			}
 			catch (UnauthorizedAccessException)
 			{
@@ -102,7 +102,7 @@ namespace Files_Explorer.ViewModel
 		
 		internal bool IsDirectory(string fileName)
 		{
-			var attr = FileAttribute.Normal;
+			System.IO.FileAttributes attr = (FileAttributes)FileAttribute.Normal;
 			try
 			{
 				attr = File.GetAttributes(fileName);
@@ -168,10 +168,8 @@ namespace Files_Explorer.ViewModel
 			NavigatedFolderFiles.Clear();
 			tempFolderCollection = null;
 
-			if (!bgGetFilesBackgroundWorker.IsBusy)
-				return;
-
-			bgGetFilesBackgroundWorker.CancelAsync();
+			if (bgGetFilesBackgroundWorker.IsBusy)
+				bgGetFilesBackgroundWorker.CancelAsync();
 
 			bgGetFilesBackgroundWorker.RunWorkerAsync(fileDetailsModel);
 		}
@@ -203,11 +201,14 @@ namespace Files_Explorer.ViewModel
 			file.IsVideo = VideoExtensions.Contains(file.FileExtension.ToLower());
 			file.FileIcon = GetImageForExtension(file);
 
+			NavigatedFolderFiles.Add(file);
+			OnPropertyChanged(nameof(NavigatedFolderFiles));
+
 		}
 
 		private void BgGetFilesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
-			throw new NotImplementedException();
+			//throw new NotImplementedException();
 		}
 
 		public ViewModel()
@@ -314,6 +315,12 @@ namespace Files_Explorer.ViewModel
 			bgGetFilesBackgroundWorker.DoWork += BgGetFilesBackgroundWorker_DoWork;
 			bgGetFilesBackgroundWorker.ProgressChanged += BgGetFilesBackgroundWorker_ProgressChanged;
 			bgGetFilesBackgroundWorker.RunWorkerCompleted += BgGetFilesBackgroundWorker_RunWorkerCompleted;
+
+			LoadDirectory(new FileDetailsModel()
+			{
+				Path =CurrentDirectory 
+				
+			});
 		}
 
 		#endregion
@@ -404,6 +411,16 @@ namespace Files_Explorer.ViewModel
 						Icon = (PathGeometry)_iconDictionary["TileView"]
 					}
 				};
+			}));
+
+		protected ICommand _getFilesListCommand;
+		public ICommand GetFilesListCommand => _getFilesListCommand ??
+			(_getFilesListCommand = new RelayCommand(parameter =>
+			{
+				var file = parameter as FileDetailsModel;
+				if (file == null) return;
+
+				LoadDirectory(file);
 			}));
 
 		#endregion
