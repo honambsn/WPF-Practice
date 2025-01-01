@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -56,6 +57,11 @@ namespace Files_Explorer.ViewModel
 		private BackgroundWorker bgGetFilesBackgroundWorker = new BackgroundWorker()
 		{
 			WorkerReportsProgress = true,
+			WorkerSupportsCancellation = true
+		};
+
+		private BackgroundWorker bgGetFilesSizeBackgroundWorker = new BackgroundWorker()
+		{
 			WorkerSupportsCancellation = true
 		};
 		#endregion
@@ -176,6 +182,10 @@ namespace Files_Explorer.ViewModel
 		private void BgGetFilesBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			var fileOrFolder = (FileDetailsModel)e.Argument;
+			//if (fileOrFolder == null)
+			//{
+			//	throw new ArgumentNullException(nameof(e.Argument), "The argument passed to the background worker cannot be null.");
+			//}
 
 			tempFolderCollection =
 				new ReadOnlyCollectionBuilder<string>(Directory.GetDirectories(fileOrFolder.Path)
@@ -210,6 +220,90 @@ namespace Files_Explorer.ViewModel
 		{
 			//throw new NotImplementedException();
 		}
+
+		internal string CalculateSize(long bytes)
+		{
+			var suffix = new[] { "B", "KB", "MB", "GB", "TB" };
+			float byteNumber = bytes;
+
+			for (var i = 0; i < suffix.Length; i++)
+			{
+				if (byteNumber < 1000)
+				{
+					if (i == 0)
+						return $"{byteNumber} {suffix[i]}";
+					else
+						return $"{byteNumber:0.#0} {suffix[i]}";
+				}
+				else
+				{
+					byteNumber /= 1024;
+				}
+			}
+			return $"{byteNumber:N} {suffix[suffix.Length - 1]}";
+		}
+
+		internal static long GetDirectorySize(string directoryPath)
+		{
+			try
+			{
+				var d = new DirectoryInfo(directoryPath);
+				return d.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return 0;
+			}
+			catch(FileNotFoundException)
+			{
+				return 0;
+			}
+			catch(DirectoryNotFoundException)
+			{
+				return 0;
+			}
+		}
+
+		private void BgGetFilesSizeBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			var FileSize = NavigatedFolderFiles.Where(File=>File.IsSelected && !File.IsDirectory)
+				.Sum(x=> new FileInfo(x.Path).Length);
+
+
+			SelectedFolderDetails = CalculateSize(FileSize);
+			OnPropertyChanged(nameof(SelectedFolderDetails));
+
+			var Directories = NavigatedFolderFiles.Where(directory => directory.IsSelected && directory.IsDirectory);
+			try
+			{
+				foreach(var directory in Directories)
+				{
+					FileSize += GetDirectorySize(directory.Path);
+					SelectedFolderDetails = CalculateSize(FileSize);
+					OnPropertyChanged(nameof(SelectedFolderDetails));
+				}
+			}
+			//catch (UnauthorizedAccessException)
+			//{
+			//	SelectedFolderDetails = "Access Denied";
+			//	OnPropertyChanged(nameof(SelectedFolderDetails));
+			//}
+			//catch (FileNotFoundException)
+			//{
+			//	SelectedFolderDetails = "File Not Found";
+			//	OnPropertyChanged(nameof(SelectedFolderDetails));
+			//}
+			//catch (DirectoryNotFoundException)
+			//{
+			//	SelectedFolderDetails = "Directory Not Found";
+			//	OnPropertyChanged(nameof(SelectedFolderDetails));
+			//}
+			catch (InvalidOperationException)
+			{
+
+			}
+		}
+
 
 		public ViewModel()
 		{
@@ -421,6 +515,34 @@ namespace Files_Explorer.ViewModel
 				if (file == null) return;
 
 				LoadDirectory(file);
+			}));
+
+		protected ICommand _getFilesSizeCommand;
+		public ICommand GetFilesSizeCommand => _getFilesSizeCommand ??
+			(_getFilesSizeCommand = new RelayCommand(parameter =>
+			{
+				var file = parameter as FileDetailsModel;
+				if (file == null) return;
+
+				//LoadDirectory(file);
+				SelectedFolderDetails = "Calculating size...";
+				OnPropertyChanged(nameof(SelectedFolderDetails));
+				bgGetFilesSizeBackgroundWorker.DoWork -= BgGetFilesBackgroundWorker_DoWork;
+				bgGetFilesSizeBackgroundWorker.DoWork += BgGetFilesBackgroundWorker_DoWork;
+
+				bgGetFilesSizeBackgroundWorker.RunWorkerAsync();
+
+				if (bgGetFilesSizeBackgroundWorker.IsBusy)
+					bgGetFilesSizeBackgroundWorker.CancelAsync();
+				
+				if (bgGetFilesBackgroundWorker.CancellationPending)
+				{ 
+					bgGetFilesSizeBackgroundWorker.Dispose();
+					bgGetFilesSizeBackgroundWorker = new BackgroundWorker()
+					{
+						WorkerSupportsCancellation = true
+					};
+				}
 			}));
 
 		#endregion

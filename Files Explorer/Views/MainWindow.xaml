@@ -528,12 +528,19 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       BorderThickness="0"
+                      SelectedItem="{Binding Mode=OneWay}"
                       SelectionMode="Extended"
                       ItemsSource="{Binding NavigatedFolderFiles, UpdateSourceTrigger=PropertyChanged}">
                 <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="MouseDoubleClick">
+                    <!--<b:EventTrigger EventName="MouseDoubleClick">-->
+                    <b:EventTrigger EventName="SelectionChanged">
                         <b:InvokeCommandAction
                             Command="{Binding GetFilesListCommand}"
+                            CommandParameter="{Binding SelectedItem, ElementName=ListViewControl}"/>
+                    </b:EventTrigger>
+                    <b:EventTrigger EventName="MouseDoubleClick">
+                        <b:InvokeCommandAction
+                            Command="{Binding GetFilesSizeCommand}"
                             CommandParameter="{Binding SelectedItem, ElementName=ListViewControl}"/>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
@@ -588,6 +595,7 @@
                                 </Style>
                             </Run.Style>
                         </Run>
+                        <Run Text="{Binding SelectedFolderDetails, UpdateSourceTrigger=PropertyChanged}"/>
                     </TextBlock>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Right"
