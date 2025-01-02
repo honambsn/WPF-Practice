@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
+using System.Security;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,6 +53,36 @@ namespace Files_Explorer.ViewModel
 		public ObservableCollection<FileDetailsModel> NavigatedFolderFiles { get; set; }
 		public ObservableCollection<SubMenuItemDetails> HomeTabSubMenuCollection { get; set; }
 		public ObservableCollection<SubMenuItemDetails> ViewTabSubMenuCollection { get; set; }
+		public ObservableCollection<string> PathHistoryCollection { get; set; }
+		internal int position = 0;
+		public bool CanGoBack { get; set; }
+		public bool CanGoFoward { get; set; }
+		public bool IsAtRootDirectory { get; set; }
+		internal bool _pathDisrupted;
+		public bool PathDisrupted
+		{
+			get => _pathDisrupted;
+			set
+			{
+				_pathDisrupted = value;
+				if (_pathDisrupted)
+				{
+					var tempCollection = new ObservableCollection<string>();
+					for (int i = position; i < PathHistoryCollection.Count - 1; i++)
+					{
+						tempCollection.Add(PathHistoryCollection[i]);
+					}
+
+					foreach(var path in tempCollection)
+					{
+						PathHistoryCollection.Remove(path);
+					}
+					OnPropertyChanged(nameof(PathHistoryCollection));
+					_pathDisrupted = false;
+				}
+			}
+		}
+
 		internal ReadOnlyCollection<string> tempFolderCollection;
 
 		private BackgroundWorker bgGetFilesBackgroundWorker = new BackgroundWorker()
@@ -171,8 +202,19 @@ namespace Files_Explorer.ViewModel
 
 		void LoadDirectory(FileDetailsModel fileDetailsModel)
 		{
+			CanGoBack = position != 0;
+			OnPropertyChanged(nameof(CanGoBack));
+
 			NavigatedFolderFiles.Clear();
 			tempFolderCollection = null;
+
+			if (PathHistoryCollection != null && position > 0)
+			{
+				if (PathHistoryCollection.ElementAt(position) != fileDetailsModel.Path)
+				{
+					PathDisrupted = true;
+				}
+			}
 
 			if (bgGetFilesBackgroundWorker.IsBusy)
 				bgGetFilesBackgroundWorker.CancelAsync();
@@ -182,10 +224,6 @@ namespace Files_Explorer.ViewModel
 		private void BgGetFilesBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			var fileOrFolder = (FileDetailsModel)e.Argument;
-			//if (fileOrFolder == null)
-			//{
-			//	throw new ArgumentNullException(nameof(e.Argument), "The argument passed to the background worker cannot be null.");
-			//}
 
 			tempFolderCollection =
 				new ReadOnlyCollectionBuilder<string>(Directory.GetDirectories(fileOrFolder.Path)
@@ -196,6 +234,19 @@ namespace Files_Explorer.ViewModel
 
 			CurrentDirectory = fileOrFolder.Path;
 			OnPropertyChanged(nameof(CurrentDirectory));
+
+			var root = Path.GetPathRoot(fileOrFolder.Path);
+			if (string.IsNullOrWhiteSpace(CurrentDirectory) 
+				|| CurrentDirectory == root)
+			{
+				IsAtRootDirectory = true;
+				OnPropertyChanged(nameof(IsAtRootDirectory));
+			}
+			else
+			{
+				IsAtRootDirectory = false;
+				OnPropertyChanged(nameof(IsAtRootDirectory));
+			}
 		}
 
 		private void BgGetFilesBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -304,6 +355,15 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		internal void UpdatePathHistory(string path)
+		{
+			if (PathHistoryCollection != null && !string.IsNullOrEmpty(path))
+			{
+				PathHistoryCollection.Add(path);
+				position++;
+				OnPropertyChanged(nameof(PathHistoryCollection));
+			}
+		}
 
 		public ViewModel()
 		{
@@ -415,6 +475,12 @@ namespace Files_Explorer.ViewModel
 				Path =CurrentDirectory 
 				
 			});
+
+			PathHistoryCollection = new ObservableCollection<string>();
+			PathHistoryCollection.Add(CurrentDirectory);
+
+			CanGoBack = position != 0;
+			OnPropertyChanged(nameof(CanGoBack));
 		}
 
 		#endregion
@@ -508,13 +574,39 @@ namespace Files_Explorer.ViewModel
 			}));
 
 		protected ICommand _getFilesListCommand;
+
 		public ICommand GetFilesListCommand => _getFilesListCommand ??
 			(_getFilesListCommand = new RelayCommand(parameter =>
 			{
 				var file = parameter as FileDetailsModel;
 				if (file == null) return;
 
-				LoadDirectory(file);
+				SelectedFolderDetails = string.Empty;
+				OnPropertyChanged(nameof(SelectedFolderDetails));
+
+				if (Directory.Exists(file.Path))
+				{
+					UpdatePathHistory(file.Path);
+					LoadDirectory(file);
+				}
+				else
+				{
+					try
+					{
+						Process.Start(new ProcessStartInfo(file.Path));
+					}
+					catch(Win32Exception w3Ex)
+					{
+						MessageBox.Show(w3Ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+						//MessageBox.Show("The file cannot be opened.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+					}
+					catch(InvalidOperationException iOEx)
+					{
+						//	MessageBox.Show(iOEx.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+							MessageBox.Show($"{file.Name} cannot be opened.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+					}
+				}
+				
 			}));
 
 		protected ICommand _getFilesSizeCommand;
@@ -545,6 +637,106 @@ namespace Files_Explorer.ViewModel
 				}
 			}));
 
+		protected ICommand _goToPreviousDirectoryCommand;
+		public ICommand GoToPreviousDirectoryCommand => _goToPreviousDirectoryCommand ??
+			(_goToPreviousDirectoryCommand = new Command(() =>
+			{
+				if (position >= 1)
+				{
+					position--;
+					LoadDirectory(new FileDetailsModel()
+					{
+						Path = PathHistoryCollection.ElementAt(position)
+					});
+
+					CanGoFoward = true;
+					OnPropertyChanged(nameof(CanGoFoward));
+
+					PathDisrupted = false;
+					OnPropertyChanged(nameof(PathDisrupted));
+				}
+
+			}));
+
+		protected ICommand _goToFowardDirectoryCommand;
+		public ICommand GoToFowardDirectoryCommand => _goToFowardDirectoryCommand ??
+			(_goToFowardDirectoryCommand = new Command(() =>
+			{
+				if (position < PathHistoryCollection.Count - 1)
+				{
+					position++;
+					LoadDirectory(new FileDetailsModel()
+					{
+						Path = PathHistoryCollection.ElementAt(position)
+					});
+
+					CanGoFoward = 
+						position < PathHistoryCollection.Count - 1 &&  
+						position != PathHistoryCollection.Count - 1;
+					OnPropertyChanged(nameof(CanGoFoward));
+
+					//PathDisrupted = false;
+					//OnPropertyChanged(nameof(PathDisrupted));
+				}
+			}));
+
+		protected ICommand _goToParentDirectoryCommand;
+		public ICommand GoToParentDirectoryCommand => _goToParentDirectoryCommand ??
+			(_goToParentDirectoryCommand = new Command(() =>
+			{
+				var ParentDirectory = string.Empty;
+				PathDisrupted = true;
+
+				var	d = new DirectoryInfo(CurrentDirectory);
+
+				if (d.Parent != null)
+				{
+					ParentDirectory = d.Parent.FullName;
+					IsAtRootDirectory = false;
+					OnPropertyChanged(nameof(IsAtRootDirectory));
+				}
+				else if (d.Root == null)
+				{
+					IsAtRootDirectory = true;
+					OnPropertyChanged(nameof(IsAtRootDirectory));
+					return;
+				}
+				else
+				{
+					ParentDirectory = d.Root.ToString()
+					.Split(Path.DirectorySeparatorChar)[1];
+				}
+
+				GetFilesListCommand.Execute(new FileDetailsModel()
+				{
+					Path = ParentDirectory
+				});
+			}));
+
+		protected ICommand _navigateToPathCommand;
+		public ICommand NavigateToPathCommand => _navigateToPathCommand ??
+			(_navigateToPathCommand = new RelayCommand(parameter =>
+			{
+				var path = parameter as string;
+				if (!string.IsNullOrEmpty(path))
+					GetFilesListCommand.Execute(new FileDetailsModel()
+					{
+						Path = path
+					});
+
+				if (Directory.Exists(path))
+				{
+					UpdatePathHistory(path);
+					LoadDirectory(new FileDetailsModel()
+					{
+						Path = path
+					});
+				}
+				else
+				{
+					MessageBox.Show("The path does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}));
 		#endregion
 	}
 }
