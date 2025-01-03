@@ -73,7 +73,7 @@ namespace Files_Explorer.ViewModel
 						tempCollection.Add(PathHistoryCollection[i]);
 					}
 
-					foreach(var path in tempCollection)
+					foreach (var path in tempCollection)
 					{
 						PathHistoryCollection.Remove(path);
 					}
@@ -131,12 +131,12 @@ namespace Files_Explorer.ViewModel
 			{
 				return false;
 			}
-			catch(DirectoryNotFoundException)
+			catch (DirectoryNotFoundException)
 			{
 				return false;
 			}
 		}
-		
+
 		internal bool IsDirectory(string fileName)
 		{
 			System.IO.FileAttributes attr = (FileAttributes)FileAttribute.Normal;
@@ -153,7 +153,7 @@ namespace Files_Explorer.ViewModel
 		internal string GetFileExtension(string fileName)
 		{
 			if (fileName == null) return string.Empty;
-			
+
 			var extension = Path.GetExtension(fileName);
 			var CultureInfo = Thread.CurrentThread.CurrentCulture;
 			var textInfo = CultureInfo.TextInfo;
@@ -193,9 +193,9 @@ namespace Files_Explorer.ViewModel
 			if (file.IsVideo)
 				return (PathGeometry)_iconDictionary["VideoFile"];
 
-			if((PathGeometry)_iconDictionary[$"{fileExtension}File"]==null)
+			if ((PathGeometry)_iconDictionary[$"{fileExtension}File"] == null)
 				return (PathGeometry)_iconDictionary["File"];
-			
+
 			return (PathGeometry)_iconDictionary[$"{fileExtension}File"];
 
 		}
@@ -236,7 +236,7 @@ namespace Files_Explorer.ViewModel
 			OnPropertyChanged(nameof(CurrentDirectory));
 
 			var root = Path.GetPathRoot(fileOrFolder.Path);
-			if (string.IsNullOrWhiteSpace(CurrentDirectory) 
+			if (string.IsNullOrWhiteSpace(CurrentDirectory)
 				|| CurrentDirectory == root)
 			{
 				IsAtRootDirectory = true;
@@ -305,11 +305,11 @@ namespace Files_Explorer.ViewModel
 			{
 				return 0;
 			}
-			catch(FileNotFoundException)
+			catch (FileNotFoundException)
 			{
 				return 0;
 			}
-			catch(DirectoryNotFoundException)
+			catch (DirectoryNotFoundException)
 			{
 				return 0;
 			}
@@ -317,8 +317,8 @@ namespace Files_Explorer.ViewModel
 
 		private void BgGetFilesSizeBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			var FileSize = NavigatedFolderFiles.Where(File=>File.IsSelected && !File.IsDirectory)
-				.Sum(x=> new FileInfo(x.Path).Length);
+			var FileSize = NavigatedFolderFiles.Where(File => File.IsSelected && !File.IsDirectory)
+				.Sum(x => new FileInfo(x.Path).Length);
 
 
 			SelectedFolderDetails = CalculateSize(FileSize);
@@ -327,7 +327,7 @@ namespace Files_Explorer.ViewModel
 			var Directories = NavigatedFolderFiles.Where(directory => directory.IsSelected && directory.IsDirectory);
 			try
 			{
-				foreach(var directory in Directories)
+				foreach (var directory in Directories)
 				{
 					FileSize += GetDirectorySize(directory.Path);
 					SelectedFolderDetails = CalculateSize(FileSize);
@@ -463,7 +463,7 @@ namespace Files_Explorer.ViewModel
 			CurrentDirectory = @"C:\";
 
 			OnPropertyChanged(nameof(CurrentDirectory));
-			
+
 			NavigatedFolderFiles = new ObservableCollection<FileDetailsModel>();
 
 			bgGetFilesBackgroundWorker.DoWork += BgGetFilesBackgroundWorker_DoWork;
@@ -472,8 +472,8 @@ namespace Files_Explorer.ViewModel
 
 			LoadDirectory(new FileDetailsModel()
 			{
-				Path =CurrentDirectory 
-				
+				Path = CurrentDirectory
+
 			});
 
 			PathHistoryCollection = new ObservableCollection<string>();
@@ -595,18 +595,18 @@ namespace Files_Explorer.ViewModel
 					{
 						Process.Start(new ProcessStartInfo(file.Path));
 					}
-					catch(Win32Exception w3Ex)
+					catch (Win32Exception w3Ex)
 					{
 						MessageBox.Show(w3Ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 						//MessageBox.Show("The file cannot be opened.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 					}
-					catch(InvalidOperationException iOEx)
+					catch (InvalidOperationException iOEx)
 					{
 						//	MessageBox.Show(iOEx.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-							MessageBox.Show($"{file.Name} cannot be opened.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+						MessageBox.Show($"{file.Name} cannot be opened.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 					}
 				}
-				
+
 			}));
 
 		protected ICommand _getFilesSizeCommand;
@@ -626,9 +626,9 @@ namespace Files_Explorer.ViewModel
 
 				if (bgGetFilesSizeBackgroundWorker.IsBusy)
 					bgGetFilesSizeBackgroundWorker.CancelAsync();
-				
+
 				if (bgGetFilesBackgroundWorker.CancellationPending)
-				{ 
+				{
 					bgGetFilesSizeBackgroundWorker.Dispose();
 					bgGetFilesSizeBackgroundWorker = new BackgroundWorker()
 					{
@@ -670,8 +670,8 @@ namespace Files_Explorer.ViewModel
 						Path = PathHistoryCollection.ElementAt(position)
 					});
 
-					CanGoFoward = 
-						position < PathHistoryCollection.Count - 1 &&  
+					CanGoFoward =
+						position < PathHistoryCollection.Count - 1 &&
 						position != PathHistoryCollection.Count - 1;
 					OnPropertyChanged(nameof(CanGoFoward));
 
@@ -687,7 +687,7 @@ namespace Files_Explorer.ViewModel
 				var ParentDirectory = string.Empty;
 				PathDisrupted = true;
 
-				var	d = new DirectoryInfo(CurrentDirectory);
+				var d = new DirectoryInfo(CurrentDirectory);
 
 				if (d.Parent != null)
 				{
@@ -715,7 +715,7 @@ namespace Files_Explorer.ViewModel
 
 		protected ICommand _navigateToPathCommand;
 		public ICommand NavigateToPathCommand => _navigateToPathCommand ??
-			(_navigateToPathCommand = new RelayCommand(parameter =>
+			(_navigateToPathCommand = new RelayCommand((parameter) =>
 			{
 				var path = parameter as string;
 				if (!string.IsNullOrEmpty(path))
@@ -724,19 +724,98 @@ namespace Files_Explorer.ViewModel
 						Path = path
 					});
 
-				if (Directory.Exists(path))
+				//if (Directory.Exists(path))
+				//{
+				//	UpdatePathHistory(path);
+				//	LoadDirectory(new FileDetailsModel()
+				//	{
+				//		Path = path
+				//	});
+				//}
+				//else
+				//{
+				//	MessageBox.Show("The path does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				//}
+			}));
+
+		protected ICommand _subMenuFileOperationCommand;
+
+		internal void PinFolder()
+		{
+			if (FavoriteFolders == null)
+				FavoriteFolders = new ObservableCollection<FileDetailsModel>();
+			try
+			{
+				var selectedFile = NavigatedFolderFiles
+					.Where(folder => folder.IsSelected && !folder.IsPinned && folder.IsDirectory);
+
+				foreach(var diretory in selectedFile)
 				{
-					UpdatePathHistory(path);
-					LoadDirectory(new FileDetailsModel()
-					{
-						Path = path
-					});
+					diretory.IsPinned = true;
+					FavoriteFolders.Add(diretory);
+					OnPropertyChanged(nameof(FavoriteFolders));
 				}
-				else
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+		}
+
+		protected ICommand _unpinFavoriteFolderCommand;
+		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
+			(_unpinFavoriteFolderCommand = new RelayCommand(parameter =>
+			{
+				var folder = parameter as FileDetailsModel;
+				if (folder == null) return;
+
+				folder.IsPinned = false;
+				FavoriteFolders.Remove(folder);
+				OnPropertyChanged(nameof(FavoriteFolders));
+			}));
+
+
+		public ICommand SubMenuFileOperationCommand => _subMenuFileOperationCommand ??
+			(_subMenuFileOperationCommand = new RelayCommand(parameter =>
+			{
+				var subMenuItem = parameter as SubMenuItemDetails;
+				if (subMenuItem == null) return;
+
+				try
 				{
-					MessageBox.Show("The path does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+					switch (subMenuItem.Name)
+					{
+						case "Pin":
+							PinFolder();
+							break;
+						case "Copy":
+							break;
+						case "Cut":
+							break;
+						case "Paste":
+							break;
+						case "Delete":
+							break;
+						case "Rename":
+							break;
+						case "New Folder":
+							break;
+						case "Properties":
+							break;
+						case "List":
+							break;
+						case "Tile":
+							break;
+						default:
+							return;
+					}
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 			}));
+
 		#endregion
 	}
 }

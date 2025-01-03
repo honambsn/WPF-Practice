@@ -2,20 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:cc="clr-namespace:File_Explorer.CustomControls"
                     xmlns:prop="clr-namespace:Files_Explorer.Properties">
-    
-    <!--#region window btn--><!--
+
+    <!--#region window btn-->
+    <!--
     <Style TargetType="{x:Type Button}"
            x:Key="WindowChromeButtonStyle">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-        --><!--<Setter Property="Background" Value="Transparent"/>--><!--
+        -->
+    <!--<Setter Property="Background" Value="Transparent"/>-->
+    <!--
         <Setter Property="Width" Value="44"/>
         <Setter Property="VerticalAlignment" Value="Stretch"/>
-        --><!--<Setter Property="Foreground" Value="{StaticResource IconActiveBrush}"/>--><!--
+        -->
+    <!--<Setter Property="Foreground" Value="{StaticResource IconActiveBrush}"/>-->
+    <!--
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Padding="{TemplateBinding Padding}">
-                        --><!--Background="{TemplateBinding Background}">--><!--
+                        -->
+    <!--Background="{TemplateBinding Background}">-->
+    <!--
                         <ContentPresenter VerticalAlignment="Center"
                                           HorizontalAlignment="Center"/>
                     </Border>
@@ -65,9 +72,10 @@
         </Style.Triggers>
     </Style>
     
-    --><!--#endregion-->
-    
-       
+    -->
+    <!--#endregion-->
+
+
     <!--#region nav btn-->
     <Style TargetType="{x:Type Button}"
            x:Key="WindowChromeButtonStyle">
@@ -131,7 +139,8 @@
     <!--#endregion-->
 
 
-    <!--region drive and folder btn--><!--
+    <!--region drive and folder btn-->
+    <!--
     
     <Style TargetType="{x:Type cc:DriveAndFolderButton}">
         <Setter Property="Foreground" Value="{DynamicResource NavFontBrush}"/>
@@ -177,7 +186,9 @@
                             Effect="{DynamicResource DropShadowEffect}"/>
                     
                     
-                        --><!--unpin btn--><!--
+                        -->
+    <!--unpin btn-->
+    <!--
     
                         <Button
                             Name="UnPinButton"
@@ -191,9 +202,10 @@
         </Setter>
     </Style>
 
-    --><!--#endregion-->
-    
-    
+    -->
+    <!--#endregion-->
+
+
     <!--#region drive and folder btn-->
 
     <Style TargetType="{x:Type cc:DriveAndFolderButton}">
@@ -240,9 +252,13 @@
 
                         <Button
                         Name="UnPinButton"
+                        Content="{DynamicResource UnPin}"
+                        Command="{TemplateBinding UnPinCommand}"
+                        CommandParameter="{Binding}"
                         Grid.Column="2"
                         Width="40"
                         Foreground="{DynamicResource NavFontBrush}"
+                        Style="{DynamicResource ButtonWithIconStyle}"
                         Visibility="Collapsed"/>
                     </Grid>
 
@@ -250,7 +266,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="bgBorder" Property="Opacity" Value="1"/>
-                            
+
                         </Trigger>
 
                         <Trigger Property="IsPressed" Value="True">
@@ -261,7 +277,13 @@
                             <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="bgBorder" Property="Opacity" Value=".8"/>
                         </Trigger>
-                        
+
+                        <DataTrigger Binding="{Binding IsPinned}" Value="True">
+                            <Setter TargetName="UnPinButton"
+                                    Property="Visibility"
+                                    Value="Visible"/>
+                        </DataTrigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -302,8 +324,8 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    
-    
+
+
     <!--#region button with icon-->
     <Style x:Key="ButtonWithIconStyle"
        TargetType="{x:Type Button}">
@@ -359,7 +381,7 @@
                             Fill="{TemplateBinding Foreground}"
                             Height="{TemplateBinding FontSize}"
                             Stretch="Uniform"/>
-                            <!--VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        <!--VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>-->
                     </Border>
                 </ControlTemplate>
@@ -367,8 +389,8 @@
         </Setter>
     </Style>
     <!--#endregion-->
-        
-        
+
+
     <!--#region toggle expand/collapse sub menu-->
     <Style
         x:Key="ExpandCollapseToggleButtonStyle"
@@ -384,8 +406,8 @@
         </Style.Triggers>
     </Style>
     <!--#endregion-->
-    
-    
+
+
     <!--#region darkmode toggle button-->
     <Style x:Key="DarkLightModeToggleButtonStyle"
            TargetType="{x:Type ToggleButton}"
@@ -398,7 +420,7 @@
         </Style.Triggers>
     </Style>
     <!--#endregion-->
-    
+
     <!--#region sub menu icon btn-->
     <Style x:Key="SubMenuIconButtonStyle"
            TargetType="{x:Type cc:SubMenuIconButton}">

@@ -203,6 +203,7 @@
                                 Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
                                 Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
                                 CommandParameter="{Binding}"
+                                UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
                                 Margin="0,5,0,0" />
                         </DataTemplate>
                     </StackPanel.Resources>
@@ -457,7 +458,9 @@
                             <cc:SubMenuIconButton
                                 Icon="{Binding Icon}"
                                 Content="{Binding Name}"
-                                Style="{StaticResource SubMenuIconButtonStyle}"/>
+                                Style="{StaticResource SubMenuIconButtonStyle}"
+                                Command="{Binding DataContext.SubMenuFileOperationCommand, ElementName=mainWindow}"
+                                CommandParameter="{Binding}"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.Style>

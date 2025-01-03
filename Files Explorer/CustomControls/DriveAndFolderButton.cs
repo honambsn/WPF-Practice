@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace File_Explorer.CustomControls
@@ -44,5 +45,14 @@ namespace File_Explorer.CustomControls
 		// DependencyProperty for Folder
 		public static readonly DependencyProperty FolderProperty =
 			DependencyProperty.Register("Folder", typeof(Geometry), typeof(DriveAndFolderButton));
+
+		public ICommand UnPinCommand
+		{
+			get { return (ICommand)GetValue(UnPinCommandProperty); }
+			set { SetValue(UnPinCommandProperty, value); }
+		}
+
+		public static readonly DependencyProperty UnPinCommandProperty =
+			DependencyProperty.Register("UnPinCommand", typeof(ICommand), typeof(DriveAndFolderButton));
 	}
 }
