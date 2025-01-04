@@ -250,6 +250,7 @@
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         Effect="{DynamicResource DropShadowEffect}"/>
 
+                        <!--unpin btn-->
                         <Button
                         Name="UnPinButton"
                         Content="{DynamicResource UnPin}"

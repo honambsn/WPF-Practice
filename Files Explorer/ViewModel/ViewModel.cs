@@ -738,23 +738,24 @@ namespace Files_Explorer.ViewModel
 				//}
 			}));
 
-		protected ICommand _subMenuFileOperationCommand;
-
 		internal void PinFolder()
 		{
 			if (FavoriteFolders == null)
 				FavoriteFolders = new ObservableCollection<FileDetailsModel>();
 			try
 			{
-				var selectedFile = NavigatedFolderFiles
+				var selectedFile = 
+					NavigatedFolderFiles
 					.Where(folder => folder.IsSelected && !folder.IsPinned && folder.IsDirectory);
 
-				foreach(var diretory in selectedFile)
+				foreach(var directory in selectedFile)
 				{
-					diretory.IsPinned = true;
-					FavoriteFolders.Add(diretory);
+					directory.IsPinned = true;
+					FavoriteFolders.Add(directory);
 					OnPropertyChanged(nameof(FavoriteFolders));
 				}
+
+				//OnPropertyChanged(nameof(FavoriteFolders));
 			}
 			catch (Exception ex)
 			{
@@ -762,9 +763,9 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
-		protected ICommand _unpinFavoriteFolderCommand;
+		protected ICommand _unpinFavoriteFolderCommand;			
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
-			(_unpinFavoriteFolderCommand = new RelayCommand(parameter =>
+			(_unpinFavoriteFolderCommand = new RelayCommand((parameter) =>
 			{
 				var folder = parameter as FileDetailsModel;
 				if (folder == null) return;
@@ -775,8 +776,9 @@ namespace Files_Explorer.ViewModel
 			}));
 
 
+		protected ICommand _subMenuFileOperationCommand;
 		public ICommand SubMenuFileOperationCommand => _subMenuFileOperationCommand ??
-			(_subMenuFileOperationCommand = new RelayCommand(parameter =>
+			(_subMenuFileOperationCommand = new RelayCommand((parameter) =>
 			{
 				var subMenuItem = parameter as SubMenuItemDetails;
 				if (subMenuItem == null) return;
