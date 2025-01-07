@@ -413,46 +413,6 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
-                    <!--<cc:SubMenuIconButton
-                        Content="Cut"
-                        Icon="{StaticResource Cut}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="Pin"
-                        Icon="{StaticResource Pin}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="Copy"
-                        Icon="{StaticResource Copy}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="Paste"
-                        Icon="{StaticResource Paste}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="Delete"
-                        Icon="{StaticResource Delete}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="Rename"
-                        Icon="{StaticResource Rename}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="NewFolder"
-                        Icon="{StaticResource NewFolder}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />
-                        
-                    <cc:SubMenuIconButton
-                        Content="FileSettings"
-                        Icon="{StaticResource FileSettings}"
-                        Style="{StaticResource SubMenuIconButtonStyle}" />-->
-
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <cc:SubMenuIconButton
