@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,27 @@ namespace Files_Explorer.Models
 		public bool IsImage { get; set; }
 		public bool IsVideo { get; set; }
 		public bool IsSelected { get; set; }
-		public bool IsPinned { get; set; }
+		private bool _isPinned;
+
+		public bool IsPinned
+		{
+			get { return _isPinned; }
+			set
+			{
+				if (_isPinned != value)
+				{
+					_isPinned = value;
+					OnPropertyChanged(nameof(IsPinned));  // Notify UI
+				}
+			}
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 		internal string _Type { get; set; }
 		public string Type => _Type = IsDirectory ? "Folder" : "File";
 		

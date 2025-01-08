@@ -19,7 +19,7 @@
     <Window.DataContext>
         <viewmodel:ViewModel></viewmodel:ViewModel>
     </Window.DataContext>
-    
+
     <Window.Resources>
         <BitmapImage x:Key="Image0" UriSource="../Resources/0.jpg"/>
         <BitmapImage x:Key="Image1" UriSource="../Resources/1.jpg"/>
@@ -29,7 +29,7 @@
         <BitmapImage x:Key="Image5" UriSource="../Resources/5.jpg"/>
 
     </Window.Resources>
-    
+
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Setter Property="AllowsTransparency" Value="True"/>
@@ -174,7 +174,7 @@
             <ColumnDefinition Width="280"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-   
+
 
         <!--#region Left Navigation-->
         <Grid>
@@ -197,6 +197,28 @@
                             <Setter Property="Effect" Value="{StaticResource DropShadowEffect}"/>
                         </Style>
 
+                        <!--<DataTemplate x:Key="NavFolderDataTemplate">
+                            --><!--<cc:DriveAndFolderButton 
+                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
+                                Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
+                                CommandParameter="{Binding}"
+                                UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
+                                Margin="0,5,0,0" />--><!--
+                            <cc:DriveAndFolderButton 
+                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
+                                Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
+                                Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
+                                CommandParameter="{Binding}"
+                                UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
+                                Margin="0,5,0,0">
+                                <cc:DriveAndFolderButton.DataContext>
+                                    <Binding />
+                                </cc:DriveAndFolderButton.DataContext>
+                            </cc:DriveAndFolderButton>
+
+                        </DataTemplate>-->
+
                         <DataTemplate x:Key="NavFolderDataTemplate">
                             <cc:DriveAndFolderButton 
                                 Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
@@ -204,8 +226,13 @@
                                 Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
                                 CommandParameter="{Binding}"
                                 UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
-                                Margin="0,5,0,0" />
+                                Margin="0,5,0,0">
+                                <cc:DriveAndFolderButton.DataContext>
+                                    <Binding />
+                                </cc:DriveAndFolderButton.DataContext>
+                            </cc:DriveAndFolderButton>
                         </DataTemplate>
+
                     </StackPanel.Resources>
 
                     <StackPanel>
@@ -216,7 +243,7 @@
                                         UpdateSourceTrigger=PropertyChanged}" Value="0">
                                         <Setter Property="Visibility" Value="Collapsed"/>
                                     </DataTrigger>
-                                    
+
                                     <DataTrigger Binding="{Binding FavoriteFolders.Count,
                                         UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -230,7 +257,7 @@
                             ItemsSource="{Binding FavoriteFolders, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0,0,0,17"/>
                     </StackPanel>
-                    
+
                     <!--<ItemsControl
                             Margin="0,0,0,17">
                         <cc:DriveAndFolderButton
@@ -282,7 +309,7 @@
                                                  Icon="{StaticResource MusicsFolder}"
                                                  Margin="0,5,0,0"/>
                     </ItemsControl>-->
-                    
+
                     <TextBlock Text="Devices"
                                Margin="0,17,0,0"/>
                     <ItemsControl ItemTemplate="{StaticResource NavFolderDataTemplate}"
@@ -309,7 +336,7 @@
                     Icon="{StaticResource User}"
                     Margin="10,5"
                     Command="{Binding OpenUserProfileSettingsCommand}"/>
-                
+
                 <cc:DriveAndFolderButton
                     Content="Settings"
                     Icon="{StaticResource Settings}"
@@ -318,7 +345,7 @@
             </StackPanel>
         </Grid>
         <!--#endregion-->
-        
+
         <!--#region Explorer Header-->
         <Grid
             Grid.Column="1"
@@ -367,7 +394,7 @@
                         FontSize="10"
                         Style="{DynamicResource ExpandCollapseToggleButtonStyle}"/>
                 </StackPanel>
-                
+
                 <!--searchbox-->
                 <StackPanel
                     Grid.Column="1"
@@ -394,7 +421,7 @@
                 </StackPanel>
             </Grid>
             <!--#endregion-->
-            
+
             <!--#region SubMenu-->
             <Grid Grid.Row="1"
                   HorizontalAlignment="Left">
@@ -436,9 +463,9 @@
                             </Style.Triggers>
                         </Style>
                     </ItemsControl.Style>
-                       
+
                 </ItemsControl>
-                
+
             </Grid>
             <!--#endregion-->
 
@@ -498,7 +525,7 @@
                     FontSize="20"
                     HorizontalContentAlignment="Center"
                     Command="{Binding GoToParentDirectoryCommand}">
-                    
+
                     <Button.Style>
                         <Style TargetType="{x:Type Button}"
                                 BasedOn="{StaticResource ButtonWithIconStyle}">
@@ -553,7 +580,7 @@
                             CommandParameter="{Binding SelectedItem, ElementName=ListViewControl}"/>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
-                    <!--<ListViewItem
+                <!--<ListViewItem
                     Content="Program Files"
                     Tag ="{StaticResource Folder}"/>
                 <ListViewItem
@@ -614,7 +641,7 @@
                         Text="999.9Gb"/>
                 </StackPanel>
             </DockPanel>
-                
+
             <!--#endregion-->
         </Grid>
     </Grid>

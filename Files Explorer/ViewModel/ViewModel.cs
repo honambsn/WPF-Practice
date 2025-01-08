@@ -744,11 +744,11 @@ namespace Files_Explorer.ViewModel
 				FavoriteFolders = new ObservableCollection<FileDetailsModel>();
 			try
 			{
-				var selectedFile = 
+				var selectedFile =
 					NavigatedFolderFiles
 					.Where(folder => folder.IsSelected && !folder.IsPinned && folder.IsDirectory);
 
-				foreach(var directory in selectedFile)
+				foreach (var directory in selectedFile)
 				{
 					directory.IsPinned = true;
 					FavoriteFolders.Add(directory);
@@ -763,7 +763,7 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
-		protected ICommand _unpinFavoriteFolderCommand;			
+		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
 			(_unpinFavoriteFolderCommand = new RelayCommand((parameter) =>
 			{

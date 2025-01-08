@@ -285,6 +285,7 @@
                                     Value="Visible"/>
                         </DataTrigger>
 
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
