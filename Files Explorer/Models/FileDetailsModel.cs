@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace Files_Explorer.Models
 {
-	public class FileDetailsModel
+	public class FileDetailsModel : INotifyPropertyChanged
 	{
 		public string Name { get; set; }
 		public string Path { get; set; }
@@ -28,13 +28,13 @@ namespace Files_Explorer.Models
 
 		public bool IsPinned
 		{
-			get { return _isPinned; }
+			get => _isPinned;
 			set
 			{
 				if (_isPinned != value)
 				{
 					_isPinned = value;
-					OnPropertyChanged(nameof(IsPinned));  // Notify UI
+					OnPropertyChanged(nameof(IsPinned));
 				}
 			}
 		}
@@ -45,6 +45,7 @@ namespace Files_Explorer.Models
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
+
 		internal string _Type { get; set; }
 		public string Type => _Type = IsDirectory ? "Folder" : "File";
 		

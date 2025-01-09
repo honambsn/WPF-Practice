@@ -737,11 +737,13 @@ namespace Files_Explorer.ViewModel
 				//	MessageBox.Show("The path does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				//}
 			}));
+		#endregion
 
 		internal void PinFolder()
 		{
 			if (FavoriteFolders == null)
 				FavoriteFolders = new ObservableCollection<FileDetailsModel>();
+
 			try
 			{
 				var selectedFile =
@@ -752,16 +754,16 @@ namespace Files_Explorer.ViewModel
 				{
 					directory.IsPinned = true;
 					FavoriteFolders.Add(directory);
-					OnPropertyChanged(nameof(FavoriteFolders));
 				}
 
-				//OnPropertyChanged(nameof(FavoriteFolders));
+				OnPropertyChanged(nameof(FavoriteFolders)); 
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
+
 
 		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
@@ -771,9 +773,11 @@ namespace Files_Explorer.ViewModel
 				if (folder == null) return;
 
 				folder.IsPinned = false;
-				FavoriteFolders.Remove(folder);
-				OnPropertyChanged(nameof(FavoriteFolders));
+				FavoriteFolders.Remove(folder); 
+				OnPropertyChanged(nameof(FavoriteFolders)); 
 			}));
+
+
 
 
 		protected ICommand _subMenuFileOperationCommand;
@@ -818,6 +822,6 @@ namespace Files_Explorer.ViewModel
 				}
 			}));
 
-		#endregion
+		
 	}
 }

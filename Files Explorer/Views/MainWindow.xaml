@@ -196,29 +196,6 @@
                             <Setter Property="Foreground" Value="{StaticResource NavFontBrush}"/>
                             <Setter Property="Effect" Value="{StaticResource DropShadowEffect}"/>
                         </Style>
-
-                        <!--<DataTemplate x:Key="NavFolderDataTemplate">
-                            --><!--<cc:DriveAndFolderButton 
-                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
-                                Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
-                                Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
-                                CommandParameter="{Binding}"
-                                UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
-                                Margin="0,5,0,0" />--><!--
-                            <cc:DriveAndFolderButton 
-                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
-                                Icon="{Binding FileIcon, UpdateSourceTrigger=PropertyChanged}" 
-                                Command="{Binding DataContext.GetFilesListCommand, ElementName=mainWindow}"
-                                CommandParameter="{Binding}"
-                                UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
-                                Margin="0,5,0,0">
-                                <cc:DriveAndFolderButton.DataContext>
-                                    <Binding />
-                                </cc:DriveAndFolderButton.DataContext>
-                            </cc:DriveAndFolderButton>
-
-                        </DataTemplate>-->
-
                         <DataTemplate x:Key="NavFolderDataTemplate">
                             <cc:DriveAndFolderButton 
                                 Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}" 
@@ -227,11 +204,9 @@
                                 CommandParameter="{Binding}"
                                 UnPinCommand="{Binding DataContext.UnPinFavoriteFolderCommand, ElementName=mainWindow}"
                                 Margin="0,5,0,0">
-                                <cc:DriveAndFolderButton.DataContext>
-                                    <Binding />
-                                </cc:DriveAndFolderButton.DataContext>
                             </cc:DriveAndFolderButton>
                         </DataTemplate>
+
 
                     </StackPanel.Resources>
 
@@ -252,35 +227,16 @@
                             </Style>
                         </StackPanel.Style>
                         <TextBlock Text="Favorites"/>
-                        <ItemsControl
+                        <ItemsControl 
                             ItemTemplate="{StaticResource NavFolderDataTemplate}"
                             ItemsSource="{Binding FavoriteFolders, UpdateSourceTrigger=PropertyChanged}"
                             Margin="0,0,0,17"/>
-                    </StackPanel>
 
-                    <!--<ItemsControl
-                            Margin="0,0,0,17">
-                        <cc:DriveAndFolderButton
-                                Content="Games"
-                                Icon="{StaticResource Folder}"
-                                Margin="0,5,0,0"/>
-                    </ItemsControl>-->
+                    </StackPanel>
 
                     <TextBlock
                         Text="Remote"/>
-                    <!--<ItemsControl
-                            Margin="0,0,0,17">
-                        <cc:DriveAndFolderButton Content="OneDrive"
-                                                 Icon="{StaticResource OneDrive}"
-                                                 Margin="0,5,0,0"/>
 
-                        <cc:DriveAndFolderButton Content="Google Drive"
-                                                 Icon="{StaticResource GoogleDrive}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content="Dropbox"
-                                                 Icon="{StaticResource Dropbox}"
-                                                 Margin="0,5,0,0"/>
-                    </ItemsControl>-->
 
                     <ItemsControl ItemTemplate="{StaticResource NavFolderDataTemplate}"
                                   ItemsSource="{Binding RemoteFolders, UpdateSourceTrigger=PropertyChanged}"/>
@@ -289,42 +245,11 @@
                                Margin="0,17,0,0"/>
                     <ItemsControl ItemTemplate="{StaticResource NavFolderDataTemplate}"
                                   ItemsSource="{Binding LibraryFolders, UpdateSourceTrigger=PropertyChanged}"/>
-                    <!--<ItemsControl>
-                        <cc:DriveAndFolderButton Content="Desktop"
-                                                 Icon="{StaticResource DesktopFolder}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content="Documents"
-                                                 Icon="{StaticResource DocumentsFolder}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content= "Downloads"
-                                                 Icon="{StaticResource DownloadsFolder}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content= "Pictures"
-                                                 Icon="{StaticResource PicturesFolder}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content="Videos"
-                                                 Icon="{StaticResource VideosFolder}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content ="Music"
-                                                 Icon="{StaticResource MusicsFolder}"
-                                                 Margin="0,5,0,0"/>
-                    </ItemsControl>-->
 
                     <TextBlock Text="Devices"
                                Margin="0,17,0,0"/>
                     <ItemsControl ItemTemplate="{StaticResource NavFolderDataTemplate}"
                                   ItemsSource="{Binding ConnectedDevices, UpdateSourceTrigger=PropertyChanged}"/>
-                    <!--<ItemsControl>
-                        <cc:DriveAndFolderButton Content="Local Disk (C:)"
-                                                 Icon="{StaticResource CDrive}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content="Local Disk (D:)"
-                                                 Icon="{StaticResource NormalDrive}"
-                                                 Margin="0,5,0,0"/>
-                        <cc:DriveAndFolderButton Content="Local Disk (E:)"
-                                                 Icon="{StaticResource NormalDrive}"
-                                                 Margin="0,5,0,0"/>
-                    </ItemsControl>-->
                 </StackPanel>
             </ScrollViewer>
 
@@ -580,18 +505,6 @@
                             CommandParameter="{Binding SelectedItem, ElementName=ListViewControl}"/>
                     </b:EventTrigger>
                 </b:Interaction.Triggers>
-                <!--<ListViewItem
-                    Content="Program Files"
-                    Tag ="{StaticResource Folder}"/>
-                <ListViewItem
-                    Content="Program Files (x86)"
-                    Tag ="{StaticResource Folder}"/>
-                <ListViewItem
-                    Content="Users"
-                    Tag ="{StaticResource Folder}"/>
-                <ListViewItem
-                    Content="Windows"
-                    Tag ="{StaticResource Folder}"/>-->
             </ListView>
             <!--#endregion-->
 

@@ -280,10 +280,9 @@
                         </Trigger>
 
                         <DataTrigger Binding="{Binding IsPinned}" Value="True">
-                            <Setter TargetName="UnPinButton"
-                                    Property="Visibility"
-                                    Value="Visible"/>
+                            <Setter TargetName="UnPinButton" Property="Visibility" Value="Visible"/>
                         </DataTrigger>
+
 
 
                     </ControlTemplate.Triggers>
