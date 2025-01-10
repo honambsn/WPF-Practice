@@ -14,6 +14,8 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Resource
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\Colors.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\Fonts.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\PropertiesDialog.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\RenameDialog.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\App.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer_MarkupCompile.cache
@@ -21,6 +23,8 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Ex
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\App.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\MainWindow.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Styles\Buttons.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\PropertiesDialog.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Views\RenameDialog.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.g.resources
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files_Explorer.Properties.Resources.resources
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Files Explorer\obj\Debug\Files Explorer.csproj.GenerateResource.cache

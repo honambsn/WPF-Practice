@@ -266,7 +266,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="bgBorder" Property="Opacity" Value="1"/>
+                            <!--<Setter TargetName="bgBorder" Property="Opacity" Value="1"/>-->
 
                         </Trigger>
 

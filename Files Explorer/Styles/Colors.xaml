@@ -36,6 +36,8 @@
     <SolidColorBrush x:Key="MenuHeader.Static" Color="Gray"/>
     <SolidColorBrush x:Key="MenuHeader.MouseOver" Color="Black"/>
 
+    <SolidColorBrush x:Key="Window.Background.Static" Color="Gray" />
+    <!-- Example Color -->
 
 
 

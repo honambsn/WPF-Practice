@@ -1,6 +1,7 @@
 ﻿using Files_Explorer.Commands;
 using Files_Explorer.Models;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.FileIO;
 using Syroot.Windows.IO;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -44,6 +46,7 @@ namespace Files_Explorer.ViewModel
 		public string NextDirectory { get; set; }
 		public string SelectedDriveSize { get; set; }
 		public string SelectedFolderDetails { get; set; }
+		public string NewFolderName { get; set; }
 
 
 		public ObservableCollection<FileDetailsModel> FavoriteFolders { get; set; }
@@ -53,11 +56,13 @@ namespace Files_Explorer.ViewModel
 		public ObservableCollection<FileDetailsModel> NavigatedFolderFiles { get; set; }
 		public ObservableCollection<SubMenuItemDetails> HomeTabSubMenuCollection { get; set; }
 		public ObservableCollection<SubMenuItemDetails> ViewTabSubMenuCollection { get; set; }
+		public ObservableCollection<FileDetailsModel> ClipBoardCollection { get; set; }
 		public ObservableCollection<string> PathHistoryCollection { get; set; }
 		internal int position = 0;
 		public bool CanGoBack { get; set; }
 		public bool CanGoFoward { get; set; }
 		public bool IsAtRootDirectory { get; set; }
+		public bool IsMoveOperation { get; set; }
 		internal bool _pathDisrupted;
 		public bool PathDisrupted
 		{
@@ -299,7 +304,7 @@ namespace Files_Explorer.ViewModel
 			try
 			{
 				var d = new DirectoryInfo(directoryPath);
-				return d.EnumerateFiles("*", SearchOption.AllDirectories).Sum(fi => fi.Length);
+				return d.EnumerateFiles("*", System.IO.SearchOption.AllDirectories).Sum(fi => fi.Length);
 			}
 			catch (UnauthorizedAccessException)
 			{
@@ -764,6 +769,142 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		internal void CopyFolder()
+		{
+			if (ClipBoardCollection == null)
+				ClipBoardCollection = new ObservableCollection<FileDetailsModel>();
+			var selectedFile =
+				NavigatedFolderFiles
+				.Where(file => file.IsSelected && !file.IsDirectory);
+			foreach (var file in selectedFile)
+			{
+				if (!ClipBoardCollection.Contains(file))
+					ClipBoardCollection.Add(file);
+			}
+
+			OnPropertyChanged(nameof(ClipBoardCollection));
+			IsMoveOperation = false;
+		}
+
+		internal void CutFolder()
+		{
+			if (ClipBoardCollection == null)
+				ClipBoardCollection = new ObservableCollection<FileDetailsModel>();
+
+			ClipBoardCollection.Clear();
+
+			var selectedFile =
+				NavigatedFolderFiles
+				.Where(file => file.IsSelected && file.IsSelected);
+
+			foreach (var file in selectedFile)
+			{
+				if (!ClipBoardCollection.Contains(file))
+					ClipBoardCollection.Add(file);
+			}
+
+			OnPropertyChanged(nameof(ClipBoardCollection));
+			IsMoveOperation = true;
+		}
+
+		internal void Paste(bool IsMoveOperation)
+		{
+			if (ClipBoardCollection != null && ClipBoardCollection.Count > 0)
+			{
+				var destinationPath = CurrentDirectory;
+				if (!IsMoveOperation)
+				{
+					foreach (var file in ClipBoardCollection)
+					{
+						var sourcePath = file.Path;
+						var desPath = CurrentDirectory + "\\" + file.Name;
+						desPath = Path.Combine(sourcePath, desPath);
+						var temp = Path.GetExtension(file.Path);
+
+						if (string.IsNullOrWhiteSpace(temp))
+							Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(file.Path, desPath, UIOption.AllDialogs, UICancelOption.DoNothing);
+						else
+						{
+							Microsoft.VisualBasic.FileIO.FileSystem.CopyFile(file.Path, desPath, UIOption.AllDialogs, UICancelOption.DoNothing);
+						}
+					}
+				}
+				else
+				{
+					foreach (var file in ClipBoardCollection)
+					{
+						var sourcePath = file.Path;
+						var desPath = CurrentDirectory + "\\" + file.Name;
+						desPath = Path.Combine(sourcePath, desPath);
+						var temp = Path.GetExtension(file.Path);
+
+						if (string.IsNullOrWhiteSpace(temp))
+							Microsoft.VisualBasic.FileIO.FileSystem.MoveDirectory(file.Path, desPath, UIOption.AllDialogs, UICancelOption.DoNothing);
+						else
+						{
+							Microsoft.VisualBasic.FileIO.FileSystem.MoveFile(file.Path, desPath, UIOption.AllDialogs, UICancelOption.DoNothing);
+						}
+					}
+				}
+
+				LoadDirectory(new FileDetailsModel()
+				{
+					Path = destinationPath
+				});
+				IsMoveOperation = false;
+			}
+		}
+
+		internal void Delete(bool IsMoveOperation)
+		{
+			var selectedFile =
+				NavigatedFolderFiles
+				.Where(file => file.IsSelected);
+
+			if (selectedFile.Count() > 1)
+			{
+				if (MessageBoxResult.Yes == MessageBox.Show($"Are u sure you want to delete {selectedFile.Count()} files?", "Delete multiple items", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No))
+				{
+					foreach (var file in selectedFile)
+					{
+						try
+						{
+							if (string.IsNullOrWhiteSpace(Path.GetExtension(file.Path)))
+							{
+								Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(file.Path ?? String.Empty, UIOption.OnlyErrorDialogs,
+									RecycleOption.SendToRecycleBin, UICancelOption.DoNothing);
+							}
+							else
+							{
+								Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(file.Path, UIOption.OnlyErrorDialogs,
+									RecycleOption.SendToRecycleBin, UICancelOption.DoNothing);
+							}
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+						}
+					}
+				}
+			}
+			else
+			{
+				if (string.IsNullOrWhiteSpace(selectedFile.ElementAt(0).Path))
+				{
+					Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(selectedFile.ElementAt(0).Path, UIOption.OnlyErrorDialogs,
+						RecycleOption.SendToRecycleBin, UICancelOption.DoNothing);
+				}
+				else
+				{
+					Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(selectedFile.ElementAt(0).Path, UIOption.OnlyErrorDialogs,
+						RecycleOption.SendToRecycleBin, UICancelOption.DoNothing);
+				}
+				LoadDirectory(new FileDetailsModel()
+				{
+					Path = CurrentDirectory
+				});
+			}
+		}
 
 		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
@@ -776,9 +917,6 @@ namespace Files_Explorer.ViewModel
 				FavoriteFolders.Remove(folder); 
 				OnPropertyChanged(nameof(FavoriteFolders)); 
 			}));
-
-
-
 
 		protected ICommand _subMenuFileOperationCommand;
 		public ICommand SubMenuFileOperationCommand => _subMenuFileOperationCommand ??
@@ -795,12 +933,16 @@ namespace Files_Explorer.ViewModel
 							PinFolder();
 							break;
 						case "Copy":
+							CopyFolder();
 							break;
 						case "Cut":
+							CutFolder();
 							break;
 						case "Paste":
+							Paste(IsMoveOperation);
 							break;
 						case "Delete":
+							Delete(IsMoveOperation);
 							break;
 						case "Rename":
 							break;
