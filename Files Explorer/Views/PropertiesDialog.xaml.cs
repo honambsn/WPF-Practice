@@ -42,5 +42,69 @@ namespace Files_Explorer.Views
 		public static readonly DependencyProperty FileNameProperty =
 			DependencyProperty.Register("FileName", typeof(string), typeof(PropertiesDialog));
 
+		public string FileExtension
+		{
+			get { return (string)GetValue(FileExtensionProperty); }
+			set { SetValue(FileExtensionProperty, value); }
+		}
+
+		public static readonly DependencyProperty FileExtensionProperty =
+			DependencyProperty.Register("FileExtension", typeof(string), typeof(PropertiesDialog));
+
+		public string CreatedOn
+		{
+			get { return (string)GetValue(CreatedOnProperty); }
+			set { SetValue(CreatedOnProperty, value); }
+		}
+
+		public static readonly DependencyProperty CreatedOnProperty =
+			DependencyProperty.Register("CreatedOn", typeof(string), typeof(PropertiesDialog));
+
+		public string ModifiedOn
+		{
+			get { return (string)GetValue(ModifiedOnProperty); }
+			set { SetValue(ModifiedOnProperty, value); }
+		}
+
+		public static readonly DependencyProperty ModifiedOnProperty =
+			DependencyProperty.Register("ModifiedOn", typeof(string), typeof(PropertiesDialog));
+
+		public string AccessedOn
+		{
+			get { return (string)GetValue(AccessedOnProperty); }
+			set { SetValue(AccessedOnProperty, value); }
+		}
+
+		public static readonly DependencyProperty AccessedOnProperty =
+			DependencyProperty.Register("AccessedOn", typeof(string), typeof(PropertiesDialog));
+
+		public bool IsReadOnly
+		{
+			get { return (bool)GetValue(IsReadOnlyProperty); }
+			set { SetValue(IsReadOnlyProperty, value); }
+		}
+
+		public static readonly DependencyProperty IsReadOnlyProperty =
+			DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(PropertiesDialog));
+
+		public bool IsHidden
+		{
+			get { return (bool)GetValue(IsHiddenProperty); }
+			set { SetValue(IsHiddenProperty, value); }
+		}
+
+		public static readonly DependencyProperty IsHiddenProperty =
+			DependencyProperty.Register("IsHidden", typeof(bool), typeof(PropertiesDialog));
+
+		public bool IsSystem
+		{
+			get { return (bool)GetValue(IsSystemProperty); }
+			set { SetValue(IsSystemProperty, value); }
+		}
+
+		public static readonly DependencyProperty IsSystemProperty =
+			DependencyProperty.Register("IsSystem", typeof(bool), typeof(PropertiesDialog));
+
+
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using Files_Explorer.Commands;
 using Files_Explorer.Models;
+using Files_Explorer.Views;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.FileIO;
 using Syroot.Windows.IO;
@@ -906,6 +907,61 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		internal void RenameFolder()
+		{
+			var selectedFiles = new ObservableCollection<FileDetailsModel>(NavigatedFolderFiles.Where(x => x.IsSelected));
+
+			foreach (var file in selectedFiles)
+			{
+				if (file.IsSelected)
+				{
+					restart:
+					try
+					{
+						new RenameDialog()
+						{
+							DataContext = this,
+							Owner = Application.Current.MainWindow,
+							ShowActivated = true,
+							ShowInTaskbar = false,
+							Topmost = true,
+							OldFolderName = $"Remaining: {file.Name}",
+
+						}.ShowDialog();
+
+						if (!string.IsNullOrWhiteSpace(NewFolderName))
+						{
+							if (file.IsDirectory)
+								Microsoft.VisualBasic.FileIO.FileSystem.RenameDirectory(file.Path, NewFolderName);
+							else
+								Microsoft.VisualBasic.FileIO.FileSystem.RenameFile(file.Path, $"{NewFolderName}.{file.FileExtension.ToLower()}");
+
+							file.Name = NewFolderName;
+							file.IsSelected = false;
+
+							NavigatedFolderFiles.Remove(file);
+							OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+							NavigatedFolderFiles.Add(file);
+							OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+							NewFolderName = string.Empty;
+
+						}
+					}
+					catch (UnauthorizedAccessException)
+					{
+						goto restart;
+					}
+					catch (Exception ex)
+					{
+						//MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+						MessageBox.Show(ex.Message, ex.Source);
+					}
+				}
+			}
+		}
+
 		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
 			(_unpinFavoriteFolderCommand = new RelayCommand((parameter) =>
@@ -945,6 +1001,7 @@ namespace Files_Explorer.ViewModel
 							Delete(IsMoveOperation);
 							break;
 						case "Rename":
+							RenameFolder();
 							break;
 						case "New Folder":
 							break;

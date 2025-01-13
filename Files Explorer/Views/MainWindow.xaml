@@ -33,6 +33,7 @@
     <Window.Style>
         <Style TargetType="{x:Type Window}">
             <Setter Property="AllowsTransparency" Value="True"/>
+            <Setter Property="ShowActivated" Value="True"/>
             <Setter Property="WindowStyle" Value="None"/>
             <Setter Property="UseLayoutRounding" Value="True"/>
             <Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
@@ -134,6 +135,17 @@
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsActive"
+                                     Value="False">
+                                <Setter Property="Effect">
+                                    <Setter.Value>
+                                        <BlurEffect KernelType="Gaussian"
+                                                    Radius="5"
+                                                    RenderingBias="Quality"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard>
                                     <Storyboard>
