@@ -21,6 +21,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using FileSystem = Microsoft.VisualBasic.FileIO.FileSystem;
 
 
 
@@ -962,6 +963,11 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		internal void CreateNewFolder()
+		{
+			CreateNewFolderCommand.Execute(null);
+		}
+
 		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
 			(_unpinFavoriteFolderCommand = new RelayCommand((parameter) =>
@@ -1004,6 +1010,7 @@ namespace Files_Explorer.ViewModel
 							RenameFolder();
 							break;
 						case "New Folder":
+							CreateNewFolder();
 							break;
 						case "Properties":
 							break;
@@ -1021,6 +1028,59 @@ namespace Files_Explorer.ViewModel
 				}
 			}));
 
-		
+
+
+		protected ICommand _createNewFolderCommand;
+		public ICommand CreateNewFolderCommand => _createNewFolderCommand ??
+			(_createNewFolderCommand = new Command(() =>
+			{
+				try
+				{
+					// Deselect previously selected folders
+					foreach (var folder in NavigatedFolderFiles.Where(f => f.IsSelected))
+					{
+						folder.IsSelected = false;
+					}
+
+					OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+					// Count existing "New Folder" directories to create a unique name
+					var i = Directory.GetDirectories(CurrentDirectory)
+						.Count(x => x.Contains("New Folder"));
+
+					// Construct new folder path
+					var path = i == 0
+						? Path.Combine(CurrentDirectory, "New Folder")
+						: Path.Combine(CurrentDirectory, $"New Folder{i}");
+
+					// Create the directory
+					Directory.CreateDirectory(path);
+
+					// Create a new FileDetailsModel for the new folder
+					var file = new FileDetailsModel();
+					file.Name = Path.GetFileName(path);  // Get the folder name, not the directory part
+					file.Path = path;
+					file.IsDirectory = true;
+					file.FileExtension = string.Empty;
+					file.IsImage = false;
+					file.IsVideo = false;
+					file.FileIcon = GetImageForExtension(file);  // Assuming this method gets the icon
+					file.IsSelected = true;
+
+					// Add the new folder to the collection
+					NavigatedFolderFiles.Add(file);
+					OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+					// Optionally call RenameFolder if needed
+					// RenameFolder();
+				}
+				catch (Exception ex)
+				{
+					// Show a detailed error message
+					MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+
+			}));
+
 	}
 }
