@@ -21,6 +21,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 using FileSystem = Microsoft.VisualBasic.FileIO.FileSystem;
 
 
@@ -212,7 +213,12 @@ namespace Files_Explorer.ViewModel
 			CanGoBack = position != 0;
 			OnPropertyChanged(nameof(CanGoBack));
 
-			NavigatedFolderFiles.Clear();
+			// updatee the UI on the UI thread
+			Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+			{
+				NavigatedFolderFiles.Clear();
+			}), DispatcherPriority.DataBind);
+
 			tempFolderCollection = null;
 
 			if (PathHistoryCollection != null && position > 0)
@@ -228,6 +234,29 @@ namespace Files_Explorer.ViewModel
 
 			bgGetFilesBackgroundWorker.RunWorkerAsync(fileDetailsModel);
 		}
+
+
+		//void LoadDirectory(FileDetailsModel fileDetailsModel)
+		//{
+		//	CanGoBack = position != 0;
+		//	OnPropertyChanged(nameof(CanGoBack));
+
+		//	NavigatedFolderFiles.Clear();
+		//	tempFolderCollection = null;
+
+		//	if (PathHistoryCollection != null && position > 0)
+		//	{
+		//		if (PathHistoryCollection.ElementAt(position) != fileDetailsModel.Path)
+		//		{
+		//			PathDisrupted = true;
+		//		}
+		//	}
+
+		//	if (bgGetFilesBackgroundWorker.IsBusy)
+		//		bgGetFilesBackgroundWorker.CancelAsync();
+
+		//	bgGetFilesBackgroundWorker.RunWorkerAsync(fileDetailsModel);
+		//}
 		private void BgGetFilesBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
 		{
 			var fileOrFolder = (FileDetailsModel)e.Argument;
@@ -763,7 +792,7 @@ namespace Files_Explorer.ViewModel
 					FavoriteFolders.Add(directory);
 				}
 
-				OnPropertyChanged(nameof(FavoriteFolders)); 
+				OnPropertyChanged(nameof(FavoriteFolders));
 			}
 			catch (Exception ex)
 			{
@@ -891,7 +920,7 @@ namespace Files_Explorer.ViewModel
 			}
 			else
 			{
-				if (string.IsNullOrWhiteSpace(selectedFile.ElementAt(0).Path))
+				if (!string.IsNullOrWhiteSpace(selectedFile.ElementAt(0).Path))
 				{
 					Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(selectedFile.ElementAt(0).Path, UIOption.OnlyErrorDialogs,
 						RecycleOption.SendToRecycleBin, UICancelOption.DoNothing);
@@ -916,7 +945,7 @@ namespace Files_Explorer.ViewModel
 			{
 				if (file.IsSelected)
 				{
-					restart:
+				restart:
 					try
 					{
 						new RenameDialog()
@@ -947,7 +976,7 @@ namespace Files_Explorer.ViewModel
 							OnPropertyChanged(nameof(NavigatedFolderFiles));
 
 							NewFolderName = string.Empty;
-
+							OnPropertyChanged(nameof(NewFolderName));
 						}
 					}
 					catch (UnauthorizedAccessException)
@@ -968,6 +997,104 @@ namespace Files_Explorer.ViewModel
 			CreateNewFolderCommand.Execute(null);
 		}
 
+		internal static string GetCreatedOn(string path)
+		{
+			try
+			{
+				if (FileSystem.DirectoryExists(path))
+				{
+					return $"{FileSystem.GetDirectoryInfo(path).CreationTime.ToShortDateString()} {FileSystem.GetDirectoryInfo(path).CreationTime.ToShortTimeString()}";
+				}
+				return $"{FileSystem.GetFileInfo(path).CreationTime.ToShortDateString()} {FileSystem.GetFileInfo(path).CreationTime.ToShortTimeString()}";
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return String.Empty;
+			}
+			catch (FileNotFoundException)
+			{
+				return String.Empty;
+			}
+			catch (DirectoryNotFoundException)
+			{
+				return String.Empty;
+			}
+		}
+		
+		internal static string GetModifiedOn(string path)
+		{
+			try
+			{
+				if (FileSystem.DirectoryExists(path))
+				{
+					return $"{FileSystem.GetDirectoryInfo(path).LastWriteTime.ToShortDateString()} {FileSystem.GetDirectoryInfo(path).LastWriteTime.ToShortTimeString()}";
+				}
+				return $"{FileSystem.GetFileInfo(path).LastWriteTime.ToShortDateString()} {FileSystem.GetFileInfo(path).LastWriteTime.ToShortTimeString()}";
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return String.Empty;
+			}
+			catch (FileNotFoundException)
+			{
+				return String.Empty;
+			}
+			catch (DirectoryNotFoundException)
+			{
+				return String.Empty;
+			}
+		}
+		
+		internal static string GetLastAccessedOn(string path)
+		{
+			try
+			{
+				if (FileSystem.DirectoryExists(path))
+				{
+					return $"{FileSystem.GetDirectoryInfo(path).LastAccessTime.ToShortDateString()} {FileSystem.GetDirectoryInfo(path).LastAccessTime.ToShortTimeString()}";
+				}
+				return $"{FileSystem.GetFileInfo(path).LastAccessTime.ToShortDateString()} {FileSystem.GetFileInfo(path).LastAccessTime.ToShortTimeString()}";
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return String.Empty;
+			}
+			catch (FileNotFoundException)
+			{
+				return String.Empty;
+			}
+			catch (DirectoryNotFoundException)
+			{
+				return String.Empty;
+			}
+		}
+
+		internal void ShowProperties()
+		{
+			if (NavigatedFolderFiles.Count(file => file.IsSelected) == 1)
+			{
+				var f = NavigatedFolderFiles.Where(file => file.IsSelected).ToArray();
+
+				new PropertiesDialog()
+				{
+					FileName = f[0].Name,
+					Icon = f[0].FileIcon,
+					FileExtension = f[0].FileExtension,
+					FullPath = f[0].Path,
+					FileSize = f[0].FileSize,
+					CreatedOn = GetCreatedOn(f[0].Path),
+					ModifiedOn = GetModifiedOn(f[0].Path),
+					AccessedOn = GetLastAccessedOn(f[0].Path),
+					IsReadOnly = f[0].IsReadOnly,
+					IsHidden = f[0].IsHidden,
+					Owner = Application.Current.MainWindow,
+					ShowInTaskbar = false,
+					Topmost = true
+				}.ShowDialog();
+
+			}
+		}
+
 		protected ICommand _unpinFavoriteFolderCommand;
 		public ICommand UnPinFavoriteFolderCommand => _unpinFavoriteFolderCommand ??
 			(_unpinFavoriteFolderCommand = new RelayCommand((parameter) =>
@@ -976,8 +1103,8 @@ namespace Files_Explorer.ViewModel
 				if (folder == null) return;
 
 				folder.IsPinned = false;
-				FavoriteFolders.Remove(folder); 
-				OnPropertyChanged(nameof(FavoriteFolders)); 
+				FavoriteFolders.Remove(folder);
+				OnPropertyChanged(nameof(FavoriteFolders));
 			}));
 
 		protected ICommand _subMenuFileOperationCommand;
@@ -1013,6 +1140,7 @@ namespace Files_Explorer.ViewModel
 							CreateNewFolder();
 							break;
 						case "Properties":
+							ShowProperties();
 							break;
 						case "List":
 							break;
@@ -1030,19 +1158,78 @@ namespace Files_Explorer.ViewModel
 
 
 
+		//protected ICommand _createNewFolderCommand;
+		//public ICommand CreateNewFolderCommand => _createNewFolderCommand ??
+		//	(_createNewFolderCommand = new Command(() =>
+		//	{
+		//		try
+		//		{
+		//			// Deselect previously selected folders
+		//			foreach (var folder in NavigatedFolderFiles.Where(f => f.IsSelected))
+		//			{
+		//				folder.IsSelected = false;
+		//			}
+
+		//			OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+		//			// Count existing "New Folder" directories to create a unique name
+		//			var i = Directory.GetDirectories(CurrentDirectory)
+		//				.Count(x => x.Contains("New Folder"));
+
+		//			// Construct new folder path
+		//			var path = i == 0
+		//				? Path.Combine(CurrentDirectory, "New Folder")
+		//				: Path.Combine(CurrentDirectory, $"New Folder{i}");
+
+		//			// Create the directory
+		//			Directory.CreateDirectory(path);
+
+		//			// Create a new FileDetailsModel for the new folder
+		//			var file = new FileDetailsModel();
+		//			file.Name = Path.GetFileName(path);  // Get the folder name, not the directory part
+		//			file.Path = path;
+		//			file.IsDirectory = true;
+		//			file.FileExtension = string.Empty;
+		//			file.IsImage = false;
+		//			file.IsVideo = false;
+		//			file.FileIcon = GetImageForExtension(file);  // Assuming this method gets the icon
+		//			file.IsSelected = true;
+
+		//			// Add the new folder to the collection
+		//			NavigatedFolderFiles.Add(file);
+		//			OnPropertyChanged(nameof(NavigatedFolderFiles));
+
+		//			// Optionally call RenameFolder if needed
+		//			// RenameFolder();
+		//		}
+		//		catch (Exception ex)
+		//		{
+		//			// Show a detailed error message
+		//			MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+		//		}
+
+		//	}));
+
 		protected ICommand _createNewFolderCommand;
 		public ICommand CreateNewFolderCommand => _createNewFolderCommand ??
 			(_createNewFolderCommand = new Command(() =>
 			{
 				try
 				{
-					// Deselect previously selected folders
+					// De-select previously selected folders
 					foreach (var folder in NavigatedFolderFiles.Where(f => f.IsSelected))
 					{
 						folder.IsSelected = false;
 					}
 
-					OnPropertyChanged(nameof(NavigatedFolderFiles));
+					// Defer PropertyChanged using Dispatcher
+					Application.Current.Dispatcher.BeginInvoke(
+						new Action(() =>
+						{
+							// Notify UI after the list changes
+							OnPropertyChanged(nameof(NavigatedFolderFiles));
+						}),
+						DispatcherPriority.Background);  // Background priority for the change
 
 					// Count existing "New Folder" directories to create a unique name
 					var i = Directory.GetDirectories(CurrentDirectory)
@@ -1058,29 +1245,34 @@ namespace Files_Explorer.ViewModel
 
 					// Create a new FileDetailsModel for the new folder
 					var file = new FileDetailsModel();
-					file.Name = Path.GetFileName(path);  // Get the folder name, not the directory part
+					file.Name = Path.GetFileName(path);
 					file.Path = path;
 					file.IsDirectory = true;
 					file.FileExtension = string.Empty;
 					file.IsImage = false;
 					file.IsVideo = false;
-					file.FileIcon = GetImageForExtension(file);  // Assuming this method gets the icon
+					file.FileIcon = GetImageForExtension(file);
 					file.IsSelected = true;
+					
 
 					// Add the new folder to the collection
-					NavigatedFolderFiles.Add(file);
-					OnPropertyChanged(nameof(NavigatedFolderFiles));
+					Application.Current.Dispatcher.BeginInvoke(
+						new Action(() =>
+						{
+							NavigatedFolderFiles.Add(file);
+							OnPropertyChanged(nameof(NavigatedFolderFiles));  // Notify UI once
+						}),
+						DispatcherPriority.Background);
 
-					// Optionally call RenameFolder if needed
-					// RenameFolder();
+					RenameFolder();
 				}
 				catch (Exception ex)
 				{
 					// Show a detailed error message
 					MessageBox.Show(ex.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
-
 			}));
+
 
 	}
 }

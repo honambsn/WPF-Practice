@@ -101,8 +101,17 @@ namespace Files_Explorer.Views
 			get { return (bool)GetValue(IsSystemProperty); }
 			set { SetValue(IsSystemProperty, value); }
 		}
-
 		public static readonly DependencyProperty IsSystemProperty =
+			DependencyProperty.Register("IsSystem", typeof(bool), typeof(PropertiesDialog));	
+
+		public string FullPath { get; internal set; }
+
+		public static readonly DependencyProperty IsFullPathProperty =
+			DependencyProperty.Register("IsSystem", typeof(bool), typeof(PropertiesDialog));
+
+		public string FileSize { get; internal set; }
+
+		public static readonly DependencyProperty IsFileSizeroperty =
 			DependencyProperty.Register("IsSystem", typeof(bool), typeof(PropertiesDialog));
 
 

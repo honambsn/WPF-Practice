@@ -25,6 +25,7 @@ namespace Files_Explorer.Models
 		public bool IsVideo { get; set; }
 		public bool IsSelected { get; set; }
 		private bool _isPinned;
+		internal string CreatedOn;
 
 		public bool IsPinned
 		{
