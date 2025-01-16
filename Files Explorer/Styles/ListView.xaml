@@ -79,14 +79,160 @@
         </Setter>
     </Style>
 
-    <Style TargetType="ListView">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource TileViewItemStlye}"/>
-        <Setter Property="ItemsPanel">
+
+    <GridView
+        x:Key="ListViewStyle"
+        AllowsColumnReorder="True">
+
+        <GridViewColumn
+        Header="Name"
+        DisplayMemberBinding="{Binding BindingGroupName, UpdateSourceTrigger=PropertyChanged}"
+        Width="200"/>
+
+        <GridViewColumn 
+        Header="Type"
+        DisplayMemberBinding="{Binding Type, UpdateSourceTrigger=PropertyChanged}"
+        Width="80"/>
+
+        <GridViewColumn 
+        Header="Date Modified"
+        DisplayMemberBinding="{Binding ModifiedOn, UpdateSourceTrigger=PropertyChanged}"
+        Width="140"/>
+
+        <GridViewColumn 
+        Header="Size"
+        DisplayMemberBinding="{Binding FileSize, TargetNullValue='Calculating Size....', FallbackValue='Calculating Size...', UpdateSourceTrigger=PropertyChanged}"
+        Width="250"/>
+    </GridView>
+
+    <Style TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="MinHeight" Value="28"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Template">
             <Setter.Value>
-                <ItemsPanelTemplate>
-                    <WrapPanel/>
-                </ItemsPanelTemplate>
+                <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <Grid
+                            Margin="8,0">
+                            <TextBlock
+                                x:Name="ContentHeader"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Text="{TemplateBinding Content}"/>
+                            <Path
+                                x:Name="Path"
+                                HorizontalAlignment="Right"
+                                Data="{DynamicResource SortUp}"
+                                Fill="{TemplateBinding Foreground}"
+                                Stretch="Uniform"
+                                Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Path" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="ListViewItemStyle"
+        TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="ToolTip">
+            <Setter.Value>
+                <TextBlock>
+                    <Run Text="{Binding Type, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Run Text="created on:"/>
+                    <Run Text="{Binding CreatedOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <LineBreak/>
+                    <Run Text="{Binding Type, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Run Text="size on:"/>
+                    <Run Text="{Binding FileSize, TargetNullValue='Calculating Size....' ,FallbackValue='Calculating Size...', UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Foreground" Value="#202020"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Grid
+                        Background="{TemplateBinding Background}">
+                        <GridViewRowPresenter
+                            Content="{TemplateBinding Content}"
+                            Columns="{TemplateBinding GridView.ColumnCollection}"/>
+
+                        <Border Name="bgBorder"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1"
+                                Opacity=".2"
+                                Visibility="Collapsed">
+                            <Rectangle Fill="{DynamicResource NavFontBrush}"
+                                       Opacity=".2"/>
+                        </Border>
+
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="bgBorder" Property="Opacity" Value=".7"/>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                            <!--<Setter TargetName="bgBorder" Property="Opacity" Value=".7"/>-->
+                        </Trigger>
+
+                        <!--on or off-->
+                        <DataTrigger
+                            Binding="{Binding IsHidden, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <Trigger Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible">
+                            <Setter TargetName="bgBorder" Property="Margin" Value="0,0,5,0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="ListView">
+        <Setter Property="View" Value="{DynamicResource ListViewStyle}"/>
+        <Setter Property="ItemContainerStyle"
+                Value="{DynamicResource ListViewItemStyle}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsListView, UpdateSourceTrigger=PropertyChanged}"
+                         Value="False">
+
+                <Setter Property="ItemContainerStyle" Value="{StaticResource TileViewItemStlye}"/>
+                <Setter Property="View" Value="{x:Null}"/>
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

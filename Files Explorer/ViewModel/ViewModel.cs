@@ -50,6 +50,7 @@ namespace Files_Explorer.ViewModel
 		public string SelectedDriveSize { get; set; }
 		public string SelectedFolderDetails { get; set; }
 		public string NewFolderName { get; set; }
+		public bool IsListView { get; set; }
 
 
 		public ObservableCollection<FileDetailsModel> FavoriteFolders { get; set; }
@@ -334,8 +335,13 @@ namespace Files_Explorer.ViewModel
 		{
 			try
 			{
-				var d = new DirectoryInfo(directoryPath);
-				return d.EnumerateFiles("*", System.IO.SearchOption.AllDirectories).Sum(fi => fi.Length);
+				if (FileSystem.DirectoryExists(directoryPath))
+				{
+					var d = new DirectoryInfo(directoryPath);
+					return d.EnumerateFiles("*", System.IO.SearchOption.AllDirectories).Sum(fi => fi.Length);
+				}
+				
+				return new FileInfo(directoryPath).Length;
 			}
 			catch (UnauthorizedAccessException)
 			{
@@ -1081,7 +1087,7 @@ namespace Files_Explorer.ViewModel
 					Icon = f[0].FileIcon,
 					FileExtension = f[0].FileExtension,
 					FullPath = f[0].Path,
-					FileSize = f[0].FileSize,
+					FileSize = CalculateSize(GetDirectorySize(f[0].Path)),
 					CreatedOn = GetCreatedOn(f[0].Path),
 					ModifiedOn = GetModifiedOn(f[0].Path),
 					AccessedOn = GetLastAccessedOn(f[0].Path),
@@ -1143,6 +1149,8 @@ namespace Files_Explorer.ViewModel
 							ShowProperties();
 							break;
 						case "List":
+							IsListView = true;
+							OnPropertyChanged(nameof(IsListView));
 							break;
 						case "Tile":
 							break;
@@ -1155,6 +1163,7 @@ namespace Files_Explorer.ViewModel
 					MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 			}));
+
 
 
 
