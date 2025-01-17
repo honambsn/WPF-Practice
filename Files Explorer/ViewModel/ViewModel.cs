@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -51,7 +52,7 @@ namespace Files_Explorer.ViewModel
 		public string SelectedFolderDetails { get; set; }
 		public string NewFolderName { get; set; }
 		public bool IsListView { get; set; }
-
+		public string DriveSize { get; set; }
 
 		public ObservableCollection<FileDetailsModel> FavoriteFolders { get; set; }
 		public ObservableCollection<FileDetailsModel> RemoteFolders { get; set; }
@@ -222,6 +223,9 @@ namespace Files_Explorer.ViewModel
 
 			tempFolderCollection = null;
 
+			DriveSize = CalculateSize(new DriveInfo(fileDetailsModel.Path).TotalSize);
+			OnPropertyChanged(nameof(DriveSize));
+
 			if (PathHistoryCollection != null && position > 0)
 			{
 				if (PathHistoryCollection.ElementAt(position) != fileDetailsModel.Path)
@@ -292,6 +296,9 @@ namespace Files_Explorer.ViewModel
 			var file = new FileDetailsModel();
 			file.Name = Path.GetFileName(fileName);
 			file.Path = fileName;
+			file.CreatedOn = GetCreatedOn(fileName);
+			file.ModifiedOn = GetModifiedOn(fileName);
+			file.ModifiedOn = GetLastAccessedOn(fileName);
 			file.IsHidden = IsFileHidden(fileName);
 			file.IsDirectory = IsDirectory(fileName);
 			file.FileExtension = GetFileExtension(fileName);
@@ -307,6 +314,20 @@ namespace Files_Explorer.ViewModel
 		private void BgGetFilesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			//throw new NotImplementedException();
+			foreach(var file in NavigatedFolderFiles)
+			{
+				var subWorker = new BackgroundWorker();
+				subWorker.DoWork += (o, args) =>
+				{
+					file.IsReadOnly = IsFileReadOnly(file.Path);
+				};
+				subWorker.RunWorkerCompleted += (o, args) =>
+				{
+					subWorker.Dispose();
+					CollectionViewSource.GetDefaultView(NavigatedFolderFiles).Refresh();
+				};
+				subWorker.RunWorkerAsync();
+			}
 		}
 
 		internal string CalculateSize(long bytes)

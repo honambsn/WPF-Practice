@@ -562,8 +562,10 @@
                 <StackPanel DockPanel.Dock="Right"
                             Margin="12,0"
                             VerticalAlignment="Center">
-                    <TextBlock
-                        Text="999.9Gb"/>
+                    <TextBlock>
+                        <Run Text="Total Disk Space:"/>
+                        <Run Text="{Binding DriveSize, UpdateSourceTrigger=PropertyChanged}"/>
+                    </TextBlock>
                 </StackPanel>
             </DockPanel>
 

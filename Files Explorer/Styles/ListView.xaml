@@ -86,7 +86,7 @@
 
         <GridViewColumn
         Header="Name"
-        DisplayMemberBinding="{Binding BindingGroupName, UpdateSourceTrigger=PropertyChanged}"
+        DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
         Width="200"/>
 
         <GridViewColumn 
