@@ -60,14 +60,14 @@ namespace Files_Explorer.Views
 		public static readonly DependencyProperty CreatedOnProperty =
 			DependencyProperty.Register("CreatedOn", typeof(string), typeof(PropertiesDialog));
 
-		public string ModifiedOn
+		public string DateModified
 		{
-			get { return (string)GetValue(ModifiedOnProperty); }
-			set { SetValue(ModifiedOnProperty, value); }
+			get { return (string)GetValue(DateModifiedProperty); }
+			set { SetValue(DateModifiedProperty, value); }
 		}
 
-		public static readonly DependencyProperty ModifiedOnProperty =
-			DependencyProperty.Register("ModifiedOn", typeof(string), typeof(PropertiesDialog));
+		public static readonly DependencyProperty DateModifiedProperty =
+			DependencyProperty.Register("DateModified", typeof(string), typeof(PropertiesDialog));
 
 		public string AccessedOn
 		{

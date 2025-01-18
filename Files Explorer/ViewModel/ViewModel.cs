@@ -18,6 +18,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -297,8 +298,8 @@ namespace Files_Explorer.ViewModel
 			file.Name = Path.GetFileName(fileName);
 			file.Path = fileName;
 			file.CreatedOn = GetCreatedOn(fileName);
-			file.ModifiedOn = GetModifiedOn(fileName);
-			file.ModifiedOn = GetLastAccessedOn(fileName);
+			file.DateModified = GetDateModified(fileName);
+			file.DateModified = GetLastAccessedOn(fileName);
 			file.IsHidden = IsFileHidden(fileName);
 			file.IsDirectory = IsDirectory(fileName);
 			file.FileExtension = GetFileExtension(fileName);
@@ -1048,7 +1049,7 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 		
-		internal static string GetModifiedOn(string path)
+		internal static string GetDateModified(string path)
 		{
 			try
 			{
@@ -1110,7 +1111,7 @@ namespace Files_Explorer.ViewModel
 					FullPath = f[0].Path,
 					FileSize = CalculateSize(GetDirectorySize(f[0].Path)),
 					CreatedOn = GetCreatedOn(f[0].Path),
-					ModifiedOn = GetModifiedOn(f[0].Path),
+					DateModified = GetDateModified(f[0].Path),
 					AccessedOn = GetLastAccessedOn(f[0].Path),
 					IsReadOnly = f[0].IsReadOnly,
 					IsHidden = f[0].IsHidden,
@@ -1303,6 +1304,35 @@ namespace Files_Explorer.ViewModel
 				}
 			}));
 
+		public ICommand _SortFilesCommand;
+		private bool SortedByAcending { get; set; }
+		public string SortedBy { get; set; }
+		public ICommand SortFilesCommand => _SortFilesCommand ??
+			(_SortFilesCommand = new RelayCommand((parameter) =>
+			{
+				var header = parameter as GridViewColumnHeader;
+				if (header == null || string.IsNullOrWhiteSpace(header.Content.ToString())) return;
 
+				SortedByAcending = !SortedByAcending;
+				OnPropertyChanged(nameof(SortedByAcending));
+
+				CollectionViewSource.GetDefaultView(NavigatedFolderFiles).SortDescriptions.Clear();
+
+				if (SortedByAcending)
+				{
+					CollectionViewSource.GetDefaultView(NavigatedFolderFiles)
+					.SortDescriptions.Add(new SortDescription(header.Content.ToString().Replace(" ", ""), ListSortDirection.Descending));
+					
+				}
+				else
+				{
+					CollectionViewSource.GetDefaultView(NavigatedFolderFiles)
+					.SortDescriptions
+					.Add(new SortDescription(header.Content.ToString().Replace(" ", ""), 
+					ListSortDirection.Ascending));
+				}
+				SortedBy = (string)header.Content;
+				OnPropertyChanged(nameof(SortedBy));
+			}));
 	}
 }

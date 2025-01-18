@@ -16,7 +16,7 @@ namespace Files_Explorer.Models
 		public string FileExtension { get; set; }
 		public string FileSize { get; set; }
 		public string CreateOn { get; set; }
-		public string ModifiedOn { get; set; }
+		public string DateModified { get; set; }
 		public string AccessedOn { get; set; }
 		public bool IsDirectory { get; set; }
 		public bool IsReadOnly { get; set; }

@@ -96,19 +96,20 @@
 
         <GridViewColumn 
         Header="Date Modified"
-        DisplayMemberBinding="{Binding ModifiedOn, UpdateSourceTrigger=PropertyChanged}"
+        DisplayMemberBinding="{Binding DateModified, UpdateSourceTrigger=PropertyChanged}"
         Width="140"/>
 
         <GridViewColumn 
         Header="Size"
-        DisplayMemberBinding="{Binding FileSize, TargetNullValue='Calculating Size....', FallbackValue='Calculating Size...', UpdateSourceTrigger=PropertyChanged}"
-        Width="250"/>
+        DisplayMemberBinding="{Binding FileSize, TargetNullValue='Calculating Size....', FallbackValue='Calculating Size...', UpdateSourceTrigger=PropertyChanged}"/>
     </GridView>
 
     <Style TargetType="{x:Type GridViewColumnHeader}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Command" Value="{Binding SortFilesCommand}"/>
+        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}"/>
         <Setter Property="MinHeight" Value="28"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -146,6 +147,7 @@
         </Setter>
     </Style>
 
+    <!--#region oldcode--><!--
     <Style x:Key="ListViewItemStyle"
         TargetType="{x:Type ListViewItem}">
         <Setter Property="Background" Value="Transparent"/>
@@ -195,10 +197,10 @@
 
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
-                            <!--<Setter TargetName="bgBorder" Property="Opacity" Value=".7"/>-->
+                            --><!--<Setter TargetName="bgBorder" Property="Opacity" Value=".7"/>--><!--
                         </Trigger>
 
-                        <!--on or off-->
+                        --><!--on or off--><!--
                         <DataTrigger
                             Binding="{Binding IsHidden, UpdateSourceTrigger=PropertyChanged}" Value="True">
                             <Setter Property="Visibility" Value="Collapsed"/>
@@ -212,6 +214,64 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    --><!--#endregion-->
+
+    <Style x:Key="ListViewItemStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="MinHeight" Value="25"/>
+        <Setter Property="ToolTip">
+            <Setter.Value>
+                <TextBlock>
+                <Run Text="{Binding Type, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Run Text=" created on:"/>
+                <Run Text="{Binding CreatedOn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <LineBreak/>
+                <Run Text="{Binding Type, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <Run Text=" size on:"/>
+                <Run Text="{Binding FileSize, TargetNullValue='Calculating Size....' ,FallbackValue='Calculating Size...', UpdateSourceTrigger=PropertyChanged}"/>
+                </TextBlock>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Foreground" Value="#202020"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <GridViewRowPresenter Content="{TemplateBinding Content}" Columns="{TemplateBinding GridView.ColumnCollection}"/>
+
+                        <Border Name="bgBorder" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Opacity=".2" Visibility="Collapsed">
+                            <Rectangle Fill="{DynamicResource NavFontBrush}" Opacity=".2"/>
+                        </Border>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="bgBorder" Property="Opacity" Value=".7"/>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <DataTrigger Binding="{Binding IsHidden, UpdateSourceTrigger=PropertyChanged}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <Trigger Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible">
+                            <Setter TargetName="bgBorder" Property="Margin" Value="0,0,5,0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 
     <Style TargetType="ListView">
