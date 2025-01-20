@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\models\\filedetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:models\\filedetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\styles\\textboxes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\textboxes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\styles\\listview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\listview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:viewmodel\\viewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\files explorer\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\models\\filedetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:models\\filedetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\views\\propertiesdialog.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
@@ -29,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\customcontrols\\driveandfolderbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:customcontrols\\driveandfolderbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\buttons.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -71,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MainWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\styles\\textboxes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:styles\\textboxes.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\customcontrols\\submenuiconbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6BACBA0F-D9F8-4D28-A834-823F9F72499F}|Files Explorer.csproj|solutionrelative:customcontrols\\submenuiconbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -100,7 +100,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -108,32 +108,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ViewModel.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\ViewModel\\ViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\ViewModel.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\ViewModel\\ViewModel.cs",
               "RelativeToolTip": "ViewModel\\ViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAD8FAAAAAAAAAAAUwIkFAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T01:48:26.928Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml.cs",
-              "RelativeDocumentMoniker": "App.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml.cs",
-              "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-09T02:25:07.217Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "App.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -145,18 +133,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "RenameDialog.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\RenameDialog.xaml",
               "RelativeDocumentMoniker": "Views\\RenameDialog.xaml",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\RenameDialog.xaml",
               "RelativeToolTip": "Views\\RenameDialog.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T02:02:23.775Z"
+              "WhenOpened": "2025-01-10T02:02:23.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
@@ -168,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ListView.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\ListView.xaml",
               "RelativeDocumentMoniker": "Styles\\ListView.xaml",
@@ -180,19 +169,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "TextBoxes.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\TextBoxes.xaml",
+              "RelativeDocumentMoniker": "Styles\\TextBoxes.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\TextBoxes.xaml",
+              "RelativeToolTip": "Styles\\TextBoxes.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-19T01:51:10.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T02:25:07.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Buttons.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
+              "RelativeDocumentMoniker": "Styles\\Buttons.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
+              "RelativeToolTip": "Styles\\Buttons.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T03:10:55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PropertiesDialog.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\PropertiesDialog.xaml",
+              "RelativeDocumentMoniker": "Views\\PropertiesDialog.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\PropertiesDialog.xaml",
+              "RelativeToolTip": "Views\\PropertiesDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-10T02:27:38.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SubMenuItemDetails.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Models\\SubMenuItemDetails.cs",
+              "RelativeDocumentMoniker": "Models\\SubMenuItemDetails.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Models\\SubMenuItemDetails.cs",
+              "RelativeToolTip": "Models\\SubMenuItemDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T02:23:13.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Command.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Commands\\Command.cs",
+              "RelativeDocumentMoniker": "Commands\\Command.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Commands\\Command.cs",
+              "RelativeToolTip": "Commands\\Command.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T02:16:25.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T02:03:39.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "DriveAndFolderButton.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\CustomControls\\DriveAndFolderButton.cs",
               "RelativeDocumentMoniker": "CustomControls\\DriveAndFolderButton.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\CustomControls\\DriveAndFolderButton.cs",
               "RelativeToolTip": "CustomControls\\DriveAndFolderButton.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA5wBQAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwBQAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T01:26:47.599Z"
+              "WhenOpened": "2024-12-18T01:26:47.599Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "RenameDialog.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\RenameDialog.xaml.cs",
               "RelativeDocumentMoniker": "Views\\RenameDialog.xaml.cs",
@@ -200,11 +276,12 @@
               "RelativeToolTip": "Views\\RenameDialog.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T02:24:02.94Z"
+              "WhenOpened": "2025-01-10T02:24:02.94Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "RelayCommand.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Commands\\RelayCommand.cs",
               "RelativeDocumentMoniker": "Commands\\RelayCommand.cs",
@@ -212,11 +289,12 @@
               "RelativeToolTip": "Commands\\RelayCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T02:21:34.128Z"
+              "WhenOpened": "2024-12-25T02:21:34.128Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
@@ -224,11 +302,12 @@
               "RelativeToolTip": "Views\\MainWindow.xaml.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAqwBEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T02:18:27.22Z"
+              "WhenOpened": "2024-12-19T02:18:27.22Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "PropertiesDialog.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\PropertiesDialog.xaml.cs",
               "RelativeDocumentMoniker": "Views\\PropertiesDialog.xaml.cs",
@@ -241,7 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "FileDetailsModel.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Models\\FileDetailsModel.cs",
               "RelativeDocumentMoniker": "Models\\FileDetailsModel.cs",
@@ -254,76 +333,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Buttons.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
-              "RelativeDocumentMoniker": "Styles\\Buttons.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\Buttons.xaml",
-              "RelativeToolTip": "Styles\\Buttons.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T03:10:55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PropertiesDialog.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\PropertiesDialog.xaml",
-              "RelativeDocumentMoniker": "Views\\PropertiesDialog.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Views\\PropertiesDialog.xaml",
-              "RelativeToolTip": "Views\\PropertiesDialog.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-10T02:27:38.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "SubMenuItemDetails.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Models\\SubMenuItemDetails.cs",
-              "RelativeDocumentMoniker": "Models\\SubMenuItemDetails.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Models\\SubMenuItemDetails.cs",
-              "RelativeToolTip": "Models\\SubMenuItemDetails.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T02:23:13.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Command.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Commands\\Command.cs",
-              "RelativeDocumentMoniker": "Commands\\Command.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Commands\\Command.cs",
-              "RelativeToolTip": "Commands\\Command.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T02:16:25.669Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-12T02:03:39.569Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TextBoxes.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\TextBoxes.xaml",
-              "RelativeDocumentMoniker": "Styles\\TextBoxes.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\Styles\\TextBoxes.xaml",
-              "RelativeToolTip": "Styles\\TextBoxes.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-19T01:51:10.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 18,
               "Title": "SubMenuIconButton.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Files Explorer\\CustomControls\\SubMenuIconButton.cs",
@@ -332,7 +341,8 @@
               "RelativeToolTip": "CustomControls\\SubMenuIconButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-20T01:08:05.634Z"
+              "WhenOpened": "2024-12-20T01:08:05.634Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

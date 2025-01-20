@@ -25,6 +25,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using FileSystem = Microsoft.VisualBasic.FileIO.FileSystem;
+using SearchOption = System.IO.SearchOption;
 
 
 
@@ -54,6 +55,7 @@ namespace Files_Explorer.ViewModel
 		public string NewFolderName { get; set; }
 		public bool IsListView { get; set; }
 		public string DriveSize { get; set; }
+		public bool IsInSearchMode { get; set; }
 
 		public ObservableCollection<FileDetailsModel> FavoriteFolders { get; set; }
 		public ObservableCollection<FileDetailsModel> RemoteFolders { get; set; }
@@ -315,7 +317,7 @@ namespace Files_Explorer.ViewModel
 		private void BgGetFilesBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
 			//throw new NotImplementedException();
-			foreach(var file in NavigatedFolderFiles)
+			foreach (var file in NavigatedFolderFiles)
 			{
 				var subWorker = new BackgroundWorker();
 				subWorker.DoWork += (o, args) =>
@@ -331,6 +333,11 @@ namespace Files_Explorer.ViewModel
 			}
 		}
 
+		internal BackgroundWorker bgGetFoundFilesWorker = new BackgroundWorker()
+		{
+			WorkerSupportsCancellation = true,
+			WorkerReportsProgress = true
+		};
 		internal string CalculateSize(long bytes)
 		{
 			var suffix = new[] { "B", "KB", "MB", "GB", "TB" };
@@ -362,7 +369,7 @@ namespace Files_Explorer.ViewModel
 					var d = new DirectoryInfo(directoryPath);
 					return d.EnumerateFiles("*", System.IO.SearchOption.AllDirectories).Sum(fi => fi.Length);
 				}
-				
+
 				return new FileInfo(directoryPath).Length;
 			}
 			catch (UnauthorizedAccessException)
@@ -801,7 +808,6 @@ namespace Files_Explorer.ViewModel
 				//	MessageBox.Show("The path does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 				//}
 			}));
-		#endregion
 
 		internal void PinFolder()
 		{
@@ -1048,7 +1054,7 @@ namespace Files_Explorer.ViewModel
 				return String.Empty;
 			}
 		}
-		
+
 		internal static string GetDateModified(string path)
 		{
 			try
@@ -1072,7 +1078,7 @@ namespace Files_Explorer.ViewModel
 				return String.Empty;
 			}
 		}
-		
+
 		internal static string GetLastAccessedOn(string path)
 		{
 			try
@@ -1284,7 +1290,7 @@ namespace Files_Explorer.ViewModel
 					file.IsVideo = false;
 					file.FileIcon = GetImageForExtension(file);
 					file.IsSelected = true;
-					
+
 
 					// Add the new folder to the collection
 					Application.Current.Dispatcher.BeginInvoke(
@@ -1322,17 +1328,136 @@ namespace Files_Explorer.ViewModel
 				{
 					CollectionViewSource.GetDefaultView(NavigatedFolderFiles)
 					.SortDescriptions.Add(new SortDescription(header.Content.ToString().Replace(" ", ""), ListSortDirection.Descending));
-					
+
 				}
 				else
 				{
 					CollectionViewSource.GetDefaultView(NavigatedFolderFiles)
 					.SortDescriptions
-					.Add(new SortDescription(header.Content.ToString().Replace(" ", ""), 
+					.Add(new SortDescription(header.Content.ToString().Replace(" ", ""),
 					ListSortDirection.Ascending));
 				}
 				SortedBy = (string)header.Content;
 				OnPropertyChanged(nameof(SortedBy));
 			}));
+
+		
+		internal static IEnumerable<string> EnumerateDirectories(string parentDirectory, string searchPattern, System.IO.SearchOption searchOption)
+		{
+			
+			try
+			{
+				var directories = new List<string>();
+				if (searchOption == SearchOption.AllDirectories)
+					directories = (List<string>)Directory.EnumerateDirectories(parentDirectory)
+						.SelectMany(x => EnumerateDirectories(x, searchPattern, searchOption));
+
+				return directories.Concat(Directory.EnumerateDirectories(parentDirectory, searchPattern));
+
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return Enumerable.Empty<string>();
+			}
+			catch (DirectoryNotFoundException)
+			{
+				return Enumerable.Empty<string>();
+			}
+			catch(FileNotFoundException)
+			{
+				return Enumerable.Empty<string>();
+			}
+			
+		}
+		internal static IEnumerable<string> EnumerateFiles(string path, string searchPattern, System.IO.SearchOption searchOption)
+		{
+
+			try
+			{
+				var dirFiles = Enumerable.Empty<string>();
+				if (searchOption == SearchOption.AllDirectories)
+					dirFiles = Directory.EnumerateFiles(path)
+						.SelectMany(x => EnumerateFiles(x, searchPattern, searchOption));
+
+
+				return dirFiles.Concat(Directory.EnumerateDirectories(path, searchPattern));
+
+			}
+			catch (UnauthorizedAccessException)
+			{
+				return Enumerable.Empty<string>();
+			}
+			catch (DirectoryNotFoundException)
+			{
+				return Enumerable.Empty<string>();
+			}
+			catch (FileNotFoundException)
+			{
+				return Enumerable.Empty<string>();
+			}
+
+		}
+		protected ICommand _searchFileFolderCommands;
+		public ICommand SearchFileOrFolderCommand => _searchFileFolderCommands ??
+			(_searchFileFolderCommands = new RelayCommand((parameter) =>
+			{
+				var searchQuery = parameter as string;
+				if (string.IsNullOrWhiteSpace(searchQuery)) return;
+
+				NavigatedFolderFiles.Clear();
+
+				if (bgGetFilesBackgroundWorker != null && bgGetFoundFilesWorker.IsBusy)
+					bgGetFoundFilesWorker.CancelAsync();
+
+
+				bgGetFoundFilesWorker.DoWork += (o, args) =>
+				{
+					try
+					{
+						IsInSearchMode = false;
+						OnPropertyChanged(nameof(IsInSearchMode));
+						var directories = EnumerateDirectories(CurrentDirectory, searchQuery, SearchOption.AllDirectories);
+
+						foreach (var directory in directories)
+						{
+							bgGetFoundFilesWorker.ReportProgress(1, directory);
+						}
+
+						var files = EnumerateFiles(CurrentDirectory, searchQuery, SearchOption.AllDirectories);
+
+						foreach(var file in files)
+						{
+							bgGetFoundFilesWorker.ReportProgress(1, file);
+						}
+					}
+					catch (UnauthorizedAccessException)
+					{
+
+					}
+				};
+
+				bgGetFoundFilesWorker.ProgressChanged += BgGetFilesBackgroundWorker_ProgressChanged;
+				bgGetFoundFilesWorker.RunWorkerCompleted += BgGetFilesBackgroundWorker_RunWorkerCompleted;
+
+				if (!bgGetFoundFilesWorker.IsBusy)
+					bgGetFoundFilesWorker.RunWorkerAsync();
+			}));
+
+		protected ICommand _cancelSearchFileOrFolderCommand;
+		public ICommand CancelSearchFileOrFolderCommand => _cancelSearchFileOrFolderCommand ??
+			(_cancelSearchFileOrFolderCommand = new Command(() =>
+			{
+				if (bgGetFilesBackgroundWorker.IsBusy)
+					bgGetFilesBackgroundWorker.CancelAsync();
+
+				if (bgGetFoundFilesWorker.CancellationPending)
+					bgGetFoundFilesWorker.Dispose();
+
+				IsInSearchMode = false;
+				OnPropertyChanged(nameof(IsInSearchMode));
+			}));
+			
+
+		#endregion
 	}
 }

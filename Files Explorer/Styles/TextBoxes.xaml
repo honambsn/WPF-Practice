@@ -30,6 +30,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
+                                <ColumnDefinition Width="25"/> <!--for search in progress icon-->
                                 <ColumnDefinition Width="25"/> <!--for search btn-->
                             </Grid.ColumnDefinitions>
 
@@ -47,15 +48,52 @@
                                 HorizontalScrollBarVisibility="Hidden"
                                 VerticalScrollBarVisibility="Hidden"/>
 
+                            <Path
+                                x:Name="SearchInProgressIndicator"
+                                Data="{DynamicResource SearchingIcon}"
+                                Fill ="{TemplateBinding Foreground}"
+                                RenderTransformOrigin="0.5,0.5"
+                                Grid.Column="1"
+                                Stretch="Uniform"
+                                Width="15"
+                                Visibility="Collapsed">
+                                <Path.RenderTransform>
+                                    <RotateTransform Angle="0"/>
+                                </Path.RenderTransform>
+                                <Path.Style>
+                                    <Style TargetType="{x:Type Path}">
+                                        <Style.Triggers>
+                                            <EventTrigger RoutedEvent="Loaded">
+                                                <BeginStoryboard>
+                                                    <Storyboard RepeatBehavior="Forever">
+                                                        <DoubleAnimation Storyboard.TargetProperty="(Path.RenderTransform).(RotateTransform.Angle)"
+                                                                            From="0"
+                                                                            To="360"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Path.Style>
+                            </Path>
+
                             <Button
                                 Grid.Column="1"
                                 Foreground="{TemplateBinding Foreground}"
                                 Content="{DynamicResource Search}"
+                                Command="{Binding DataContext.SearchFileOrFolderCommand, RelativeSource= {RelativeSource Mode = FindAncestor, AncestorType = {x:Type Window}}}"
+                                CommandParameter="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
                                 IsDefault="True"
                                 Style="{StaticResource ButtonWithIconStyle}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
+
+                        <DataTrigger Binding="{Binding IsInSearchMode, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                            <Setter
+                                TargetName="SearchInProgressIndicator"
+                                Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
                         <Trigger Property="Text" Value="">
                             <Setter TargetName="PlaceHolder" Property="Visibility" Value="Visible"/>
                         </Trigger>
