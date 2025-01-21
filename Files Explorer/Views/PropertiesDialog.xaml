@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Files_Explorer.Views"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:prop="clr-namespace:Files_Explorer.Properties"
         mc:Ignorable="d"
         Height="210" Width="363"
         WindowStyle="None"
@@ -20,6 +21,11 @@
                       Value="#202020"/>
             <Setter Property="Margin"
                     Value="10"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}" Value="True">
+                    <Setter Property="Fill" Value="{StaticResource IconActiveBrush}"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
     

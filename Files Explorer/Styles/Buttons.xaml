@@ -315,10 +315,16 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <!-- Fixed the incorrect closing quote and curly brace -->
                             <Setter Property="Foreground" Value="{DynamicResource MenuHeader.Checked}"/>
                             <Setter Property="FontWeight" Value="SemiBold"/>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}" Value="True"/>
+                                <Condition Binding="{Binding IsChecked, RelativeSource={RelativeSource Self}}" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="White"/>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -346,19 +352,33 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsEnabled" Value="True"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="IsMouseCaptured" Value="False"/>
-                            </MultiTrigger.Conditions>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}"
+                                            Value="False"/>
+                                <Condition Binding="{Binding IsEnable, RelativeSource={RelativeSource Self}}"
+                                            Value="True"/>
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                <Condition Binding="{Binding IsMouseCaptured, RelativeSource={RelativeSource Self}}" Value="True"/>
+                                
+                            </MultiDataTrigger.Conditions>
 
                             <Setter Property="Background" Value="{DynamicResource ButtonMouseOverBrush}"/>
-                        </MultiTrigger>
+                        </MultiDataTrigger>
 
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{DynamicResource DisabledFontBrush}"/>
                         </Trigger>
+
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}"
+                                           Value="True"/>
+                                <Condition Binding="{Binding IsEnable, RelativeSource={RelativeSource Self}}"
+                                           Value="True"/>
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{StaticResource MenuHeader.Static}"/>
+                        </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -385,6 +405,12 @@
                         <!--VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>-->
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}"
+                                     Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource MenuHeader.Static}"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -481,6 +507,11 @@
                             <Setter TargetName="bgBorder" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="bgBorder" Property="Opacity" Value="1"/>
                         </Trigger>
+
+                        <DataTrigger Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}"
+                                     Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource MenuHeader.Static}"/>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

@@ -175,6 +175,13 @@
                                 <Setter TargetName="RootBorder" Property="BorderBrush" Value="Transparent"/>
                                 <Setter TargetName="RootBorder" Property="Padding" Value="7"/>
                             </Trigger>
+
+                            <DataTrigger Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}" Value="True">
+                                <Setter Property="Background" Value="#202020"/>
+                                <Setter TargetName="Title" Property="Foreground" Value="#ffffff"/>
+                                <Setter TargetName="MinimizeButton" Property="Foreground" Value="{StaticResource MenuHeader.Static}"/>
+                                <Setter TargetName="CloseButton" Property="Foreground" Value="{StaticResource MenuHeader.Static}"/>
+                            </DataTrigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
@@ -534,6 +541,13 @@
                 <DockPanel.Resources>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Foreground" Value="#202020"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding DarkMode, Source={x:Static prop:Settings.Default}}"
+                                         Value="True">
+                                <Setter Property="Foreground"
+                                        Value="{StaticResource MenuHeader.Static}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
                     </Style>
                 </DockPanel.Resources>
 
