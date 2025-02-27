@@ -78,7 +78,8 @@ namespace ChessLogic
 
 				if (!HasMoved && CanMoveTo(twoMovePos, board))
 				{
-					yield return new NormalMove(from, twoMovePos);
+					//yield return new NormalMove(from, twoMovePos);
+					yield return new DoublePawn(from, twoMovePos);
 				}
 			}
 		}
@@ -89,18 +90,25 @@ namespace ChessLogic
 			{
 				Position to = from + forward + dir;
 
-				if (CanCaptureAt(to, board))
+				if (to == board.GetPawnSkipPosition(Color.Opponent()))
 				{
-					if (to.Row == 0 || to.Row == 7)
+					yield return new EnPassant(from, to);
+				}
+				else if (CanCaptureAt(to, board)){
+
+					if (CanCaptureAt(to, board))
 					{
-						foreach (Move promMove in PromotionMoves(from, to))
+						if (to.Row == 0 || to.Row == 7)
 						{
-							yield return promMove;
+							foreach (Move promMove in PromotionMoves(from, to))
+							{
+								yield return promMove;
+							}
 						}
-					}
-					else
-					{
-						yield return new NormalMove(from, to);
+						else
+						{
+							yield return new NormalMove(from, to);
+						}
 					}
 				}
 			}
