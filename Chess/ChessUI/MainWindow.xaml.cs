@@ -171,7 +171,7 @@ namespace ChessUI
 
 		private void HideHighlights()
 		{
-			foreach(Position to in moveCache.Keys)
+			foreach (Position to in moveCache.Keys)
 			{
 				highlights[to.Row, to.Column].Fill = Brushes.Transparent;
 			}
@@ -216,11 +216,34 @@ namespace ChessUI
 
 		private void RestartGame()
 		{
+			selectedPos = null;
 			HideHighlights();
 			moveCache.Clear();
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
+		}
+
+		private void Window_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (!IsMenuOnScreen() && e.Key == Key.Escape)
+			{
+				ShowPauseMenu();
+			}
+		}
+		private void ShowPauseMenu()
+		{
+			PauseMenu pauseMenu = new PauseMenu();
+			MenuContainer.Content = pauseMenu;
+
+			pauseMenu.OptionSelected += option =>
+			{
+				MenuContainer.Content = null;
+				if (option == Option.Restart)
+				{
+					RestartGame();
+				}
+			};
 		}
 	}
 }
