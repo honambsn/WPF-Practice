@@ -98,7 +98,7 @@ namespace ChessLogic
 			}
 		}
 
-		public  IEnumerable<Position> PiecePositionsFor(Player player)
+		public IEnumerable<Position> PiecePositionsFor(Player player)
 		{
 			return PiecePositions().Where(pos => this[pos].Color == player);
 		}
@@ -115,11 +115,75 @@ namespace ChessLogic
 		public Board Copy()
 		{
 			Board copy = new Board();
-			foreach (Position pos in PiecePositions()){
+			foreach (Position pos in PiecePositions())
+			{
 				copy[pos] = this[pos].Copy();
 			}
 
 			return copy;
+		}
+
+		public Couting CountPieces()
+		{
+			Couting couting = new Couting();
+			foreach (Position pos in PiecePositions())
+			{
+				Piece piece = this[pos];
+				couting.Increment(piece.Color, piece.Type);
+			}
+			return couting;
+		}
+
+		public bool InsufficientMaterial()
+		{
+			Couting couting = CountPieces();
+
+			return IsKingVKing(couting) || IsKingBishopVKing(couting) ||
+				IsKingKnightVKing(couting) || IsKingBishopVKingBishop(couting);
+		}
+
+		private static bool IsKingVKing(Couting couting)
+		{
+			return couting.TotalCount == 2;
+		}
+
+
+		private static bool IsKingBishopVKing(Couting couting)
+		{
+			//return couting.TotalCount == 3 &&
+			//	couting.White(PieceType.Bishop) == 1 &&
+			//	couting.Black(PieceType.Bishop) == 1;
+			return couting.TotalCount == 3 &&
+		  (couting.White(PieceType.Bishop) == 1 && couting.Black(PieceType.King) == 1) ||
+		  (couting.Black(PieceType.Bishop) == 1 && couting.White(PieceType.King) == 1);
+		}
+
+
+		private static bool IsKingKnightVKing(Couting couting)
+		{
+			return couting.TotalCount == 3 && (couting.White(PieceType.Knight) == 1 && couting.Black(PieceType.Knight) == 1);
+		}
+
+		private bool IsKingBishopVKingBishop(Couting couting)
+		{
+			if (couting.TotalCount != 4)
+			{
+				return false;
+			}
+			if (couting.White(PieceType.Bishop) != 1 || couting.Black(PieceType.Bishop) != 1)
+			{
+				return false;
+			}
+			//Position wBishopPos = FindPiece(Player.White, PieceType.Bishop);
+			//Position bBishopPos = FindPiece(Player.Black, PieceType.Bishop);
+
+			//return wBishopPos.SquareColor() == bBishopPos.SquareColor();
+			return true;
+		}
+
+		private Position FindPiece(Player color, PieceType type)
+		{
+			return PiecePositionsFor(color).First(pos => this[pos].Type == type);
 		}
 	}
 }

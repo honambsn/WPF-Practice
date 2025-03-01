@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\couting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\couting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\pausemenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\pieces\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\pieces\\pawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\moves\\doublepawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\moves\\doublepawn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,6 +55,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Board.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Board.cs",
+              "RelativeDocumentMoniker": "ChessLogic\\Board.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Board.cs",
+              "RelativeToolTip": "ChessLogic\\Board.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAIAwwIsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T02:33:05.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameState.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
+              "RelativeDocumentMoniker": "ChessLogic\\GameState.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
+              "RelativeToolTip": "ChessLogic\\GameState.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAAAEUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T02:45:00.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PauseMenu.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml",
+              "RelativeDocumentMoniker": "ChessUI\\PauseMenu.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml",
+              "RelativeToolTip": "ChessUI\\PauseMenu.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-28T00:36:07.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PauseMenu.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml.cs",
+              "RelativeDocumentMoniker": "ChessUI\\PauseMenu.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml.cs",
+              "RelativeToolTip": "ChessUI\\PauseMenu.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T00:44:01.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
@@ -64,56 +117,30 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Couting.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Couting.cs",
+              "RelativeDocumentMoniker": "ChessLogic\\Couting.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Couting.cs",
+              "RelativeToolTip": "ChessLogic\\Couting.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T01:26:07.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-28T00:47:53.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T00:47:53.563Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PauseMenu.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml.cs",
-              "RelativeDocumentMoniker": "ChessUI\\PauseMenu.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml.cs",
-              "RelativeToolTip": "ChessUI\\PauseMenu.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T00:44:01.927Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PauseMenu.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml",
-              "RelativeDocumentMoniker": "ChessUI\\PauseMenu.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml",
-              "RelativeToolTip": "ChessUI\\PauseMenu.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-28T00:36:07.168Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GameState.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\GameState.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
-              "RelativeToolTip": "ChessLogic\\GameState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T02:45:00.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Pawn.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Pieces\\Pawn.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Pieces\\Pawn.cs",
@@ -125,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "EnPassant.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Moves\\EnPassant.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Moves\\EnPassant.cs",
@@ -137,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "DoublePawn.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Moves\\DoublePawn.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Moves\\DoublePawn.cs",
@@ -146,18 +173,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T02:36:31.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Board.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Board.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Board.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Board.cs",
-              "RelativeToolTip": "ChessLogic\\Board.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T02:33:05.132Z"
             }
           ]
         }
