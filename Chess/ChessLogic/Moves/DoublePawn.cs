@@ -19,11 +19,13 @@ namespace ChessLogic
 			skippedPos = new Position((fromPos.Row + toPos.Row) / 2, fromPos.Column);
 		}
 
-		public override void Execute(Board board)
+		public override bool Execute(Board board)
 		{
 			Player player = board[FromPos].Color;
 			board.SetPawnSkipPosition(player, skippedPos);
 			new NormalMove(FromPos, ToPos).Execute(board);
+			
+			return true;
 		}
 	}
 }
