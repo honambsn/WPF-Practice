@@ -230,7 +230,13 @@ namespace ChessUI
 			{
 				ShowPauseMenu();
 			}
+			else if (!IsMenuOnScreen() && e.Key == Key.A)
+			{
+				//play vs bot
+				ShowBot();
+			}
 		}
+		
 		private void ShowPauseMenu()
 		{
 			PauseMenu pauseMenu = new PauseMenu();
@@ -244,6 +250,32 @@ namespace ChessUI
 					RestartGame();
 				}
 			};
+		}
+
+		private void ShowBot()
+		{
+			//AI ai = new AI();
+			//ai.MakeMove();
+			BotMenu playWithBot = new BotMenu();
+			MenuContainer.Content = playWithBot;
+
+			playWithBot.OptionSelected += option =>
+			{
+				MenuContainer.Content = null;
+				
+				if (option == BotOptions.Exit)
+				{
+					Application.Current.Shutdown();
+				}
+				else if (option == BotOptions.Play)
+				{
+					//play vs bot
+					//AI ai = new AI();
+					//ai.MakeMove();
+				}
+			};
+
+
 		}
 	}
 }

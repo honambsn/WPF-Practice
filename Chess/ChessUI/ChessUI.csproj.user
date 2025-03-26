@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="BotMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GameOverMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -18,6 +21,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="BotMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="GameOverMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
