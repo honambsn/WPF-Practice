@@ -256,10 +256,10 @@ namespace ChessUI
 		{
 			//AI ai = new AI();
 			//ai.MakeMove();
-			BotMenu playWithBot = new BotMenu();
-			MenuContainer.Content = playWithBot;
+			BotMenu botMenu = new BotMenu();
+			MenuContainer.Content = botMenu;
 
-			playWithBot.OptionSelected += option =>
+			botMenu.OptionSelected += option =>
 			{
 				MenuContainer.Content = null;
 				
@@ -272,10 +272,16 @@ namespace ChessUI
 					//play vs bot
 					//AI ai = new AI();
 					//ai.MakeMove();
+					BotPlay();
 				}
 			};
 
 
+		}
+
+		private void BotPlay()
+		{
+			RestartGame();
 		}
 	}
 }

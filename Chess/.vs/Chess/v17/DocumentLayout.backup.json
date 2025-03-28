@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAADgvw8BAAASAAAAAAAAAA==",
+              "ViewState": "AgIAANwAAAAAAAAAAAASwBoBAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-26T02:44:56.013Z",
               "EditorCaption": ""
@@ -62,8 +62,7 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PauseMenu.xaml",
               "RelativeToolTip": "ChessUI\\PauseMenu.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-26T02:44:14.985Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T02:44:14.985Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "ChessUI\\Option.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T02:44:09.921Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T02:44:09.921Z"
             },
             {
               "$type": "Document",
@@ -87,8 +85,7 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-26T02:44:48.551Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T02:44:48.551Z"
             }
           ]
         },
@@ -106,8 +103,7 @@
               "RelativeToolTip": "ChessUI\\BotOptions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T03:17:02.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T03:17:02.659Z"
             },
             {
               "$type": "Document",
@@ -131,8 +127,7 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml",
               "RelativeToolTip": "ChessUI\\BotMenu.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-26T03:16:00.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T03:16:00.404Z"
             }
           ]
         }
