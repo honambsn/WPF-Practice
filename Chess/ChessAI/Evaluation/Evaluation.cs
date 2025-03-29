@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChessAI.Evaluation
 {
-	internal class Evaluation
+	public class Evaluation
 	{
 	}
 }

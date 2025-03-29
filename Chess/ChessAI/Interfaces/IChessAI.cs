@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChessAI.Interfaces
 {
-	internal class IChessAI
+	public interface IChessAI
 	{
+		Move MoveSelection(Game)
 	}
 }

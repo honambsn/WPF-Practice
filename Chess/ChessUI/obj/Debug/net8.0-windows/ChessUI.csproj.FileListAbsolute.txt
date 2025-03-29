@@ -6,6 +6,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\bin\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\bin\Debug\net8.0-windows\ChessLogic.dll
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\bin\Debug\net8.0-windows\ChessLogic.pdb
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\BotMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\GameOverMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\MainWindow.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PauseMenu.g.cs
@@ -14,6 +15,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI_MarkupCompile.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI_MarkupCompile.lref
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\App.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\BotMenu.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\GameOverMenu.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\MainWindow.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PauseMenu.baml
@@ -30,5 +32,3 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.pdb
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.genruntimeconfig.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ref\ChessUI.dll
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\BotMenu.g.cs
-D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\BotMenu.baml
