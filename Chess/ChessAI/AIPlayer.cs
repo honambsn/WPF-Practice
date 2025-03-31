@@ -11,15 +11,6 @@ namespace ChessAI
 {
 	public class AIPlayer : IChessAI
 	{
-		private readonly MoveSelector _moveSelector;
-		private BotDifficulty difficulty;
-		private readonly Evaluation evaluator;
-
-		public AIPlayer(BotDifficulty initialDifficulty =  BotDifficulty.Easy)
-		{
-			_moveSelector = new MoveSelector();
-
-		}
-
+		
 	}
 }

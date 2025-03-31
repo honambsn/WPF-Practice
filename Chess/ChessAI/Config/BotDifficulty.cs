@@ -10,6 +10,7 @@ namespace ChessAI.Config
 	{
 		Easy,
 		Medium,
-		Hard
+		Hard,
+		Expert
 	}
 }

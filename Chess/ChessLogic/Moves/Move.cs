@@ -19,5 +19,7 @@ namespace ChessLogic
 			Execute(boardCopy);
 			return !boardCopy.IsInCheck(player);
 		}
+
+		public abstract void Undo(Board board);
 	}
 }
