@@ -129,5 +129,24 @@ namespace ChessLogic
 		{
 			return stateHistory[stateString] == 3;
 		}
+
+		// for ai
+		public void ApplyMove(Move move)
+		{
+			move.Execute(Board);
+			CurrentPlayer = CurrentPlayer.Opponent();
+		}
+
+		public void UndoMove(Move move)
+		{
+			move.Undo(Board);
+			CurrentPlayer = CurrentPlayer.Opponent();
+		}
+
+		public IEnumerable<Move> GetAllLegalMoves()
+		{
+			return AllLegalMovesFor(CurrentPlayer);
+		}
+
 	}
 }
