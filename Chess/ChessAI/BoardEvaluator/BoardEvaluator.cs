@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChessAI.BoardEvaluator
+namespace ChessAI.Evaluation
 {
+	using ChessLogic;
+	using System.Collections.Generic;
 	public class BoardEvaluator
 	{
 		private readonly Dictionary<PieceType, int> pieceValues = new Dictionary<PieceType, int>()
@@ -27,9 +29,25 @@ namespace ChessAI.BoardEvaluator
 				if (state.Result.Winner == Player.Black) return int.MinValue;
 				return 0;
 			}
-			
+
 			int score = 0;
-			
+
+			foreach (var pos in state.Board.PiecePositions())
+			{
+				Piece piece = state.Board[pos];
+				int value = pieceValues[piece.Type];
+
+				if (piece.Color == Player.White)
+				{
+					score += value;
+				}
+				else
+				{
+					score -= value;
+				}
+
+			}
+			return score;
 		}
 
 	}

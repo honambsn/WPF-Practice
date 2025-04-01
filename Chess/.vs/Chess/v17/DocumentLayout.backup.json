@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\boardevaluator\\boardevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\boardevaluator\\boardevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\moveselection\\moveselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\moveselection\\moveselector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\moves\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\moves\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\algorithms\\minimax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\algorithms\\minimax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\boardevaluator\\boardevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\boardevaluator\\boardevaluator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\aiplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\moves\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\moves\\move.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\moves\\normalmove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +54,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "BoardEvaluator.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
+              "RelativeDocumentMoniker": "ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
+              "RelativeToolTip": "ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:42:34.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MoveSelector.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\MoveSelection\\MoveSelector.cs",
+              "RelativeDocumentMoniker": "ChessAI\\MoveSelection\\MoveSelector.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\MoveSelection\\MoveSelector.cs",
+              "RelativeToolTip": "ChessAI\\MoveSelection\\MoveSelector.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwDIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T02:39:12.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Board.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Board.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Board.cs",
@@ -63,46 +93,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BoardEvaluator.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
-              "RelativeDocumentMoniker": "ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
-              "RelativeToolTip": "ChessAI\\BoardEvaluator\\BoardEvaluator.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T08:53:04.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GameState.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
               "RelativeDocumentMoniker": "ChessLogic\\GameState.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
               "RelativeToolTip": "ChessLogic\\GameState.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAuwJUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAjwJEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T08:00:08.215Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Minimax.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Algorithms\\Minimax.cs",
               "RelativeDocumentMoniker": "ChessAI\\Algorithms\\Minimax.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Algorithms\\Minimax.cs",
               "RelativeToolTip": "ChessAI\\Algorithms\\Minimax.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAA1wD0AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwBAAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T03:08:20.501Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Move.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Moves\\Move.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Moves\\Move.cs",
@@ -110,12 +127,11 @@
               "RelativeToolTip": "ChessLogic\\Moves\\Move.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T03:02:26.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T03:02:26.385Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "AIPlayer.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\AIPlayer.cs",
               "RelativeDocumentMoniker": "ChessAI\\AIPlayer.cs",
@@ -128,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IChessAI.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Interfaces\\IChessAI.cs",
               "RelativeDocumentMoniker": "ChessAI\\Interfaces\\IChessAI.cs",
@@ -136,12 +152,11 @@
               "RelativeToolTip": "ChessAI\\Interfaces\\IChessAI.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA8AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T07:48:19.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T07:48:19.743Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "NormalMove.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Moves\\NormalMove.cs",
               "RelativeDocumentMoniker": "ChessLogic\\Moves\\NormalMove.cs",
@@ -149,8 +164,7 @@
               "RelativeToolTip": "ChessLogic\\Moves\\NormalMove.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T02:56:29.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T02:56:29.006Z"
             }
           ]
         }
