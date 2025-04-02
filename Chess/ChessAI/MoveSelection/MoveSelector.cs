@@ -13,32 +13,32 @@ namespace ChessAI.MoveSelection
 	{
 		private readonly BoardEvaluator evaluator;
 		private readonly Minimax minimax;
-		private readonly Random random;
+		private readonly Random random = new Random();
 
 		public MoveSelector(BoardEvaluator evaluator, BotDifficulty difficulty)
 		{
 			this.evaluator = evaluator;
 			this.minimax = new Minimax(difficulty, evaluator);
-			this.random = new Random();
 		}
 
-		public Move SelectMove(GameState gameState, BotDifficulty difficulty)
+		public Move? SelectMove(GameState gameState, BotDifficulty difficulty)
 		{
-			return difficulty switch
+			if (difficulty == BotDifficulty.Easy)
 			{
-				BotDifficulty.Easy => SelectRandomMove(gameState),
-				BotDifficulty.Medium => minimax.GetBestMove(gameState),
-				BotDifficulty.Hard => minimax.GetBestMove(gameState),
-				BotDifficulty.Expert => minimax.GetBestMove(gameState),
-				_ => SelectRandomMove(gameState)
-			};
+				return SelectRandomMove(gameState);
+			}
+			else
+			{
+				return minimax.GetBestMove(gameState);
+			}
 		}
 
-		private Move SelectRandomMove(GameState gameState)
+		private Move? SelectRandomMove(GameState gameState)
 		{
-			var legalMoves = gameState.GetAllLegalMoves();
+			var legalMoves = gameState.GetAllLegalMoves().ToList();
 			return legalMoves.Count > 0 ? legalMoves[random.Next(legalMoves.Count)] : null;
 		}
+
 		public List<Move> GetTopCandidateMoves(GameState gameState, int topCount)
 		{
 			var legalMoves = gameState.GetAllLegalMoves();

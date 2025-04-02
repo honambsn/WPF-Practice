@@ -10,9 +10,9 @@ namespace ChessAI.Interfaces
 {
 	public interface IChessAI
 	{
-		Move GetBestMove(GameState gameState);
+		Move? GetBestMove(GameState gameState);
 		IEnumerable<Move> GetBestMoves(GameState gameState);
 		void SetDifficulty(BotDifficulty difficulty);
-		(Move BestMove, int Evaluation) GetDetailedMove(GameState gameState);
+		(Move? BestMove, int Evaluation) GetDetailedMove(GameState gameState);
 	}
 }

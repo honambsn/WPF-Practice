@@ -148,5 +148,13 @@ namespace ChessLogic
 			return AllLegalMovesFor(CurrentPlayer);
 		}
 
+		public GameState Copy()
+		{
+			var copy = new GameState(this.CurrentPlayer, this.Board.Copy());
+			copy.Result = this.Result;
+			return copy;
+		}
+
+
 	}
 }

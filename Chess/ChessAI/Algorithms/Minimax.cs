@@ -56,10 +56,10 @@ namespace ChessAI.Algorithms
 			return bestMoves;
 		}
 
-		public Move GetBestMove(GameState gameState)
+		public Move? GetBestMove(GameState gameState)
 		{
 			var bestMoves = GetBestMoves(gameState).ToList();
-			return bestMoves[random.Next(bestMoves.Count)];
+			return bestMoves.Count > 0 ? bestMoves[random.Next(bestMoves.Count)] : null;
 		}
 
 		private int MinimaxSearch(GameState state, int depth, int alpha, int beta, bool isMaximizing)
