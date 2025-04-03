@@ -9,49 +9,53 @@ using ChessLogic;
 using ChessAI.Evaluation;
 namespace ChessAI.MoveSelection
 {
-	public class MoveSelector
+	public interface IMoveStrategy
 	{
-		private readonly BoardEvaluator evaluator;
-		private readonly Minimax minimax;
+		Move? SelectMove(GameState gameState);
+	}
+	
+	public class EasyMoveStrategy : IMoveStrategy
+	{
 		private readonly Random random = new Random();
 
-		public MoveSelector(BoardEvaluator evaluator, BotDifficulty difficulty)
-		{
-			this.evaluator = evaluator;
-			this.minimax = new Minimax(difficulty, evaluator);
-		}
-
-		public Move? SelectMove(GameState gameState, BotDifficulty difficulty)
-		{
-			if (difficulty == BotDifficulty.Easy)
-			{
-				return SelectRandomMove(gameState);
-			}
-			else
-			{
-				return minimax.GetBestMove(gameState);
-			}
-		}
-
-		private Move? SelectRandomMove(GameState gameState)
+		public Move? SelectMove(GameState gameState)
 		{
 			var legalMoves = gameState.GetAllLegalMoves().ToList();
 			return legalMoves.Count > 0 ? legalMoves[random.Next(legalMoves.Count)] : null;
 		}
+	}
 
-		public List<Move> GetTopCandidateMoves(GameState gameState, int topCount)
+	public class MinimaxMoveStrategy : IMoveStrategy
+	{
+		private readonly Minimax minimax;
+
+		public MinimaxMoveStrategy(BotDifficulty difficulty, BoardEvaluator evaluator)
 		{
-			var legalMoves = gameState.GetAllLegalMoves();
-			return legalMoves
-				.Select(move => {
-					var newState = gameState.Copy();
-					newState.ApplyMove(move);
-					return (Move: move, Score: evaluator.Evaluate(newState));
-				})
-				.OrderByDescending(x => x.Score)
-				.Take(topCount)
-				.Select(x => x.Move)
-				.ToList();
+			this.minimax = new Minimax(difficulty, evaluator);
+		}
+
+		public Move? SelectMove(GameState gameState)
+		{
+			return minimax.GetBestMove(gameState);
+		}
+	}
+
+	public class MoveSelector
+	{
+		private readonly IMoveStrategy moveStrategy;
+
+		public MoveSelector(BotDifficulty difficulty, BoardEvaluator evaluator)
+		{
+			moveStrategy = difficulty switch
+			{
+				BotDifficulty.Easy => new EasyMoveStrategy(),
+				_ => new MinimaxMoveStrategy(difficulty, evaluator)
+			};
+		}
+
+		public Move? SelectMove(GameState gameState)
+		{
+			return moveStrategy.SelectMove(gameState);
 		}
 	}
 

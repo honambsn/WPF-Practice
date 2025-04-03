@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessAI;
 
 namespace ChessLogic
 {
@@ -14,6 +15,7 @@ namespace ChessLogic
 		private int noCaptureOrPawnMoves = 0;
 		private string stateString;
 		private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
+		private IChessAI aiPlayer;
 		public GameState(Player player, Board board)
 		{
 			CurrentPlayer = player;

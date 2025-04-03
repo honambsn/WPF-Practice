@@ -21,12 +21,12 @@ namespace ChessAI
 		public AIPlayer(BotDifficulty initialDifficulty = BotDifficulty.Medium)
 		{
 			evaluator = new BoardEvaluator();
-			moveSelector = new MoveSelector(evaluator, initialDifficulty);
+			moveSelector = new MoveSelector(initialDifficulty, evaluator);
 			difficulty = initialDifficulty;
 		}
 		public Move? GetBestMove(GameState gameState)
 		{
-			return moveSelector.SelectMove(gameState, difficulty);
+			return moveSelector.SelectMove(gameState);
 		}
 
 		public IEnumerable<Move> GetBestMoves(GameState gameState)
