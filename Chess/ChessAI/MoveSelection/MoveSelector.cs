@@ -1,24 +1,22 @@
-﻿using ChessAI.Algorithms;
-using ChessAI.Config;
-using System;
-using System.Collections.Generic;
+﻿using ChessLogic;
+using ChessInterfaces;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChessLogic;
+using ChessAI.Algorithms;
+using ChessAI.Config;
 using ChessAI.Evaluation;
+
 namespace ChessAI.MoveSelection
 {
 	public interface IMoveStrategy
 	{
-		Move? SelectMove(GameState gameState);
+		Move? SelectMove(IGameState gameState);
 	}
-	
+
 	public class EasyMoveStrategy : IMoveStrategy
 	{
 		private readonly Random random = new Random();
 
-		public Move? SelectMove(GameState gameState)
+		public Move? SelectMove(IGameState gameState)
 		{
 			var legalMoves = gameState.GetAllLegalMoves().ToList();
 			return legalMoves.Count > 0 ? legalMoves[random.Next(legalMoves.Count)] : null;
@@ -34,7 +32,7 @@ namespace ChessAI.MoveSelection
 			this.minimax = new Minimax(difficulty, evaluator);
 		}
 
-		public Move? SelectMove(GameState gameState)
+		public Move? SelectMove(IGameState gameState)
 		{
 			return minimax.GetBestMove(gameState);
 		}
@@ -53,10 +51,9 @@ namespace ChessAI.MoveSelection
 			};
 		}
 
-		public Move? SelectMove(GameState gameState)
+		public Move? SelectMove(IGameState gameState)
 		{
 			return moveStrategy.SelectMove(gameState);
 		}
 	}
-
 }

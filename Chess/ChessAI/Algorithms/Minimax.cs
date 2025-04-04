@@ -1,27 +1,23 @@
 ﻿using ChessAI.Config;
+using ChessAI.Evaluation;
+using ChessInterfaces;
+using ChessLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ChessLogic;
-using ChessAI.Evaluation;
-
-
 
 namespace ChessAI.Algorithms
 {
 	public class Minimax
 	{
-		private int _depth;
+		private int depth;
 		private readonly BoardEvaluator evaluator;
 		private readonly Random random = new Random();
-
 
 		public Minimax(BotDifficulty difficulty, BoardEvaluator evaluator)
 		{
 			this.evaluator = evaluator;
-			_depth = difficulty switch
+			depth = difficulty switch
 			{
 				BotDifficulty.Easy => 2,
 				BotDifficulty.Medium => 3,
@@ -31,15 +27,15 @@ namespace ChessAI.Algorithms
 			};
 		}
 
-		public IEnumerable<Move> GetBestMoves(GameState gameState)
+		public IEnumerable<Move> GetBestMoves(IGameState gameState)
 		{
 			int bestValue = int.MinValue;
 			List<Move> bestMoves = new List<Move>();
 
-			foreach (var move in gameState.Board.PiecePositions().SelectMany(pos => gameState.Board[pos].GetMoves(pos, gameState.Board)).Where(move => move.IsLegal(gameState.Board)))
+			foreach (var move in gameState.GetAllLegalMoves())
 			{
 				gameState.ApplyMove(move);
-				int moveValue = MinimaxSearch(gameState, _depth, int.MinValue, int.MaxValue, false);
+				int moveValue = MinimaxSearch(gameState, depth, int.MinValue, int.MaxValue, false);
 				gameState.UndoMove(move);
 
 				if (moveValue > bestValue)
@@ -53,36 +49,32 @@ namespace ChessAI.Algorithms
 					bestMoves.Add(move);
 				}
 			}
+
 			return bestMoves;
 		}
 
-		public Move? GetBestMove(GameState gameState)
+		public Move? GetBestMove(IGameState gameState)
 		{
 			var bestMoves = GetBestMoves(gameState).ToList();
 			return bestMoves.Count > 0 ? bestMoves[random.Next(bestMoves.Count)] : null;
 		}
 
-		private int MinimaxSearch(GameState state, int depth, int alpha, int beta, bool isMaximizing)
+		private int MinimaxSearch(IGameState state, int depth, int alpha, int beta, bool isMaximizing)
 		{
-			if (depth == 0 || state.IsGameOver())
-			{
+			if (depth == 0 || state.IsGameOver2())
 				return evaluator.Evaluate(state);
-			}
 
 			if (isMaximizing)
 			{
 				int maxEval = int.MinValue;
-				foreach (var move in state.Board.PiecePositions().SelectMany(pos => state.Board[pos].GetMoves(pos, state.Board)).Where(move => move.IsLegal(state.Board)))
+				foreach (var move in state.GetAllLegalMoves())
 				{
 					state.ApplyMove(move);
 					int eval = MinimaxSearch(state, depth - 1, alpha, beta, false);
 					state.UndoMove(move);
 					maxEval = Math.Max(maxEval, eval);
 					alpha = Math.Max(alpha, eval);
-					if (beta <= alpha)
-					{
-						break;
-					}
+					if (beta <= alpha) break;
 				}
 				return maxEval;
 			}
@@ -96,10 +88,7 @@ namespace ChessAI.Algorithms
 					state.UndoMove(move);
 					minEval = Math.Min(minEval, eval);
 					beta = Math.Min(beta, eval);
-					if (beta <= alpha)
-					{
-						break;
-					}
+					if (beta <= alpha) break;
 				}
 				return minEval;
 			}

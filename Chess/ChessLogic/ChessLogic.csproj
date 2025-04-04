@@ -11,4 +11,8 @@
     <Content Include="padlock.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ChessInterfaces\ChessInterfaces.csproj" />
+  </ItemGroup>
+
 </Project>

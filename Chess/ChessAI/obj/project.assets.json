@@ -2,9 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "ChessInterfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ChessInterfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChessInterfaces.dll": {}
+        }
+      },
       "ChessLogic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ChessInterfaces": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ChessLogic.dll": {}
         },
@@ -15,6 +28,11 @@
     }
   },
   "libraries": {
+    "ChessInterfaces/1.0.0": {
+      "type": "project",
+      "path": "../ChessInterfaces/ChessInterfaces.csproj",
+      "msbuildProject": "../ChessInterfaces/ChessInterfaces.csproj"
+    },
     "ChessLogic/1.0.0": {
       "type": "project",
       "path": "../ChessLogic/ChessLogic.csproj",
@@ -23,6 +41,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "ChessInterfaces >= 1.0.0",
       "ChessLogic >= 1.0.0"
     ]
   },
@@ -61,6 +80,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessInterfaces\\ChessInterfaces.csproj": {
+              "projectPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessInterfaces\\ChessInterfaces.csproj"
+            },
             "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\ChessLogic.csproj": {
               "projectPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\ChessLogic.csproj"
             }

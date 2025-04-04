@@ -1,14 +1,10 @@
 ﻿using ChessLogic;
+using ChessInterfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChessAI.Evaluation
 {
-	using ChessLogic;
-	using System.Collections.Generic;
 	public class BoardEvaluator
 	{
 		private readonly Dictionary<PieceType, int> pieceValues = new Dictionary<PieceType, int>()
@@ -21,34 +17,45 @@ namespace ChessAI.Evaluation
 			{ PieceType.King, 20000 }
 		};
 
-		public int Evaluate(GameState state)
+		public int Evaluate(IGameState state)
 		{
-			if (state.IsGameOver())
+			// Ensure we're dealing with GameState specifically
+			if (state is GameState gameState)
 			{
-				if (state.Result.Winner == Player.White) return int.MaxValue;
-				if (state.Result.Winner == Player.Black) return int.MinValue;
-				return 0;
-			}
-
-			int score = 0;
-
-			foreach (var pos in state.Board.PiecePositions())
-			{
-				Piece piece = state.Board[pos];
-				int value = pieceValues[piece.Type];
-
-				if (piece.Color == Player.White)
+				// First, check if the game is over using the Result from ChessLogic
+				if (gameState.IsGameOver())
 				{
-					score += value;
-				}
-				else
-				{
-					score -= value;
+					if (gameState.Result.Winner == Player.White) return int.MaxValue;
+					if (gameState.Result.Winner == Player.Black) return int.MinValue;
+					return 0; // Draw or stalemate
 				}
 
+				int score = 0;
+
+				// Iterate through all positions on the board
+				foreach (var pos in gameState.Board.PiecePositions())
+				{
+					Piece piece = gameState.Board[pos];
+					if (piece == null) continue;
+
+					int value = pieceValues[piece.Type];
+
+					// Add or subtract piece value depending on the player's color
+					if (piece.Color == Player.White)
+					{
+						score += value;
+					}
+					else
+					{
+						score -= value;
+					}
+				}
+
+				return score;
 			}
-			return score;
+
+			// If the state is not of type GameState, throw an error or handle differently
+			throw new InvalidOperationException("The provided IGameState is not a GameState.");
 		}
-
 	}
 }

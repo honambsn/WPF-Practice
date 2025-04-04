@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChessAI;
+using ChessInterfaces;
 
 namespace ChessLogic
 {
-	public class GameState
+	public class GameState : IGameState
 	{
 		public Board Board { get; }
 		public Player CurrentPlayer { get; private set; }
@@ -15,7 +15,6 @@ namespace ChessLogic
 		private int noCaptureOrPawnMoves = 0;
 		private string stateString;
 		private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
-		private IChessAI aiPlayer;
 		public GameState(Player player, Board board)
 		{
 			CurrentPlayer = player;
@@ -156,6 +155,8 @@ namespace ChessLogic
 			copy.Result = this.Result;
 			return copy;
 		}
+
+		public bool IsGameOver2() => Result != null;
 
 
 	}

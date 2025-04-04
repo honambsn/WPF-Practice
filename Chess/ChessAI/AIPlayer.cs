@@ -1,7 +1,7 @@
 ﻿using ChessAI.Algorithms;
 using ChessAI.Config;
 using ChessAI.Evaluation;
-using ChessAI.Interfaces;
+using ChessInterfaces;
 using ChessAI.MoveSelection;
 using ChessLogic;
 using System;
@@ -24,22 +24,23 @@ namespace ChessAI
 			moveSelector = new MoveSelector(initialDifficulty, evaluator);
 			difficulty = initialDifficulty;
 		}
-		public Move? GetBestMove(GameState gameState)
+
+		public Move? GetBestMove(IGameState gameState)
 		{
 			return moveSelector.SelectMove(gameState);
 		}
 
-		public IEnumerable<Move> GetBestMoves(GameState gameState)
+		public IEnumerable<Move> GetBestMoves(IGameState gameState)
 		{
 			return new Minimax(difficulty, evaluator).GetBestMoves(gameState);
 		}
 
-		public void SetDifficulty(BotDifficulty newdifficulty)
+		public void SetDifficulty(BotDifficulty newDifficulty)
 		{
-			difficulty = newdifficulty;
+			difficulty = newDifficulty;
 		}
 
-		public (Move? BestMove, int Evaluation) GetDetailedMove(GameState gameState)
+		public (Move? BestMove, int Evaluation) GetDetailedMove(IGameState gameState)
 		{
 			var bestMove = GetBestMove(gameState);
 			if (bestMove == null)

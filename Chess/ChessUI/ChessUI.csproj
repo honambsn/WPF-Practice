@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChessAI\ChessAI.csproj" />
+    <ProjectReference Include="..\ChessInterfaces\ChessInterfaces.csproj" />
     <ProjectReference Include="..\ChessLogic\ChessLogic.csproj" />
   </ItemGroup>
 
