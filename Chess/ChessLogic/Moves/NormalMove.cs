@@ -30,12 +30,12 @@ namespace ChessLogic
 			return capture || piece.Type == PieceType.Pawn;
 		}
 
-		public override void Undo(Board board) {
-			Piece piece = board[ToPos];
+		//public override void Undo(Board board) {
+		//	Piece piece = board[ToPos];
 
-			board[FromPos] = piece;
-			board[ToPos] = capturedPiece;
-			piece.HasMoved = false;
-		}
+		//	board[FromPos] = piece;
+		//	board[ToPos] = capturedPiece;
+		//	piece.HasMoved = false;
+		//}
 	}
 }

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ChessInterfaces;
 
 namespace ChessLogic
 {
-	public class GameState : IGameState
+	public class GameState
 	{
 		public Board Board { get; }
 		public Player CurrentPlayer { get; private set; }
@@ -138,11 +137,11 @@ namespace ChessLogic
 			CurrentPlayer = CurrentPlayer.Opponent();
 		}
 
-		public void UndoMove(Move move)
-		{
-			move.Undo(Board);
-			CurrentPlayer = CurrentPlayer.Opponent();
-		}
+		//public void UndoMove(Move move)
+		//{
+		//	move.Undo(Board);
+		//	CurrentPlayer = CurrentPlayer.Opponent();
+		//}
 
 		public IEnumerable<Move> GetAllLegalMoves()
 		{

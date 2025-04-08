@@ -20,6 +20,6 @@ namespace ChessLogic
 			return !boardCopy.IsInCheck(player);
 		}
 
-		public abstract void Undo(Board board);
+		//public abstract void Undo(Board board);
 	}
 }
