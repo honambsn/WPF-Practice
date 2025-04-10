@@ -7,14 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Project References -->
-    <ProjectReference Include="..\ChessLogic\ChessLogic.csproj" />
-    <ProjectReference Include="..\ChessInterfaces\ChessInterfaces.csproj" />
+    <Compile Remove="Algorithms\**" />
+    <Compile Remove="BoardEvaluator\**" />
+    <Compile Remove="Config\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="MoveSelection\**" />
+    <EmbeddedResource Remove="Algorithms\**" />
+    <EmbeddedResource Remove="BoardEvaluator\**" />
+    <EmbeddedResource Remove="Config\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="MoveSelection\**" />
+    <None Remove="Algorithms\**" />
+    <None Remove="BoardEvaluator\**" />
+    <None Remove="Config\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="MoveSelection\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Folder for organizing files (optional, if needed) -->
-    <Folder Include="Interfaces\" />
+    <Compile Remove="AIPlayer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Project References -->
+    <ProjectReference Include="..\ChessLogic\ChessLogic.csproj" />
   </ItemGroup>
 
 </Project>
