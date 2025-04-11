@@ -39,7 +39,7 @@ public class Bot
 			copy.ApplyMove(move);
 			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false);
 
-			if (score > bestScore)
+			if (score > bestScore || bestMove == null)
 			{
 				bestScore = score;
 				bestMove = move;

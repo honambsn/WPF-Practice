@@ -8,6 +8,7 @@ using ChessLogic;
 using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 using Rectangle = System.Windows.Shapes.Rectangle;
+using ChessAI;
 
 namespace ChessUI
 {
@@ -22,6 +23,9 @@ namespace ChessUI
 
 		private GameState gameState;
 		private Position selectedPos = null;
+
+		private bool playingWithBot = false;
+
 
 		public MainWindow()
 		{
@@ -147,6 +151,11 @@ namespace ChessUI
 			{
 				ShowGameOver();
 			}
+
+			if (playingWithBot && gameState.CurrentPlayer == Player.Black)
+			{
+				Dispatcher.InvokeAsync(() => PlayBotTurn(), System.Windows.Threading.DispatcherPriority.Background);
+			}
 		}
 
 		private void CacheMoves(IEnumerable<Move> moves)
@@ -219,6 +228,7 @@ namespace ChessUI
 			selectedPos = null;
 			HideHighlights();
 			moveCache.Clear();
+			playingWithBot = false;
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
@@ -236,7 +246,7 @@ namespace ChessUI
 				ShowBot();
 			}
 		}
-		
+
 		private void ShowPauseMenu()
 		{
 			PauseMenu pauseMenu = new PauseMenu();
@@ -262,7 +272,7 @@ namespace ChessUI
 			botMenu.OptionSelected += option =>
 			{
 				MenuContainer.Content = null;
-				
+
 				if (option == BotOptions.Exit)
 				{
 					Application.Current.Shutdown();
@@ -281,7 +291,32 @@ namespace ChessUI
 
 		private void BotPlay()
 		{
-			RestartGame();
+			playingWithBot = true;
+			selectedPos = null;
+			HideHighlights();
+			moveCache.Clear();
+			gameState = new GameState(Player.White, Board.Initial());
+			DrawBoard(gameState.Board);
+			SetCursor(gameState.CurrentPlayer);
+		}
+
+
+		private void PlayBotTurn()
+		{
+			if (IsMenuOnScreen() || gameState.IsGameOver())
+			{
+				return;
+			}
+
+			if (gameState.CurrentPlayer == Player.Black)
+			{
+				Bot bot = new Bot(BotDifficulty.Medium);
+				Move bestMove = bot.GetBestMove(gameState);
+				if (bestMove != null)
+				{
+					HandleMove(bestMove);
+				}
+			}
 		}
 	}
 }
