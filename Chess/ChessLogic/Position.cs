@@ -17,14 +17,19 @@ namespace ChessLogic
 			Column = column;
 		}
 
-		public Player SquareColor()
-		{
-			if ((Row + Column) % 2 == 0)
-			{
-				return Player.White;
-			}
+		//public Player SquareColor()
+		//{
+		//	if ((Row + Column) % 2 == 0)
+		//	{
+		//		return Player.White;
+		//	}
 
-			return Player.Black;
+		//	return Player.Black;
+		//}
+
+		public SquareColor GetSquareColor()
+		{
+			return (Row + Column) % 2 == 0 ? SquareColor.Light : SquareColor.Dark;
 		}
 
 		public Position Move(int row, int column)

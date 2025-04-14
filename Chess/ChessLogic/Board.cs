@@ -138,9 +138,21 @@ namespace ChessLogic
 		{
 			Couting couting = CountPieces();
 
-			return IsKingVKing(couting) || IsKingBishopVKing(couting) ||
-				IsKingKnightVKing(couting) || IsKingBishopVKingBishop(couting);
+			// Nếu còn bất kỳ quân nào có khả năng chiếu hết thì KHÔNG hòa được
+			if (couting.White(PieceType.Pawn) > 0 || couting.Black(PieceType.Pawn) > 0 ||
+				couting.White(PieceType.Queen) > 0 || couting.Black(PieceType.Queen) > 0 ||
+				couting.White(PieceType.Rook) > 0 || couting.Black(PieceType.Rook) > 0)
+			{
+				return false;
+			}
+
+			// Nếu tổng số quân trừ vua <= 1 mỗi bên thì mới xét các trường hợp hòa
+			return IsKingVKing(couting) ||
+				   IsKingBishopVKing(couting) ||
+				   IsKingKnightVKing(couting) ||
+				   IsKingBishopVKingBishop(couting);
 		}
+
 
 		private static bool IsKingVKing(Couting couting)
 		{
@@ -161,29 +173,31 @@ namespace ChessLogic
 
 		private static bool IsKingKnightVKing(Couting couting)
 		{
-			return couting.TotalCount == 3 && (couting.White(PieceType.Knight) == 1 && couting.Black(PieceType.Knight) == 1);
+			return couting.TotalCount == 3 &&
+				   ((couting.White(PieceType.Knight) == 1 && couting.Black(PieceType.King) == 1) ||
+					(couting.Black(PieceType.Knight) == 1 && couting.White(PieceType.King) == 1));
 		}
+
 
 		private bool IsKingBishopVKingBishop(Couting couting)
 		{
 			if (couting.TotalCount != 4)
-			{
 				return false;
-			}
-			if (couting.White(PieceType.Bishop) != 1 || couting.Black(PieceType.Bishop) != 1)
-			{
-				return false;
-			}
-			//Position wBishopPos = FindPiece(Player.White, PieceType.Bishop);
-			//Position bBishopPos = FindPiece(Player.Black, PieceType.Bishop);
 
-			//return wBishopPos.SquareColor() == bBishopPos.SquareColor();
-			return true;
+			if (couting.White(PieceType.Bishop) != 1 || couting.Black(PieceType.Bishop) != 1)
+				return false;
+
+			Position wBishopPos = FindPiece(Player.White, PieceType.Bishop);
+			Position bBishopPos = FindPiece(Player.Black, PieceType.Bishop);
+
+			return wBishopPos.GetSquareColor() == bBishopPos.GetSquareColor();
 		}
 
-		private Position FindPiece(Player color, PieceType type)
+
+		private Position? FindPiece(Player color, PieceType type)
 		{
-			return PiecePositionsFor(color).First(pos => this[pos].Type == type);
+			return PiecePositionsFor(color)
+				.FirstOrDefault(pos => this[pos].Type == type);
 		}
 
 		private bool IsUnmovedKingAndRook(Position kingPos, Position rookPos)
