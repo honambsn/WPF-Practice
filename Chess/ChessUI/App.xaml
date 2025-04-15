@@ -36,5 +36,92 @@
                 </Style>
             </Style.Resources>
         </Style>
+
+        <!-- Style for ListBox -->
+        <Style TargetType="ListBox" x:Key="ListBoxStyle">
+            <Setter Property="FontFamily" Value="Segoe UI Light"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+            <Setter Property="Background" Value="{StaticResource FillColor}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Style.Resources>
+                <!-- Style for ListBoxItem -->
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+
+                <!-- Style for ListBoxItem when hovered -->
+                <Style TargetType="ListBoxItem" x:Key="HoverListBoxItemStyle">
+                    <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <!-- Corrected Style for ScrollBar -->
+        <Style TargetType="ScrollBar" x:Key="SmallScrollbarStyle">
+            <Setter Property="Width" Value="8"/>
+            <Setter Property="Height" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource ButtonColor}"/>
+            <Setter Property="Visibility" Value="Visible"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+
+            <!-- ControlTemplate for ScrollBar -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid x:Name="Grid" Background="Transparent">
+                            <!-- The track of the scrollbar -->
+                            <Track x:Name="PART_Track">
+                                <!-- The Thumb part of the scrollbar -->
+                                <Track.Thumb>
+                                    <Thumb Background="{StaticResource ButtonColor}" 
+                                       Width="8" Height="50"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Style for ScrollViewer with customized ScrollBar inside ControlTemplate -->
+        <Style TargetType="ScrollViewer">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid>
+                            <ScrollContentPresenter HorizontalAlignment="Stretch"
+                                                VerticalAlignment="Stretch"
+                                                Content="{TemplateBinding Content}"/>
+                            <ScrollBar x:Name="PART_VerticalScrollBar" 
+                                   Orientation="Vertical"
+                                   Style="{StaticResource SmallScrollbarStyle}"
+                                   Visibility="{TemplateBinding VerticalScrollBarVisibility}"/>
+                            <ScrollBar x:Name="PART_HorizontalScrollBar" 
+                                   Orientation="Horizontal"
+                                   Style="{StaticResource SmallScrollbarStyle}"
+                                   Visibility="{TemplateBinding HorizontalScrollBarVisibility}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

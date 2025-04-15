@@ -44,23 +44,12 @@
                     Click="Play_Click"/>
 
             <ListBox Grid.Row="1"
-                     Grid.ColumnSpan="2">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-                <ListBoxItem>Item 4</ListBoxItem>
-                <ListBoxItem>Item 5</ListBoxItem>
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-                <ListBoxItem>Item 4</ListBoxItem>
-                <ListBoxItem>Item 5</ListBoxItem>
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-                <ListBoxItem>Item 4</ListBoxItem>
-                <ListBoxItem>Item 5</ListBoxItem>
-
+                     Grid.ColumnSpan="2"
+                     Style="{StaticResource ListBoxStyle}"
+                     SelectedItem="{Binding SelectedDiff}">
+                <ListBoxItem>Easy</ListBoxItem>
+                <ListBoxItem>Medium</ListBoxItem>
+                <ListBoxItem>Hard</ListBoxItem>
             </ListBox>
 
         </Grid>

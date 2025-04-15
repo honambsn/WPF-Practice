@@ -36,5 +36,17 @@ namespace ChessUI
 		{
 			OptionSelected?.Invoke(BotOptions.Exit);
 		}
+
+		private string _selectedDiff;
+		public string SelectedDiff
+		{
+			get { return _selectedDiff; }
+			set
+			{
+				_selectedDiff = value;
+				OnPropertyChanged(nameof(SelectedDiff));
+			}
+		}
 	}
+
 }

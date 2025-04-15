@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\botmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\botmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\botmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\botmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -27,19 +39,60 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BotMenu.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml.cs",
+              "RelativeDocumentMoniker": "ChessUI\\BotMenu.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml.cs",
+              "RelativeToolTip": "ChessUI\\BotMenu.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T02:25:13.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\App.xaml",
+              "RelativeDocumentMoniker": "ChessUI\\App.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\App.xaml",
+              "RelativeToolTip": "ChessUI\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-15T02:03:50.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BotMenu.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml",
+              "RelativeDocumentMoniker": "ChessUI\\BotMenu.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml",
+              "RelativeToolTip": "ChessUI\\BotMenu.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-15T01:56:58.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAYBAAAAAAAAAAAuwDkBAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAAAD8BAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-14T02:56:19.664Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml",
