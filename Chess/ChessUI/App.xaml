@@ -9,6 +9,26 @@
         <SolidColorBrush x:Key="TextColor">#ffa274</SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor">#730909</SolidColorBrush>
 
+        <!-- Darker hover effect colors -->
+        <SolidColorBrush x:Key="HoverStrokeColor">#190000</SolidColorBrush>
+        <!-- Darker stroke color -->
+        <SolidColorBrush x:Key="HoverFillColor">#a62e2e2e</SolidColorBrush>
+        <!-- Darker fill color -->
+        <SolidColorBrush x:Key="HoverTextColor">#ff7c52</SolidColorBrush>
+        <!-- Darker text color -->
+        <SolidColorBrush x:Key="HoverButtonColor">#5c0505</SolidColorBrush>
+        <!-- Darker button color -->
+
+        <!-- Pressed (clicked) effect colors -->
+        <SolidColorBrush x:Key="PressedStrokeColor">#1a0000</SolidColorBrush>
+        <!-- Even darker stroke color when pressed -->
+        <SolidColorBrush x:Key="PressedFillColor">#7e1e1e1e</SolidColorBrush>
+        <!-- Even darker fill color when pressed -->
+        <SolidColorBrush x:Key="PressedTextColor">#ff3e1e</SolidColorBrush>
+        <!-- Lighter text color when pressed -->
+        <SolidColorBrush x:Key="PressedButtonColor">#3b0505</SolidColorBrush>
+        <!-- Even darker button color when pressed -->
+
         <Style TargetType="Border" x:Key="BorderStyle">
             <Setter Property="BorderThickness" Value="4"/>
             <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
@@ -37,7 +57,6 @@
             </Style.Resources>
         </Style>
 
-        <!-- Style for ListBox -->
         <Style TargetType="ListBox" x:Key="ListBoxStyle">
             <Setter Property="FontFamily" Value="Segoe UI Light"/>
             <Setter Property="FontSize" Value="14"/>
@@ -47,81 +66,67 @@
             <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
+            <!-- ControlTemplate for ListBox -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                            <!-- Rounded corners for the ListBox -->
+                            <ScrollViewer Margin="4" Padding="4" VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <ItemsPresenter />
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Resources>
-                <!-- Style for ListBoxItem -->
+                <!-- Style for ListBoxItem with rounded corners -->
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
                     <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                     <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
                     <Setter Property="BorderThickness" Value="1"/>
                     <Setter Property="Padding" Value="5"/>
-                </Style>
+                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5"
+                                Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
 
-                <!-- Style for ListBoxItem when hovered -->
-                <Style TargetType="ListBoxItem" x:Key="HoverListBoxItemStyle">
-                    <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
-                    <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
-                    <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="Padding" Value="5"/>
+                    <!-- Trigger for Hover Effect -->
+                    <Style.Triggers>
+                        <!-- Hover Effect -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource HoverButtonColor}"/>
+                            <Setter Property="Foreground" Value="{StaticResource HoverTextColor}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
+                        </Trigger>
+
+                        <!-- Selected State (Optional) -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource HoverFillColor}"/>
+                            <Setter Property="Foreground" Value="{StaticResource HoverTextColor}"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
             </Style.Resources>
         </Style>
 
-        <!-- Corrected Style for ScrollBar -->
-        <Style TargetType="ScrollBar" x:Key="SmallScrollbarStyle">
-            <Setter Property="Width" Value="8"/>
-            <Setter Property="Height" Value="8"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{StaticResource ButtonColor}"/>
-            <Setter Property="Visibility" Value="Visible"/>
-            <Setter Property="Orientation" Value="Vertical"/>
-
-            <!-- ControlTemplate for ScrollBar -->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ScrollBar">
-                        <Grid x:Name="Grid" Background="Transparent">
-                            <!-- The track of the scrollbar -->
-                            <Track x:Name="PART_Track">
-                                <!-- The Thumb part of the scrollbar -->
-                                <Track.Thumb>
-                                    <Thumb Background="{StaticResource ButtonColor}" 
-                                       Width="8" Height="50"/>
-                                </Track.Thumb>
-                            </Track>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Style for ScrollViewer with customized ScrollBar inside ControlTemplate -->
-        <Style TargetType="ScrollViewer">
-            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="Margin" Value="0"/>
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ScrollViewer">
-                        <Grid>
-                            <ScrollContentPresenter HorizontalAlignment="Stretch"
-                                                VerticalAlignment="Stretch"
-                                                Content="{TemplateBinding Content}"/>
-                            <ScrollBar x:Name="PART_VerticalScrollBar" 
-                                   Orientation="Vertical"
-                                   Style="{StaticResource SmallScrollbarStyle}"
-                                   Visibility="{TemplateBinding VerticalScrollBarVisibility}"/>
-                            <ScrollBar x:Name="PART_HorizontalScrollBar" 
-                                   Orientation="Horizontal"
-                                   Style="{StaticResource SmallScrollbarStyle}"
-                                   Visibility="{TemplateBinding HorizontalScrollBarVisibility}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Application.Resources>
 </Application>
