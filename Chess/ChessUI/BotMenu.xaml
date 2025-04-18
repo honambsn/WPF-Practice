@@ -41,7 +41,16 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
                     Height="30"
-                    Click="Play_Click"/>
+                    Click="Play_Click">
+            </Button>
+
+            <Popup x:Name="playPopup" Placement="Center" StaysOpen="False" Panel.ZIndex="100">
+                <StackPanel Background="LightYellow" Width="200" Height="150">
+                    <TextBlock Text="This is a Popup!" Margin="10"/>
+                    <Button Content="Close" Click="ClosePopup_Click" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Popup>
+
 
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="2"

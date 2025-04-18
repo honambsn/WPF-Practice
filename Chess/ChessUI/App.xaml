@@ -92,8 +92,8 @@
                     <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
                     <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
                     <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="Padding" Value="5"/>
-                    <Setter Property="Margin" Value="2"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Margin" Value="4"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="ListBoxItem">
@@ -102,7 +102,19 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="5"
                                 Padding="{TemplateBinding Padding}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <!--<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                                    <TextBlock 
+                                        FontWeight="{TemplateBinding FontWeight}" 
+                                        FontSize="{TemplateBinding FontSize}" 
+                                        Foreground="{TemplateBinding Foreground}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                        <ContentPresenter 
+                                            Content="{TemplateBinding Content}" 
+                                            ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                    </TextBlock>
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
@@ -119,8 +131,12 @@
 
                         <!-- Selected State (Optional) -->
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{StaticResource HoverFillColor}"/>
-                            <Setter Property="Foreground" Value="{StaticResource HoverTextColor}"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Medium"/>
+                            <Setter Property="FontFamily" Value="Segoe UI"/>
+                            <!--<Setter Property="Background" Value="{StaticResource HoverFillColor}"/>-->
+                            <Setter Property="Background" Value="red"/>
+                            <Setter Property="Foreground" Value="Yellow"/>
                             <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
                         </Trigger>
                     </Style.Triggers>

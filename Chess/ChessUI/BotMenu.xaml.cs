@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Security;
 using System.Text;
@@ -29,12 +30,27 @@ namespace ChessUI
 
 		private void Play_Click(object sender, RoutedEventArgs e)
 		{
+			Console.WriteLine("PLAY Button Clicked!");
+			if (playPopup != null)
+			{
+				playPopup.IsOpen = true;
+			}
+			else
+			{
+				Console.WriteLine("playPopup is null");
+			}
 			OptionSelected?.Invoke(BotOptions.Play);
 		}
 
 		private void Exit_Click(object sender, RoutedEventArgs e)
 		{
 			OptionSelected?.Invoke(BotOptions.Exit);
+		}
+
+		private void ClosePopup_Click(object sender, RoutedEventArgs e)
+		{
+			// Close the Popup
+			playPopup.IsOpen = false;
 		}
 
 		private string _selectedDiff;
