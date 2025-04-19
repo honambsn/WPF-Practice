@@ -9,6 +9,8 @@ using Color = System.Windows.Media.Color;
 using Point = System.Windows.Point;
 using Rectangle = System.Windows.Shapes.Rectangle;
 using ChessAI;
+using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 namespace ChessUI
 {
@@ -264,8 +266,6 @@ namespace ChessUI
 
 		private void ShowBot()
 		{
-			//AI ai = new AI();
-			//ai.MakeMove();
 			BotMenu botMenu = new BotMenu();
 			MenuContainer.Content = botMenu;
 
@@ -279,6 +279,8 @@ namespace ChessUI
 				}
 				else if (option == BotOptions.Play)
 				{
+					ShowPopUpWithAutoClose(2000); //show popup for 2 seconds
+
 					//play vs bot
 					//AI ai = new AI();
 					//ai.MakeMove();
@@ -318,5 +320,46 @@ namespace ChessUI
 				}
 			}
 		}
+
+		private void ShowPopUp()
+		{
+			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
+		}
+
+		private void ShowPopUpWithAutoClose(int milliseconds = 3000)
+		{
+			// reset opacity
+			PopupPanel.Opacity = 1;
+
+			// display the popup
+			PopupPanel.Visibility = Visibility.Visible;
+
+			// set the timer to close the popup
+			var timer = new DispatcherTimer
+			{
+				Interval = TimeSpan.FromMilliseconds(milliseconds)
+			};
+
+			timer.Tick += (s, e) =>
+			{
+				timer.Stop();
+
+				// run effect
+				var fadeOut = (Storyboard)FindResource("FadeOutStoryboard");
+
+				// hide the popup after the fade out animation
+				fadeOut.Completed += (s2, e2) =>
+				{
+					PopupPanel.Visibility = Visibility.Collapsed;
+				};
+
+				// start the fade out animation
+				fadeOut.Begin();
+			};
+
+			timer.Start();
+		}
+
+
 	}
 }

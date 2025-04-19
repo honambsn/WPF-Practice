@@ -15,6 +15,7 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PopUp.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PromotionMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI_MarkupCompile.cache
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI_MarkupCompile.lref
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\App.baml

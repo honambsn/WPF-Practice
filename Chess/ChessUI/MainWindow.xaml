@@ -11,6 +11,14 @@
         WindowStartupLocation="CenterScreen"
         Background="#101010"
         KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <Storyboard x:Key="FadeOutStoryboard">
+            <DoubleAnimation
+            Storyboard.TargetName="PopupPanel"
+            Storyboard.TargetProperty="Opacity"
+            From="1.0" To="0.0" Duration="0:0:0.5" />
+        </Storyboard>
+    </Window.Resources>
     <Viewbox>
         <Grid x:Name="BoardGrid"
               Width="600"
@@ -23,7 +31,7 @@
             <UniformGrid x:Name="HighlightGrid"
                          Rows="8"
                          Columns="8">
-                
+
             </UniformGrid>
 
             <UniformGrid x:Name="PieceGrid"
@@ -33,6 +41,15 @@
             </UniformGrid>
 
             <ContentControl x:Name="MenuContainer"/>
+
+            <Border x:Name="PopupPanel"
+                Background="#AA000000"
+                Visibility="Collapsed"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Panel.ZIndex="100" Opacity="1">
+                <local:PopUp x:Name="PlayPopup" />
+            </Border>
         </Grid>
     </Viewbox>
 
