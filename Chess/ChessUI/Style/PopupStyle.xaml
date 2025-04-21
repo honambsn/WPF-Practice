@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="PopupStyle" TargetType="Popup">
+        <Setter Property="Placement" Value="Center" />
+        <Setter Property="PopupAnimation" Value="Fade" />
+        <Setter Property="AllowsTransparency" Value="True" />
+    </Style>
+
+    <!-- Style for Border of Popup -->
+    <Style x:Key="PopUpBorder" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource FillColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}" />
+        <Setter Property="BorderThickness" Value="3" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Height" Value="200" />
+        <Setter Property="Width" Value="350"/>
+    </Style>
+
+    <!-- Style cho TextBlock trong Popup -->
+    <Style x:Key="PopupTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#ffa274" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+    
+    <!-- Style cho Button trong Popup -->
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="Segoe UI Light" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Background" Value="#730909" />
+        <Setter Property="Foreground" Value="#ffa274" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="#260000" />
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+</ResourceDictionary>

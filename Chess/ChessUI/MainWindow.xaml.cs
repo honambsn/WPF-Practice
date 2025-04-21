@@ -279,7 +279,8 @@ namespace ChessUI
 				}
 				else if (option == BotOptions.Play)
 				{
-					ShowPopUpWithAutoClose(2000); //show popup for 2 seconds
+					//ShowPopUpWithAutoClose(2000); //show popup for 2 seconds
+					ShowPopUp(); //show popup
 
 					//play vs bot
 					//AI ai = new AI();
@@ -326,13 +327,15 @@ namespace ChessUI
 			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
 		}
 
-		private void ShowPopUpWithAutoClose(int milliseconds = 3000)
+		private void ShowPopUpWithAutoClose(int milliseconds = 10000)
 		{
 			// reset opacity
 			PopupPanel.Opacity = 1;
 
 			// display the popup
 			PopupPanel.Visibility = Visibility.Visible;
+
+			PlayPopup.StartCountdown(10); // Start the countdown in the PopUp
 
 			// set the timer to close the popup
 			var timer = new DispatcherTimer
@@ -358,6 +361,8 @@ namespace ChessUI
 			};
 
 			timer.Start();
+
+			//PlayPopup.StartCountdown(); // Start the countdown in the PopUp
 		}
 
 

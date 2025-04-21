@@ -42,5 +42,8 @@
     <Page Update="PromotionMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Style\PopupStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
