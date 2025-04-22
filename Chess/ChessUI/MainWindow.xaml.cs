@@ -279,7 +279,6 @@ namespace ChessUI
 				}
 				else if (option == BotOptions.Play)
 				{
-					//ShowPopUpWithAutoClose(2000); //show popup for 2 seconds
 					ShowPopUp(); //show popup
 
 					//play vs bot
@@ -325,44 +324,7 @@ namespace ChessUI
 		private void ShowPopUp()
 		{
 			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
-		}
-
-		private void ShowPopUpWithAutoClose(int milliseconds = 10000)
-		{
-			// reset opacity
-			PopupPanel.Opacity = 1;
-
-			// display the popup
-			PopupPanel.Visibility = Visibility.Visible;
-
-			PlayPopup.StartCountdown(10); // Start the countdown in the PopUp
-
-			// set the timer to close the popup
-			var timer = new DispatcherTimer
-			{
-				Interval = TimeSpan.FromMilliseconds(milliseconds)
-			};
-
-			timer.Tick += (s, e) =>
-			{
-				timer.Stop();
-
-				// run effect
-				var fadeOut = (Storyboard)FindResource("FadeOutStoryboard");
-
-				// hide the popup after the fade out animation
-				fadeOut.Completed += (s2, e2) =>
-				{
-					PopupPanel.Visibility = Visibility.Collapsed;
-				};
-
-				// start the fade out animation
-				fadeOut.Begin();
-			};
-
-			timer.Start();
-
-			//PlayPopup.StartCountdown(); // Start the countdown in the PopUp
+			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
 		}
 
 

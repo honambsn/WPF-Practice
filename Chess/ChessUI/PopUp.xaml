@@ -31,10 +31,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--<Border Style="{StaticResource PopUpBorder}" Grid.ColumnSpan="2" Grid.RowSpan="3">
-                <TextBlock Text="This is a Popup!" Style="{StaticResource PopupTextStyle}"/>
-            </Border>-->
-            <TextBlock Text="This is a Popup!" Style="{StaticResource PopupTextStyle}" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+            <TextBlock Text="Starting a new game!" Style="{StaticResource PopupTextStyle}" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
 
             <Button x:Name="CloseButton"
                     Grid.Row="2"
@@ -43,9 +40,6 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="100" Height="30" Click="CloseButton_Click">
             </Button>
-
-            <!--<Button x:Name="CloseButton" Style="{StaticResource ButtonStyle}"
-                    Content="Đóng trong 10s" HorizontalAlignment="Center" Click="CloseButton_Click"/>-->
 
         </Grid>
     </Border>

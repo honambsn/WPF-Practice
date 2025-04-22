@@ -17,71 +17,62 @@ using System.Windows.Threading;
 
 namespace ChessUI
 {
-	/// <summary>
-	/// Interaction logic for PopUp.xaml
-	/// </summary>
 	public partial class PopUp : UserControl
 	{
-		private DispatcherTimer countdownTimer;
-		private int countdownSeconds = 10;  // Khởi tạo đếm ngược với 10 giây
-		private bool isCountdownActive = false;
+		private DispatcherTimer _timer;
+		private int _timeLeft = 10;
 
 		public PopUp()
 		{
 			InitializeComponent();
-
-			// Khởi tạo Timer đếm ngược
-			countdownTimer = new DispatcherTimer
-			{
-				Interval = TimeSpan.FromSeconds(1)  // Đặt khoảng thời gian đếm ngược là 1 giây
-			};
-
-			countdownTimer.Tick += CountdownTimer_Tick;  // Gắn sự kiện Tick
+			InitializeTimer();
+		}
+		
+		private void InitializeTimer()
+		{
+			_timer = new DispatcherTimer();
+			_timer.Interval = TimeSpan.FromSeconds(1);
+			_timer.Tick += Timer_Tick;
 		}
 
-		// Hàm bắt đầu đếm ngược
-		public void StartCountdown(int initialSeconds = 10)
+		private void Timer_Tick(object sender, EventArgs e)
 		{
-			countdownSeconds = initialSeconds;  // Thiết lập thời gian đếm ngược ban đầu (ví dụ: 10 giây)
-			isCountdownActive = true;
-			countdownTimer.Start();  // Bắt đầu đếm ngược
-			UpdateCloseButtonText();  // Cập nhật lại nội dung của nút Close với thời gian ban đầu
-		}
+			CloseButton.Content = $"Close in {_timeLeft}s";
 
-		// Sự kiện được gọi mỗi giây (Tick) để giảm số giây và cập nhật lại nội dung của nút
-		private void CountdownTimer_Tick(object sender, EventArgs e)
-		{
-			if (countdownSeconds > 0)
+			_timeLeft--;
+			
+			if (_timeLeft == 0)
 			{
-				countdownSeconds--;  // Giảm số giây mỗi lần tick
-				UpdateCloseButtonText();  // Cập nhật lại nội dung của nút Close
+				CloseButton.Content = "Closing....";
 			}
-			else
+
+			if (_timeLeft < 0)
 			{
-				countdownTimer.Stop();  // Dừng timer khi đếm ngược hết thời gian
-				ClosePopup();  // Đóng popup tự động khi hết thời gian
+				_timer.Stop();
+				CloseButton.Content = "Closed";
+				ClosePopUp();
 			}
 		}
 
-		// Cập nhật nội dung nút Close với thời gian còn lại
-		private void UpdateCloseButtonText()
+		private void ClosePopUp()
 		{
-			CloseButton.Content = $"Đóng trong {countdownSeconds}s";  // Cập nhật thời gian còn lại
+			if (Parent is Border border)
+			{
+				border.Visibility = Visibility.Collapsed;
+			}
 		}
 
-		// Hàm xử lý sự kiện khi người dùng nhấn nút Close
+		public void StartCountdown(int seconds)
+		{
+			_timeLeft = seconds;
+			CloseButton.Content = $"Close in {_timeLeft}s";
+			_timer.Start();
+		}
+
 		private void CloseButton_Click(object sender, RoutedEventArgs e)
 		{
-			countdownTimer.Stop();  // Dừng đếm ngược khi nhấn Close
-			ClosePopup();  // Đóng popup
-		}
-
-		// Hàm đóng popup
-		private void ClosePopup()
-		{
-			this.Visibility = Visibility.Collapsed;  // Ẩn popup
-			this.Opacity = 1;  // Khôi phục opacity nếu có thay đổi trong bất kỳ hiệu ứng nào
+			_timer.Stop();
+			ClosePopUp();
 		}
 	}
-
 }
