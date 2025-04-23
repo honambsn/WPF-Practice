@@ -33,7 +33,8 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
                     Height="30"
-                    Click="Exit_Click"/>
+                    Command="{Binding ExitCommand}"/>
+            <!--Click="Exit_Click"-->
 
             <Button Grid.Row="2"
                     Grid.Column="2"
@@ -41,18 +42,24 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
                     Height="30"
-                    Click="Play_Click"
-                    x:Name="PlayButton">
-            </Button>
+                    Command="{Binding PlayCommand}"/>
+            <!--Click="Play_Click"
+                    x:Name="PlayButton"-->
 
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="2"
                      Style="{StaticResource ListBoxStyle}"
-                     SelectedItem="{Binding SelectedDiff}">
+                     SelectedItem="{Binding SelectedDiff}"
+                     SelectionChanged="ListBox_SelectionChanged">
                 <ListBoxItem>Easy</ListBoxItem>
                 <ListBoxItem>Medium</ListBoxItem>
                 <ListBoxItem>Hard</ListBoxItem>
             </ListBox>
+            <!--<ListBox Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     ItemsSource="{Binding Difficulties}"
+                     SelectedItem="{Binding SelectedDiff, Mode=TwoWay}"
+                     Style="{StaticResource ListBoxStyle}"/>-->
 
         </Grid>
     </Border>

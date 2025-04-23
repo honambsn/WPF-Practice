@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ChessUI.ViewModels;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ChessUI
@@ -12,13 +13,18 @@ namespace ChessUI
 		public BotMenu()
 		{
 			InitializeComponent();
+			DataContext = new BotMenuViewModel();
 		}
 
 		private void Play_Click(object sender, RoutedEventArgs e)
 		{
-			
-			Console.WriteLine("PLAY Button Clicked!");
-			OptionSelected?.Invoke(BotOptions.Play);
+
+			//Console.WriteLine("PLAY Button Clicked!");
+			//OptionSelected?.Invoke(BotOptions.Play);
+
+			var viewModel = DataContext as BotMenuViewModel;
+			if (viewModel != null)
+				viewModel.StartGameCommand.Execute(null);
 		}
 
 
@@ -28,15 +34,21 @@ namespace ChessUI
 		}
 
 		private string _selectedDiff;
-		//public string SelectedDiff
-		//{
-		//	get { return _selectedDiff; }
-		//	set
-		//	{
-		//		_selectedDiff = value;
-		//		OnPropertyChanged(nameof(SelectedDiff));
-		//	}
-		//}
-	}
+
+		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			string selectedDiff = (sender as ListBox).SelectedItem as string;
+			MessageBox.Show($"Selected difficulty: {selectedDiff}");
+		}
+        //public string SelectedDiff
+        //{
+        //	get { return _selectedDiff; }
+        //	set
+        //	{
+        //		_selectedDiff = value;
+        //		OnPropertyChanged(nameof(SelectedDiff));
+        //	}
+        //}
+    }
 
 }
