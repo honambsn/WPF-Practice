@@ -10,7 +10,7 @@ using Point = System.Windows.Point;
 using Rectangle = System.Windows.Shapes.Rectangle;
 using ChessAI;
 using System.Windows.Threading;
-using System.Windows.Media.Animation;
+using ChessUI.ViewModels;
 
 namespace ChessUI
 {
@@ -27,7 +27,6 @@ namespace ChessUI
 		private Position selectedPos = null;
 
 		private bool playingWithBot = false;
-
 
 		public MainWindow()
 		{
@@ -266,27 +265,42 @@ namespace ChessUI
 
 		private void ShowBot()
 		{
-			BotMenu botMenu = new BotMenu();
-			MenuContainer.Content = botMenu;
+			//BotMenu botMenu = new BotMenu();
+			//MenuContainer.Content = botMenu;
 
-			botMenu.OptionSelected += option =>
+			//botMenu.OptionSelected += option =>
+			//{
+			//	MenuContainer.Content = null;
+
+			//	if (option == BotOptions.Exit)
+			//	{
+			//		Application.Current.Shutdown();
+			//	}
+			//	else if (option == BotOptions.Play)
+			//	{
+			//		ShowPopUp(); //show popup
+
+			//		//play vs bot
+			//		//AI ai = new AI();
+			//		//ai.MakeMove();
+			//		BotPlay();
+			//	}
+			//};
+
+			var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
 			{
 				MenuContainer.Content = null;
-
 				if (option == BotOptions.Exit)
 				{
 					Application.Current.Shutdown();
 				}
 				else if (option == BotOptions.Play)
 				{
+					selectedDifficulty = difficulty;
 					ShowPopUp(); //show popup
-
-					//play vs bot
-					//AI ai = new AI();
-					//ai.MakeMove();
 					BotPlay();
 				}
-			};
+			});
 
 
 		}
@@ -326,7 +340,6 @@ namespace ChessUI
 			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
 			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
 		}
-
 
 	}
 }

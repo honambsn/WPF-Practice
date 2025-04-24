@@ -15,7 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -29,15 +29,18 @@
                        FontSize="28"/>
 
             <Button Grid.Row="2"
+                    Grid.Column="0"
                     Content="EXIT"
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
                     Height="30"
+                    Click="Exit_Click"
                     Command="{Binding ExitCommand}"/>
+            <!--Command="{Binding ExitCommand}"/>-->
             <!--Click="Exit_Click"-->
 
             <Button Grid.Row="2"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     Content="PLAY"
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
@@ -49,7 +52,7 @@
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="2"
                      Style="{StaticResource ListBoxStyle}"
-                     SelectedItem="{Binding SelectedDiff}"
+                     SelectedItem="{Binding SelectedDiff, Mode=TwoWay}"
                      SelectionChanged="ListBox_SelectionChanged">
                 <ListBoxItem>Easy</ListBoxItem>
                 <ListBoxItem>Medium</ListBoxItem>

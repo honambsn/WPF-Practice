@@ -13,7 +13,14 @@ namespace ChessUI
 		public BotMenu()
 		{
 			InitializeComponent();
-			DataContext = new BotMenuViewModel();
+
+			var viewModel = new BotMenuViewModel();
+			DataContext = viewModel;
+
+			viewModel.OptionSelected += (option, difficulty) =>
+			{
+				OptionSelected?.Invoke(option, difficulty);
+			};
 		}
 
 		private void Play_Click(object sender, RoutedEventArgs e)
@@ -22,9 +29,10 @@ namespace ChessUI
 			//Console.WriteLine("PLAY Button Clicked!");
 			//OptionSelected?.Invoke(BotOptions.Play);
 
-			var viewModel = DataContext as BotMenuViewModel;
-			if (viewModel != null)
-				viewModel.StartGameCommand.Execute(null);
+			//var viewModel = DataContext as BotMenuViewModel;
+			//if (viewModel != null)
+			//	viewModel.StartGameCommand.Execute(null);
+			//OptionSelected?.Invoke(BotOptions.Play);
 		}
 
 
