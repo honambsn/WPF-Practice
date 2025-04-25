@@ -1,4 +1,5 @@
-﻿using ChessUI.ViewModels;
+﻿using ChessAI;
+using ChessUI.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,7 +10,9 @@ namespace ChessUI
 	/// </summary>
 	public partial class BotMenu : UserControl
 	{
-		public event Action<BotOptions> OptionSelected;
+		public event Action<BotOptions> OptionSelectedd;
+		public event Action<BotOptions, BotDifficulty> OptionSelected;
+
 		public BotMenu()
 		{
 			InitializeComponent();
@@ -33,12 +36,26 @@ namespace ChessUI
 			//if (viewModel != null)
 			//	viewModel.StartGameCommand.Execute(null);
 			//OptionSelected?.Invoke(BotOptions.Play);
+			if (string.IsNullOrEmpty(_selectedDiff))
+			{
+				MessageBox.Show("Please select a difficulty level.");
+				return;
+			}
+
+			if (Enum.TryParse(_selectedDiff, out BotDifficulty difficulty))
+			{
+				OptionSelected?.Invoke(BotOptions.Play, difficulty);
+			}
+			else
+			{
+				MessageBox.Show("Invalid difficulty level selected.");
+			}
 		}
 
 
 		private void Exit_Click(object sender, RoutedEventArgs e)
 		{
-			OptionSelected?.Invoke(BotOptions.Exit);
+			OptionSelectedd?.Invoke(BotOptions.Exit);
 		}
 
 		private string _selectedDiff;
@@ -46,7 +63,15 @@ namespace ChessUI
 		private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
 			string selectedDiff = (sender as ListBox).SelectedItem as string;
-			MessageBox.Show($"Selected difficulty: {selectedDiff}");
+			if (selectedDiff != null)
+			{
+				_selectedDiff = selectedDiff;
+				MessageBox.Show($"Selected difficulty: {_selectedDiff}");
+			}
+			else
+			{
+				MessageBox.Show("No difficulty selected.");
+			}
 		}
         //public string SelectedDiff
         //{

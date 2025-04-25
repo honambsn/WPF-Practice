@@ -62,8 +62,8 @@ namespace ChessUI.ViewModels
 
 	public class BotMenuViewModel : INotifyPropertyChanged
 	{
-		public List<BotDifficulty> Difficulties { get; } = new Enum.GetValues(typeof(BotDifficulty)).Cast<BotDifficulty>()
-																							  .ToList();
+		public List<BotDifficulty> Difficulties { get; } = Enum.GetValues(typeof(BotDifficulty)).Cast<BotDifficulty>().ToList();
+
 
 		private BotDifficulty selectedDiff = BotDifficulty.Easy;
 		public BotDifficulty SelectedDiff
@@ -100,7 +100,7 @@ namespace ChessUI.ViewModels
 				var vm = new BotMenuViewModel();
 				var view = new BotMenu();
 				vm.OptionSelected += callback;
-				view.dataContext = vm;
+				view.DataContext = vm;
 				return view;
 			}
 		}

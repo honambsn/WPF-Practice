@@ -11,6 +11,7 @@ using Rectangle = System.Windows.Shapes.Rectangle;
 using ChessAI;
 using System.Windows.Threading;
 using ChessUI.ViewModels;
+using static ChessUI.ViewModels.BotMenuViewModel;
 
 namespace ChessUI
 {
@@ -22,6 +23,7 @@ namespace ChessUI
 		private readonly Image[,] pieceImages = new Image[8, 8];
 		private readonly Rectangle[,] highlights = new Rectangle[8, 8];
 		private readonly Dictionary<Position, Move> moveCache = new Dictionary<Position, Move>();
+		private BotDifficulty selectedDifficulty;
 
 		private GameState gameState;
 		private Position selectedPos = null;
@@ -265,31 +267,10 @@ namespace ChessUI
 
 		private void ShowBot()
 		{
-			//BotMenu botMenu = new BotMenu();
-			//MenuContainer.Content = botMenu;
-
-			//botMenu.OptionSelected += option =>
-			//{
-			//	MenuContainer.Content = null;
-
-			//	if (option == BotOptions.Exit)
-			//	{
-			//		Application.Current.Shutdown();
-			//	}
-			//	else if (option == BotOptions.Play)
-			//	{
-			//		ShowPopUp(); //show popup
-
-			//		//play vs bot
-			//		//AI ai = new AI();
-			//		//ai.MakeMove();
-			//		BotPlay();
-			//	}
-			//};
-
 			var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
 			{
 				MenuContainer.Content = null;
+
 				if (option == BotOptions.Exit)
 				{
 					Application.Current.Shutdown();
@@ -297,14 +278,16 @@ namespace ChessUI
 				else if (option == BotOptions.Play)
 				{
 					selectedDifficulty = difficulty;
-					ShowPopUp(); //show popup
+					Console.WriteLine($"Selected Difficulty: {selectedDifficulty}");
+					ShowPopUp();
 					BotPlay();
 				}
 			});
 
-
+			MenuContainer.Content = botMenu;
 		}
 
+		private Bot currentBot;
 		private void BotPlay()
 		{
 			playingWithBot = true;
@@ -314,7 +297,15 @@ namespace ChessUI
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
+
+			currentBot = new Bot(selectedDifficulty);
+
+			if (gameState.CurrentPlayer == Player.Black)
+			{
+				Dispatcher.InvokeAsync(() => PlayBotTurn(), DispatcherPriority.Background);
+			}
 		}
+
 
 
 		private void PlayBotTurn()
@@ -326,8 +317,15 @@ namespace ChessUI
 
 			if (gameState.CurrentPlayer == Player.Black)
 			{
-				Bot bot = new Bot(BotDifficulty.Medium);
-				Move bestMove = bot.GetBestMove(gameState);
+				//Bot bot = new Bot(BotDifficulty.Medium);
+				//Move bestMove = bot.GetBestMove(gameState);
+				//if (bestMove != null)
+				//{
+				//	HandleMove(bestMove);
+				//}
+				if (currentBot == null) return;
+
+				Move bestMove = currentBot.GetBestMove(gameState);
 				if (bestMove != null)
 				{
 					HandleMove(bestMove);

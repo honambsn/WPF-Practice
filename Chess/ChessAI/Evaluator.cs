@@ -12,7 +12,10 @@ namespace ChessAI
 	{
 		public int EvaluateBoard(GameState state)
 		{
-			int score = 0;
+			int materialScore = 0;
+			int centerControlScore = 0;
+			int kingSafetyScore = 0;
+			int developmentScore = 0;
 
 			foreach (var player in new[] { Player.White, Player.Black })
 			{
@@ -21,16 +24,20 @@ namespace ChessAI
 				foreach (var pos in positions)
 				{
 					var piece = state.Board[pos];
-					int value = GetPieceValue(piece.Type);
-					int positional = GetPositionValue(piece.Type, piece.Color, pos);
-					int totalValue = value + positional;
+					int sign = (piece.Color == state.CurrentPlayer.Opponent()) ? 1 : -1;
 
-					score += (piece.Color == state.CurrentPlayer.Opponent()) ? totalValue : -totalValue;
+					materialScore += sign * GetPieceValue(piece.Type);
+					materialScore += sign * GetPositionValue(piece.Type, piece.Color, pos);
+
+					centerControlScore += sign * EvaluateCenterControl(piece.Type, pos);
+					kingSafetyScore += sign * EvaluateKingSafety(piece.Type, piece.Color, pos);
+					developmentScore += sign * EvaluateDevelopment(piece.Type, piece.Color, pos);
 				}
 			}
 
-			return score;
+			return materialScore + centerControlScore + kingSafetyScore + developmentScore;
 		}
+
 
 		private int GetPieceValue(PieceType type)
 		{
@@ -70,5 +77,40 @@ namespace ChessAI
 			}
 
 		}
+
+		private int EvaluateCenterControl(PieceType type, Position pos)
+		{
+			if (type == PieceType.Pawn || type == PieceType.Knight || type == PieceType.Bishop)
+			{
+				if ((pos.Row == 3 || pos.Row == 4) && (pos.Column == 3 || pos.Column == 4)) // d4, e4, d5, e5
+					return 20;
+			}
+			return 0;
+		}
+
+		private int EvaluateKingSafety(PieceType type, Player color, Position pos)
+		{
+			if (type != PieceType.King) return 0;
+
+			// Nếu vua còn ở vị trí bắt đầu thì phạt điểm
+			if ((color == Player.White && pos.Row == 0 && pos.Column == 4) ||
+				(color == Player.Black && pos.Row == 7 && pos.Column == 4))
+			{
+				return -30;
+			}
+
+			return 0;
+		}
+
+		private int EvaluateDevelopment(PieceType type, Player color, Position pos)
+		{
+			int homeRow = (color == Player.White) ? 0 : 7;
+			if ((type == PieceType.Knight || type == PieceType.Bishop) && pos.Row == homeRow)
+			{
+				return -15;
+			}
+			return 0;
+		}
+
 	}
 }
