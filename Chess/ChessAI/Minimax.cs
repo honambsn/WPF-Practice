@@ -10,20 +10,45 @@ using ChessAI;
 public class Minimax
 {
 	private readonly Evaluator _evaluator;
+	private DateTime _startTime;
+	private TimeSpan _timeLimit;
 
 	public Minimax(Evaluator evaluator)
 	{
 		_evaluator = evaluator;
 	}
 
-	public int Search(GameState state, int depth, int alpha, int beta, bool maximizingPlayer)
+	public int Search(GameState state, int depth, int alpha, int beta, bool maximizingPlayer, DateTime startTime, TimeSpan timeLimit)
 	{
+		if(DateTime.Now - startTime > timeLimit)
+		{
+			return _evaluator.EvaluateBoard(state);
+		}
+
 		if (depth == 0 || state.IsGameOver())
 		{
 			return _evaluator.EvaluateBoard(state);
 		}
 
-		var moves = MoveGenerator.Generate(state);
+		List<Move> moves;
+
+		//var moves = MoveGenerator.Generate(state);
+
+		if (depth > 2)
+		{
+			moves = MoveGenerator.Generate(state).ToList();
+		}
+		else
+		{
+			moves = MoveGenerator.Generate(state)
+				.Where(m => state.Board[m.ToPos] != null)
+				.ToList();
+		}
+
+		if (moves.Count == 0)
+		{
+			return _evaluator.EvaluateBoard(state);
+		}
 
 		if (maximizingPlayer)
 		{
@@ -32,7 +57,9 @@ public class Minimax
 			{
 				var next = state.Copy();
 				next.ApplyMove(move);
-				int eval = Search(next, depth - 1, alpha, beta, false);
+
+				int eval = Search(next, depth - 1, alpha, beta, false, startTime, timeLimit);
+
 				maxEval = Math.Max(maxEval, eval);
 				alpha = Math.Max(alpha, eval);
 				if (beta <= alpha)
@@ -47,7 +74,9 @@ public class Minimax
 			{
 				var next = state.Copy();
 				next.ApplyMove(move);
-				int eval = Search(next, depth - 1, alpha, beta, true);
+
+				int eval = Search(next, depth - 1, alpha, beta, true, startTime, timeLimit);
+
 				minEval = Math.Min(minEval, eval);
 				beta = Math.Min(beta, eval);
 				if (beta <= alpha)

@@ -14,5 +14,12 @@ namespace ChessAI
 		{
 			return state.GetAllLegalMoves();
 		}
+
+		public static List<Move> GenerateCaptureMoves(GameState state)
+		{
+			var allMoves = Generate(state); 
+			return allMoves.Where(m => state.Board[m.ToPos] != null).ToList();
+		}
+
 	}
 }

@@ -1,10 +1,4 @@
 ﻿using ChessLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
 using ChessAI;
 
 public class Bot
@@ -20,10 +14,10 @@ public class Bot
 		_difficulty = difficulty;
 		_depth = difficulty switch
 		{
-			BotDifficulty.Random => 0,
+			
 			BotDifficulty.Easy => 2,
 			BotDifficulty.Medium => 3,
-			BotDifficulty.Hard => 8,
+			BotDifficulty.Hard => 6,
 			_ => 3
 		};
 
@@ -32,19 +26,28 @@ public class Bot
 	}
 
 	public Move GetBestMove(GameState state)
-	{	
+	{
 		var moves = MoveGenerator.Generate(state).ToList();
 
-		if (_difficulty == BotDifficulty.Random)
-		{
-			return moves[_random.Next(moves.Count)];
-		}
+		// Gán điểm ưu tiên cho từng nước đi
+		var scoredMoves = moves.Select(move => new { Move = move, Score = ScoreMove(state, move) })
+							   .OrderByDescending(x => x.Score) // Sắp xếp giảm dần
+							   .Select(x => x.Move)
+							   .ToList();
+
+		//if (_difficulty == BotDifficulty.Random)
+		//{
+		//	return moves[_random.Next(moves.Count)];
+		//}
 
 		Move bestMove = null;
 		int bestScore = int.MinValue;
 		var seenBoards = new HashSet<string>();
+		var startTime = DateTime.Now;
+		var timeLimit = TimeSpan.FromSeconds(10); // 10s for each move
 
-		foreach (var move in moves)
+
+		foreach (var move in scoredMoves)
 		{
 			var copy = state.Copy();
 			copy.ApplyMove(move);
@@ -54,7 +57,7 @@ public class Bot
 			{
 				continue;			}
 			
-			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false);
+			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime, timeLimit);
 
 			if (score > bestScore || bestMove == null)
 			{
@@ -124,6 +127,32 @@ public class Bot
 			PieceType.King => 20000,
 			_ => 0
 		};
+	}
+
+	private int ScoreMove(GameState state, Move move)
+	{
+		var fromPiece = state.Board[move.FromPos];
+		var toPiece = state.Board[move.ToPos];
+
+		int score = 0;
+
+		if (toPiece != null)
+		{
+			// Ăn quân: điểm cao hơn nếu ăn quân giá trị lớn
+			score += GetPieceValue(toPiece.Type) * 10 - GetPieceValue(fromPiece.Type);
+		}
+
+		if (IsPromotion(state, move))
+		{
+			score += 800; // Phong hậu
+		}
+
+		if (IsCheck(state, move))
+		{
+			score += 50; // Chiếu vua
+		}
+
+		return score;
 	}
 
 }

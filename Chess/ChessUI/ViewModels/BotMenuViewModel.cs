@@ -72,7 +72,7 @@ namespace ChessUI.ViewModels
 			set
 			{
 				selectedDiff = value;
-				OnPropertyChanged(nameof(selectedDiff));
+				OnPropertyChanged();
 			}
 		}
 

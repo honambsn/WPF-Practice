@@ -8,7 +8,6 @@ namespace ChessAI
 {
 	public enum BotDifficulty
 	{
-		Random,
 		Easy,
 		Medium,
 		Hard

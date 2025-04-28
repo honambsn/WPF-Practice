@@ -73,15 +73,6 @@ namespace ChessUI
 				MessageBox.Show("No difficulty selected.");
 			}
 		}
-        //public string SelectedDiff
-        //{
-        //	get { return _selectedDiff; }
-        //	set
-        //	{
-        //		_selectedDiff = value;
-        //		OnPropertyChanged(nameof(SelectedDiff));
-        //	}
-        //}
     }
 
 }

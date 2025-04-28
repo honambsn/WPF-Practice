@@ -52,12 +52,19 @@
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="2"
                      Style="{StaticResource ListBoxStyle}"
+                     ItemsSource="{Binding Difficulties}"
+                     SelectedItem="{Binding SelectedDiff, Mode=TwoWay}" />
+
+
+            <!--<ListBox Grid.Row="1"
+                     Grid.ColumnSpan="2"
+                     Style="{StaticResource ListBoxStyle}"
                      SelectedItem="{Binding SelectedDiff, Mode=TwoWay}"
                      SelectionChanged="ListBox_SelectionChanged">
                 <ListBoxItem>Easy</ListBoxItem>
                 <ListBoxItem>Medium</ListBoxItem>
                 <ListBoxItem>Hard</ListBoxItem>
-            </ListBox>
+            </ListBox>-->
             <!--<ListBox Grid.Row="1"
                      Grid.ColumnSpan="2"
                      ItemsSource="{Binding Difficulties}"
