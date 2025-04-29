@@ -73,6 +73,11 @@ namespace ChessUI
 				MessageBox.Show("No difficulty selected.");
 			}
 		}
-    }
+
+		private void Back_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 
 }

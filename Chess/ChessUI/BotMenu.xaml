@@ -21,9 +21,10 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.ColumnSpan="2"
+            <TextBlock Grid.ColumnSpan="3"
                        Text="PLAY WITH BOT"
                        Style="{StaticResource TextStyle}"
                        FontSize="28"/>
@@ -36,11 +37,20 @@
                     Height="30"
                     Click="Exit_Click"
                     Command="{Binding ExitCommand}"/>
+
+            <Button Grid.Row="2"
+                    Grid.Column="1"
+                    Content="BACK"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="80"
+                    Height="30"
+                    Click="Back_Click"
+                    Command="{Binding BackCommand}"/>
             <!--Command="{Binding ExitCommand}"/>-->
             <!--Click="Exit_Click"-->
 
             <Button Grid.Row="2"
-                    Grid.Column="1"
+                    Grid.Column="2"
                     Content="PLAY"
                     Style="{StaticResource ButtonStyle}"
                     Width="80"
