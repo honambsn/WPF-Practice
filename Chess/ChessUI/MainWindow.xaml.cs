@@ -12,6 +12,7 @@ using ChessAI;
 using System.Windows.Threading;
 using ChessUI.ViewModels;
 using static ChessUI.ViewModels.BotMenuViewModel;
+using ChessUI.Views.Menus;
 
 namespace ChessUI
 {
@@ -33,6 +34,8 @@ namespace ChessUI
 		public MainWindow()
 		{
 			InitializeComponent();
+			ShowStep1();
+
 			InitializeBoard();
 
 			gameState = new GameState(Player.White, Board.Initial());
@@ -337,6 +340,49 @@ namespace ChessUI
 		{
 			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
 			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
+		}
+
+		//-------------------------  test menu
+		private void ShowStep1()
+		{
+			MenuContent.Content = new PlayExitMenu(OnPlayClicked, OnExitClicked);
+		}
+
+		private void ShowStep2()
+		{
+			MenuContent.Content = new ModeSelectMenu(OnPvpClicked, OnBotClicked);
+		}
+
+		private void ShowStep3()
+		{
+			MenuContent.Content = new DifficultySelectMenu(OnDifficultySelected);
+		}
+
+		private void OnPlayClicked()
+		{
+			ShowStep2();
+		}
+
+		private void OnExitClicked()
+		{
+			Application.Current.Shutdown();
+		}
+
+		private void OnPvpClicked()
+		{
+			MessageBox.Show("Starting Player vs Player game...");
+			// TODO: Call function StartPvPGame();
+		}
+
+		private void OnBotClicked()
+		{
+			ShowStep3();
+		}
+
+		private void OnDifficultySelected(BotDifficulty difficulty)
+		{
+			MessageBox.Show($"Starting game vs Bot - Difficulty: {difficulty}");
+			// TODO: StartBotGame(difficulty);
 		}
 
 	}

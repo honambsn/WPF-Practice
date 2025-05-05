@@ -15,6 +15,9 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PauseMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PopUp.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PromotionMenu.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\DifficultySelectMenu.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\ModeSelectMenu.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\PlayExitMenu.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\App.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI_MarkupCompile.cache
@@ -26,6 +29,9 @@ D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-wi
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PauseMenu.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PopUp.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\PromotionMenu.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\DifficultySelectMenu.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\ModeSelectMenu.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\Views\Menus\PlayExitMenu.baml
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.g.resources
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.GeneratedMSBuildEditorConfig.editorconfig
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Debug\net8.0-windows\ChessUI.AssemblyInfoInputs.cache

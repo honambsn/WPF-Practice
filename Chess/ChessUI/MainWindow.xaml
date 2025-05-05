@@ -42,6 +42,10 @@
 
             <ContentControl x:Name="MenuContainer"/>
 
+            <ContentControl x:Name="MenuContent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="300">
+                
+            </ContentControl>
+
             <Border x:Name="PopupPanel"
                 Background="#AA000000"
                 Visibility="Collapsed"

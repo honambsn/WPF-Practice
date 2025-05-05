@@ -22,6 +22,15 @@
     <Compile Update="PromotionMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Menus\DifficultySelectMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Menus\ModeSelectMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Menus\PlayExitMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="BotMenu.xaml">
@@ -43,6 +52,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\PopupStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Menus\DifficultySelectMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Menus\ModeSelectMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Menus\PlayExitMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -66,6 +66,7 @@
             <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Width" Value="200"/>
             <!-- ControlTemplate for ListBox -->
             <Setter Property="Template">
                 <Setter.Value>
@@ -94,6 +95,7 @@
                     <Setter Property="BorderThickness" Value="1"/>
                     <Setter Property="Padding" Value="10"/>
                     <Setter Property="Margin" Value="4"/>
+                    <Setter Property="Width" Value="100"/>
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="ListBoxItem">

@@ -15,7 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1.2*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -59,11 +59,19 @@
             <!--Click="Play_Click"
                     x:Name="PlayButton"-->
 
-            <ListBox Grid.Row="1"
-                     Grid.ColumnSpan="2"
+            <!--<ListBox Grid.Row="1"
+                     Grid.ColumnSpan="3"
                      Style="{StaticResource ListBoxStyle}"
                      ItemsSource="{Binding Difficulties}"
-                     SelectedItem="{Binding SelectedDiff, Mode=TwoWay}" />
+                     SelectedItem="{Binding SelectedDiff, Mode=TwoWay}" />-->
+
+            <ListBox Grid.Row="1"
+                     Grid.ColumnSpan="3" Style="{StaticResource ListBoxStyle}">
+                <ListBoxItem>Easy</ListBoxItem>
+                <ListBoxItem>Medium</ListBoxItem>
+                <ListBoxItem>Hard</ListBoxItem>
+            </ListBox>
+
 
 
             <!--<ListBox Grid.Row="1"
