@@ -40,7 +40,7 @@
                          RenderOptions.BitmapScalingMode="HighQuality">
             </UniformGrid>
 
-            <ContentControl x:Name="MenuContainer"/>
+            <!--<ContentControl x:Name="MenuContainer"/>-->
 
             <ContentControl x:Name="MenuContent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="300">
                 

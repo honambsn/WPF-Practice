@@ -137,11 +137,11 @@ namespace ChessUI
 			pieceImages[from.Row, from.Column].Source = null;
 
 			PromotionMenu promMenu = new PromotionMenu(gameState.CurrentPlayer);
-			MenuContainer.Content = promMenu;
+			MenuContent.Content = promMenu;
 
 			promMenu.PieceSelected += type =>
 			{
-				MenuContainer.Content = null;
+				MenuContent.Content = null;
 				Move promMove = new PawnPromotion(from, to, type);
 				HandleMove(promMove);
 			};
@@ -206,19 +206,19 @@ namespace ChessUI
 
 		private bool IsMenuOnScreen()
 		{
-			return MenuContainer.Content != null;
+			return MenuContent.Content != null;
 		}
 
 		private void ShowGameOver()
 		{
 			GameOverMenu gameOverMenu = new GameOverMenu(gameState);
-			MenuContainer.Content = gameOverMenu;
+			MenuContent.Content = gameOverMenu;
 
 			gameOverMenu.OptionSelected += option =>
 			{
 				if (option == Option.Restart)
 				{
-					MenuContainer.Content = null;
+					MenuContent.Content = null;
 					RestartGame();
 				}
 
@@ -256,11 +256,11 @@ namespace ChessUI
 		private void ShowPauseMenu()
 		{
 			PauseMenu pauseMenu = new PauseMenu();
-			MenuContainer.Content = pauseMenu;
+			MenuContent.Content = pauseMenu;
 
 			pauseMenu.OptionSelected += option =>
 			{
-				MenuContainer.Content = null;
+				MenuContent.Content = null;
 				if (option == Option.Restart)
 				{
 					RestartGame();
@@ -272,7 +272,7 @@ namespace ChessUI
 		{
 			var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
 			{
-				MenuContainer.Content = null;
+				MenuContent.Content = null;
 
 				if (option == BotOptions.Exit)
 				{
@@ -287,7 +287,7 @@ namespace ChessUI
 				}
 			});
 
-			MenuContainer.Content = botMenu;
+			MenuContent.Content = botMenu;
 		}
 
 		private Bot currentBot;
@@ -372,6 +372,13 @@ namespace ChessUI
 		{
 			MessageBox.Show("Starting Player vs Player game...");
 			// TODO: Call function StartPvPGame();
+			InitializeBoard();
+
+			gameState = new GameState(Player.White, Board.Initial());
+			//gameState = new GameState(Player.Black, Board.Initial());
+			DrawBoard(gameState.Board);
+			SetCursor(gameState.CurrentPlayer);
+
 		}
 
 		private void OnBotClicked()

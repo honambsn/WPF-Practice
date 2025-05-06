@@ -7,10 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="PLAY WITH BOT" Style="{StaticResource TextStyle}" FontSize="28" HorizontalAlignment="Center"/>
-        <Button Content="EXIT" Style="{StaticResource ButtonStyle}" Width="80" Height="30" Click="Exit_Click"/>
+    <Border Style="{StaticResource BorderStyle}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="PLAY WITH BOT" Style="{StaticResource TextStyle}" FontSize="28" HorizontalAlignment="Center"/>
+            <Button Content="EXIT" Style="{StaticResource ButtonStyle}" Width="80" Height="30" Click="Exit_Click"/>
         
-        <Button Content="PLAY" Style="{StaticResource ButtonStyle}" Width="80" Height="30" Click="Play_Click"/>
-    </StackPanel>
+            <Button Content="PLAY" Style="{StaticResource ButtonStyle}" Width="80" Height="30" Click="Play_Click"/>
+        </StackPanel>
+    </Border>
 </UserControl>

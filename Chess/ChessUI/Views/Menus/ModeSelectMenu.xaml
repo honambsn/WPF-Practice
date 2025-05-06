@@ -7,14 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Text="SELECT MODE" Style="{StaticResource TextStyle}" FontSize="28" HorizontalAlignment="Center"/>
+    <Border Style="{StaticResource BorderStyle}">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="SELECT MODE" Style="{StaticResource TextStyle}" FontSize="28" HorizontalAlignment="Center"/>
 
-        <Button Content="PLAY WITH BOT" Style="{StaticResource ButtonStyle}" Width="200" Height="30" Click="PvCButton_Click"/>
+            <Button Content="PLAY WITH BOT" Style="{StaticResource ButtonStyle}" Width="200" Height="30" Click="PvCButton_Click"/>
 
-        <Button Content="PLAY WITH FRIEND" Style="{StaticResource ButtonStyle}" Width="200" Height="30" Click="PvPButton_Click"/>
+            <Button Content="PLAY WITH FRIEND" Style="{StaticResource ButtonStyle}" Width="200" Height="30" Click="PvPButton_Click"/>
 
         
-    </StackPanel>
-                
+        </StackPanel>
+    </Border>
+
 </UserControl>
