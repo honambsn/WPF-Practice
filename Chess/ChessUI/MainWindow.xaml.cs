@@ -34,7 +34,7 @@ namespace ChessUI
 		public MainWindow()
 		{
 			InitializeComponent();
-			ShowStep1();
+			//ShowStep1();
 
 			InitializeBoard();
 
@@ -311,7 +311,7 @@ namespace ChessUI
 
 
 
-		private void PlayBotTurn()
+		private async void PlayBotTurn()
 		{
 			if (IsMenuOnScreen() || gameState.IsGameOver())
 			{
@@ -328,7 +328,13 @@ namespace ChessUI
 				//}
 				if (currentBot == null) return;
 
-				Move bestMove = currentBot.GetBestMove(gameState);
+				//Move bestMove = currentBot.GetBestMove(gameState);
+				//if (bestMove != null)
+				//{
+				//	HandleMove(bestMove);
+				//}
+				// update for run on thread pool
+				Move bestMove = await Task.Run(() => currentBot.GetBestMove(gameState));
 				if (bestMove != null)
 				{
 					HandleMove(bestMove);
@@ -343,54 +349,61 @@ namespace ChessUI
 		}
 
 		//-------------------------  test menu
-		private void ShowStep1()
-		{
-			MenuContent.Content = new PlayExitMenu(OnPlayClicked, OnExitClicked);
-		}
+		//# region multistep menu
+		//	private void ShowStep1()
+		//	{
+		//		MenuContent.Content = new PlayExitMenu(OnPlayClicked, OnExitClicked);
+		//	}
 
-		private void ShowStep2()
-		{
-			MenuContent.Content = new ModeSelectMenu(OnPvpClicked, OnBotClicked);
-		}
+		//	private void ShowStep2()
+		//	{
+		//		MenuContent.Content = new ModeSelectMenu(OnPvpClicked, OnBotClicked);
+		//	}
 
-		private void ShowStep3()
-		{
-			MenuContent.Content = new DifficultySelectMenu(OnDifficultySelected);
-		}
+		//	private void ShowStep3()
+		//	{
+		//		MenuContent.Content = new DifficultySelectMenu(OnDifficultySelected);
+		//	}
 
-		private void OnPlayClicked()
-		{
-			ShowStep2();
-		}
+		//	private void OnPlayClicked()
+		//	{
+		//		ShowStep2();
+		//	}
 
-		private void OnExitClicked()
-		{
-			Application.Current.Shutdown();
-		}
+		//	private void OnExitClicked()
+		//	{
+		//		Application.Current.Shutdown();
+		//	}
 
-		private void OnPvpClicked()
-		{
-			MessageBox.Show("Starting Player vs Player game...");
-			// TODO: Call function StartPvPGame();
-			InitializeBoard();
+		//	private void OnPvpClicked()
+		//	{
+		//		MessageBox.Show("Starting Player vs Player game...");
+		//		// TODO: Call function StartPvPGame();
+		//		MenuContent.Visibility = Visibility.Collapsed; // Ẩn menu
 
-			gameState = new GameState(Player.White, Board.Initial());
-			//gameState = new GameState(Player.Black, Board.Initial());
-			DrawBoard(gameState.Board);
-			SetCursor(gameState.CurrentPlayer);
+		//		InitializeComponent();
 
-		}
+		//		InitializeBoard();
 
-		private void OnBotClicked()
-		{
-			ShowStep3();
-		}
+		//		gameState = new GameState(Player.White, Board.Initial());
+		//		//gameState = new GameState(Player.Black, Board.Initial());
+		//		DrawBoard(gameState.Board);
+		//		SetCursor(gameState.CurrentPlayer);
 
-		private void OnDifficultySelected(BotDifficulty difficulty)
-		{
-			MessageBox.Show($"Starting game vs Bot - Difficulty: {difficulty}");
-			// TODO: StartBotGame(difficulty);
-		}
+		//	}
 
+		//	private void OnBotClicked()
+		//	{
+		//		ShowStep3();
+		//	}
+
+		//	private void OnDifficultySelected(BotDifficulty difficulty)
+		//	{
+		//		MessageBox.Show($"Starting game vs Bot - Difficulty: {difficulty}");
+		//		// TODO: StartBotGame(difficulty);
+		//	}
+
+		//}
+		//#endregion
 	}
 }
