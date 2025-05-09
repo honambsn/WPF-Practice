@@ -17,7 +17,7 @@ public class Bot
 			
 			BotDifficulty.Easy => 2,
 			BotDifficulty.Medium => 3,
-			BotDifficulty.Hard => 6,
+			BotDifficulty.Hard => 20,
 			_ => 3
 		};
 
