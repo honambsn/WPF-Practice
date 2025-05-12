@@ -55,10 +55,14 @@ public class Minimax
 			int maxEval = int.MinValue;
 			foreach (var move in moves)
 			{
-				var next = state.Copy();
-				next.ApplyMove(move);
+				//var next = state.Copy();
+				//next.ApplyMove(move);
 
-				int eval = Search(next, depth - 1, alpha, beta, false, startTime, timeLimit);
+				state.ApplyMove(move);
+
+				int eval = Search(state, depth - 1, alpha, beta, false, startTime, timeLimit);
+
+				state.UndoMove();
 
 				maxEval = Math.Max(maxEval, eval);
 				alpha = Math.Max(alpha, eval);
@@ -72,10 +76,12 @@ public class Minimax
 			int minEval = int.MaxValue;
 			foreach (var move in moves)
 			{
-				var next = state.Copy();
-				next.ApplyMove(move);
+				//var next = state.Copy();
+				//next.ApplyMove(move);
+				state.ApplyMove(move);
 
-				int eval = Search(next, depth - 1, alpha, beta, true, startTime, timeLimit);
+				int eval = Search(state, depth - 1, alpha, beta, true, startTime, timeLimit);
+				state.UndoMove();
 
 				minEval = Math.Min(minEval, eval);
 				beta = Math.Min(beta, eval);

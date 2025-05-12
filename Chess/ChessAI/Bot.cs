@@ -28,6 +28,10 @@ public class Bot
 	public Move GetBestMove(GameState state)
 	{
 		var moves = MoveGenerator.Generate(state).ToList();
+		if (!moves.Any())
+		{
+			return null; // Không có nước đi hợp lệ
+		} 
 
 		// Gán điểm ưu tiên cho từng nước đi
 		var scoredMoves = moves.Select(move => new { Move = move, Score = ScoreMove(state, move) })
@@ -47,24 +51,52 @@ public class Bot
 		var timeLimit = TimeSpan.FromSeconds(10); // 10s for each move
 
 
-		foreach (var move in scoredMoves)
+		//foreach (var move in scoredMoves)
+		//{
+		//	var copy = state.Copy();
+		//	copy.ApplyMove(move);
+		//	string boardKey = copy.Board.ToString();
+
+		//	if (seenBoards.Contains(boardKey))
+		//	{
+		//		continue;			}
+
+		//	int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime, timeLimit);
+
+		//	if (score > bestScore || bestMove == null)
+		//	{
+		//		bestScore = score;
+		//		bestMove = move;
+		//	}
+		//}
+
+
+		// new logic for parallel processing to speed up the search
+		object lockObj = new();
+		Parallel.ForEach(scoredMoves, move =>
 		{
 			var copy = state.Copy();
 			copy.ApplyMove(move);
 			string boardKey = copy.Board.ToString();
-			
-			if (seenBoards.Contains(boardKey))
+
+			lock (lockObj)
 			{
-				continue;			}
-			
+				if (seenBoards.Contains(boardKey)) return;
+				seenBoards.Add(boardKey);
+			}
+
 			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime, timeLimit);
 
-			if (score > bestScore || bestMove == null)
+			lock (lockObj)
 			{
-				bestScore = score;
-				bestMove = move;
+				if (score > bestScore)
+				{
+					bestScore = score;
+					bestMove = move;
+				}
 			}
-		}
+		});
+
 
 		return bestMove;
 	}

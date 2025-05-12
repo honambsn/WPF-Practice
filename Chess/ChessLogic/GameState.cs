@@ -131,17 +131,62 @@ namespace ChessLogic
 		}
 
 		// for ai
+		private Stack<MoveInfo> _moveHistory = new Stack<MoveInfo>();
+
 		public void ApplyMove(Move move)
 		{
-			move.Execute(Board);
-			CurrentPlayer = CurrentPlayer.Opponent();
+			var fromPiece = Board[move.FromPos];
+			var toPiece = Board[move.ToPos];
+			var captured = toPiece;
+
+			// Xử lý phong hậu (nếu có)
+			Piece promoted = null;
+			if (fromPiece.Type == PieceType.Pawn &&
+			   ((fromPiece.Color == Player.White && move.ToPos.Row == 0) ||
+				(fromPiece.Color == Player.Black && move.ToPos.Row == 7)))
+			{
+				promoted = new Queen(fromPiece.Color);
+				Board[move.ToPos] = promoted;
+				Board[move.FromPos] = null;
+			}
+			else
+			{
+				Board[move.ToPos] = fromPiece;
+				Board[move.FromPos] = null;
+			}
+
+			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
+
+			// Đổi lượt
+			CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
 		}
 
-		//public void UndoMove(Move move)
-		//{
-		//	move.Undo(Board);
-		//	CurrentPlayer = CurrentPlayer.Opponent();
-		//}
+		public void UndoMove()
+		{
+			if (_moveHistory.Count == 0) return;
+
+			var info = _moveHistory.Pop();
+			var move = info.Move;
+
+			// Hoàn tác di chuyển
+			if (info.Promoted != null)
+			{
+				Board[move.FromPos] = new Pawn(info.Promoted.Color);
+			}
+			else
+			{
+				Board[move.FromPos] = Board[move.ToPos];
+			}
+
+			Board[move.ToPos] = info.Captured;
+
+			// Hoàn tác lượt
+			CurrentPlayer = info.PreviousPlayer;
+		}
+
+		// Thông tin để hoàn tác nước đi
+		private record MoveInfo(Move Move, Piece Captured, Piece Promoted, Player PreviousPlayer);
+
 
 		public IEnumerable<Move> GetAllLegalMoves()
 		{

@@ -16,6 +16,8 @@ namespace ChessAI
 			int centerControlScore = 0;
 			int kingSafetyScore = 0;
 			int developmentScore = 0;
+			int threatPenaltyScore = 0;
+
 
 			foreach (var player in new[] { Player.White, Player.Black })
 			{
@@ -32,10 +34,29 @@ namespace ChessAI
 					centerControlScore += sign * EvaluateCenterControl(piece.Type, pos);
 					kingSafetyScore += sign * EvaluateKingSafety(piece.Type, piece.Color, pos);
 					developmentScore += sign * EvaluateDevelopment(piece.Type, piece.Color, pos);
+
+					if (IsThreatened(state, pos, piece.Color))
+					{
+						int penalty = GetPieceValue(piece.Type) / 2;
+						threatPenaltyScore += sign * penalty;
+					}
 				}
 			}
 
 			return materialScore + centerControlScore + kingSafetyScore + developmentScore;
+		}
+
+		private bool IsThreatened(GameState state, Position pos, Player owner)
+		{
+			var enemyMoves = MoveGenerator.Generate(state)
+				.Where(m => state.Board[m.FromPos]?.Color != owner);
+
+			foreach (var move in enemyMoves)
+			{
+				if (move.ToPos.Equals(pos))
+					return true;
+			}
+			return false;
 		}
 
 
