@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ChessLogic;
@@ -18,10 +19,15 @@ namespace ChessAI
 			int developmentScore = 0;
 			int threatPenaltyScore = 0;
 
+			var whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).ToList();
+			var blackMoves = MoveGenerator.GenerateForPlayer(state, Player.Black).ToList();
+
 
 			foreach (var player in new[] { Player.White, Player.Black })
 			{
 				var positions = state.Board.PiecePositionsFor(player);
+				var enemyMoves = (player == Player.White) ? blackMoves : whiteMoves;
+				var friendlyMoves = (player == Player.White) ? whiteMoves : blackMoves;
 
 				foreach (var pos in positions)
 				{
@@ -34,17 +40,41 @@ namespace ChessAI
 					centerControlScore += sign * EvaluateCenterControl(piece.Type, pos);
 					kingSafetyScore += sign * EvaluateKingSafety(piece.Type, piece.Color, pos);
 					developmentScore += sign * EvaluateDevelopment(piece.Type, piece.Color, pos);
-
-					if (IsThreatened(state, pos, piece.Color))
-					{
-						int penalty = GetPieceValue(piece.Type) / 2;
-						threatPenaltyScore += sign * penalty;
-					}
+					threatPenaltyScore -= sign * GetThreatPenalty(state, pos, piece.Color, enemyMoves, friendlyMoves);
 				}
 			}
 
 			return materialScore + centerControlScore + kingSafetyScore + developmentScore;
 		}
+
+		private int GetThreatPenalty(GameState state, Position pos, Player owner, List<Move> enemyMoves, List<Move> friendlyMoves)
+		{
+			var piece = state.Board[pos];
+			if (piece == null) return 0;
+
+			bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
+			bool isDefended = friendlyMoves.Any(m => m.ToPos.Equals(pos));
+
+			if (!isThreatened)
+				return 0;
+
+			int value = GetPieceValue(piece.Type);
+			int attackerMinValue = enemyMoves
+				.Where(m => m.ToPos.Equals(pos))
+				.Select(m => GetPieceValue(state.Board[m.FromPos].Type))
+				.DefaultIfEmpty(1000)
+				.Min();
+
+			if (!isDefended)
+				return value;
+
+			if (attackerMinValue < value)
+				return value / 2;
+
+			return value / 4;
+		}
+
+
 
 		private bool IsThreatened(GameState state, Position pos, Player owner)
 		{
@@ -132,8 +162,6 @@ namespace ChessAI
 			}
 			return 0;
 		}
-
-
 
 	}
 }

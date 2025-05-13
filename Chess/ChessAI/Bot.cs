@@ -161,6 +161,15 @@ public class Bot
 		};
 	}
 
+	private bool IsKingThreatened(GameState state, Player player, List<Move> enemyMoves)
+	{
+		var kingPos = state.Board.PiecePositionsFor(player)
+						.FirstOrDefault(p => state.Board[p]?.Type == PieceType.King);
+
+		return enemyMoves.Any(m => m.ToPos == kingPos);
+	}
+
+
 	private int ScoreMove(GameState state, Move move)
 	{
 		var fromPiece = state.Board[move.FromPos];
@@ -184,6 +193,19 @@ public class Bot
 			score += 50; // Chiếu vua
 		}
 
+		var copy = state.Copy();
+		copy.ApplyMove(move);
+
+		var currentPlayer = copy.CurrentPlayer;
+		var enemyMoves = MoveGenerator.GenerateForPlayer(copy, currentPlayer.Opponent()).ToList();
+		if (!IsKingThreatened(copy, currentPlayer, enemyMoves))
+		{
+			var wasInCheck = IsKingThreatened(state, currentPlayer, enemyMoves);
+			if (wasInCheck)
+			{
+				score += 100; // Giải cứu vua khỏi chiếu
+			}
+		}
 		return score;
 	}
 

@@ -21,5 +21,11 @@ namespace ChessAI
 			return allMoves.Where(m => state.Board[m.ToPos] != null).ToList();
 		}
 
+		public static IEnumerable<Move> GenerateForPlayer(GameState state, Player player)
+		{
+			//return state.GetAllLegalMoves().Where(m => state.Board[m.FromPos].Color == player);
+			return Generate(state).Where(m => state.Board[m.FromPos].Color == player); // Filter moves for the specified player
+		}
+
 	}
 }
