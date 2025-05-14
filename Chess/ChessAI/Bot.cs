@@ -39,37 +39,12 @@ public class Bot
 							   .Select(x => x.Move)
 							   .ToList();
 
-		//if (_difficulty == BotDifficulty.Random)
-		//{
-		//	return moves[_random.Next(moves.Count)];
-		//}
 
 		Move bestMove = null;
 		int bestScore = int.MinValue;
 		var seenBoards = new HashSet<string>();
 		var startTime = DateTime.Now;
 		var timeLimit = TimeSpan.FromSeconds(10); // 10s for each move
-
-
-		//foreach (var move in scoredMoves)
-		//{
-		//	var copy = state.Copy();
-		//	copy.ApplyMove(move);
-		//	string boardKey = copy.Board.ToString();
-
-		//	if (seenBoards.Contains(boardKey))
-		//	{
-		//		continue;			}
-
-		//	int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime, timeLimit);
-
-		//	if (score > bestScore || bestMove == null)
-		//	{
-		//		bestScore = score;
-		//		bestMove = move;
-		//	}
-		//}
-
 
 		// new logic for parallel processing to speed up the search
 		object lockObj = new();
@@ -177,20 +152,85 @@ public class Bot
 
 		int score = 0;
 
+		// capture piece
 		if (toPiece != null)
 		{
-			// Ăn quân: điểm cao hơn nếu ăn quân giá trị lớn
 			score += GetPieceValue(toPiece.Type) * 10 - GetPieceValue(fromPiece.Type);
 		}
 
+
+		// check for promotion
 		if (IsPromotion(state, move))
 		{
-			score += 800; // Phong hậu
+			score += 800;
 		}
 
+		// check
 		if (IsCheck(state, move))
 		{
-			score += 50; // Chiếu vua
+			score += 50;
+		}
+
+		// central square
+		if (IsCentralSquare(move.ToPos))
+		{
+			score += 20;
+		}
+
+		// development	
+		if (IsPieceDeveloping(fromPiece, move.FromPos, move.ToPos))
+		{
+			score += 30;
+		}
+
+		// pawn dev
+		if (fromPiece.Type == PieceType.Pawn)
+		{
+			int advance = fromPiece.Color == Player.White
+				? move.FromPos.Row - move.ToPos.Row
+				: move.ToPos.Row - move.FromPos.Row;
+			
+			score += advance * 10;
+
+			bool isInitialDoublePush = (fromPiece.Color == Player.White && move.FromPos.Row == 6 && move.ToPos.Row == 4) ||
+				(fromPiece.Color == Player.Black && move.FromPos.Row == 1 && move.ToPos.Row == 3);
+
+			if (isInitialDoublePush)
+				score += 15;
+
+			if (move.ToPos.Column == 3 || move.ToPos.Column == 4)
+				score += 20;
+
+			//if (IsSquareThreatened(state, move.ToPos, fromPiece.Color.Opponent()))
+			if (IsSquareThreatened(state, move.ToPos, fromPiece.Color))
+			{
+				score -= 15;
+			}
+		}
+
+		//castling
+		if (fromPiece.Type == PieceType.Knight && Math.Abs(move.ToPos.Column - move.FromPos.Column) == 2)
+		{
+			score += 60;
+		}
+
+		if (move.FromPos.Equals(move.ToPos))
+        {
+			score -= 100;
+        }
+
+		if ((fromPiece.Type == PieceType.Rook || fromPiece.Type == PieceType.Knight) &&
+			move.ToPos == move.FromPos)
+		{
+			score -= 50;
+		}
+		
+		if (fromPiece.Type == PieceType.Knight || fromPiece.Type == PieceType.Bishop)
+		{
+			if (IsBackToStartingPosition(fromPiece, move.FromPos))
+			{
+				score -= 40;
+			}
 		}
 
 		var copy = state.Copy();
@@ -198,15 +238,79 @@ public class Bot
 
 		var currentPlayer = copy.CurrentPlayer;
 		var enemyMoves = MoveGenerator.GenerateForPlayer(copy, currentPlayer.Opponent()).ToList();
+
 		if (!IsKingThreatened(copy, currentPlayer, enemyMoves))
 		{
 			var wasInCheck = IsKingThreatened(state, currentPlayer, enemyMoves);
 			if (wasInCheck)
 			{
-				score += 100; // Giải cứu vua khỏi chiếu
+				score += 200;
 			}
 		}
 		return score;
+	}
+
+	private bool IsSquareThreatened(GameState state, Position toPos, Player color)
+	{
+		foreach (var move in MoveGenerator.Generate(state))
+		{
+			if (move.ToPos.Equals(toPos) && state.Board[move.FromPos]?.Color != color.Opponent())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private bool IsCentralSquare(Position pos)
+	{
+		return (pos.Row >= 2 && pos.Row <= 5) && (pos.Column >= 2 && pos.Column <= 5);
+	}
+
+	private bool IsPieceDeveloping(Piece piece, Position fromPos, Position toPos)
+	{
+		if (piece.Type == PieceType.Knight || piece.Type == PieceType.Bishop)
+		{
+			if (piece.Color == Player.White)
+			{
+				return fromPos.Row == 7 && toPos.Row <= 5;
+			}
+			else
+			{
+				return fromPos.Row == 0 && toPos.Row >= 2;
+			}
+		}
+
+		if (piece.Type == PieceType.Rook)
+		{
+			if (piece.Color == Player.White)
+			{
+				return fromPos.Row == 7 && (fromPos.Column == 0 || fromPos.Column == 7) && toPos.Row <= 5;
+			}
+			else
+			{
+				return fromPos.Row == 0 && (fromPos.Column == 0 || fromPos.Column == 7) && toPos.Row >= 2;		
+			}
+		}
+
+		return false;
+	}
+
+	private bool IsBackToStartingPosition(Piece piece, Position toPos)
+	{
+		if (piece.Type == PieceType.Knight)
+		{
+			return (piece.Color == Player.White && (toPos.Row == 7 && (toPos.Column == 1 || toPos.Column == 6))) ||
+				   (piece.Color == Player.Black && (toPos.Row == 0 && (toPos.Column == 1 || toPos.Column == 6)));
+		}
+
+		if (piece.Type == PieceType.Bishop)
+		{
+			return (piece.Color == Player.White && (toPos.Row == 7 && (toPos.Column == 2 || toPos.Column == 5))) ||
+				   (piece.Color == Player.Black && (toPos.Row == 0 && (toPos.Column == 2 || toPos.Column == 5)));
+		}
+
+		return false;
 	}
 
 }

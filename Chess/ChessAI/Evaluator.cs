@@ -155,12 +155,33 @@ namespace ChessAI
 
 		private int EvaluateDevelopment(PieceType type, Player color, Position pos)
 		{
-			int homeRow = (color == Player.White) ? 0 : 7;
-			if ((type == PieceType.Knight || type == PieceType.Bishop) && pos.Row == homeRow)
+			int score = 0;
+
+			if (type == PieceType.Knight || type == PieceType.Bishop)
 			{
-				return -15;
+				if ((color == Player.White && pos.Row < 5) ||
+					(color == Player.Black && pos.Row > 2))
+				{
+					score += 15;
+				}
 			}
-			return 0;
+
+			if (type == PieceType.Rook)
+			{
+				if ((color == Player.White && pos.Row < 5) ||
+					(color == Player.Black && pos.Row > 2))
+				{
+					score += 10;
+				}
+			}
+
+			if (type == PieceType.Pawn)
+			{
+				int advance = color == Player.White ? 6 - pos.Row : pos.Row - 1;
+				score += advance * 3;
+			}
+
+			return score;
 		}
 
 	}
