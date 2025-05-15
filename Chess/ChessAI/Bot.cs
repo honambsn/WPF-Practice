@@ -159,10 +159,17 @@ public class Bot
 		}
 
 
-		// check for promotion
+		// check for promotion queen
 		if (IsPromotion(state, move))
 		{
-			score += 800;
+			if (!IsUnderThreat(state, move.ToPos, fromPiece.Color))
+			{
+				score += 800;
+			}
+			else
+			{
+				score += 200;
+			}
 		}
 
 		// check
@@ -206,6 +213,9 @@ public class Bot
 			{
 				score -= 15;
 			}
+
+			//Console.WriteLine($"Pawn move {move.FromPos} -> {move.ToPos}, score = {score}");
+
 		}
 
 		//castling
@@ -231,6 +241,16 @@ public class Bot
 			{
 				score -= 40;
 			}
+		}
+
+		if (IsUnderThreat(state, move.ToPos, fromPiece.Color))
+		{
+			score -= GetPieceValue(fromPiece.Type) / 2;
+		}
+
+		if (IsUnderThreat(state, move.FromPos, fromPiece.Color))
+		{
+			score += GetPieceValue(fromPiece.Type) / 3;
 		}
 
 		var copy = state.Copy();
@@ -313,4 +333,11 @@ public class Bot
 		return false;
 	}
 
+	private bool IsUnderThreat(GameState state, Position pos, Player def)
+	{
+		var opponentMoves = MoveGenerator.Generate(state)
+			.Where(m => state.Board[m.FromPos]?.Color != def);
+
+		return opponentMoves.Any(m => m.ToPos.Equals(pos));
+	}
 }

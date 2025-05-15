@@ -18,6 +18,7 @@ namespace ChessAI
 			int kingSafetyScore = 0;
 			int developmentScore = 0;
 			int threatPenaltyScore = 0;
+			int defensePenaltyScore = 0;
 
 			var whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).ToList();
 			var blackMoves = MoveGenerator.GenerateForPlayer(state, Player.Black).ToList();
@@ -41,10 +42,26 @@ namespace ChessAI
 					kingSafetyScore += sign * EvaluateKingSafety(piece.Type, piece.Color, pos);
 					developmentScore += sign * EvaluateDevelopment(piece.Type, piece.Color, pos);
 					threatPenaltyScore -= sign * GetThreatPenalty(state, pos, piece.Color, enemyMoves, friendlyMoves);
+
+					if (IsWeaklyDefended(pos, piece.Color, enemyMoves, friendlyMoves))
+					{
+						defensePenaltyScore -= sign * 30; // có thể tùy chỉnh mức phạt
+					}
+
+
 				}
 			}
 
-			return materialScore + centerControlScore + kingSafetyScore + developmentScore;
+			return materialScore + centerControlScore + kingSafetyScore + developmentScore + threatPenaltyScore * 2 + defensePenaltyScore;
+		}
+
+		private bool IsWeaklyDefended(Position pos, Player color, List<Move> enemyMoves, List<Move> friendlyMoves)
+		{
+			bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
+			bool isDefended = friendlyMoves.Any(m => m.ToPos.Equals(pos));
+
+			int numDefenders = friendlyMoves.Count(m => m.ToPos.Equals(pos));
+			return isThreatened && numDefenders <= 1;
 		}
 
 		private int GetThreatPenalty(GameState state, Position pos, Player owner, List<Move> enemyMoves, List<Move> friendlyMoves)
@@ -73,8 +90,6 @@ namespace ChessAI
 
 			return value / 4;
 		}
-
-
 
 		private bool IsThreatened(GameState state, Position pos, Player owner)
 		{
