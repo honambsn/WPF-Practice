@@ -11,8 +11,12 @@ namespace ChessAI
 {
 	public class Evaluator
 	{
+		private GameState currentState;
+
 		public int EvaluateBoard(GameState state)
 		{
+			currentState = state;
+
 			int materialScore = 0;
 			int centerControlScore = 0;
 			int kingSafetyScore = 0;
@@ -172,32 +176,64 @@ namespace ChessAI
 		{
 			int score = 0;
 
-			if (type == PieceType.Knight || type == PieceType.Bishop)
+			int startingRow = color == Player.White ? 0 : 7;
+			int row = pos.Row;
+			int col = pos.Column;
+
+			//bool isDeveloped = (color == Player.White && row >= 3) || (color == Player.Black && row <= 4);
+
+			if (type == PieceType.Knight)
 			{
-				if ((color == Player.White && pos.Row < 5) ||
-					(color == Player.Black && pos.Row > 2))
-				{
-					score += 15;
-				}
+				if ((color == Player.White && row > 1) || (color == Player.Black && row < 6))
+					score += 20;
+
+				if (row == startingRow && (col == 1 || col == 6))
+					score -= 10;
+			}
+
+			if (type == PieceType.Bishop)
+			{
+				if ((color == Player.White && row > 1) || (color == Player.Black && row < 6))
+					score += 20;
+
+				if (row == startingRow && (col == 2 || col == 5))
+					score -= 10;
 			}
 
 			if (type == PieceType.Rook)
 			{
-				if ((color == Player.White && pos.Row < 5) ||
-					(color == Player.Black && pos.Row > 2))
-				{
+				if ((color == Player.White && row > 0) || (color == Player.Black && row < 7))
 					score += 10;
-				}
+			}
+
+			if (type == PieceType.Queen)
+			{
+				bool isEarly = color == Player.White ? row <= 2: row >= 5;
+
+				if (isEarly)
+					score -= 30;
+
+				var enemyMoves = MoveGenerator.GenerateForPlayer(GameState.Instance, color.Opponent());
+
+				bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
+
+				if (isThreatened)
+					score -= 40;
 			}
 
 			if (type == PieceType.Pawn)
 			{
-				int advance = color == Player.White ? 6 - pos.Row : pos.Row - 1;
-				score += advance * 3;
+				int advance = color == Player.White ? 7 - row : row;
+				score += advance * 2;
+
+				if ((col >= 2 && col <= 5) && ((color == Player.White && row >= 3) || (color == Player.Black && row <= 4)))
+					score += 5;
 			}
 
 			return score;
 		}
+
+
 
 	}
 }
