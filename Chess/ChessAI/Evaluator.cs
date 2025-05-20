@@ -23,8 +23,9 @@ namespace ChessAI
 			int developmentScore = 0;
 			int threatPenaltyScore = 0;
 			int defensePenaltyScore = 0;
+			int defenseBonusScore = 0;
 
-			var whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).ToList();
+            var whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).ToList();
 			var blackMoves = MoveGenerator.GenerateForPlayer(state, Player.Black).ToList();
 
 
@@ -46,8 +47,9 @@ namespace ChessAI
 					kingSafetyScore += sign * EvaluateKingSafety(piece.Type, piece.Color, pos);
 					developmentScore += sign * EvaluateDevelopment(piece.Type, piece.Color, pos);
 					threatPenaltyScore -= sign * GetThreatPenalty(state, pos, piece.Color, enemyMoves, friendlyMoves);
+					defenseBonusScore += sign * GetDenfenseBonus(pos, piece.Color, friendlyMoves, state);
 
-					if (IsWeaklyDefended(pos, piece.Color, enemyMoves, friendlyMoves))
+                    if (IsWeaklyDefended(pos, piece.Color, enemyMoves, friendlyMoves))
 					{
 						defensePenaltyScore -= sign * 30; // có thể tùy chỉnh mức phạt
 					}
@@ -56,7 +58,8 @@ namespace ChessAI
 				}
 			}
 
-			return materialScore + centerControlScore + kingSafetyScore + developmentScore + threatPenaltyScore * 2 + defensePenaltyScore;
+			return materialScore + centerControlScore + kingSafetyScore + developmentScore + 
+				threatPenaltyScore * 2 + defensePenaltyScore + defenseBonusScore;
 		}
 
 		private bool IsWeaklyDefended(Position pos, Player color, List<Move> enemyMoves, List<Move> friendlyMoves)
@@ -213,9 +216,9 @@ namespace ChessAI
 				if (isEarly)
 					score -= 30;
 
-				var enemyMoves = MoveGenerator.GenerateForPlayer(GameState.Instance, color.Opponent());
+				var enemyMoves = MoveGenerator.GenerateForPlayer(currentState, color.Opponent());
 
-				bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
+                bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
 
 				if (isThreatened)
 					score -= 40;
@@ -233,7 +236,24 @@ namespace ChessAI
 			return score;
 		}
 
+		private int GetDenfenseBonus(Position pos, Player owner, List<Move> friendlyMoves, GameState state)
+		{
+			int bonus = 0;
 
+			foreach (var move in friendlyMoves)
+			{
+				if (move.ToPos.Equals(pos))
+				{
+					var defender = state.Board[move.FromPos];
+                    if (defender != null && defender.Color == owner)
+					{
+						bonus += GetPieceValue(defender.Type) / 10;	
+                    }
+                }
+			}
+
+			return bonus;
+        }
 
 	}
 }
