@@ -170,12 +170,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 281,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 24,
@@ -196,7 +192,7 @@
               "RelativeDocumentMoniker": "ChessAI\\Evaluator.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Evaluator.cs",
               "RelativeToolTip": "ChessAI\\Evaluator.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-07T01:20:05.419Z",
               "EditorCaption": ""
@@ -354,8 +350,7 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-05T01:47:54.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T01:47:54.489Z"
             },
             {
               "$type": "Document",

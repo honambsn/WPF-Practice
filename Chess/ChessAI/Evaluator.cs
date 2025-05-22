@@ -54,8 +54,14 @@ namespace ChessAI
 						defensePenaltyScore -= sign * 30; // có thể tùy chỉnh mức phạt
 					}
 
+                    if (IsThreatened(state, pos, piece.Color))
+                    {
+                        defensePenaltyScore -= sign * 20; // có thể tùy chỉnh mức phạt
+                    }
 
-				}
+					 
+
+                }
 			}
 
 			return materialScore + centerControlScore + kingSafetyScore + developmentScore + 
@@ -255,5 +261,133 @@ namespace ChessAI
 			return bonus;
         }
 
-	}
+		private int EvaluateKingSafety(GameState state, Player color)
+        {
+			Position kingPos = FindKingPosition(state, color);
+
+			if (kingPos == null) return 0;
+
+			var surrounding = GetSurroundingSquares(kingPos);
+			var enemyMoves = MoveGenerator.GenerateForPlayer(state, color.Opponent())
+				.Select(m => m.ToPos).ToHashSet();
+
+			int dangerCount = surrounding.Count(p => enemyMoves.Contains(p));
+
+			int score = -dangerCount * 15;
+
+			bool hasCastled = color == Player.White ?
+				!kingPos.Equals(new Position(7, 4)) : //e1
+                !kingPos.Equals(new Position(0, 4)); // e8
+
+			if (!hasCastled)
+				score -= 30;
+
+			return score;
+        }
+
+
+        private Position FindKingPosition(GameState state, Player color)
+        {
+			for (int r = 0; r < 8; r++)
+			{
+				for (int c = 0; c < 8; c++)
+                {
+					var piece = state.Board[r, c];
+
+                    if (piece?.Type == PieceType.King && piece.Color == color)
+                    {
+                        return new Position(r, c);
+                    }
+                }
+            }
+
+			return null;
+        }
+
+		private List<Position> GetSurroundingSquares(Position pos)
+		{
+			var offsets = new (int dr, int dc)[]
+			{
+				(-1, -1), (-1, 0), (-1, 1),
+				(0, -1),          (0, 1),
+				(1, -1), (1, 0), (1, 1),
+			};
+
+			var result = new List<Position>();
+			foreach (var (dr, dc) in offsets)
+			{
+				int r = pos.Row + dr, c = pos.Column + dc;
+				if (r >= 0 && r < 8 && c >= 0 && c < 8)
+                    result.Add(new Position(r, c));
+            }
+
+            return result;
+        }
+
+		private int EvaluateMobility(GameState state)
+		{
+			int whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).Count();
+            int blackMoves = MoveGenerator.GenerateForPlayer(state, Player.Black).Count();
+
+			return (whiteMoves - blackMoves) * 2;
+        }
+
+		private int EvaluatePawnStructure(GameState state, Player color)
+		{
+			var pawns = GetPiecePosition(state, color, PieceType.Pawn);
+			var pawnCols = pawns.GroupBy(p => p.Column).ToDictionary(g => g.Key, g => g.ToList());
+
+			int penalty = 0;
+
+			for (int col = 0; col < 8; col++)
+			{
+				if (!pawnCols.ContainsKey(col)) continue;
+
+				if (pawnCols[col].Count() > 1)
+					penalty -= 10 * (pawnCols[col].Count() - 1);
+
+				bool leftHas = pawnCols.ContainsKey(col - 1);
+                bool rightHas = pawnCols.ContainsKey(col + 1);
+				
+				if (!leftHas && !rightHas) penalty -= 15;
+            }
+
+			return penalty;
+        }
+
+        private List<Position> GetPiecePosition(GameState state, Player color, PieceType type)
+        {
+            var result = new List<Position>();
+            for (int r = 0; r < 8; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    var piece = state.Board[r, c];
+                    if (piece?.Color == color && piece.Type == type)
+                    {
+                        result.Add(new Position(r, c));
+                    }
+                }
+            }
+			return result;
+        }
+
+		private double GetGamePhase(GameState state)
+		{
+			int phase = 0;
+			for (int r = 0; r < 8; r++)
+				for (int c = 0; c < 8; c++)
+				{
+					var p = state.Board[r, c];
+
+					if (p ==   null) continue;
+
+					if (p.Type == PieceType.Queen) phase += 4;
+					else if (p.Type == PieceType.Rook) phase += 2;
+					else if (p.Type == PieceType.Bishop || p.Type == PieceType.Knight) phase += 1;
+                }
+
+			return Math.Clamp(1.0 - phase / 32.0, 0, 1);
+        }
+    }
 }
