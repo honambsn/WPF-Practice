@@ -24,6 +24,8 @@ namespace ChessAI
 			int threatPenaltyScore = 0;
 			int defensePenaltyScore = 0;
 			int defenseBonusScore = 0;
+			int mobilityScore = 0;
+            int pawnStructureScore = 0;
 
             var whiteMoves = MoveGenerator.GenerateForPlayer(state, Player.White).ToList();
 			var blackMoves = MoveGenerator.GenerateForPlayer(state, Player.Black).ToList();
@@ -58,15 +60,23 @@ namespace ChessAI
                     {
                         defensePenaltyScore -= sign * 20; // có thể tùy chỉnh mức phạt
                     }
-
-					 
-
                 }
 			}
+			mobilityScore += (whiteMoves.Count() - blackMoves.Count()) * 2;
 
-			return materialScore + centerControlScore + kingSafetyScore + developmentScore + 
-				threatPenaltyScore * 2 + defensePenaltyScore + defenseBonusScore;
-		}
+            pawnStructureScore += EvaluatePawnStructure(state, Player.White);
+            pawnStructureScore -= EvaluatePawnStructure(state, Player.Black);
+
+			double phase = GetGamePhase(state);
+			int midEvaluation = (int)(materialScore + centerControlScore + kingSafetyScore + developmentScore +
+				threatPenaltyScore * 2 + defensePenaltyScore + defenseBonusScore + mobilityScore + pawnStructureScore);
+
+			int endEvaluation = (int)EvaluateEndGameFeatures(state);
+
+    //        return materialScore + centerControlScore + kingSafetyScore + developmentScore + 
+				//threatPenaltyScore * 2 + defensePenaltyScore + defenseBonusScore;
+				return (int)((1 - phase) * midEvaluation + phase * endEvaluation);
+        }
 
 		private bool IsWeaklyDefended(Position pos, Player color, List<Move> enemyMoves, List<Move> friendlyMoves)
 		{
