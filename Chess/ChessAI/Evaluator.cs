@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,7 +79,92 @@ namespace ChessAI
 				return (int)((1 - phase) * midEvaluation + phase * endEvaluation);
         }
 
-		private bool IsWeaklyDefended(Position pos, Player color, List<Move> enemyMoves, List<Move> friendlyMoves)
+        private int EvaluateEndGameFeatures(GameState state)
+        {
+			int score = 0;
+
+			foreach (var player in new[] { Player.White, Player.Black })
+			{
+				var kingPos = FindKingPosition(state, player);
+				var opponent = player.Opponent();
+
+                // centralize king in endgame
+				int disToCenter = Math.Abs(kingPos.Row - 3) + Math.Abs(kingPos.Column - 3);
+				int sign = (player == state.CurrentPlayer) ? 1 : -1;
+				score -= sign * disToCenter * 5; // modify this value to adjust the importance of king centralization
+
+                // penalize king safety in endgame
+				var surroundingSquare = GetSurroundingPositions(kingPos);
+				int safeSquares = surroundingSquare.Count(p => 
+				state.Board.isInside(p) && (!state.Board.HasPieceAt(p) || state.Board[p].Color == player));
+
+				score += sign * safeSquares * 10; // modify this value to adjust the importance of king safety
+            }
+
+			return score;
+        }
+
+        private object GetSurroundingPositions(Position pos)
+        {
+			var offsets = new (int dr, int dc)[]
+			{
+				(-1, -1), (-1, 0), (-1, 1),
+                (0, -1),          (0, 1),
+                (1, -1), (1, 0), (1, 1)
+
+            };
+
+			return offsets.Select(o => new Position(pos.Row + o.dr, pos.Column + o.dc)).ToList();
+        }
+
+		private int EvaluatePassedPawns(GameState state, Player player)
+		{
+			int score = 0;
+			var positions = state.Board.PiecePositionsFor(player);
+
+			foreach (var pos in positions)
+			{
+				var piece = state.Board[pos];
+                if (piece.Type != PieceType.Pawn) continue;
+
+				if (IsPassedPawn(state, pos, player))
+				{
+					int rank = (player == Player.White) ? pos.Row : (7 - pos.Row);
+					score += (rank + 1) * 5;
+                }
+            }
+
+			return score;
+		}
+
+        private bool IsPassedPawn(GameState state, Position pos, Player player)
+        {
+            int direction = (player == Player.White) ? 1 : -1; // 1 for White, -1 for Black
+
+			for (int dr = 1; dr <= 6; dr++)
+			{
+				int r = pos.Row + dr * direction;
+                if (r < 0 || r > 7) break; // out of bounds
+
+				for (int dc = -1; dc <= 1; dc++)
+				{
+					int c = pos.Column + dc;
+					if (c < 0 || c > 7) continue; // out of bounds
+
+					var testPos = new Position(r, c);
+					if (state.Board.HasPieceAt(testPos) &&
+						state.Board[testPos].Type == PieceType.Pawn &&
+						state.Board[testPos].Color == player.Opponent())
+					{
+						return false;
+					}
+                }
+            }
+
+			return true;
+        }
+
+        private bool IsWeaklyDefended(Position pos, Player color, List<Move> enemyMoves, List<Move> friendlyMoves)
 		{
 			bool isThreatened = enemyMoves.Any(m => m.ToPos.Equals(pos));
 			bool isDefended = friendlyMoves.Any(m => m.ToPos.Equals(pos));
@@ -296,22 +382,19 @@ namespace ChessAI
         }
 
 
-        private Position FindKingPosition(GameState state, Player color)
+        private Position FindKingPosition(GameState state, Player player)
         {
-			for (int r = 0; r < 8; r++)
+			foreach ( var pos in state.Board.PiecePositionsFor(player))
 			{
-				for (int c = 0; c < 8; c++)
-                {
-					var piece = state.Board[r, c];
+				var piece = state.Board[pos];
 
-                    if (piece?.Type == PieceType.King && piece.Color == color)
-                    {
-                        return new Position(r, c);
-                    }
+                if (piece.Type == PieceType.King)
+                {
+					return pos;
                 }
             }
 
-			return null;
+			return new Position(-1, -1); // king not found
         }
 
 		private List<Position> GetSurroundingSquares(Position pos)
@@ -362,7 +445,9 @@ namespace ChessAI
 				if (!leftHas && !rightHas) penalty -= 15;
             }
 
-			return penalty;
+			penalty += EvaluatePassedPawns(state, color);
+
+            return penalty;
         }
 
         private List<Position> GetPiecePosition(GameState state, Player color, PieceType type)

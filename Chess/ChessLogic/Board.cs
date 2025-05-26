@@ -273,5 +273,10 @@ namespace ChessLogic
 			return HasPawnInPosition(player, pawnPositions, skipPos);
 		}
 
-	}
+		public bool HasPieceAt(Position pos)
+        {
+            return IsInside(pos) && !IsEmpty(pos);
+        }
+
+    }
 }
