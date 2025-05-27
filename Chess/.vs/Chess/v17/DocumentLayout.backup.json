@@ -170,12 +170,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 281,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 16,
@@ -247,8 +243,7 @@
               "RelativeToolTip": "ChessLogic\\Player.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T01:51:25.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-08T01:51:25.444Z"
             },
             {
               "$type": "Document",
@@ -260,8 +255,7 @@
               "RelativeToolTip": "ChessAI\\Evaluator.cs",
               "ViewState": "AgIAAHgAAAAAAAAAAAAwwJoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-07T01:20:05.419Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T01:20:05.419Z"
             },
             {
               "$type": "Document",

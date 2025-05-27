@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "l8CjTpEjU4Q=",
+  "success": true,
+  "projectFilePath": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\ChessUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\honam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.1\\microsoft.windowsdesktop.app.ref.8.0.1.nupkg.sha512",
+    "C:\\Users\\honam\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.1\\microsoft.netcore.app.ref.8.0.1.nupkg.sha512",
+    "C:\\Users\\honam\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.1\\microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512",
+    "C:\\Users\\honam\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.1\\microsoft.netcore.app.host.win-x64.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
