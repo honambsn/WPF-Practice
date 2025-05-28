@@ -95,8 +95,8 @@ namespace ChessAI
 
                 // penalize king safety in endgame
 				var surroundingSquare = GetSurroundingPositions(kingPos);
-				int safeSquares = surroundingSquare.Count(p => 
-				state.Board.isInside(p) && (!state.Board.HasPieceAt(p) || state.Board[p].Color == player));
+                int safeSquares = surroundingSquare.Count(p =>
+                state.Board.isInside(p) && (!state.Board.HasPieceAt(p) || state.Board[p].Color == player));
 
 				score += sign * safeSquares * 10; // modify this value to adjust the importance of king safety
             }
@@ -104,7 +104,7 @@ namespace ChessAI
 			return score;
         }
 
-        private object GetSurroundingPositions(Position pos)
+        private List<Position> GetSurroundingPositions(Position pos)
         {
 			var offsets = new (int dr, int dc)[]
 			{

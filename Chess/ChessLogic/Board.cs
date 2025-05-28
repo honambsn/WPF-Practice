@@ -278,5 +278,10 @@ namespace ChessLogic
             return IsInside(pos) && !IsEmpty(pos);
         }
 
+        public bool isInside(Position pos)
+        {
+            return pos.Row >= 0 && pos.Row < 8 && pos.Column >= 0 && pos.Column < 8;
+        }
+
     }
 }
