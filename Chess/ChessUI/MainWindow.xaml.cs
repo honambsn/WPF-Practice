@@ -31,7 +31,7 @@ namespace ChessUI
 
 		private bool playingWithBot = false;
 
-		public MainWindow()
+        public MainWindow()
 		{
 			InitializeComponent();
 			//ShowStep1();
@@ -69,9 +69,9 @@ namespace ChessUI
 				{
 					Piece piece = board[r, c];
 					pieceImages[r, c].Source = Images.GetImage(piece);
-				}
+                }
 			}
-		}
+        }
 
 		private void BoardGrid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
@@ -149,7 +149,7 @@ namespace ChessUI
 
 		private void HandleMove(Move move)
 		{
-			gameState.MakeMove(move);
+            gameState.MakeMove(move);
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
 
