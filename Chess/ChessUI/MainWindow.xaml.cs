@@ -63,7 +63,27 @@ namespace ChessUI
 
 		private void DrawBoard(Board board)
 		{
-			for (int r = 0; r < 8; r++)
+			//clear all highlights
+            for (int r = 0; r < 8; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    highlights[r, c].Fill = Brushes.Transparent;
+                    highlights[r, c].Stroke = null;
+                }
+            }
+
+			// highlight the checked if any
+			Position? checkedKingPos = board.GetCheckedKingPosition();
+			if (checkedKingPos != null)
+			{
+				int r = checkedKingPos.Value.Row;
+                int c = checkedKingPos.Value.Col;
+                highlights[r, c].Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+            }
+
+            /// draw pieces
+            for (int r = 0; r < 8; r++)
 			{
 				for (int c = 0; c < 8; c++)
 				{

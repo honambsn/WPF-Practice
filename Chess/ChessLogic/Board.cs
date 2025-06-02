@@ -283,5 +283,46 @@ namespace ChessLogic
             return pos.Row >= 0 && pos.Row < 8 && pos.Column >= 0 && pos.Column < 8;
         }
 
+
+        public Position? GetKingInCheck()
+        {
+			if (!IsInCheck())
+				return null;
+
+			return FindKing(CurrentPlayer.Opponent());
+        }
+
+        private Position? FindKing(Player player)
+        {
+            foreach (var pos in PiecePositionsFor(player))
+			{
+				var piece = this[pos];
+                if ( piece.Type == PieceType.King)
+                {
+					return pos;
+                }	
+            }
+            return null;
+        }
+
+        public Position? GetCheckedKingPosition()
+        {
+            if (!IsInCheck(CurrentPlayer))
+                return null;
+
+            // Tìm vị trí của vua bên đang bị chiếu
+            for (int row = 0; row < 8; row++)
+            {
+                for (int col = 0; col < 8; col++)
+                {
+					Piece piece = this[row, col];
+                    if (piece != null && piece.Type == PieceType.King && piece.Color == CurrentPlayer)
+                        return new Position(row, col);
+                }
+            }
+
+            return null;
+        }
+
     }
 }

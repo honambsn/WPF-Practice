@@ -203,5 +203,7 @@ namespace ChessLogic
 		public bool IsGameOver2() => Result != null;
 
 
+
+		
 	}
 }
