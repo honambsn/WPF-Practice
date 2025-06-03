@@ -73,16 +73,27 @@ namespace ChessUI
                 }
             }
 
-			// highlight the checked if any
-			Position? checkedKingPos = board.GetCheckedKingPosition();
+			Player currentPlayer = gameState.CurrentPlayer;
+            // highlight the checked if any
+            Position? checkedKingPos = board.GetCheckedKingPosition(currentPlayer);
 			if (checkedKingPos != null)
 			{
-				int r = checkedKingPos.Value.Row;
-                int c = checkedKingPos.Value.Col;
+				int r = checkedKingPos.Row;
+                int c = checkedKingPos.Column;
                 highlights[r, c].Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
             }
 
-            /// draw pieces
+			//highlight last move
+			if (gameState.LastMove != null)
+			{
+				var fromPos = gameState.LastMove.FromPos;
+                var toPos = gameState.LastMove.ToPos;
+
+				highlights[fromPos.Row, fromPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
+                highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
+            }
+
+            // draw pieces
             for (int r = 0; r < 8; r++)
 			{
 				for (int c = 0; c < 8; c++)

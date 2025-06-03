@@ -284,12 +284,12 @@ namespace ChessLogic
         }
 
 
-        public Position? GetKingInCheck()
+        public Position? GetKingInCheck(Player currentPlayer)
         {
-			if (!IsInCheck())
+			if (!IsInCheck(currentPlayer))
 				return null;
 
-			return FindKing(CurrentPlayer.Opponent());
+			return FindKing(currentPlayer.Opponent());
         }
 
         private Position? FindKing(Player player)
@@ -305,9 +305,9 @@ namespace ChessLogic
             return null;
         }
 
-        public Position? GetCheckedKingPosition()
+        public Position? GetCheckedKingPosition(Player currentPlayer)
         {
-            if (!IsInCheck(CurrentPlayer))
+            if (!IsInCheck(currentPlayer))
                 return null;
 
             // Tìm vị trí của vua bên đang bị chiếu
@@ -316,7 +316,7 @@ namespace ChessLogic
                 for (int col = 0; col < 8; col++)
                 {
 					Piece piece = this[row, col];
-                    if (piece != null && piece.Type == PieceType.King && piece.Color == CurrentPlayer)
+                    if (piece != null && piece.Type == PieceType.King && piece.Color == currentPlayer)
                         return new Position(row, col);
                 }
             }

@@ -14,7 +14,9 @@ namespace ChessLogic
 		private int noCaptureOrPawnMoves = 0;
 		private string stateString;
 		private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
-		public GameState(Player player, Board board)
+		public Move LastMove { get; private set; }
+
+        public GameState(Player player, Board board)
 		{
 			CurrentPlayer = player;
 			Board = board;
@@ -157,8 +159,11 @@ namespace ChessLogic
 
 			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
 
-			// Đổi lượt
-			CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
+			LastMove = move;
+			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
+
+            // Đổi lượt
+            CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
 		}
 
 		public void UndoMove()
