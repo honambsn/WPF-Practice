@@ -157,7 +157,7 @@ namespace ChessLogic
 				Board[move.FromPos] = null;
 			}
 
-			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
+			//_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
 
 			LastMove = move;
 			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
