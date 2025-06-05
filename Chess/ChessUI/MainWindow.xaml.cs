@@ -87,14 +87,14 @@ namespace ChessUI
 			if (gameState.LastMove != null)
 			{
 				var fromPos = gameState.LastMove.FromPos;
-                var toPos = gameState.LastMove.ToPos;
+				var toPos = gameState.LastMove.ToPos;
 
 				highlights[fromPos.Row, fromPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
-                highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
-            }
+				highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
+			}
 
-            // draw pieces
-            for (int r = 0; r < 8; r++)
+			// draw pieces
+			for (int r = 0; r < 8; r++)
 			{
 				for (int c = 0; c < 8; c++)
 				{

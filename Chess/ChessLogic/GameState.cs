@@ -42,6 +42,8 @@ namespace ChessLogic
 			Board.SetPawnSkipPosition(CurrentPlayer, null);
 			bool captureOrPawn = move.Execute(Board);
 
+			LastMove = move;
+
 			if (captureOrPawn)
 			{
 				noCaptureOrPawnMoves = 0;
