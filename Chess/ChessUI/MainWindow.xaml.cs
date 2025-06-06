@@ -207,13 +207,36 @@ namespace ChessUI
 
 		private void ShowHighlights()
 		{
-			Color color = Color.FromArgb(150, 125, 255, 125);
+			//Color color = Color.FromArgb(150, 125, 255, 125);
 
-			foreach (Position to in moveCache.Keys)
+			//foreach (Position to in moveCache.Keys)
+			//{
+			//	highlights[to.Row, to.Column].Fill = new SolidColorBrush(color);
+			//}
+
+			Color moveColor = Color.FromArgb(150, 125, 255, 125);
+			Color captureColor = Color.FromArgb(180, 255, 100, 100);
+			Color selectedColor = Color.FromArgb(180, 255, 255, 0);
+
+            foreach (var kvp in moveCache)
 			{
-				highlights[to.Row, to.Column].Fill = new SolidColorBrush(color);
-			}
-		}
+				Position to = kvp.Key;
+                Move move = kvp.Value;
+
+				Piece targetPiece = gameState.Board[to];
+				if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
+				{
+					highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
+                }
+				else
+				{
+					highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
+                }
+            }
+            if (selectedPos != null)
+				highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
+            
+        }
 
 		private void HideHighlights()
 		{
