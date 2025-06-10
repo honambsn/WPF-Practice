@@ -486,6 +486,28 @@ namespace ChessUI
                 historyWidow.Focus(); // Bring the existing window to the front
             }
         }
+
+		private void ShowMenuWelcome()
+		{
+            Welcome menuWelcome = new Welcome();
+			MenuContent.Content = menuWelcome;
+
+            menuWelcome.OptionSelected += option =>
+            {
+                if (option == WelcomeOption.NewGame)
+                {
+                    
+                }
+                else if (option == WelcomeOption.BotGame)
+                {
+                    
+                }
+				else if (option == WelcomeOption.Quit)
+				{
+					Application.Current.Shutdown();
+				}
+            };
+        }
     }
 
 

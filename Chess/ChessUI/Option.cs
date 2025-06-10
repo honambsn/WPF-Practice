@@ -12,4 +12,11 @@ namespace ChessUI
 		Exit,
 		Continue
 	}
+
+	public enum WelcomeOption
+	{
+		NewGame,
+		BotGame,
+		Quit
+	}
 }

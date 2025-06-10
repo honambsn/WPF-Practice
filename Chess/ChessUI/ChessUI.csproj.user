@@ -34,6 +34,9 @@
     <Compile Update="Views\Menus\PlayExitMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Welcome.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="BotMenu.xaml">
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Menus\PlayExitMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Welcome.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
