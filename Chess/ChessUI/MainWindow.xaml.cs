@@ -40,7 +40,10 @@ namespace ChessUI
             InitializeComponent();
 			//ShowStep1();
 
-			InitializeBoard();
+			//LoadWelcomeScreen();
+
+
+            InitializeBoard();
 
 			gameState = new GameState(Player.White, Board.Initial());
 			//gameState = new GameState(Player.Black, Board.Initial());
@@ -188,8 +191,11 @@ namespace ChessUI
 		{
             gameState.MakeMove(move);
 
-			string moveString = move.ToString();
-			moveHistory.Add(moveString);
+			//string moveString = move.ToString();
+			//moveHistory.Add(moveString);
+			string formattedMove = FormatMove(move, moveHistory.Count);
+			moveHistory.Add(formattedMove);
+
 
             DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
@@ -487,28 +493,34 @@ namespace ChessUI
             }
         }
 
-		private void ShowMenuWelcome()
+		private string FormatMove(Move move, int moveCount)
 		{
-            Welcome menuWelcome = new Welcome();
-			MenuContent.Content = menuWelcome;
+			string player = (moveCount % 2 == 0) ? "White" : "Black";
+			return $"{player}: {move.FromPos}  → {move.ToPos}";
+		}
 
-            menuWelcome.OptionSelected += option =>
-            {
-                if (option == WelcomeOption.NewGame)
-                {
-                    
-                }
-                else if (option == WelcomeOption.BotGame)
-                {
-                    
-                }
-				else if (option == WelcomeOption.Quit)
-				{
-					Application.Current.Shutdown();
-				}
-            };
-        }
-    }
+		private void LoadWelcomeScreen()
+		{
+			var welcomeControl = new Welcome();
+			//welcomeControl.OptionSelected += WelcomeOption
+
+			//menuWelcome.OptionSelected += option =>
+			//{
+			//	if (option == WelcomeOption.NewGame)
+			//	{
+
+			//	}
+			//	else if (option == WelcomeOption.BotGame)
+			//	{
+
+			//	}
+			//	else if (option == WelcomeOption.Quit)
+			//	{
+			//		Application.Current.Shutdown();
+			//	}
+			//};
+		}
+	}
 
 
 }

@@ -39,30 +39,20 @@
                 x:Name="Quit"
                 Click="Quit_Click"/>
 
-            <!--<Button Grid.Row="2"
-                Grid.Column="1"
-                Content="BACK"
-                Style="{StaticResource ButtonStyle}"
-                Width="80"
-                Height="30"
-                Click="Back_Click"
-                Command="{Binding BackCommand}"/>-->
-            <!--Command="{Binding ExitCommand}"/>-->
-            <!--Click="Exit_Click"-->
-
             <Button Grid.Row="2"
                 Grid.Column="2"
                 Content="PLAY"
                 Style="{StaticResource ButtonStyle}"
                 Width="80"
                 Height="30"
+                x:Name="Play"
+                Click="Play_Click"
                 Command="{Binding PlayCommand}"/>
-            <!--Click="Play_Click"
-                x:Name="PlayButton"-->
 
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="3"
-                     Style="{StaticResource ListBoxStyle}" Width="250">
+                     Style="{StaticResource ListBoxStyle}" Width="250"
+                     x:Name="ModeListBox">
                 <ListBoxItem Width="100" 
                              HorizontalAlignment="Center"
                              VerticalAlignment="Center">Bot Mode</ListBoxItem>

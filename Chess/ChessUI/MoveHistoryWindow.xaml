@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessUI"
         mc:Ignorable="d"
-        Title="Move History" Height="400" Width="200">
+        Title="Move History" Height="200" Width="800">
     <Grid>
         <ListBox x:Name="HistoryListBox" FontFamily="Consolas" FontSize="14"/>
     </Grid>

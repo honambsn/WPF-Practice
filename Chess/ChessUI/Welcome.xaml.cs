@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ChessUI
 {
@@ -50,6 +38,16 @@ namespace ChessUI
             OptionSelected?.Invoke(WelcomeOption.BotGame);
         }
 
-
+        private void Play_Click(object sender, RoutedEventArgs e)
+        {
+            if (ModeListBox.SelectedItem is ListBoxItem selectedItem)
+            {
+                string selectedText = selectedItem.Content.ToString();
+                if (selectedText == "Bot Mode")
+                    OptionSelected?.Invoke(WelcomeOption.BotGame);
+                else if (selectedText == "Human Mode")
+                    OptionSelected?.Invoke(WelcomeOption.NewGame);
+            }
+        }
     }
 }
