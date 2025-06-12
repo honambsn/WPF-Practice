@@ -40,7 +40,7 @@
                          RenderOptions.BitmapScalingMode="HighQuality">
             </UniformGrid>
 
-            <ContentControl x:Name="MenuWelcome"/>
+            <ContentControl x:Name="WelcomeContent"/>
             <ContentControl x:Name="MenuContent"/>
             
 

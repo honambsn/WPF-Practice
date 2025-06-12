@@ -40,7 +40,7 @@ namespace ChessUI
             InitializeComponent();
 			//ShowStep1();
 
-			//LoadWelcomeScreen();
+			LoadWelcomeScreen();
 
 
             InitializeBoard();
@@ -502,24 +502,49 @@ namespace ChessUI
 		private void LoadWelcomeScreen()
 		{
 			var welcomeControl = new Welcome();
-			//welcomeControl.OptionSelected += WelcomeOption
+			var vm = new WelcomeViewModel();
 
-			//menuWelcome.OptionSelected += option =>
-			//{
-			//	if (option == WelcomeOption.NewGame)
-			//	{
+			vm.PlayModeSelected += mode =>
+			{
+				MessageBox.Show($"Selected mode: {mode}");
+				//if (mode == WelcomeOption.NewGame)
+    //            {
+    //                MenuContent.Content = null;
+    //                RestartGame();
+    //            }
+    //            else if (mode == WelcomeOption.BotGame)
+    //            {
+    //                ShowBot();
+    //            }
 
-			//	}
-			//	else if (option == WelcomeOption.BotGame)
-			//	{
+            };
 
-			//	}
-			//	else if (option == WelcomeOption.Quit)
-			//	{
-			//		Application.Current.Shutdown();
-			//	}
-			//};
-		}
+			vm.QuitRequested += () =>
+			{
+				Application.Current.Shutdown();
+			};
+
+			MenuWelcome.Content = welcomeControl;
+
+
+            //welcomeControl.OptionSelected += WelcomeOption
+
+            //menuWelcome.OptionSelected += option =>
+            //{
+            //	if (option == WelcomeOption.NewGame)
+            //	{
+
+            //	}
+            //	else if (option == WelcomeOption.BotGame)
+            //	{
+
+            //	}
+            //	else if (option == WelcomeOption.Quit)
+            //	{
+            //		Application.Current.Shutdown();
+            //	}
+            //};
+        }
 	}
 
 

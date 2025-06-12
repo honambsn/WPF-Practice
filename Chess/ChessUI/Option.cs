@@ -15,8 +15,17 @@ namespace ChessUI
 
 	public enum WelcomeOption
 	{
-		NewGame,
-		BotGame,
-		Quit
-	}
+        ResumeGame,
+        PlayWithBot,
+        PlayWithFriend,
+        PlayOnline,
+        Settings
+    }
+
+	public enum ChooseOptions
+	{
+		Play,
+        Exit,
+        Quit
+    }
 }
