@@ -9,59 +9,71 @@ namespace ChessUI
     /// </summary>
     public partial class Welcome : UserControl
     {
-        public event Action<ChooseOptions> OptionSelectedd;
-        public event Action<ChooseOptions, WelcomeOption> OptionSelected;
+        public event EventHandler<ModeSelectedEventArgs> ModeSelected;
+        public event EventHandler QuitRequested;
 
         public Welcome()
         {
             InitializeComponent();
+            InitalizeModes();
+        }
 
-            var viewModel = new WelcomeViewModel();
-            DataContext = viewModel;
-            viewModel.OptionSelected += (option, welcomeOption) =>
+        private void InitalizeModes()
+        {
+            var botModeItem = new ListBoxItem
             {
-                OptionSelected?.Invoke(option, welcomeOption);
+                Content = "BOT MODE",
+                Width = 120,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Tag = GameMode.BotMode
             };
 
+            var humanModeItem = new ListBoxItem
+            {
+                Content = "HUMAN MODE",
+                Width = 120,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                Tag = GameMode.HumanMode
+            };
+
+            ModeListBox.Items.Add(botModeItem);
+            ModeListBox.Items.Add(humanModeItem);
+
+            Play.IsEnabled = false;
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
         {
             //Application.Current.Shutdown();
-            OptionSelectedd?.Invoke(ChooseOptions.Quit);
+            QuitRequested?.Invoke(this, EventArgs.Empty);
         }
 
         private void Play_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(_selectedOption))
+            if (ModeListBox.SelectedItem == null)
             {
-                MessageBox.Show("Please select an option.");
+                MessageBox.Show("Please select game mode first!", "No Mode Selected",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (Enum.TryParse(_selectedOption, out WelcomeOption option))
-            {
-                OptionSelected?.Invoke(ChooseOptions.Play, option);
-            }
-            else
-            {
-                MessageBox.Show("Invalid option selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
+            ListBoxItem selectedItem = (ListBoxItem)ModeListBox.SelectedItem;
+            GameMode selectedMode = (GameMode)selectedItem.Tag;
+
+            ModeSelected?.Invoke(this, new ModeSelectedEventArgs(selectedMode));
         }
-
-        private string _selectedOption;
-
         private void ModeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedOption = (sender as ListBox).SelectedItem as string;
-            if (selectedOption != null)
-            {
-                _selectedOption = selectedOption;
-                MessageBox.Show($"You selected: {_selectedOption}", "Selection", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("No option selected.", "Selection", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            Play.IsEnabled = ModeListBox.SelectedItem != null;
         }
+
+        public void ResetSelection()
+        {
+            ModeListBox.SelectedItem = null;
+            Play.IsEnabled = false;
+        }
+
     }
 }

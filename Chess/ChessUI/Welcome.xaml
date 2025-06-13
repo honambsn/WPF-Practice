@@ -50,29 +50,18 @@
                 Click="Play_Click"/>
 
 
-            <!--<ListBox Grid.Row="1"
-                     Grid.ColumnSpan="3"
-                     Style="{StaticResource ListBoxStyle}" Width="250"
-                     x:Name="ModeListBox">
-                <ListBoxItem Width="100" 
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center" Content="Bot Mode"/>
-
-                <ListBoxItem Width="120"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center" Content="Human Mode"/>
-            </ListBox>-->
             <ListBox Grid.Row="1"
                      Grid.ColumnSpan="3"
                      Style="{StaticResource ListBoxStyle}" Width="250"
-                     x:Name="ModeListBox" SelectionChanged="ModeListBox_SelectionChanged">
-                <ListBoxItem Width="100" 
+                     x:Name="ModeListBox" SelectionChanged="ModeListBox_SelectionChanged"
+                     SelectedItem="{Binding selectedOption, Mode=TwoWay}">
+                <!--<ListBoxItem Width="100" 
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center" Content="Bot Mode"/>
 
                 <ListBoxItem Width="120"
                      HorizontalAlignment="Center"
-                     VerticalAlignment="Center" Content="Human Mode"/>
+                     VerticalAlignment="Center" Content="Human Mode"/>-->
             </ListBox>
         </Grid>
     </Border>

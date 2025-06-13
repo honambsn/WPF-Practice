@@ -13,15 +13,6 @@ namespace ChessUI
 		Continue
 	}
 
-	public enum WelcomeOption
-	{
-        ResumeGame,
-        PlayWithBot,
-        PlayWithFriend,
-        PlayOnline,
-        Settings
-    }
-
 	public enum ChooseOptions
 	{
 		Play,

@@ -14,13 +14,14 @@ using ChessUI.ViewModels;
 using static ChessUI.ViewModels.BotMenuViewModel;
 using ChessUI.Views.Menus;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace ChessUI
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : Window, INotifyPropertyChanged
 	{
 		private readonly Image[,] pieceImages = new Image[8, 8];
 		private readonly Rectangle[,] highlights = new Rectangle[8, 8];
@@ -33,25 +34,26 @@ namespace ChessUI
 		private bool playingWithBot = false;
 
 		private ObservableCollection<string> moveHistory = new ObservableCollection<string>();
-        private MoveHistoryWindow historyWidow;
+		private MoveHistoryWindow historyWidow;
 
-        public MainWindow()
+		public MainWindow()
 		{
-            InitializeComponent();
+			InitializeComponent();
 			//ShowStep1();
+			DataContext = this;
 
 			LoadWelcomeScreen();
 
 
-            InitializeBoard();
+			//InitializeBoard();
 
-			gameState = new GameState(Player.White, Board.Initial());
-			//gameState = new GameState(Player.Black, Board.Initial());
-			DrawBoard(gameState.Board);
-			SetCursor(gameState.CurrentPlayer);
+			//gameState = new GameState(Player.White, Board.Initial());
+			////gameState = new GameState(Player.Black, Board.Initial());
+			//DrawBoard(gameState.Board);
+			//SetCursor(gameState.CurrentPlayer);
 
-            this.Loaded += (s, e) => ShowHistoryWindow();
-        }
+			//this.Loaded += (s, e) => ShowHistoryWindow();
+		}
 
 		private void InitializeBoard()
 		{
@@ -73,24 +75,24 @@ namespace ChessUI
 		private void DrawBoard(Board board)
 		{
 			//clear all highlights
-            for (int r = 0; r < 8; r++)
-            {
-                for (int c = 0; c < 8; c++)
-                {
-                    highlights[r, c].Fill = Brushes.Transparent;
-                    highlights[r, c].Stroke = null;
-                }
-            }
+			for (int r = 0; r < 8; r++)
+			{
+				for (int c = 0; c < 8; c++)
+				{
+					highlights[r, c].Fill = Brushes.Transparent;
+					highlights[r, c].Stroke = null;
+				}
+			}
 
 			Player currentPlayer = gameState.CurrentPlayer;
-            // highlight the checked if any
-            Position? checkedKingPos = board.GetCheckedKingPosition(currentPlayer);
+			// highlight the checked if any
+			Position? checkedKingPos = board.GetCheckedKingPosition(currentPlayer);
 			if (checkedKingPos != null)
 			{
 				int r = checkedKingPos.Row;
-                int c = checkedKingPos.Column;
-                highlights[r, c].Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
-            }
+				int c = checkedKingPos.Column;
+				highlights[r, c].Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
+			}
 
 			//highlight last move
 			if (gameState.LastMove != null)
@@ -109,9 +111,9 @@ namespace ChessUI
 				{
 					Piece piece = board[r, c];
 					pieceImages[r, c].Source = Images.GetImage(piece);
-                }
+				}
 			}
-        }
+		}
 
 		private void BoardGrid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
@@ -189,7 +191,7 @@ namespace ChessUI
 
 		private void HandleMove(Move move)
 		{
-            gameState.MakeMove(move);
+			gameState.MakeMove(move);
 
 			//string moveString = move.ToString();
 			//moveHistory.Add(moveString);
@@ -197,7 +199,7 @@ namespace ChessUI
 			moveHistory.Add(formattedMove);
 
 
-            DrawBoard(gameState.Board);
+			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
 
 			if (gameState.IsGameOver())
@@ -212,7 +214,7 @@ namespace ChessUI
 		}
 
 
-        private void CacheMoves(IEnumerable<Move> moves)
+		private void CacheMoves(IEnumerable<Move> moves)
 		{
 			moveCache.Clear();
 
@@ -235,25 +237,25 @@ namespace ChessUI
 			Color captureColor = Color.FromArgb(180, 255, 100, 100);
 			Color selectedColor = Color.FromArgb(180, 255, 255, 0);
 
-            foreach (var kvp in moveCache)
+			foreach (var kvp in moveCache)
 			{
 				Position to = kvp.Key;
-                Move move = kvp.Value;
+				Move move = kvp.Value;
 
 				Piece targetPiece = gameState.Board[to];
 				if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
 				{
 					highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
-                }
+				}
 				else
 				{
 					highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
-                }
-            }
-            if (selectedPos != null)
+				}
+			}
+			if (selectedPos != null)
 				highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
-            
-        }
+
+		}
 
 		private void HideHighlights()
 		{
@@ -419,79 +421,79 @@ namespace ChessUI
 			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
 		}
 
-        //-------------------------  test menu
-        //# region multistep menu
-        //	private void ShowStep1()
-        //	{
-        //		MenuContent.Content = new PlayExitMenu(OnPlayClicked, OnExitClicked);
-        //	}
+		//-------------------------  test menu
+		//# region multistep menu
+		//	private void ShowStep1()
+		//	{
+		//		MenuContent.Content = new PlayExitMenu(OnPlayClicked, OnExitClicked);
+		//	}
 
-        //	private void ShowStep2()
-        //	{
-        //		MenuContent.Content = new ModeSelectMenu(OnPvpClicked, OnBotClicked);
-        //	}
+		//	private void ShowStep2()
+		//	{
+		//		MenuContent.Content = new ModeSelectMenu(OnPvpClicked, OnBotClicked);
+		//	}
 
-        //	private void ShowStep3()
-        //	{
-        //		MenuContent.Content = new DifficultySelectMenu(OnDifficultySelected);
-        //	}
+		//	private void ShowStep3()
+		//	{
+		//		MenuContent.Content = new DifficultySelectMenu(OnDifficultySelected);
+		//	}
 
-        //	private void OnPlayClicked()
-        //	{
-        //		ShowStep2();
-        //	}
+		//	private void OnPlayClicked()
+		//	{
+		//		ShowStep2();
+		//	}
 
-        //	private void OnExitClicked()
-        //	{
-        //		Application.Current.Shutdown();
-        //	}
+		//	private void OnExitClicked()
+		//	{
+		//		Application.Current.Shutdown();
+		//	}
 
-        //	private void OnPvpClicked()
-        //	{
-        //		MessageBox.Show("Starting Player vs Player game...");
-        //		// TODO: Call function StartPvPGame();
-        //		MenuContent.Visibility = Visibility.Collapsed; // Ẩn menu
+		//	private void OnPvpClicked()
+		//	{
+		//		MessageBox.Show("Starting Player vs Player game...");
+		//		// TODO: Call function StartPvPGame();
+		//		MenuContent.Visibility = Visibility.Collapsed; // Ẩn menu
 
-        //		InitializeComponent();
+		//		InitializeComponent();
 
-        //		InitializeBoard();
+		//		InitializeBoard();
 
-        //		gameState = new GameState(Player.White, Board.Initial());
-        //		//gameState = new GameState(Player.Black, Board.Initial());
-        //		DrawBoard(gameState.Board);
-        //		SetCursor(gameState.CurrentPlayer);
+		//		gameState = new GameState(Player.White, Board.Initial());
+		//		//gameState = new GameState(Player.Black, Board.Initial());
+		//		DrawBoard(gameState.Board);
+		//		SetCursor(gameState.CurrentPlayer);
 
-        //	}
+		//	}
 
-        //	private void OnBotClicked()
-        //	{
-        //		ShowStep3();
-        //	}
+		//	private void OnBotClicked()
+		//	{
+		//		ShowStep3();
+		//	}
 
-        //	private void OnDifficultySelected(BotDifficulty difficulty)
-        //	{
-        //		MessageBox.Show($"Starting game vs Bot - Difficulty: {difficulty}");
-        //		// TODO: StartBotGame(difficulty);
-        //	}
+		//	private void OnDifficultySelected(BotDifficulty difficulty)
+		//	{
+		//		MessageBox.Show($"Starting game vs Bot - Difficulty: {difficulty}");
+		//		// TODO: StartBotGame(difficulty);
+		//	}
 
-        //}
-        //#endregion
+		//}
+		//#endregion
 
-        private void ShowHistoryWindow()
-        {
-            if (historyWidow == null || !historyWidow.IsVisible)
-            {
-                historyWidow = new MoveHistoryWindow(moveHistory);
-                historyWidow.Owner = this; // Set the owner to ensure it stays on top of the main window
-                historyWidow.Left = this.Left + this.Width + 10; // Position it to the right of the main window
-                historyWidow.Top = this.Top; // Align it vertically with the main window
-                historyWidow.Show();
-            }
-            else
-            {
-                historyWidow.Focus(); // Bring the existing window to the front
-            }
-        }
+		private void ShowHistoryWindow()
+		{
+			if (historyWidow == null || !historyWidow.IsVisible)
+			{
+				historyWidow = new MoveHistoryWindow(moveHistory);
+				historyWidow.Owner = this; // Set the owner to ensure it stays on top of the main window
+				historyWidow.Left = this.Left + this.Width + 10; // Position it to the right of the main window
+				historyWidow.Top = this.Top; // Align it vertically with the main window
+				historyWidow.Show();
+			}
+			else
+			{
+				historyWidow.Focus(); // Bring the existing window to the front
+			}
+		}
 
 		private string FormatMove(Move move, int moveCount)
 		{
@@ -499,53 +501,62 @@ namespace ChessUI
 			return $"{player}: {move.FromPos}  → {move.ToPos}";
 		}
 
+
+		private object _currentScreen;
+		private Welcome _welcomeScreen;
+
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
 		private void LoadWelcomeScreen()
 		{
-			var welcomeControl = new Welcome();
-			var vm = new WelcomeViewModel();
+			_welcomeScreen = new Welcome();
+			_welcomeScreen.ModeSelected += WelcomeScreen_ModeSelected;
+			_welcomeScreen.QuitRequested += WelcomeScreen_QuitSelected;
 
-			vm.PlayModeSelected += mode =>
+
+		}
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		private void WelcomeScreen_ModeSelected(object sender, ModeSelectedEventArgs e)
+		{
+			switch (e.SelectedMode)
 			{
-				MessageBox.Show($"Selected mode: {mode}");
-				//if (mode == WelcomeOption.NewGame)
-    //            {
-    //                MenuContent.Content = null;
-    //                RestartGame();
-    //            }
-    //            else if (mode == WelcomeOption.BotGame)
-    //            {
-    //                ShowBot();
-    //            }
+				case GameMode.BotMode:
+					//ShowBotGameScreen();
+					break;
+				case GameMode.HumanMode:
+					InitializeBoard();
 
-            };
+					gameState = new GameState(Player.White, Board.Initial());
+					//gameState = new GameState(Player.Black, Board.Initial());
+					DrawBoard(gameState.Board);
+					SetCursor(gameState.CurrentPlayer);
 
-			vm.QuitRequested += () =>
+					this.Loaded += (s, e) => ShowHistoryWindow();
+					//ShowHumanGameScreen();
+					break;
+				default:
+					MessageBox.Show("Unknown game mode selected!", "Error",
+								   MessageBoxButton.OK, MessageBoxImage.Error);
+					break;
+			}
+		}
+
+		private void WelcomeScreen_QuitSelected(object sender, EventArgs e)
+		{
+			MessageBoxResult result = MessageBox.Show("Are you sure you want to quit?", "Confirm Quit",
+				MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+			if (result == MessageBoxResult.Yes)
 			{
 				Application.Current.Shutdown();
-			};
 
-			MenuWelcome.Content = welcomeControl;
-
-
-            //welcomeControl.OptionSelected += WelcomeOption
-
-            //menuWelcome.OptionSelected += option =>
-            //{
-            //	if (option == WelcomeOption.NewGame)
-            //	{
-
-            //	}
-            //	else if (option == WelcomeOption.BotGame)
-            //	{
-
-            //	}
-            //	else if (option == WelcomeOption.Quit)
-            //	{
-            //		Application.Current.Shutdown();
-            //	}
-            //};
-        }
+			}
+		}
 	}
-
-
 }
