@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\App.xaml
-12639531510
+12-1383647319
 
-25-1436310500
+25-946052810
 200-1178257853
-BotMenu.xaml;GameOverMenu.xaml;MainWindow.xaml;MoveHistoryWindow.xaml;PauseMenu.xaml;PopUp.xaml;PromotionMenu.xaml;Style\PopupStyle.xaml;Views\Menus\DifficultySelectMenu.xaml;Views\Menus\ModeSelectMenu.xaml;Views\Menus\PlayExitMenu.xaml;Welcome.xaml;
+BotMenu.xaml;GameMode.xaml;GameOverMenu.xaml;MainWindow.xaml;MoveHistoryWindow.xaml;PauseMenu.xaml;PopUp.xaml;PromotionMenu.xaml;Style\PopupStyle.xaml;Views\Menus\DifficultySelectMenu.xaml;Views\Menus\ModeSelectMenu.xaml;Views\Menus\PlayExitMenu.xaml;
 
 False
 

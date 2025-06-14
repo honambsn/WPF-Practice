@@ -40,20 +40,20 @@ namespace ChessUI
 		{
 			InitializeComponent();
 			//ShowStep1();
-			DataContext = this;
+			
 
-			LoadWelcomeScreen();
+			//LoadWelcomeScreen();
 
 
-			//InitializeBoard();
+            //InitializeBoard();
 
-			//gameState = new GameState(Player.White, Board.Initial());
-			////gameState = new GameState(Player.Black, Board.Initial());
-			//DrawBoard(gameState.Board);
-			//SetCursor(gameState.CurrentPlayer);
+            //gameState = new GameState(Player.White, Board.Initial());
+            ////gameState = new GameState(Player.Black, Board.Initial());
+            //DrawBoard(gameState.Board);
+            //SetCursor(gameState.CurrentPlayer);
 
-			//this.Loaded += (s, e) => ShowHistoryWindow();
-		}
+            //this.Loaded += (s, e) => ShowHistoryWindow();
+        }
 
 		private void InitializeBoard()
 		{
@@ -503,16 +503,16 @@ namespace ChessUI
 
 
 		private object _currentScreen;
-		private Welcome _welcomeScreen;
+		private GameMode _welcomeScreen;
 
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void LoadWelcomeScreen()
 		{
-			_welcomeScreen = new Welcome();
-			_welcomeScreen.ModeSelected += WelcomeScreen_ModeSelected;
-			_welcomeScreen.QuitRequested += WelcomeScreen_QuitSelected;
+			_welcomeScreen = new GameMode();
+			//_welcomeScreen.ModeSelected += WelcomeScreen_ModeSelected;
+			//_welcomeScreen.QuitRequested += WelcomeScreen_QuitSelected;
 
 
 		}
@@ -526,10 +526,10 @@ namespace ChessUI
 		{
 			switch (e.SelectedMode)
 			{
-				case GameMode.BotMode:
+				case GameModeOptions.BotMode:
 					//ShowBotGameScreen();
 					break;
-				case GameMode.HumanMode:
+				case GameModeOptions.HumanMode:
 					InitializeBoard();
 
 					gameState = new GameState(Player.White, Board.Initial());
@@ -557,6 +557,16 @@ namespace ChessUI
 				Application.Current.Shutdown();
 
 			}
+		}
+
+		public void BotMode()
+		{
+
+		}
+
+		public void HumanMode()
+		{
+
 		}
 	}
 }
