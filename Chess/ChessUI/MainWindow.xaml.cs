@@ -38,11 +38,11 @@ namespace ChessUI
 
 		public MainWindow()
 		{
-			InitializeComponent();
-			//ShowStep1();
-			
+            InitializeComponent();
+            //ShowStep1();
+			SetupWelcomeScreen();
 
-			//LoadWelcomeScreen();
+            //LoadWelcomeScreen();
 
 
             //InitializeBoard();
@@ -566,7 +566,39 @@ namespace ChessUI
 
 		public void HumanMode()
 		{
+			//GameModeContent.Content = null; // Clear the game mode content
 
+            InitializeBoard();
+
+			gameState = new GameState(Player.White, Board.Initial());
+			//gameState = new GameState(Player.Black, Board.Initial());
+			DrawBoard(gameState.Board);
+			SetCursor(gameState.CurrentPlayer);
+
+			this.Loaded += (s, e) => ShowHistoryWindow();
 		}
-	}
+
+		private GameMode gameModeControl;
+        private void SetupWelcomeScreen()
+        {
+            //// Tạo Welcome control và set reference
+            //welcomeControl = new Welcome();
+            //welcomeControl.SetMainWindow(this); // Set reference!
+
+            //// Add vào UI (tùy theo cách bạn setup)
+            //MainContent.Content = welcomeControl; // Nếu dùng ContentControl
+
+
+
+			gameModeControl = new GameMode();
+            gameModeControl.SetMainWindow(this); // Set reference to MainWindow
+
+            GameModeContent.Content = gameModeControl; // Add to the main content area
+        }
+
+		public void CloseGameMode()
+		{
+			GameModeContent.Content = null;
+		}
+    }
 }

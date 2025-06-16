@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChessUI"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             Width="600"
+             Height="600">
     <Border
     Width="300"
     Height="300"
@@ -55,20 +56,20 @@
                      Style="{StaticResource ListBoxStyle}" Width="250"
                      x:Name="ModeListBox" SelectionChanged="ModeListBox_SelectionChanged"
                      SelectedItem="{Binding selectedOption, Mode=TwoWay}">
-                <ListBox.ItemContainerStyle>
+                <!--<ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Width" Value="120"/>
                         <Setter Property="HorizontalAlignment" Value="Center"/>
                         <Setter Property="VerticalAlignment" Value="Center"/>
                     </Style>
-                </ListBox.ItemContainerStyle>
-                <!--<ListBoxItem Width="100" 
+                </ListBox.ItemContainerStyle>-->
+                <ListBoxItem Width="100" 
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center" Content="Bot Mode"/>
 
                 <ListBoxItem Width="120"
                      HorizontalAlignment="Center"
-                     VerticalAlignment="Center" Content="Human Mode"/>-->
+                     VerticalAlignment="Center" Content="Human Mode"/>
             </ListBox>
         </Grid>
     </Border>

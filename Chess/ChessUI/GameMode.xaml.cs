@@ -20,68 +20,64 @@ namespace ChessUI
     /// </summary>
     public partial class GameMode : UserControl
     {
+        private MainWindow _mainWindow;
         public GameMode()
         {
             InitializeComponent();
-            LoadModeComponent();
+            //LoadModeComponent();
+        }
+
+        public GameMode(MainWindow mainWindow) : this()
+        {
+            _mainWindow = mainWindow;
+        }
+
+        public void SetMainWindow(MainWindow mainWindow)
+        {
+            _mainWindow = mainWindow;
         }
 
         private void Play_Click(object sender, RoutedEventArgs e)
         {
-            if (ModeListBox.SelectedItem == null)
+            try
             {
-                MessageBox.Show("Please select game mode first!", "No Mode Selected",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+                // Debug: Check selection
+                MessageBox.Show($"Selected Item: {ModeListBox.SelectedItem?.ToString() ?? "NULL"}", "Debug Info");
 
-            string selectedMode = ModeListBox.SelectedItem.ToString();
-
-            MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-
-            if (mainWindow != null)
-            {
-                switch (selectedMode)
+                if (ModeListBox.SelectedItem == null)
                 {
-                    case "BOT MODE":
-                        mainWindow.BotMode();
-                        break;
-                    case "HUMAN MODE":
-                        mainWindow.HumanMode();
-                        break;
-                    case "RESUME GAME":
-                        //mainWindow.ResumeGame();
-                        break;
-                    case "PLAY WITH BOT":
-                        //mainWindow.PlayWithBot();
-                        break;
-                    case "PLAY WITH FRIEND":
-                        //mainWindow.PlayWithFriend();
-                        break;
-                    case "PLAY ONLINE":
-                        //mainWindow.PlayOnline();
-                        break;
-                    case "SETTINGS":
-                    //    mainWindow.OpenSettings();
-                        break;
-                    default:
-                        MessageBox.Show("Invalid game mode selected.", "Error",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                        break;
+                    MessageBox.Show("Please select a game mode!", "No Mode Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                string selectedMode = ModeListBox.SelectedItem.ToString();
+                MessageBox.Show($"Selected Mode: {selectedMode}", "Debug Mode");
+
+                // Tìm MainWindow parent
+                //MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+
+                // Use stored reference instead of Window.GetWindow()
+                if (_mainWindow == null)
+                {
+                    MessageBox.Show("MainWindow reference not set!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                _mainWindow.CloseGameMode();
+
+                if (selectedMode == "Bot Mode")
+                {
+                    _mainWindow.BotMode();
+                }
+                else if (selectedMode == "Human Mode")
+                {
+                    _mainWindow.HumanMode();
                 }
             }
-
-            //if (mainWindow != null)
-            //{
-            //    if (selectedMode == "BOT MODE")
-            //    {
-            //        mainWindow.BotMode();
-            //    }
-            //    else if (selectedMode == "HUMAN MODE")
-            //    {
-            //        mainWindow.HumanMode();
-            //    }
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
@@ -109,7 +105,8 @@ namespace ChessUI
 
         private void ModeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
+
     }
 }
