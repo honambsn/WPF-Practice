@@ -39,8 +39,9 @@ namespace ChessUI
 		public MainWindow()
 		{
             InitializeComponent();
+			SetUpGameMode();
             //ShowStep1();
-			SetupWelcomeScreen();
+            //SetupWelcomeScreen();
 
             //LoadWelcomeScreen();
 
@@ -53,9 +54,27 @@ namespace ChessUI
             //SetCursor(gameState.CurrentPlayer);
 
             //this.Loaded += (s, e) => ShowHistoryWindow();
+
+            //SetUpGameMode();
+            //HumanMode();
+            //StartGame();
         }
 
-		private void InitializeBoard()
+		public void StartGame()
+        {
+            InitializeComponent();
+
+            InitializeBoard();
+
+            gameState = new GameState(Player.White, Board.Initial());
+            //gameState = new GameState(Player.Black, Board.Initial());
+            DrawBoard(gameState.Board);
+            SetCursor(gameState.CurrentPlayer);
+
+            this.Loaded += (s, e) => ShowHistoryWindow();
+        }
+
+        private void InitializeBoard()
 		{
 			for (int r = 0; r < 8; r++)
 			{
@@ -561,37 +580,37 @@ namespace ChessUI
 
 		public void BotMode()
 		{
-
-		}
+			CloseGameMode();
+			ShowBot();
+        }
 
 		public void HumanMode()
 		{
-			//GameModeContent.Content = null; // Clear the game mode content
-
+			CloseGameMode();
+            //GameModeContent.Content = null; // Clear the game mode content
+            MessageBox.Show("Starting Human vs Human game...", "Information", MessageBoxButton.OK);
             InitializeBoard();
 
-			gameState = new GameState(Player.White, Board.Initial());
-			//gameState = new GameState(Player.Black, Board.Initial());
-			DrawBoard(gameState.Board);
-			SetCursor(gameState.CurrentPlayer);
+            gameState = new GameState(Player.White, Board.Initial());
+            //gameState = new GameState(Player.Black, Board.Initial());
+            DrawBoard(gameState.Board);
+            SetCursor(gameState.CurrentPlayer);
 
-			this.Loaded += (s, e) => ShowHistoryWindow();
-		}
+            this.Loaded += (s, e) => ShowHistoryWindow();
+        }
 
 		private GameMode gameModeControl;
-        private void SetupWelcomeScreen()
+        private void SetUpGameMode()
         {
-            //// Tạo Welcome control và set reference
-            //welcomeControl = new Welcome();
-            //welcomeControl.SetMainWindow(this); // Set reference!
+            //    GameModeContent.Content = new GameMode();
 
-            //// Add vào UI (tùy theo cách bạn setup)
-            //MainContent.Content = welcomeControl; // Nếu dùng ContentControl
+            //GameModeContent.Content = gameModeControl; // Add to the main content area
+            //gameModeControl.Content = new GameMode();
 
+            gameModeControl = new GameMode();
 
-
-			gameModeControl = new GameMode();
-            gameModeControl.SetMainWindow(this); // Set reference to MainWindow
+            gameModeControl.BotModeRequested += (sender, e) => BotMode();
+            gameModeControl.HumanModeRequested += (sender, e) => HumanMode();
 
             GameModeContent.Content = gameModeControl; // Add to the main content area
         }
