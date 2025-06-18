@@ -39,26 +39,28 @@ namespace ChessUI
 		public MainWindow()
 		{
             InitializeComponent();
-			SetUpGameMode();
+
             //ShowStep1();
             //SetupWelcomeScreen();
 
             //LoadWelcomeScreen();
 
 
-            //InitializeBoard();
+            SetUpGameMode();
 
-            //gameState = new GameState(Player.White, Board.Initial());
-            ////gameState = new GameState(Player.Black, Board.Initial());
-            //DrawBoard(gameState.Board);
-            //SetCursor(gameState.CurrentPlayer);
+   //         InitializeBoard();
 
-            //this.Loaded += (s, e) => ShowHistoryWindow();
+			//gameState = new GameState(Player.White, Board.Initial());
+			////gameState = new GameState(Player.Black, Board.Initial());
+			//DrawBoard(gameState.Board);
+			//SetCursor(gameState.CurrentPlayer);
 
-            //SetUpGameMode();
-            //HumanMode();
-            //StartGame();
-        }
+			//this.Loaded += (s, e) => ShowHistoryWindow();
+
+			//SetUpGameMode();
+			//HumanMode();
+			//StartGame();
+		}
 
 		public void StartGame()
         {
@@ -581,8 +583,18 @@ namespace ChessUI
 		public void BotMode()
 		{
 			CloseGameMode();
-			ShowBot();
-        }
+			try
+			{
+				InitializeBoard();
+                ShowBot();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Error starting Bot mode: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+			}
+		}
 
 		public void HumanMode()
 		{
