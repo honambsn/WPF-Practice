@@ -36,7 +36,10 @@ namespace ChessUI
 		private ObservableCollection<string> moveHistory = new ObservableCollection<string>();
 		private MoveHistoryWindow historyWidow;
 
-		public MainWindow()
+		private bool IsOverlayActive = false;
+
+
+        public MainWindow()
 		{
             InitializeComponent();
 
@@ -61,20 +64,6 @@ namespace ChessUI
 			//HumanMode();
 			//StartGame();
 		}
-
-		public void StartGame()
-        {
-            InitializeComponent();
-
-            InitializeBoard();
-
-            gameState = new GameState(Player.White, Board.Initial());
-            //gameState = new GameState(Player.Black, Board.Initial());
-            DrawBoard(gameState.Board);
-            SetCursor(gameState.CurrentPlayer);
-
-            this.Loaded += (s, e) => ShowHistoryWindow();
-        }
 
         private void InitializeBoard()
 		{
@@ -138,6 +127,11 @@ namespace ChessUI
 
 		private void BoardGrid_MouseDown(object sender, MouseButtonEventArgs e)
 		{
+			if (IsOverlayActive)
+			{
+				e.Handled = true; return;
+			}
+
 			if (IsMenuOnScreen())
 			{
 				return;
@@ -364,7 +358,8 @@ namespace ChessUI
 
 		private void ShowBot()
 		{
-			var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
+			IsOverlayActive = true;
+            var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
 			{
 				MenuContent.Content = null;
 
@@ -387,6 +382,7 @@ namespace ChessUI
 		private Bot currentBot;
 		private void BotPlay()
 		{
+			//IsOverlayActive = false;
 			playingWithBot = true;
 			selectedPos = null;
 			HideHighlights();
@@ -394,8 +390,9 @@ namespace ChessUI
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
-
-			currentBot = new Bot(selectedDifficulty);
+            ShowHistoryWindow();
+			//IsOverlayActive = false;
+            currentBot = new Bot(selectedDifficulty);
 
 			if (gameState.CurrentPlayer == Player.Black)
 			{
@@ -438,9 +435,14 @@ namespace ChessUI
 
 		private void ShowPopUp()
 		{
-			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
+			IsOverlayActive = true;
+            PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
 			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
-		}
+            PlayPopup.CountdownFinished += (_, __) =>
+            {
+                IsOverlayActive = false;
+            };
+        }
 
 		//-------------------------  test menu
 		//# region multistep menu
@@ -529,56 +531,56 @@ namespace ChessUI
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private void LoadWelcomeScreen()
-		{
-			_welcomeScreen = new GameMode();
-			//_welcomeScreen.ModeSelected += WelcomeScreen_ModeSelected;
-			//_welcomeScreen.QuitRequested += WelcomeScreen_QuitSelected;
+		//private void LoadWelcomeScreen()
+		//{
+		//	_welcomeScreen = new GameMode();
+		//	//_welcomeScreen.ModeSelected += WelcomeScreen_ModeSelected;
+		//	//_welcomeScreen.QuitRequested += WelcomeScreen_QuitSelected;
 
 
-		}
+		//}
 
 		protected virtual void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 
-		private void WelcomeScreen_ModeSelected(object sender, ModeSelectedEventArgs e)
-		{
-			switch (e.SelectedMode)
-			{
-				case GameModeOptions.BotMode:
-					//ShowBotGameScreen();
-					break;
-				case GameModeOptions.HumanMode:
-					InitializeBoard();
+		//private void WelcomeScreen_ModeSelected(object sender, ModeSelectedEventArgs e)
+		//{
+		//	switch (e.SelectedMode)
+		//	{
+		//		case GameModeOptions.BotMode:
+		//			//ShowBotGameScreen();
+		//			break;
+		//		case GameModeOptions.HumanMode:
+		//			InitializeBoard();
 
-					gameState = new GameState(Player.White, Board.Initial());
-					//gameState = new GameState(Player.Black, Board.Initial());
-					DrawBoard(gameState.Board);
-					SetCursor(gameState.CurrentPlayer);
+		//			gameState = new GameState(Player.White, Board.Initial());
+		//			//gameState = new GameState(Player.Black, Board.Initial());
+		//			DrawBoard(gameState.Board);
+		//			SetCursor(gameState.CurrentPlayer);
 
-					this.Loaded += (s, e) => ShowHistoryWindow();
-					//ShowHumanGameScreen();
-					break;
-				default:
-					MessageBox.Show("Unknown game mode selected!", "Error",
-								   MessageBoxButton.OK, MessageBoxImage.Error);
-					break;
-			}
-		}
+		//			this.Loaded += (s, e) => ShowHistoryWindow();
+		//			//ShowHumanGameScreen();
+		//			break;
+		//		default:
+		//			MessageBox.Show("Unknown game mode selected!", "Error",
+		//						   MessageBoxButton.OK, MessageBoxImage.Error);
+		//			break;
+		//	}
+		//}
 
-		private void WelcomeScreen_QuitSelected(object sender, EventArgs e)
-		{
-			MessageBoxResult result = MessageBox.Show("Are you sure you want to quit?", "Confirm Quit",
-				MessageBoxButton.YesNo, MessageBoxImage.Question);
+		//private void WelcomeScreen_QuitSelected(object sender, EventArgs e)
+		//{
+		//	MessageBoxResult result = MessageBox.Show("Are you sure you want to quit?", "Confirm Quit",
+		//		MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-			if (result == MessageBoxResult.Yes)
-			{
-				Application.Current.Shutdown();
+		//	if (result == MessageBoxResult.Yes)
+		//	{
+		//		Application.Current.Shutdown();
 
-			}
-		}
+		//	}
+		//}
 
 		public void BotMode()
 		{
@@ -587,7 +589,7 @@ namespace ChessUI
 			{
 				InitializeBoard();
                 ShowBot();
-			}
+            }
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error starting Bot mode: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -599,8 +601,9 @@ namespace ChessUI
 		public void HumanMode()
 		{
 			CloseGameMode();
+            ShowPopUp();
             //GameModeContent.Content = null; // Clear the game mode content
-            MessageBox.Show("Starting Human vs Human game...", "Information", MessageBoxButton.OK);
+            //MessageBox.Show("Starting Human vs Human game...", "Information", MessageBoxButton.OK);
             InitializeBoard();
 
             gameState = new GameState(Player.White, Board.Initial());
@@ -608,12 +611,14 @@ namespace ChessUI
             DrawBoard(gameState.Board);
             SetCursor(gameState.CurrentPlayer);
 
-            this.Loaded += (s, e) => ShowHistoryWindow();
+            ShowHistoryWindow();
         }
 
 		private GameMode gameModeControl;
         private void SetUpGameMode()
         {
+			
+			//GameModePanel.Visibility = Visibility.Visible;
             //    GameModeContent.Content = new GameMode();
 
             //GameModeContent.Content = gameModeControl; // Add to the main content area
@@ -625,11 +630,18 @@ namespace ChessUI
             gameModeControl.HumanModeRequested += (sender, e) => HumanMode();
 
             GameModeContent.Content = gameModeControl; // Add to the main content area
+            //ShowOverlay();
+			//GameModeContent.Visibility = Visibility.Visible;
+			IsOverlayActive = true;
+			GameModePanel.Visibility = Visibility.Visible;
         }
 
 		public void CloseGameMode()
 		{
 			GameModeContent.Content = null;
-		}
+			IsOverlayActive = false;
+			GameModePanel.Visibility = Visibility.Hidden;
+			//HideOverlay();
+        }
     }
 }

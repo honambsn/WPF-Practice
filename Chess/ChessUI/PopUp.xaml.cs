@@ -21,8 +21,9 @@ namespace ChessUI
 	{
 		private DispatcherTimer _timer;
 		private int _timeLeft = 10;
+        public event EventHandler CountdownFinished;
 
-		public PopUp()
+        public PopUp()
 		{
 			InitializeComponent();
 			InitializeTimer();
@@ -60,7 +61,9 @@ namespace ChessUI
 			{
 				border.Visibility = Visibility.Collapsed;
 			}
-		}
+            CountdownFinished?.Invoke(this, EventArgs.Empty);
+
+        }
 
 		public void StartCountdown(int seconds)
 		{

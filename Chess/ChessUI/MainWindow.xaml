@@ -40,9 +40,20 @@
                          RenderOptions.BitmapScalingMode="HighQuality">
             </UniformGrid>
 
-            <ContentControl x:Name="GameModeContent"/>
+            <!--<ContentControl x:Name="GameModeContent"/>-->
+
+            <!-- ContentControl overlay for Game Mode -->
+            <Border x:Name="GameModePanel"
+                    Background="#80000000"
+                    Visibility="Collapsed"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Panel.ZIndex="100" Opacity="1">
+                <ContentControl x:Name="GameModeContent"/>
+            </Border>
+
             <ContentControl x:Name="MenuContent"/>
-            
+
 
             <!--<ContentControl x:Name="MenuContent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="300">
                 

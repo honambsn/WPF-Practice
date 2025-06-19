@@ -135,43 +135,32 @@ namespace ChessUI
                     MessageBox.Show("Please select a game mode!", "No Mode Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
-
-                if (ModeListBox.SelectedItem is ListBoxItem listItem)
-                {
-                    MessageBox.Show("Selected Item is a ListBoxItem", "Debug Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-
+                
                 string selectedMode = (ModeListBox.SelectedItem as ListBoxItem)?.Content.ToString().Trim();
 
-                //MessageBox.Show($"Selected Mode: {selectedMode}", "Debug Mode", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 if (selectedMode != null)
                 {
-                    MessageBox.Show($"Check the Mode: {selectedMode}", "Debug Mode");
+                    if (string.Equals(selectedMode, "Bot Mode", StringComparison.OrdinalIgnoreCase))
+                    {
+                        MessageBox.Show("Bot Mode selected from play click", "Debug Info", MessageBoxButton.OK);
+                        BotModeRequested?.Invoke(this, EventArgs.Empty);
+                    }
+                    else if (string.Equals(selectedMode, "Human Mode", StringComparison.OrdinalIgnoreCase))
+                    {
+                        MessageBox.Show("Human Mode selected from play click", "Debug Info", MessageBoxButton.OK);
+                        HumanModeRequested?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unknown mode selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
                     MessageBox.Show("No mode selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                // Tìm MainWindow parent
-                //MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
-
-                // Use stored reference instead of Window.GetWindow()
-                if (string.Equals(selectedMode, "Bot Mode", StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("Bot Mode selected from play click", "Debug Info", MessageBoxButton.OK);
-                    BotModeRequested?.Invoke(this, EventArgs.Empty);
-                }
-                else if (string.Equals(selectedMode, "Human Mode", StringComparison.OrdinalIgnoreCase))
-                {
-                    MessageBox.Show("Human Mode selected from play click", "Debug Info", MessageBoxButton.OK);
-                    HumanModeRequested?.Invoke(this, EventArgs.Empty);
-                }
-                else
-                {
-                    MessageBox.Show("Unknown mode selected!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
             catch (Exception ex)
             {
