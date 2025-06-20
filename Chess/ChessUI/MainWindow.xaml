@@ -44,27 +44,24 @@
 
             <!-- ContentControl overlay for Game Mode -->
             <Border x:Name="GameModePanel"
-                    Background="#80000000"
-                    Visibility="Collapsed"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    Panel.ZIndex="100" Opacity="1">
+                    Style="{StaticResource BorderPanel}">
                 <ContentControl x:Name="GameModeContent"/>
+                
             </Border>
 
-            <ContentControl x:Name="MenuContent"/>
+            <!--<Border x:Name="MenuPanel"
+                    Style="{StaticResource BorderPanel}">
+                <ContentControl x:Name="MenuContent"/>
+            </Border>-->
 
+            <ContentControl x:Name="MenuContent"/>  
 
             <!--<ContentControl x:Name="MenuContent" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="300">
                 
             </ContentControl>-->
 
             <Border x:Name="PopupPanel"
-                Background="#AA000000"
-                Visibility="Collapsed"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                Panel.ZIndex="100" Opacity="1">
+                    Style="{StaticResource BorderPanel}">
                 <local:PopUp x:Name="PlayPopup" />
             </Border>
         </Grid>

@@ -146,5 +146,15 @@
             </Style.Resources>
         </Style>
 
+        <Style TargetType="Border" x:Key="BorderPanel">
+            <Setter Property="Background" Value="#80000000"/>
+            <Setter Property="Visibility" Value="Collapsed"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Panel.ZIndex" Value="100"/>
+            <Setter Property="Opacity" Value="1"/>
+        </Style>
+
+
     </Application.Resources>
 </Application>
