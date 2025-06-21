@@ -15,6 +15,7 @@ using static ChessUI.ViewModels.BotMenuViewModel;
 using ChessUI.Views.Menus;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Media.Effects;
 
 namespace ChessUI
 {
@@ -90,7 +91,56 @@ namespace ChessUI
 			}
 		}
 
-		private void DrawBoard(Board board)
+
+		//setup later
+        //private void InitializeBoard()
+        //{
+        //    for (int r = 0; r < 8; r++)
+        //    {
+        //        for (int c = 0; c < 8; c++)
+        //        {
+        //            Image image = new Image();
+        //            pieceImages[r, c] = image;
+        //            PieceGrid.Children.Add(image);
+
+        //            var radialBrush = new RadialGradientBrush();
+        //            radialBrush.GradientOrigin = new Point(0.5, 0.5);
+        //            radialBrush.Center = new Point(0.5, 0.5);
+        //            radialBrush.RadiusX = 0.5;
+        //            radialBrush.RadiusY = 0.5;
+
+        //            radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 235, 246), 0));       // Tâm sáng
+        //            radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 235, 246), 1));    // Viền trong suốt
+
+
+        //            Rectangle highlight = new Rectangle()
+        //            {
+        //                Width = 1 * (BoardGrid.Width / 8),  // 80% chiều rộng của 1 ô
+        //                Height = 1 * (BoardGrid.Height / 8), // 80% chiều cao của 1 ô
+        //                Fill = radialBrush,
+        //                //RadiusX = 10, // bo góc nếu thích
+        //                //RadiusY = 10,
+        //                RadiusX = 20,
+        //                RadiusY = 20,
+        //                HorizontalAlignment = HorizontalAlignment.Center,
+        //                VerticalAlignment = VerticalAlignment.Center,
+        //                Effect = new DropShadowEffect
+        //                {
+        //                    Color = Color.FromRgb(254, 235, 246),
+        //                    ShadowDepth = 0,
+        //                    BlurRadius = 30,
+        //                    Opacity = 10,
+        //                },
+        //            };
+        //            highlights[r, c] = highlight;
+        //            HighlightGrid.ClipToBounds = false;
+
+        //            HighlightGrid.Children.Add(highlight);
+        //        }
+        //    }
+        //}
+
+        private void DrawBoard(Board board)
 		{
 			//clear all highlights
 			for (int r = 0; r < 8; r++)
@@ -285,7 +335,54 @@ namespace ChessUI
 
         }
 
-		private void HideHighlights()
+
+		// set up later
+        //private void ShowHighlights()
+        //{
+        //    //Color color = Color.FromArgb(150, 125, 255, 125);
+
+        //    //foreach (Position to in moveCache.Keys)
+        //    //{
+        //    //	highlights[to.Row, to.Column].Fill = new SolidColorBrush(color);
+        //    //}
+
+        //    Color moveColor = Color.FromArgb(150, 125, 255, 125);
+        //    Color captureColor = Color.FromArgb(180, 255, 100, 100);
+        //    Color selectedColor = Color.FromArgb(180, 255, 255, 0);
+
+        //    foreach (var kvp in moveCache)
+        //    {
+        //        Position to = kvp.Key;
+        //        Move move = kvp.Value;
+
+        //        Piece targetPiece = gameState.Board[to];
+        //        if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
+        //        {
+        //            highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
+        //        }
+        //        else
+        //        {
+        //            highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
+        //        }
+        //    }
+        //    if (selectedPos != null)
+        //    //highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
+        //    {
+        //        highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        //        highlights[selectedPos.Row, selectedPos.Column].Effect = new DropShadowEffect
+        //        {
+        //            Color = Colors.Red,
+        //            BlurRadius = 50,
+        //            ShadowDepth = 0,
+        //            Opacity = 12,
+        //        };
+
+        //    }
+
+        //}
+
+
+        private void HideHighlights()
 		{
             for (int r = 0; r < 8; r++)
             {
