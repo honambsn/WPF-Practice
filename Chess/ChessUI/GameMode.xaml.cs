@@ -143,12 +143,12 @@ namespace ChessUI
                 {
                     if (string.Equals(selectedMode, "Bot Mode", StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Bot Mode selected from play click", "Debug Info", MessageBoxButton.OK);
+                        //MessageBox.Show("Bot Mode selected from play click", "Debug Info", MessageBoxButton.OK);
                         BotModeRequested?.Invoke(this, EventArgs.Empty);
                     }
                     else if (string.Equals(selectedMode, "Human Mode", StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Human Mode selected from play click", "Debug Info", MessageBoxButton.OK);
+                        //MessageBox.Show("Human Mode selected from play click", "Debug Info", MessageBoxButton.OK);
                         HumanModeRequested?.Invoke(this, EventArgs.Empty);
                     }
                     else
