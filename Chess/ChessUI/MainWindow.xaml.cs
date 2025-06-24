@@ -28,8 +28,10 @@ namespace ChessUI
 		private readonly Rectangle[,] highlights = new Rectangle[8, 8];
 		private readonly Dictionary<Position, Move> moveCache = new Dictionary<Position, Move>();
 		private BotDifficulty selectedDifficulty;
+		
+		//private readonly Polygon[,] highlights = new Polygon[8, 8]; // Changed to Polygon for better visual effects
 
-		private GameState gameState;
+        private GameState gameState;
 		private Position selectedPos = null;
 
 		private bool playingWithBot = false;
@@ -44,7 +46,7 @@ namespace ChessUI
             public static readonly SolidColorBrush LegalMove = new SolidColorBrush(Color.FromArgb(128, 125, 255, 125));    // Xanh lá nhạt
             public static readonly SolidColorBrush SelectedPiece = new SolidColorBrush(Color.FromArgb(180, 255, 255, 100)); // Vàng
             public static readonly SolidColorBrush Check = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));             // Đỏ
-            public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));       // Xanh dương nhạt
+            public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(255, 72, 118, 255));       // Xanh dương nhạt
         }
 
 
@@ -106,12 +108,52 @@ namespace ChessUI
 					var radialBrush = new RadialGradientBrush();
 					radialBrush.GradientOrigin = new Point(0.5, 0.5);
 					radialBrush.Center = new Point(0.5, 0.5);
-					radialBrush.RadiusX = 0.7;
-					radialBrush.RadiusY = 0.7;
+					//radialBrush.RadiusX = 0.95;
+					//radialBrush.RadiusY = 0.95;
+					radialBrush.RadiusX = 1;
+					radialBrush.RadiusY = 1;
 
 					radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 0, 0), 0));       // Tâm sáng
 					radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 0, 0), 1));    // Viền trong suốt
 
+
+
+					//               // 3. Tạo ngũ giác
+					//               Polygon highlight = new Polygon
+					//               {
+					//                   Fill = radialBrush,
+					//                   HorizontalAlignment = HorizontalAlignment.Center,
+					//                   VerticalAlignment = VerticalAlignment.Center
+					//               };
+
+					//               // Tính toán kích thước và tọa độ đỉnh
+					//               double cellWidth = BoardGrid.Width / 8;
+					//               double cellHeight = BoardGrid.Height / 8;
+					//               double radius = Math.Min(cellWidth, cellHeight) * 0.5; // ngũ giác nhỏ hơn ô
+
+					//               double centerX = radius; // dùng làm gốc tọa độ trong ô
+					//               double centerY = radius;
+
+					//int sides = 8; // Số cạnh của ngũ giác
+					//               double angleOffset = Math.PI / sides;
+
+					//               PointCollection points = new PointCollection();
+					//               for (int i = 0; i < sides; i++)
+					//               {
+					//                   double angle = 2 * Math.PI * i / sides + angleOffset;
+					//                   double x = centerX + radius * Math.Cos(angle);
+					//                   double y = centerY + radius * Math.Sin(angle);
+					//                   points.Add(new Point(x, y));
+					//               }
+
+					//               highlight.Points = points;
+					//               highlights[r, c] = highlight;
+
+					//               // Cho phép vẽ ra ngoài grid nếu cần
+					//               HighlightGrid.ClipToBounds = false;
+
+					//               // Thêm vào lưới
+					//               HighlightGrid.Children.Add(highlight);
 
 					Rectangle highlight = new Rectangle()
 					{
@@ -122,7 +164,7 @@ namespace ChessUI
 						Fill = radialBrush,
 						//RadiusX = 10, // bo góc nếu thích
 						//RadiusY = 10,
-                        HorizontalAlignment = HorizontalAlignment.Center,
+						HorizontalAlignment = HorizontalAlignment.Center,
 						VerticalAlignment = VerticalAlignment.Center,
 						//Effect = new DropShadowEffect
 						//{
@@ -161,7 +203,7 @@ namespace ChessUI
             radialBrush.RadiusY = 0.7;
 
 			radialBrush.GradientStops.Add(new GradientStop(color, 0));       // Tâm sáng
-			radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, color.R, color.G, color.B), 1));    // Viền trong suốt
+			radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(10, color.R, color.G, color.B), 1));    // Viền trong suốt
 
 			return radialBrush;
         }
@@ -198,10 +240,12 @@ namespace ChessUI
 				var toPos = gameState.LastMove.ToPos;
 
 				//highlights[fromPos.Row, fromPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
-				highlights[fromPos.Row, fromPos.Column].Fill = HighlightColors.LastMove;
-				//highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
-				highlights[toPos.Row, toPos.Column].Fill = HighlightColors.LastMove;
-			}
+				//highlights[fromPos.Row, fromPos.Column].Fill = HighlightColors.LastMove;
+				highlights[fromPos.Row, fromPos.Column].Fill = RadialGradientBrush(HighlightColors.LastMove.Color);
+                //highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
+                //highlights[toPos.Row, toPos.Column].Fill = HighlightColors.LastMove;
+                highlights[toPos.Row, toPos.Column].Fill = RadialGradientBrush(HighlightColors.LastMove.Color);
+            }
 
 			// draw pieces
 			for (int r = 0; r < 8; r++)
@@ -339,9 +383,10 @@ namespace ChessUI
 			//}
 
 			Color moveColor = Color.FromArgb(150, 255, 128, 255); //pink
-			Color captureColor = Color.FromArgb(180, 255, 100, 100);
+			Color captureColor = Color.FromArgb(200, 255, 255, 0);
 			Color selectedColor = Color.FromArgb(180, 255, 255, 0);
 			Color selectPiece = Color.FromArgb(255, 255, 255, 255);
+
 
             foreach (var kvp in moveCache)
 			{
@@ -351,16 +396,17 @@ namespace ChessUI
 				Piece targetPiece = gameState.Board[to];
 				if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
 				{
-					highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
-				}
+					//highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
+					highlights[to.Row, to.Column].Fill = RadialGradientBrush(captureColor);
+                }
 				else
 				{
-					highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
-				}
+					//highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
+					highlights[to.Row, to.Column].Fill = RadialGradientBrush(moveColor);
+                }
 			}
 
 
-            Color color = Color.FromRgb(255, 0, 0);
             if (selectedPos != null)
 				//highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
 				//highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(Color.FromArgb(255,255,255,255));

@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\gamemode.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\gamemode.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\popup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\popup.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -63,7 +63,7 @@
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAiwFQBAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T02:44:04.299Z",
               "IsPinned": true,
@@ -75,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BotMenu.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml.cs",
               "RelativeDocumentMoniker": "ChessUI\\BotMenu.xaml.cs",
@@ -83,24 +83,22 @@
               "RelativeToolTip": "ChessUI\\BotMenu.xaml.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAQwE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T02:02:08.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T02:02:08.243Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BotMenu.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml",
               "RelativeDocumentMoniker": "ChessUI\\BotMenu.xaml",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\BotMenu.xaml",
               "RelativeToolTip": "ChessUI\\BotMenu.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-23T02:07:15.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-23T02:07:15.753Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PopUp.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\PopUp.xaml.cs",
               "RelativeDocumentMoniker": "ChessUI\\PopUp.xaml.cs",
@@ -123,18 +121,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-13T02:43:52.364Z"
+              "WhenOpened": "2025-06-13T02:43:52.364Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameMode.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\GameMode.xaml.cs",
               "RelativeDocumentMoniker": "ChessUI\\GameMode.xaml.cs",
@@ -142,8 +141,7 @@
               "RelativeToolTip": "ChessUI\\GameMode.xaml.cs",
               "ViewState": "AgIAAIsAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-14T03:19:32.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-14T03:19:32.228Z"
             },
             {
               "$type": "Document",
