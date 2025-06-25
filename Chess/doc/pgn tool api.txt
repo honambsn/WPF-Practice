@@ -1,0 +1,8 @@
+https://www.chess.com/news/view/published-data-api
+
+https://lichess.org/api#section/Introduction
+
+https://github.com/Rabergsel/LichessNET
+
+
+
