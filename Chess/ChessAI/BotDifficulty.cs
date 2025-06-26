@@ -10,6 +10,7 @@ namespace ChessAI
 	{
 		Easy,
 		Medium,
-		Hard
+		Hard,
+		Custom,
 	}
 }

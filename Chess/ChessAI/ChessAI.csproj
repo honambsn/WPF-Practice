@@ -29,6 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Config\BotDifficultyConfig.cs" />
+    <Compile Include="Config\BotLevelConfig.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <!-- Project References -->
     <ProjectReference Include="..\ChessLogic\ChessLogic.csproj" />
   </ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using ChessLogic;
 using ChessAI;
+using ChessAI.Config;
 
 public class Bot
 {
@@ -9,23 +10,45 @@ public class Bot
 	private readonly BotDifficulty _difficulty;
 	private readonly Random _random = new Random();
 
-	public Bot(BotDifficulty difficulty)
+	private readonly bool _useMoveOrdering;
+	private readonly bool _useTT;
+	private readonly int _timeLimit;
+	 
+	public Bot(BotDifficulty difficulty, int? playerElo = null)
+	//public Bot( int? playerElo = null)
 	{
 		_difficulty = difficulty;
-		_depth = difficulty switch
-		{
-			
-			BotDifficulty.Easy => 2,
-			BotDifficulty.Medium => 3,
-			BotDifficulty.Hard => 20,
-			_ => 3
-		};
-
 		_evaluator = new Evaluator();
-		_minimax = new Minimax(_evaluator);
-	}
 
-	public Move GetBestMove(GameState state)
+		if (playerElo != null)
+		{
+			var config = BotDiffcultyConfig.Load("Resources/bot_difficulty_config.json");
+			var level = config.GetConfigForElo(playerElo.Value);
+
+			_depth = level.Depth;
+            _useMoveOrdering = level.UseMoveOrdering;
+            _useTT = level.UseTT;
+            _timeLimit = level.TimeLimitMs;
+        }
+		else
+		{
+            (_depth, _useMoveOrdering, _useTT, _timeLimit) = difficulty switch
+            {
+
+                BotDifficulty.Easy => (2, false, false, 2000),
+                BotDifficulty.Medium => (3, true, false, 5000),
+                BotDifficulty.Hard => (6, true, true, 10000),
+                _ => (3, true, false, 5000)
+            };
+		}
+
+        //_evaluator = new Evaluator();
+        //_minimax = new Minimax(_evaluator);
+        _minimax = new Minimax(_evaluator, _useMoveOrdering, _useTT, _timeLimit);
+
+    }
+
+    public Move GetBestMove(GameState state)
 	{
 		var moves = MoveGenerator.Generate(state).ToList();
 		if (!moves.Any())
@@ -60,7 +83,7 @@ public class Bot
 				seenBoards.Add(boardKey);
 			}
 
-			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime, timeLimit);
+			int score = _minimax.Search(copy, _depth - 1, int.MinValue, int.MaxValue, false, startTime);
 
 			lock (lockObj)
 			{

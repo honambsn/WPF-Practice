@@ -118,77 +118,77 @@ namespace ChessAI
         //    }
         //}
 
-        public static class EloManager
-        {
-            private static readonly string filePath = "eloData.json";
-            private static EloData data;
-            //private static List<EloData> eloList = new List<EloData>();
+        //public static class EloManager
+        //{
+        //    private static readonly string filePath = "eloData.json";
+        //    private static EloData data;
+        //    //private static List<EloData> eloList = new List<EloData>();
 
-            static EloManager()
-            {
-                LoadEloData();
-            }
+        //    static EloManager()
+        //    {
+        //        LoadEloData();
+        //    }
 
-            //public static int PlayerElo => eloList.FirstOrDefault()?.PlayerElo ?? 1200;
-            public static int PlayerElo => data?.PlayerElo ?? 1200;
+        //    //public static int PlayerElo => eloList.FirstOrDefault()?.PlayerElo ?? 1200;
+        //    public static int PlayerElo => data?.PlayerElo ?? 1200;
 
-            private static void LoadEloData()
-            {
-                if (File.Exists(filePath))
-                {
-                    string json = File.ReadAllText(filePath);
-                    data = JsonConvert.DeserializeObject<EloData>(json);
-                }
-                else
-                {
-                    data = new EloData();
-                    Save();
-                }
-            }
+        //    private static void LoadEloData()
+        //    {
+        //        if (File.Exists(filePath))
+        //        {
+        //            string json = File.ReadAllText(filePath);
+        //            data = JsonConvert.DeserializeObject<EloData>(json);
+        //        }
+        //        else
+        //        {
+        //            data = new EloData();
+        //            Save();
+        //        }
+        //    }
 
-            private static void Save()
-            {
-                string json = JsonConvert.SerializeObject(data, Formatting.Indented);
-                File.WriteAllText(filePath, json);
-            }
-            public static void UpdateElo(bool playerWon)
-            {
-                int K = 32;
-                double expectedScore = 1.0 / (1.0 + Math.Pow(10, (data.BotElo - data.PlayerElo) / 400.0));
-                int playerScore = playerWon ? 1 : 0;
+        //    private static void Save()
+        //    {
+        //        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+        //        File.WriteAllText(filePath, json);
+        //    }
+        //    public static void UpdateElo(bool playerWon)
+        //    {
+        //        int K = 32;
+        //        double expectedScore = 1.0 / (1.0 + Math.Pow(10, (data.BotElo - data.PlayerElo) / 400.0));
+        //        int playerScore = playerWon ? 1 : 0;
 
-                data.PlayerElo += (int)(K * (playerScore - expectedScore));
-                if (playerWon)
-                {
-                    data.Wins++;
-                }
-                else
-                {
-                    data.Losses++;
-                }
-            }
+        //        data.PlayerElo += (int)(K * (playerScore - expectedScore));
+        //        if (playerWon)
+        //        {
+        //            data.Wins++;
+        //        }
+        //        else
+        //        {
+        //            data.Losses++;
+        //        }
+        //    }
 
-            public static int GetBotDepth()
-            {
-                // This is a placeholder for the bot depth logic.
-                // You can implement your own logic to determine the bot's depth based on the Elo rating.
-                if (data.PlayerElo < 1200)
-                {
-                    return 1; // Beginner level
-                }
-                else if (data.PlayerElo < 1600)
-                {
-                    return 2; // Intermediate level
-                }
-                else if (data.PlayerElo < 2000)
-                {
-                    return 3; // Advanced level
-                }
-                else
-                {
-                    return 4; // Expert level
-                }
-            }
-        }
+        //    public static int GetBotDepth()
+        //    {
+        //        // This is a placeholder for the bot depth logic.
+        //        // You can implement your own logic to determine the bot's depth based on the Elo rating.
+        //        if (data.PlayerElo < 1200)
+        //        {
+        //            return 1; // Beginner level
+        //        }
+        //        else if (data.PlayerElo < 1600)
+        //        {
+        //            return 2; // Intermediate level
+        //        }
+        //        else if (data.PlayerElo < 2000)
+        //        {
+        //            return 3; // Advanced level
+        //        }
+        //        else
+        //        {
+        //            return 4; // Expert level
+        //        }
+        //    }
+        //}
     }
 }

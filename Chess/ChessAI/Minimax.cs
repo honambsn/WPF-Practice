@@ -13,14 +13,23 @@ public class Minimax
 	private DateTime _startTime;
 	private TimeSpan _timeLimit;
 
-	public Minimax(Evaluator evaluator)
-	{
-		_evaluator = evaluator;
-	}
+	private readonly bool _useMoveOrdering;
+	private readonly bool _useTT;
+	//private readonly int _timeLimitMs;
+	private readonly Dictionary<ulong, int> _transpositionTable = new();
 
-	public int Search(GameState state, int depth, int alpha, int beta, bool maximizingPlayer, DateTime startTime, TimeSpan timeLimit)
+    public Minimax(Evaluator evaluator, bool useMoveOrdering, bool useTT, int timeLimitMs)
+
+    {
+        _evaluator = evaluator;
+        _useMoveOrdering = useMoveOrdering;
+        _useTT = useTT;
+        _timeLimit = TimeSpan.FromMilliseconds(timeLimitMs);
+    }
+
+	public int Search(GameState state, int depth, int alpha, int beta, bool maximizingPlayer, DateTime startTime)
 	{
-		if(DateTime.Now - startTime > timeLimit)
+		if(DateTime.Now - startTime > _timeLimit)
 		{
 			return _evaluator.EvaluateBoard(state);
 		}
@@ -30,20 +39,29 @@ public class Minimax
 			return _evaluator.EvaluateBoard(state);
 		}
 
-		List<Move> moves;
+		List<Move> moves = moves = MoveGenerator.Generate(state).ToList();
 
 		//var moves = MoveGenerator.Generate(state);
+		if (_useMoveOrdering)
+		{
+            moves = moves.OrderByDescending(m =>
+            {
+                Piece target = state.Board[m.ToPos];
+                return target == null ? 0 : (int)target.Type;
+            }).ToList();
 
-		if (depth > 2)
-		{
-			moves = MoveGenerator.Generate(state).ToList();
-		}
-		else
-		{
-			moves = MoveGenerator.Generate(state)
-				.Where(m => state.Board[m.ToPos] != null)
-				.ToList();
-		}
+        }
+
+  //      if (depth > 2)
+		//{
+		//	moves = MoveGenerator.Generate(state).ToList();
+		//}
+		//else
+		//{
+		//	moves = MoveGenerator.Generate(state)
+		//		.Where(m => state.Board[m.ToPos] != null)
+		//		.ToList();
+		//}
 
 		if (moves.Count == 0)
 		{
@@ -60,7 +78,7 @@ public class Minimax
 
 				state.ApplyMove(move);
 
-				int eval = Search(state, depth - 1, alpha, beta, false, startTime, timeLimit);
+				int eval = Search(state, depth - 1, alpha, beta, false, startTime);
 
 				state.UndoMove();
 
@@ -80,7 +98,7 @@ public class Minimax
 				//next.ApplyMove(move);
 				state.ApplyMove(move);
 
-				int eval = Search(state, depth - 1, alpha, beta, true, startTime, timeLimit);
+				int eval = Search(state, depth - 1, alpha, beta, true, startTime);
 				state.UndoMove();
 
 				minEval = Math.Min(minEval, eval);

@@ -1,0 +1,33 @@
+// Resources/bot_difficulty_config.json
+{
+  "EloConfigs": [
+    {
+      "Elo": 800,
+      "Depth": 2,
+      "UseMoveOrdering": false,
+      "UseTT": false,
+      "TimeLimitMs": 1000
+    },
+    {
+      "Elo": 1200,
+      "Depth": 3,
+      "UseMoveOrdering": true,
+      "UseTT": false,
+      "TimeLimitMs": 3000
+    },
+    {
+      "Elo": 1600,
+      "Depth": 4,
+      "UseMoveOrdering": true,
+      "UseTT": true,
+      "TimeLimitMs": 6000
+    },
+    {
+      "Elo": 2000,
+      "Depth": 6,
+      "UseMoveOrdering": true,
+      "UseTT": true,
+      "TimeLimitMs": 10000
+    }
+  ]
+}

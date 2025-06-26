@@ -16,6 +16,7 @@ using ChessUI.Views.Menus;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Media.Effects;
+using System.Diagnostics;
 
 namespace ChessUI
 {
@@ -28,10 +29,10 @@ namespace ChessUI
 		private readonly Rectangle[,] highlights = new Rectangle[8, 8];
 		private readonly Dictionary<Position, Move> moveCache = new Dictionary<Position, Move>();
 		private BotDifficulty selectedDifficulty;
-		
+
 		//private readonly Polygon[,] highlights = new Polygon[8, 8]; // Changed to Polygon for better visual effects
 
-        private GameState gameState;
+		private GameState gameState;
 		private Position selectedPos = null;
 
 		private bool playingWithBot = false;
@@ -41,28 +42,28 @@ namespace ChessUI
 
 		private bool IsOverlayActive = false;
 
-        public static class HighlightColors
-        {
-            public static readonly SolidColorBrush LegalMove = new SolidColorBrush(Color.FromArgb(128, 125, 255, 125));    // Xanh lá nhạt
-            public static readonly SolidColorBrush SelectedPiece = new SolidColorBrush(Color.FromArgb(180, 255, 255, 100)); // Vàng
-            public static readonly SolidColorBrush Check = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));             // Đỏ
-            public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(255, 72, 118, 255));       // Xanh dương nhạt
-        }
-
-
-        public MainWindow()
+		public static class HighlightColors
 		{
-            InitializeComponent();
+			public static readonly SolidColorBrush LegalMove = new SolidColorBrush(Color.FromArgb(128, 125, 255, 125));    // Xanh lá nhạt
+			public static readonly SolidColorBrush SelectedPiece = new SolidColorBrush(Color.FromArgb(180, 255, 255, 100)); // Vàng
+			public static readonly SolidColorBrush Check = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));             // Đỏ
+			public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(255, 72, 118, 255));       // Xanh dương nhạt
+		}
 
-            //ShowStep1();
-            //SetupWelcomeScreen();
 
-            //LoadWelcomeScreen();
+		public MainWindow()
+		{
+			InitializeComponent();
 
+			//ShowStep1();
+			//SetupWelcomeScreen();
 
-            SetUpGameMode();
+			//LoadWelcomeScreen();
 
-   //         InitializeBoard();
+			Debug.WriteLine("MainWindow constructor called");
+			SetUpGameMode();
+
+			//         InitializeBoard();
 
 			//gameState = new GameState(Player.White, Board.Initial());
 			////gameState = new GameState(Player.Black, Board.Initial());
@@ -105,16 +106,16 @@ namespace ChessUI
 					pieceImages[r, c] = image;
 					PieceGrid.Children.Add(image);
 
-					var radialBrush = new RadialGradientBrush();
-					radialBrush.GradientOrigin = new Point(0.5, 0.5);
-					radialBrush.Center = new Point(0.5, 0.5);
-					//radialBrush.RadiusX = 0.95;
-					//radialBrush.RadiusY = 0.95;
-					radialBrush.RadiusX = 1;
-					radialBrush.RadiusY = 1;
+					//var radialBrush = new RadialGradientBrush();
+					//radialBrush.GradientOrigin = new Point(0.5, 0.5);
+					//radialBrush.Center = new Point(0.5, 0.5);
+					////radialBrush.RadiusX = 0.95;
+					////radialBrush.RadiusY = 0.95;
+					//radialBrush.RadiusX = 1;
+					//radialBrush.RadiusY = 1;
 
-					radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 0, 0), 0));       // Tâm sáng
-					radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 0, 0), 1));    // Viền trong suốt
+					//radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 0, 0), 0));       // Tâm sáng
+					//radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 0, 0), 1));    // Viền trong suốt
 
 
 
@@ -161,7 +162,7 @@ namespace ChessUI
 						//Height = 1 * (BoardGrid.Height / 9), // 80% chiều cao của 1 ô
 						Width = BoardGrid.Width / 9,
 						Height = BoardGrid.Height / 9,
-						Fill = radialBrush,
+						//Fill = radialBrush,
 						//RadiusX = 10, // bo góc nếu thích
 						//RadiusY = 10,
 						HorizontalAlignment = HorizontalAlignment.Center,
@@ -183,32 +184,32 @@ namespace ChessUI
 		}
 
 		private RadialGradientBrush RadialGradientBrush(Color color)
-        {
-            //         var radialBrush = new RadialGradientBrush();
-            //         radialBrush.GradientOrigin = new Point(0.5, 0.5);
-            //         radialBrush.Center = new Point(0.5, 0.5);
-            //         radialBrush.RadiusX = 0.5;
-            //         radialBrush.RadiusY = 0.5;
+		{
+			//         var radialBrush = new RadialGradientBrush();
+			//         radialBrush.GradientOrigin = new Point(0.5, 0.5);
+			//         radialBrush.Center = new Point(0.5, 0.5);
+			//         radialBrush.RadiusX = 0.5;
+			//         radialBrush.RadiusY = 0.5;
 
-            ////radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 235, 246), 0));       // Tâm sáng
-            ////radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 235, 246), 1));    // Viền trong suốt
+			////radialBrush.GradientStops.Add(new GradientStop(Color.FromRgb(254, 235, 246), 0));       // Tâm sáng
+			////radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, 254, 235, 246), 1));    // Viền trong suốt
 
-            //radialBrush.GradientStops.Add(new GradientStop(color, 0));       // Tâm sáng
-            //radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, color.R, color.G, color.B), 1));    // Viền trong suốt
+			//radialBrush.GradientStops.Add(new GradientStop(color, 0));       // Tâm sáng
+			//radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(0, color.R, color.G, color.B), 1));    // Viền trong suốt
 
-            var radialBrush = new RadialGradientBrush();
-            radialBrush.GradientOrigin = new Point(0.5, 0.5);
-            radialBrush.Center = new Point(0.5, 0.5);
-            radialBrush.RadiusX = 0.7;
-            radialBrush.RadiusY = 0.7;
+			var radialBrush = new RadialGradientBrush();
+			radialBrush.GradientOrigin = new Point(0.5, 0.5);
+			radialBrush.Center = new Point(0.5, 0.5);
+			radialBrush.RadiusX = 0.7;
+			radialBrush.RadiusY = 0.7;
 
 			radialBrush.GradientStops.Add(new GradientStop(color, 0));       // Tâm sáng
 			radialBrush.GradientStops.Add(new GradientStop(Color.FromArgb(10, color.R, color.G, color.B), 1));    // Viền trong suốt
 
 			return radialBrush;
-        }
+		}
 
-        private void DrawBoard(Board board)
+		private void DrawBoard(Board board)
 		{
 			//clear all highlights
 			for (int r = 0; r < 8; r++)
@@ -242,10 +243,10 @@ namespace ChessUI
 				//highlights[fromPos.Row, fromPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
 				//highlights[fromPos.Row, fromPos.Column].Fill = HighlightColors.LastMove;
 				highlights[fromPos.Row, fromPos.Column].Fill = RadialGradientBrush(HighlightColors.LastMove.Color);
-                //highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
-                //highlights[toPos.Row, toPos.Column].Fill = HighlightColors.LastMove;
-                highlights[toPos.Row, toPos.Column].Fill = RadialGradientBrush(HighlightColors.LastMove.Color);
-            }
+				//highlights[toPos.Row, toPos.Column].Fill = new SolidColorBrush(Color.FromArgb(128, 72, 118, 255));
+				//highlights[toPos.Row, toPos.Column].Fill = HighlightColors.LastMove;
+				highlights[toPos.Row, toPos.Column].Fill = RadialGradientBrush(HighlightColors.LastMove.Color);
+			}
 
 			// draw pieces
 			for (int r = 0; r < 8; r++)
@@ -293,8 +294,8 @@ namespace ChessUI
 
 		private void OnFromPositionSelected(Position pos)
 		{
-            HideHighlights();
-            IEnumerable<Move> moves = gameState.LegalMovesForPiece(pos);
+			HideHighlights();
+			IEnumerable<Move> moves = gameState.LegalMovesForPiece(pos);
 
 			if (moves.Any())
 			{
@@ -388,7 +389,7 @@ namespace ChessUI
 			Color selectPiece = Color.FromArgb(255, 255, 255, 255);
 
 
-            foreach (var kvp in moveCache)
+			foreach (var kvp in moveCache)
 			{
 				Position to = kvp.Key;
 				Move move = kvp.Value;
@@ -398,82 +399,82 @@ namespace ChessUI
 				{
 					//highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
 					highlights[to.Row, to.Column].Fill = RadialGradientBrush(captureColor);
-                }
+				}
 				else
 				{
 					//highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
 					highlights[to.Row, to.Column].Fill = RadialGradientBrush(moveColor);
-                }
+				}
 			}
 
 
-            if (selectedPos != null)
+			if (selectedPos != null)
 				//highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
 				//highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(Color.FromArgb(255,255,255,255));
 
 				highlights[selectedPos.Row, selectedPos.Column].Fill = RadialGradientBrush(selectPiece);
 
 
-        }
+		}
 
 
 		// set up later
-        //private void ShowHighlights()
-        //{
-        //    //Color color = Color.FromArgb(150, 125, 255, 125);
+		//private void ShowHighlights()
+		//{
+		//    //Color color = Color.FromArgb(150, 125, 255, 125);
 
-        //    //foreach (Position to in moveCache.Keys)
-        //    //{
-        //    //	highlights[to.Row, to.Column].Fill = new SolidColorBrush(color);
-        //    //}
+		//    //foreach (Position to in moveCache.Keys)
+		//    //{
+		//    //	highlights[to.Row, to.Column].Fill = new SolidColorBrush(color);
+		//    //}
 
-        //    Color moveColor = Color.FromArgb(150, 125, 255, 125);
-        //    Color captureColor = Color.FromArgb(180, 255, 100, 100);
-        //    Color selectedColor = Color.FromArgb(180, 255, 255, 0);
+		//    Color moveColor = Color.FromArgb(150, 125, 255, 125);
+		//    Color captureColor = Color.FromArgb(180, 255, 100, 100);
+		//    Color selectedColor = Color.FromArgb(180, 255, 255, 0);
 
-        //    foreach (var kvp in moveCache)
-        //    {
-        //        Position to = kvp.Key;
-        //        Move move = kvp.Value;
+		//    foreach (var kvp in moveCache)
+		//    {
+		//        Position to = kvp.Key;
+		//        Move move = kvp.Value;
 
-        //        Piece targetPiece = gameState.Board[to];
-        //        if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
-        //        {
-        //            highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
-        //        }
-        //        else
-        //        {
-        //            highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
-        //        }
-        //    }
-        //    if (selectedPos != null)
-        //    //highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
-        //    {
-        //        highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-        //        highlights[selectedPos.Row, selectedPos.Column].Effect = new DropShadowEffect
-        //        {
-        //            Color = Colors.Red,
-        //            BlurRadius = 50,
-        //            ShadowDepth = 0,
-        //            Opacity = 12,
-        //        };
+		//        Piece targetPiece = gameState.Board[to];
+		//        if (targetPiece != null && targetPiece.Color != gameState.CurrentPlayer)
+		//        {
+		//            highlights[to.Row, to.Column].Fill = new SolidColorBrush(captureColor);
+		//        }
+		//        else
+		//        {
+		//            highlights[to.Row, to.Column].Fill = new SolidColorBrush(moveColor);
+		//        }
+		//    }
+		//    if (selectedPos != null)
+		//    //highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(selectedColor);
+		//    {
+		//        highlights[selectedPos.Row, selectedPos.Column].Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+		//        highlights[selectedPos.Row, selectedPos.Column].Effect = new DropShadowEffect
+		//        {
+		//            Color = Colors.Red,
+		//            BlurRadius = 50,
+		//            ShadowDepth = 0,
+		//            Opacity = 12,
+		//        };
 
-        //    }
+		//    }
 
-        //}
+		//}
 
 
-        private void HideHighlights()
+		private void HideHighlights()
 		{
-            for (int r = 0; r < 8; r++)
-            {
-                for (int c = 0; c < 8; c++)
-                {
-                    highlights[r, c].Fill = Brushes.Transparent;
-                    highlights[r, c].Stroke = null;
-                }
-            }
-        }
+			for (int r = 0; r < 8; r++)
+			{
+				for (int c = 0; c < 8; c++)
+				{
+					highlights[r, c].Fill = Brushes.Transparent;
+					highlights[r, c].Stroke = null;
+				}
+			}
+		}
 
 		private void SetCursor(Player player)
 		{
@@ -554,7 +555,7 @@ namespace ChessUI
 		private void ShowBot()
 		{
 			//IsOverlayActive = true;
-            var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
+			var botMenu = BotMenuViewModelHelper.CreateBotMenu((option, difficulty) =>
 			{
 				MenuContent.Content = null;
 
@@ -570,13 +571,15 @@ namespace ChessUI
 					BotPlay();
 				}
 			});
-			
-            MenuContent.Content = botMenu;
+
+			MenuContent.Content = botMenu;
 		}
 
 		private Bot currentBot;
 		private void BotPlay()
 		{
+			int playerElo = PlayerData.LoadElo();
+			//var bot = new Bot(playerElo)
 			//IsOverlayActive = false;
 			playingWithBot = true;
 			selectedPos = null;
@@ -585,14 +588,15 @@ namespace ChessUI
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
-            ShowHistoryWindow();
+			ShowHistoryWindow();
 			//IsOverlayActive = false;
-            currentBot = new Bot(selectedDifficulty);
+			currentBot = new Bot(selectedDifficulty, playerElo: playerElo);
 
 			if (gameState.CurrentPlayer == Player.Black)
 			{
 				Dispatcher.InvokeAsync(() => PlayBotTurn(), DispatcherPriority.Background);
 			}
+			Debug.WriteLine($"Bot started with difficulty: {selectedDifficulty} and Elo: {playerElo}");
 		}
 
 
@@ -631,13 +635,13 @@ namespace ChessUI
 		private void ShowPopUp()
 		{
 			IsOverlayActive = true;
-            PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
+			PopupPanel.Visibility = Visibility.Visible; // Hiện PopUp
 			PlayPopup.StartCountdown(10); // Bắt đầu đếm ngược trong PopUp
-            PlayPopup.CountdownFinished += (_, __) =>
-            {
-                IsOverlayActive = false;
-            };
-        }
+			PlayPopup.CountdownFinished += (_, __) =>
+			{
+				IsOverlayActive = false;
+			};
+		}
 
 
 		private void ShowHistoryWindow()
@@ -682,8 +686,8 @@ namespace ChessUI
 			try
 			{
 				InitializeBoard();
-                ShowBot();
-            }
+				ShowBot();
+			}
 			catch (Exception ex)
 			{
 				MessageBox.Show($"Error starting Bot mode: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -695,34 +699,34 @@ namespace ChessUI
 		public void HumanMode()
 		{
 			CloseGameMode();
-            ShowPopUp();
-            //GameModeContent.Content = null; // Clear the game mode content
-            //MessageBox.Show("Starting Human vs Human game...", "Information", MessageBoxButton.OK);
-            InitializeBoard();
+			ShowPopUp();
+			//GameModeContent.Content = null; // Clear the game mode content
+			//MessageBox.Show("Starting Human vs Human game...", "Information", MessageBoxButton.OK);
+			InitializeBoard();
 
-            gameState = new GameState(Player.White, Board.Initial());
-            //gameState = new GameState(Player.Black, Board.Initial());
-            DrawBoard(gameState.Board);
-            SetCursor(gameState.CurrentPlayer);
+			gameState = new GameState(Player.White, Board.Initial());
+			//gameState = new GameState(Player.Black, Board.Initial());
+			DrawBoard(gameState.Board);
+			SetCursor(gameState.CurrentPlayer);
 
-            ShowHistoryWindow();
-        }
+			ShowHistoryWindow();
+		}
 
 		private GameMode gameModeControl;
-        private void SetUpGameMode()
-        {
+		private void SetUpGameMode()
+		{
 
-            gameModeControl = new GameMode();
+			gameModeControl = new GameMode();
 
-            gameModeControl.BotModeRequested += (sender, e) => BotMode();
-            gameModeControl.HumanModeRequested += (sender, e) => HumanMode();
+			gameModeControl.BotModeRequested += (sender, e) => BotMode();
+			gameModeControl.HumanModeRequested += (sender, e) => HumanMode();
 
-            GameModeContent.Content = gameModeControl; // Add to the main content area
-            //ShowOverlay();
-			//GameModeContent.Visibility = Visibility.Visible;
+			GameModeContent.Content = gameModeControl; // Add to the main content area
+													   //ShowOverlay();
+													   //GameModeContent.Visibility = Visibility.Visible;
 			IsOverlayActive = true;
 			GameModePanel.Visibility = Visibility.Visible;
-        }
+		}
 
 		public void CloseGameMode()
 		{
@@ -730,6 +734,22 @@ namespace ChessUI
 			IsOverlayActive = false;
 			GameModePanel.Visibility = Visibility.Hidden;
 			//HideOverlay();
-        }
-    }
+		}
+
+		private void UpdateElo(bool playerWon)
+		{
+			int playerElo = PlayerData.LoadElo();
+			int botElo = 1200;
+
+			int k = 32;
+			double expected = 1 / (1 + Math.Pow(10, (botElo - playerElo) / 400.0));
+			int newElo = (int)(playerElo + k * ((playerWon ? 1 : 0) - expected));
+
+
+			PlayerData.SaveElo(newElo);
+
+			/// elo show - create ui for this later
+			MessageBox.Show($"Your new Elo rating is: {newElo}", "Elo Update", MessageBoxButton.OK, MessageBoxImage.Information);
+		}
+	}
 }
