@@ -10,7 +10,7 @@ namespace ChessUI
 {
     public static class PlayerData
     {
-        private static readonly string filePath = "player_elo.txt";
+        private static readonly string filePath = "Resources/player_elo.txt";
         private static int defaultElo = 1200;
 
         public static int LoadElo()
@@ -23,17 +23,26 @@ namespace ChessUI
             {
                 return elo;
             }
-            else
-            {
-                Debug.WriteLine("Invalid ELO value in file, resetting to default.");
-                return defaultElo;
-            }
 
+            Debug.WriteLine("Invalid ELO value in file, resetting to default.");
+            return defaultElo;
         }
 
         public static void SaveElo(int elo)
         {
+            File.WriteAllText(filePath, elo.ToString());
             Debug.WriteLine($"Saving ELO: {elo} to {filePath}");
+        }
+
+        public static int UpdateEloAfterMatch(int currElo, int botElo, bool playerWon)
+        {
+            const int K = 32;
+            double expected = 1.0 / (1 + Math.Pow(10, (botElo - currElo) / 400.0));
+            double actual = playerWon ? 1.0 : 0.0;
+            int newElo = (int)Math.Round(currElo + K * (actual - expected));
+            newElo = Math.Max(100, newElo);
+            SaveElo(newElo);
+            return newElo;
         }
     }
 }

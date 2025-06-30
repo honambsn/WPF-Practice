@@ -1,6 +1,7 @@
 ﻿using ChessLogic;
 using ChessAI;
 using ChessAI.Config;
+using System.Diagnostics;
 
 public class Bot
 {
@@ -13,6 +14,9 @@ public class Bot
 	private readonly bool _useMoveOrdering;
 	private readonly bool _useTT;
 	private readonly int _timeLimit;
+
+	public int BotElo { get; private set; }
+
 	 
 	public Bot(BotDifficulty difficulty, int? playerElo = null)
 	//public Bot( int? playerElo = null)
@@ -20,7 +24,7 @@ public class Bot
 		_difficulty = difficulty;
 		_evaluator = new Evaluator();
 
-		if (playerElo != null)
+		if (playerElo != null && difficulty == BotDifficulty.Custom)
 		{
 			var config = BotDiffcultyConfig.Load("Resources/bot_difficulty_config.json");
 			var level = config.GetConfigForElo(playerElo.Value);
@@ -29,9 +33,18 @@ public class Bot
             _useMoveOrdering = level.UseMoveOrdering;
             _useTT = level.UseTT;
             _timeLimit = level.TimeLimitMs;
+
+			Debug.WriteLine("Bot.cs");
+			Debug.WriteLine("Using custom bot settings: " +
+                $"Depth: {_depth}, " +
+                $"UseMoveOrdering: {_useMoveOrdering}, " +
+                $"UseTT: {_useTT}, " +
+                $"TimeLimit: {_timeLimit} ms)");
+            //_botElo = level.Elo;
         }
 		else
 		{
+			Debug.WriteLine($"Using default bot settings for difficulty: {difficulty}");
             (_depth, _useMoveOrdering, _useTT, _timeLimit) = difficulty switch
             {
 

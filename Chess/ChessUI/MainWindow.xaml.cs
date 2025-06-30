@@ -354,6 +354,16 @@ namespace ChessUI
 
 			if (gameState.IsGameOver())
 			{
+				if (gameState.Result.Reason == EndReason.Checkmate)
+				{
+					bool playerWon = gameState.Result.Winner == gameState.CurrentPlayer;
+					int currElo = PlayerData.LoadElo();
+                    int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.BotElo, playerWon);
+
+                    Debug.WriteLine($"Elo updated: {currElo} -> {newElo}");
+					Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}");
+					Debug.WriteLine($"Write: ", playerWon, currElo, newElo);	
+                }
 				ShowGameOver();
 			}
 
@@ -579,6 +589,7 @@ namespace ChessUI
 		private void BotPlay()
 		{
 			int playerElo = PlayerData.LoadElo();
+			//int playerElo = 4000;
 			//var bot = new Bot(playerElo)
 			//IsOverlayActive = false;
 			playingWithBot = true;
