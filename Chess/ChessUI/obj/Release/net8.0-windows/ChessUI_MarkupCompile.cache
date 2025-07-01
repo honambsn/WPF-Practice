@@ -1,0 +1,20 @@
+﻿ChessUI
+
+
+winexe
+C#
+.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\obj\Release\net8.0-windows\
+ChessUI
+none
+false
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessUI\App.xaml
+12-1383647319
+
+261117688325
+200-1711104997
+BotMenu.xaml;GameMode.xaml;GameOverMenu.xaml;MainWindow.xaml;MoveHistoryWindow.xaml;PauseMenu.xaml;PopUp.xaml;PromotionMenu.xaml;Style\PopupStyle.xaml;Views\Menus\DifficultySelectMenu.xaml;Views\Menus\ModeSelectMenu.xaml;Views\Menus\PlayExitMenu.xaml;
+
+True
+

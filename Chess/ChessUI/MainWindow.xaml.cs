@@ -356,15 +356,35 @@ namespace ChessUI
 			{
 				if (gameState.Result.Reason == EndReason.Checkmate)
 				{
-					bool playerWon = gameState.Result.Winner == gameState.CurrentPlayer;
-					int currElo = PlayerData.LoadElo();
+					bool playerWon = true;
+
+					Debug.WriteLine($"playerWon: {playerWon}");
+
+					if (gameState.Result.Winner == Player.White)
+					{
+						playerWon = true;
+                        Debug.WriteLine($"Game Over: Checkmate, Winner: White");
+						Debug.WriteLine($"Write: {playerWon}");
+                    }
+                    else if (gameState.Result.Winner == Player.Black)
+					{
+                        playerWon = false;
+                        Debug.WriteLine($"Game Over: Checkmate, Winner: Black");
+                        Debug.WriteLine($"Write: {playerWon}");
+                    }
+                    int currElo = PlayerData.LoadElo();
                     int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.BotElo, playerWon);
 
                     Debug.WriteLine($"Elo updated: {currElo} -> {newElo}");
 					Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}");
-					Debug.WriteLine($"Write: ", playerWon, currElo, newElo);	
+					Debug.WriteLine($"Write: {playerWon}");
+					//, currElo, newElo);
+					Debug.WriteLine($"Write: {currElo}");
+					Debug.WriteLine($"Write: {newElo}");
+
+
                 }
-				ShowGameOver();
+                ShowGameOver();
 			}
 
 			if (playingWithBot && gameState.CurrentPlayer == Player.Black)
@@ -589,6 +609,7 @@ namespace ChessUI
 		private void BotPlay()
 		{
 			int playerElo = PlayerData.LoadElo();
+			Debug.WriteLine($"Mainwindow - Player Elo: {playerElo}");
 			//int playerElo = 4000;
 			//var bot = new Bot(playerElo)
 			//IsOverlayActive = false;
@@ -601,7 +622,7 @@ namespace ChessUI
 			SetCursor(gameState.CurrentPlayer);
 			ShowHistoryWindow();
 			//IsOverlayActive = false;
-			currentBot = new Bot(selectedDifficulty, playerElo: playerElo);
+			currentBot = new Bot(selectedDifficulty, playerElo);
 
 			if (gameState.CurrentPlayer == Player.Black)
 			{

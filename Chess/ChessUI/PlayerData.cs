@@ -10,17 +10,22 @@ namespace ChessUI
 {
     public static class PlayerData
     {
-        private static readonly string filePath = "Resources/player_elo.txt";
+        private static readonly string filePath = "Resources/elo_file.txt";
         private static int defaultElo = 1200;
 
         public static int LoadElo()
         {
             if (!File.Exists(filePath))
+            {
+                Debug.WriteLine("PlayerData - ELO file not found, creating with default value.");
                 return defaultElo;
+            }
+                
 
             string content = File.ReadAllText(filePath);
             if (int.TryParse(content, out int elo))
             {
+                Debug.WriteLine($"PlayerData - Loaded ELO: {elo} from {filePath}");
                 return elo;
             }
 
@@ -42,6 +47,9 @@ namespace ChessUI
             int newElo = (int)Math.Round(currElo + K * (actual - expected));
             newElo = Math.Max(100, newElo);
             SaveElo(newElo);
+
+            Debug.WriteLine($"PlayerElo: {currElo}, BotElo: {botElo}, PlayerWon: {playerWon}");
+            Debug.WriteLine($"Expected: {expected}, Actual: {actual}, ΔElo: {K * (actual - expected)}");
             return newElo;
         }
     }
