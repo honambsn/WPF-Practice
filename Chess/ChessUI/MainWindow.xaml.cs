@@ -373,7 +373,8 @@ namespace ChessUI
                         Debug.WriteLine($"Write: {playerWon}");
                     }
                     int currElo = PlayerData.LoadElo();
-                    int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.BotElo, playerWon);
+					Debug.WriteLine($"Current Bot: {currentBot.BotElo}");
+                    int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.botElo, playerWon);
 
                     Debug.WriteLine($"Elo updated: {currElo} -> {newElo}");
 					Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}");
@@ -629,7 +630,9 @@ namespace ChessUI
 				Dispatcher.InvokeAsync(() => PlayBotTurn(), DispatcherPriority.Background);
 			}
 			Debug.WriteLine($"Bot started with difficulty: {selectedDifficulty} and Elo: {playerElo}");
-		}
+
+			Debug.WriteLine($"Bot currentBot: {currentBot.BotElo} - Difficulty: {currentBot.botElo} - Player Elo: {playerElo}");
+        }
 
 
 

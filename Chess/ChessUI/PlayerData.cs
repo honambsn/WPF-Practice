@@ -10,7 +10,19 @@ namespace ChessUI
 {
     public static class PlayerData
     {
-        private static readonly string filePath = "Resources/elo_file.txt";
+        //private static readonly string filePath = "Resources/elo_file.txt";
+        private static readonly string filePath = Path.Combine(
+            Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "Resources", "elo_file.txt");
+
+
+        //bonus solution, save the %appdata% for pro
+        //        string filePath = Path.Combine(
+        //    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        //    "MyChessApp", "player_elo.txt"
+        //);
+        //        Directory.CreateDirectory(Path.GetDirectoryName(filePath)); // Tạo folder nếu chưa có
+
+
         private static int defaultElo = 1200;
 
         public static int LoadElo()

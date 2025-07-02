@@ -17,8 +17,20 @@ public class Bot
 
 	public int BotElo { get; private set; }
 
-	 
-	public Bot(BotDifficulty difficulty, int? playerElo = null)
+    private EloConfigEntry _eloConfigEntry;
+
+	public int botElo => _eloConfigEntry?.Elo ?? _depth switch
+	{
+		2 => 1000,
+        3 => 1200,
+        4 => 1400,
+        5 => 1600,
+        6 => 1800,
+        7 => 2000,
+		_ => 1000
+    };
+
+    public Bot(BotDifficulty difficulty, int? playerElo = null)
 	//public Bot( int? playerElo = null)
 	{
 		_difficulty = difficulty;
@@ -27,9 +39,11 @@ public class Bot
 		if (playerElo != null && difficulty == BotDifficulty.Custom)
 		{
 			var config = BotDiffcultyConfig.Load("Resources/bot_difficulty_config.json");
-			var level = config.GetConfigForElo(playerElo.Value);
+			//var level = config.GetConfigForElo(playerElo.Value);
+			_eloConfigEntry = config.EloConfigs.OrderBy(e => Math.Abs(e.Elo - playerElo.Value)).First();
+			var level = _eloConfigEntry;
 
-			_depth = level.Depth;
+            _depth = level.Depth;
             _useMoveOrdering = level.UseMoveOrdering;
             _useTT = level.UseTT;
             _timeLimit = level.TimeLimitMs;
@@ -40,9 +54,10 @@ public class Bot
                 $"UseMoveOrdering: {_useMoveOrdering}, " +
                 $"UseTT: {_useTT}, " +
                 $"TimeLimit: {_timeLimit} ms)");
+            Debug.WriteLine($"Bot started with difficulty: Custom and Elo: {_eloConfigEntry.Elo}");
             //_botElo = level.Elo;
         }
-		else
+        else
 		{
 			Debug.WriteLine($"Using default bot settings for difficulty: {difficulty}");
             (_depth, _useMoveOrdering, _useTT, _timeLimit) = difficulty switch
