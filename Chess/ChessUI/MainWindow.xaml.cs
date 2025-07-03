@@ -346,7 +346,8 @@ namespace ChessUI
 			//string moveString = move.ToString();
 			//moveHistory.Add(moveString);
 			string formattedMove = FormatMove(move, moveHistory.Count);
-			moveHistory.Add(formattedMove);
+			Debug.WriteLine($"Formatted Move: {formattedMove}");
+            moveHistory.Add(formattedMove);
 
 
 			DrawBoard(gameState.Board);
