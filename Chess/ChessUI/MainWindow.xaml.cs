@@ -699,8 +699,15 @@ namespace ChessUI
 		private string FormatMove(Move move, int moveCount)
 		{
 			string player = (moveCount % 2 == 0) ? "White" : "Black";
-			return $"{player}: {move.FromPos}  → {move.ToPos}";
-		}
+
+			Piece piece = gameState.Board[move.FromPos];
+
+            //string pieceType = StateHelper.GetPieceSymbol(piece);
+
+			//Debug.WriteLine($"Piece Type:   {pieceType}");
+            //return $"{player} {pieceType} {move.FromPos} → {move.ToPos}";
+            return $"{player}: {move.FromPos}  → {move.ToPos}";
+        }
 
 
 		private object _currentScreen;

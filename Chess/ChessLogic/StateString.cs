@@ -147,4 +147,28 @@ namespace ChessLogic
 
 		}
 	}
+
+	public static class StateHelper
+	{
+		public static string GetPieceSymbol(Piece piece)
+		{
+			if (piece == null)
+			{
+				return "?";
+            }
+
+			string symbol = piece.Type switch
+            {
+                PieceType.Pawn => "P",
+                PieceType.Knight => "N",
+                PieceType.Rook => "R",
+                PieceType.Bishop => "B",
+                PieceType.Queen => "Q",
+                PieceType.King => "K",
+                _ => "?"
+            };
+
+			return symbol;
+        }
+	}
 }
