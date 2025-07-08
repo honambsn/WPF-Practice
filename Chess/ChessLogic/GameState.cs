@@ -16,7 +16,7 @@ namespace ChessLogic
 		private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
 		public Move LastMove { get; private set; }
 
-        public GameState(Player player, Board board)
+		public GameState(Player player, Board board)
 		{
 			CurrentPlayer = player;
 			Board = board;
@@ -84,7 +84,7 @@ namespace ChessLogic
 					Result = Result.Draw(EndReason.Stalemate);
 				}
 			}
-			
+
 			else if (Board.InsufficientMaterial())
 			{
 				Result = Result.Draw(EndReason.InsufficientMaterial);
@@ -164,8 +164,8 @@ namespace ChessLogic
 			LastMove = move;
 			_moveHistory.Push(new MoveInfo(move, captured, promoted, CurrentPlayer));
 
-            // Đổi lượt
-            CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
+			// Đổi lượt
+			CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
 		}
 
 		public void UndoMove()
@@ -210,7 +210,77 @@ namespace ChessLogic
 		public bool IsGameOver2() => Result != null;
 
 
+		public ulong ZobristKey => ComputeZobristKey();
 
-		
+		private ulong ComputeZobristKey()
+		{
+			ulong key = 0;
+
+			for (int row = 0; row < 8; row++)
+			{
+				for (int col = 0; col < 8; col++)
+				{
+					Piece? piece = Board[row, col];
+					if (piece != null)
+					{
+						int colorIndex = (piece.Color == Player.White) ? 0 : 1;
+						int pieceIndex = piece.Type switch
+						{
+							PieceType.Pawn => 0,
+							PieceType.Knight => 1,
+							PieceType.Bishop => 2,
+							PieceType.Rook => 3,
+							PieceType.Queen => 4,
+							PieceType.King => 5,
+							_ => 0
+						};
+                        
+						int square = row * 8 + col;
+                        key ^= Zobrist.PieceSquareKeys[colorIndex, pieceIndex, square];
+                    }
+					
+                    //Position pos = new Position(row, col);
+                    //if (Board.IsEmpty(pos)) continue;
+
+                    //Piece piece = Board[pos];
+                    //int pieceIndex = (int)piece.Type + (piece.Color == Player.White ? 0 : 6);
+                    //key ^= ZobristTable.GetZobristHash(pos, pieceIndex);
+                }
+			}
+
+			// side to move
+			if (CurrentPlayer == Player.Black)
+			{
+				key ^= Zobrist.SideToMoveKey;
+			}
+
+			// Castling rights
+
+			if (Board.CastleRightKS(Player.White))
+            {
+                key ^= Zobrist.CastlingKeys[0]; // White kingside
+            }
+			if (Board.CastleLeftQS(Player.White))
+            {
+                key ^= Zobrist.CastlingKeys[1]; // White queenside
+            }
+            if (Board.CastleRightKS(Player.Black))
+            {
+                key ^= Zobrist.CastlingKeys[2]; // Black kingside
+            }
+            if (Board.CastleLeftQS(Player.Black))
+            {
+                key ^= Zobrist.CastlingKeys[3]; // Black queenside
+            }
+
+			// en passant
+			if (Board.CanCaptureEnPassant(CurrentPlayer))
+			{
+				Position skip = Board.GetPawnSkipPosition(CurrentPlayer.Opponent());
+				key ^= Zobrist.EnPassantKeys[skip.Column];
+            }
+
+			return key;
+        }
 	}
 }

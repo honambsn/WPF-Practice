@@ -39,7 +39,14 @@ public class Minimax
 			return _evaluator.EvaluateBoard(state);
 		}
 
-		List<Move> moves = moves = MoveGenerator.Generate(state).ToList();
+		if (_useTT)
+		{
+			ulong key = state.ZobristKey;
+			if (_transpositionTable.TryGetValue(key, out int cachedEval))
+				return cachedEval;
+		}
+
+		List<Move> moves = MoveGenerator.Generate(state).ToList();
 
 		//var moves = MoveGenerator.Generate(state);
 		if (_useMoveOrdering)
@@ -63,50 +70,84 @@ public class Minimax
 		//		.ToList();
 		//}
 
-		if (moves.Count == 0)
-		{
-			return _evaluator.EvaluateBoard(state);
-		}
+		int bestEval =  maximizingPlayer ? int.MinValue : int.MaxValue;
 
-		if (maximizingPlayer)
+		foreach(var move in moves)
 		{
-			int maxEval = int.MinValue;
-			foreach (var move in moves)
+			state.ApplyMove(move);
+            int eval = Search(state, depth - 1, alpha, beta, !maximizingPlayer, startTime);
+			state.UndoMove();
+
+			if (maximizingPlayer)
 			{
-				//var next = state.Copy();
-				//next.ApplyMove(move);
-
-				state.ApplyMove(move);
-
-				int eval = Search(state, depth - 1, alpha, beta, false, startTime);
-
-				state.UndoMove();
-
-				maxEval = Math.Max(maxEval, eval);
+				bestEval = Math.Max(bestEval, eval);
 				alpha = Math.Max(alpha, eval);
-				if (beta <= alpha)
-					break;
-			}
-			return maxEval;
-		}
-		else
+            }
+			else
+            {
+                bestEval = Math.Min(bestEval, eval);
+                beta = Math.Min(beta, eval);
+            }
+
+            if (beta <= alpha)
+				break;
+        }
+
+		if (_useTT)
 		{
-			int minEval = int.MaxValue;
-			foreach (var move in moves)
-			{
-				//var next = state.Copy();
-				//next.ApplyMove(move);
-				state.ApplyMove(move);
+			ulong key = state.ZobristKey;
+            _transpositionTable[key] = bestEval;
+        }
 
-				int eval = Search(state, depth - 1, alpha, beta, true, startTime);
-				state.UndoMove();
 
-				minEval = Math.Min(minEval, eval);
-				beta = Math.Min(beta, eval);
-				if (beta <= alpha)
-					break;
-			}
-			return minEval;
-		}
-	}
+        #region old ver
+        //if (moves.Count == 0)
+        //{
+        //    return _evaluator.EvaluateBoard(state);
+        //}
+
+        //if (maximizingPlayer)
+        //{
+        //    int maxEval = int.MinValue;
+        //    foreach (var move in moves)
+        //    {
+        //        //var next = state.Copy();
+        //        //next.ApplyMove(move);
+
+        //        state.ApplyMove(move);
+
+        //        int eval = Search(state, depth - 1, alpha, beta, false, startTime);
+
+        //        state.UndoMove();
+
+        //        maxEval = Math.Max(maxEval, eval);
+        //        alpha = Math.Max(alpha, eval);
+        //        if (beta <= alpha)
+        //            break;
+        //    }
+        //    return maxEval;
+        //}
+        //else
+        //{
+        //    int minEval = int.MaxValue;
+        //    foreach (var move in moves)
+        //    {
+        //        //var next = state.Copy();
+        //        //next.ApplyMove(move);
+        //        state.ApplyMove(move);
+
+        //        int eval = Search(state, depth - 1, alpha, beta, true, startTime);
+        //        state.UndoMove();
+
+        //        minEval = Math.Min(minEval, eval);
+        //        beta = Math.Min(beta, eval);
+        //        if (beta <= alpha)
+        //            break;
+        //    }
+        //    return minEval;
+        //}
+
+        #endregion
+        return bestEval;
+    }
 }
