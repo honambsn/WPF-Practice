@@ -12,6 +12,7 @@ namespace ChessLogic
 		public override Position FromPos { get; }
 		public override Position ToPos { get; }
 		private readonly PieceType newType;
+		public PieceType PromotedPiece => newType;
 		public PawnPromotion(Position from, Position to, PieceType newType)
 		{
 			FromPos = from;

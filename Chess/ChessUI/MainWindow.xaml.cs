@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
+using ChessLogic.Helper;
 
 namespace ChessUI
 {
@@ -704,7 +705,11 @@ namespace ChessUI
 
             //string pieceType = StateHelper.GetPieceSymbol(piece);
 
-			//Debug.WriteLine($"Piece Type:   {pieceType}");
+			string notation = AlgebraicNotationHelper.ToAlgebraicNotation(move, gameState);
+			Debug.WriteLine($"Algebraic Notation: {notation}");
+            Debug.WriteLine($"FromPos: {move.FromPos}, Piece: {gameState.Board[move.FromPos]}");
+
+            //Debug.WriteLine($"Piece Type:   {pieceType}");
             //return $"{player} {pieceType} {move.FromPos} → {move.ToPos}";
             return $"{player}: {move.FromPos}  → {move.ToPos}";
         }
