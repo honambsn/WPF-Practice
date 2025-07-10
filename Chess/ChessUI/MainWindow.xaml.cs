@@ -342,12 +342,13 @@ namespace ChessUI
 
 		private void HandleMove(Move move)
 		{
-			gameState.MakeMove(move);
+            string formattedMove = FormatMove(move, moveHistory.Count);
+            Debug.WriteLine($"Formatted Move: {formattedMove}");
+            gameState.MakeMove(move);
 
 			//string moveString = move.ToString();
 			//moveHistory.Add(moveString);
-			string formattedMove = FormatMove(move, moveHistory.Count);
-			Debug.WriteLine($"Formatted Move: {formattedMove}");
+			
             moveHistory.Add(formattedMove);
 
 
@@ -706,16 +707,23 @@ namespace ChessUI
             //string pieceType = StateHelper.GetPieceSymbol(piece);
 
 			string notation = AlgebraicNotationHelper.ToAlgebraicNotation(move, gameState);
+
+
+			// debug info
 			Debug.WriteLine($"Algebraic Notation: {notation}");
             Debug.WriteLine($"FromPos: {move.FromPos}, Piece: {gameState.Board[move.FromPos]}");
 
             //Debug.WriteLine($"Piece Type:   {pieceType}");
-            //return $"{player} {pieceType} {move.FromPos} → {move.ToPos}";
-            return $"{player}: {move.FromPos}  → {move.ToPos}";
+            //return $"{player} {piece} {move.FromPos} → {move.ToPos}";
+            //return $"{player}: {move.FromPos}  → {move.ToPos}";
+
+            //return $"{player}: { notation}";
+            return $"{player}: {notation} ({move.FromPos} → {move.ToPos})";
+
         }
 
 
-		private object _currentScreen;
+        private object _currentScreen;
 		private GameMode _welcomeScreen;
 
 

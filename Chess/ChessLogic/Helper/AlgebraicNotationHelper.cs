@@ -44,17 +44,31 @@ namespace ChessLogic.Helper
             bool isCapture = state.Board[move.ToPos] != null || move is EnPassant;
 
             // or pawn moves, we use the column letter
-            if (piece.Type == PieceType.Pawn && isCapture)
+            if (piece.Type == PieceType.Pawn)
             {
-                notation += (char)('a' + move.FromPos.Column);
+                if (isCapture)
+                {
+                    notation += (char)('a' + move.FromPos.Column);
+                    notation += "x";
+                }
+
+            }
+            else
+            {
+                notation += pieceChar;
+
+                if (isCapture)
+                {
+                    notation += "x"; // capture notation
+                }
             }
 
-            notation += pieceChar;
+                //notation += pieceChar;
 
-            if (isCapture)
-            {
-                notation += "x"; // capture notation
-            }
+            //if (isCapture)
+            //{
+            //    notation += "x"; // capture notation
+            //}
 
             notation += ToSquareName(move.ToPos);
 
