@@ -210,7 +210,24 @@ namespace ChessUI
 			return radialBrush;
 		}
 
-		private void DrawBoard(Board board)
+        private void HighlightCheckedKing(Board board, Player player)
+        {
+            Position? checkedKingPos = board.GetCheckedKingPosition(player);
+            if (checkedKingPos != null)
+            {
+                int row = 7 - checkedKingPos.Row; // ← flip the row!
+                int col = checkedKingPos.Column;
+
+                Debug.WriteLine($"Highlighting check at visual: row={row}, col={col}");
+
+                Color color = Color.FromRgb(255, 0, 0); // bright red for visibility
+                highlights[row, col].Fill = RadialGradientBrush(color);
+            }
+        }
+
+
+
+        private void DrawBoard(Board board)
 		{
 			//clear all highlights
 			for (int r = 0; r < 8; r++)
@@ -235,8 +252,28 @@ namespace ChessUI
 				highlights[r, c].Fill = RadialGradientBrush(color);
 			}
 
-			//highlight last move
-			if (gameState.LastMove != null)
+            if (board.IsInCheck(Player.White))
+            {
+				Debug.WriteLine("White King is in check");
+                HighlightCheckedKing(board, Player.White);
+            }
+            else if (board.IsInCheck(Player.Black))
+            {
+                Debug.WriteLine("Black King is in check");
+                HighlightCheckedKing(board, Player.Black);
+            }
+			else
+			{
+				Debug.WriteLine("No King is in check");
+            }
+
+			if (checkedKingPos != null)
+			{
+				Debug.WriteLine($"Checked King Position: {checkedKingPos}");
+            }
+
+                //highlight last move
+            if (gameState.LastMove != null)
 			{
 				var fromPos = gameState.LastMove.FromPos;
 				var toPos = gameState.LastMove.ToPos;
@@ -338,7 +375,9 @@ namespace ChessUI
 				Move promMove = new PawnPromotion(from, to, type);
 				HandleMove(promMove);
 			};
-		}
+            
+			Debug.WriteLine($"Promotion Menu opened for {gameState.CurrentPlayer} at {from} to {to}");
+        }
 
 		private void HandleMove(Move move)
 		{
