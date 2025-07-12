@@ -215,13 +215,18 @@ namespace ChessUI
             Position? checkedKingPos = board.GetCheckedKingPosition(player);
             if (checkedKingPos != null)
             {
-                int row = 7 - checkedKingPos.Row; // ← flip the row!
+                int row2 = 7 - checkedKingPos.Row; // ← flip the row!
+                int row = checkedKingPos.Row; // do not fip
+
                 int col = checkedKingPos.Column;
 
                 Debug.WriteLine($"Highlighting check at visual: row={row}, col={col}");
+                Debug.WriteLine($"Highlighting check at visual 2: row={row2}, col={col}");
 
                 Color color = Color.FromRgb(255, 0, 0); // bright red for visibility
                 highlights[row, col].Fill = RadialGradientBrush(color);
+
+				highlights[row2, col].Fill = RadialGradientBrush(color); // highlight the flipped position too
             }
         }
 
