@@ -255,22 +255,80 @@ namespace ChessUI
 				//highlights[r, c].Fill = HighlightColors.Check;
 				Color color = Color.FromRgb(255, 0, 0);
 				highlights[r, c].Fill = RadialGradientBrush(color);
+
+				if (highlights[r, c].Fill is RadialGradientBrush)
+				{
+					Debug.WriteLine($"Checkedddddddddddddd !!!!!!!!!!");
+					Debug.WriteLine($"Highlighting check at visual: row={r}, col={c} with RadialGradientBrush");
+                }
+				else
+				{
+					Debug.WriteLine($"Not a RadialGradientBrush, using SolidColorBrush instead.");
+				}
 			}
 
-            if (board.IsInCheck(Player.White))
-            {
-				Debug.WriteLine("White King is in check");
-                HighlightCheckedKing(board, Player.White);
-            }
-            else if (board.IsInCheck(Player.Black))
-            {
-                Debug.WriteLine("Black King is in check");
-                HighlightCheckedKing(board, Player.Black);
-            }
+			if (board.IsInCheck(Player.Black))
+			{
+				Debug.WriteLine("opponent King is in check");
+				if (gameState.CheckedKingPosition != null)
+				{
+					// Log the check state for debugging
+					Debug.WriteLine($"From mainwindow debugging");
+
+					Debug.WriteLine($"King of {Player.Black} is checked at {gameState.CheckedKingPosition}");
+					highlights[gameState.CheckedKingPosition.Row, gameState.CheckedKingPosition.Column].Fill = RadialGradientBrush(Color.FromRgb(255, 0, 0));
+
+                    if (highlights[gameState.CheckedKingPosition.Row, gameState.CheckedKingPosition.Column].Fill is RadialGradientBrush)
+                    {
+                        Debug.WriteLine("radiallll");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("no radial");
+                    }
+
+                    Debug.WriteLine($"Postion: row: {gameState.CheckedKingPosition.Row}  and col: {gameState.CheckedKingPosition.Column}");
+				}
+				else
+				{
+					Debug.WriteLine($"From mainwindow debugging");
+					Debug.WriteLine($"king not checked");
+				}
+
+				//HighlightCheckedKing(board, Player.White);
+			}
+			else if (board.IsInCheck(Player.White))
+			{
+				Debug.WriteLine("ur King is in check");
+				//HighlightCheckedKing(board, Player.Black);
+
+				if (gameState.CheckedKingPosition != null)
+				{
+					// Log the check state for debugging
+					Debug.WriteLine($"From mainwindow debugging");
+					Debug.WriteLine($"King of {Player.White} is checked at {gameState.CheckedKingPosition}");
+                    highlights[gameState.CheckedKingPosition.Row, gameState.CheckedKingPosition.Column].Fill = RadialGradientBrush(Color.FromRgb(255, 0, 0));
+					if (highlights[gameState.CheckedKingPosition.Row, gameState.CheckedKingPosition.Column].Fill is RadialGradientBrush)
+					{
+						Debug.WriteLine("radiallll");
+					}
+					else
+					{
+						Debug.WriteLine("no radial");
+					}
+                    Debug.WriteLine($"Postion: row: {gameState.CheckedKingPosition.Row}  and col: {gameState.CheckedKingPosition.Column}");
+				}
+				else
+				{
+					Debug.WriteLine($"From mainwindow debugging");
+                    Debug.WriteLine($"king not checked");
+
+                }
+			}
 			else
 			{
 				Debug.WriteLine("No King is in check");
-            }
+			}
 
 			if (checkedKingPos != null)
 			{
@@ -380,8 +438,23 @@ namespace ChessUI
 				Move promMove = new PawnPromotion(from, to, type);
 				HandleMove(promMove);
 			};
-            
+
+
+			Debug.WriteLine($"From Mainwindow xaml ");
 			Debug.WriteLine($"Promotion Menu opened for {gameState.CurrentPlayer} at {from} to {to}");
+
+			//if (gameCheckedKingPosition != null)){
+			if (gameState.CheckedKingPosition != null)
+			{
+                Debug.WriteLine($"From Mainwindow xaml ");
+                Debug.WriteLine($"Checked King Position: {gameState.CheckedKingPosition}");
+            }
+			else
+			{
+                Debug.WriteLine($"From Mainwindow xaml ");
+                Debug.WriteLine($"No King is checked after promote");
+            }
+			
         }
 
 		private void HandleMove(Move move)

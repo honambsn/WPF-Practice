@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,9 @@ namespace ChessLogic
 		private string stateString;
 		private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
 		public Move LastMove { get; private set; }
+		public Position? CheckedKingPosition { get; private set; } = null;
 
-		public GameState(Player player, Board board)
+        public GameState(Player player, Board board)
 		{
 			CurrentPlayer = player;
 			Board = board;
@@ -54,7 +56,23 @@ namespace ChessLogic
 				noCaptureOrPawnMoves++;
 			}
 
-			CurrentPlayer = CurrentPlayer.Opponent();
+			Player opponent = CurrentPlayer.Opponent();
+			CheckedKingPosition = Board.GetCheckedKingPosition(opponent);
+			if (CheckedKingPosition != null)
+			{
+				// Log the check state for debugging
+				Debug.WriteLine($"From gamestate debugging");
+
+                Debug.WriteLine($"King of {opponent} is checked at {CheckedKingPosition}");
+				Debug.WriteLine($"Postion: row: { CheckedKingPosition.Row}  and col: {CheckedKingPosition.Column}");
+            }
+			else
+			{
+                Debug.WriteLine($"From gamestate debugging");
+                Debug.WriteLine($"king not checked");
+			}
+			
+            CurrentPlayer = CurrentPlayer.Opponent();
 			UpdateStateString();
 			CheckForGameOver();
 		}
