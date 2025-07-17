@@ -18,6 +18,7 @@ using System.ComponentModel;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
 using ChessLogic.Helper;
+using ChessAI.Utilities;
 
 namespace ChessUI
 {
@@ -55,27 +56,16 @@ namespace ChessUI
 		public MainWindow()
 		{
 			InitializeComponent();
+            var pgnReader = new readPGN();
+            pgnReader.LoadPGNfile("D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn");
+            pgnReader.DisplayGameDetails();
 
-			//ShowStep1();
-			//SetupWelcomeScreen();
-
-			//LoadWelcomeScreen();
+            string output = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\output.pgn";
+            pgnReader.SaveToPGN(output);
 
 			Debug.WriteLine("MainWindow constructor called");
 			SetUpGameMode();
 
-			//         InitializeBoard();
-
-			//gameState = new GameState(Player.White, Board.Initial());
-			////gameState = new GameState(Player.Black, Board.Initial());
-			//DrawBoard(gameState.Board);
-			//SetCursor(gameState.CurrentPlayer);
-
-			//this.Loaded += (s, e) => ShowHistoryWindow();
-
-			//SetUpGameMode();
-			//HumanMode();
-			//StartGame();
 		}
 
 		//      private void InitializeBoard()
@@ -231,22 +221,12 @@ namespace ChessUI
 			{
 				int r = checkedKingPos.Row;
 				int c = checkedKingPos.Column;
-				//highlights[r, c].Fill = new SolidColorBrush(Color.FromArgb(128, 255, 0, 0));
-				//highlights[r, c].Fill = HighlightColors.Check;
-				Color color = Color.FromRgb(255, 0, 0);
-                highlights[r, c].Fill = new SolidColorBrush(color);
-
-
-                if (highlights[r, c].Fill is SolidColorBrush)
-				{
-					Debug.WriteLine($"Checkedddddddddddddd !!!!!!!!!!");
-					Debug.WriteLine($"Highlighting check at visual: row={r}, col={c} with RadialGradientBrush");
-                }
-				else
-				{
-					Debug.WriteLine($"Not a RadialGradientBrush, using SolidColorBrush instead.");
-				}
-			}
+                Color color = Color.FromRgb(255, 0, 0);
+                highlights[r, c].Fill = RadialGradientBrush(color);
+                //highlights[r, c].Fill = HighlightColors.Check;
+                //Color color = Color.FromRgb(255, 0, 0);
+                //highlights[r, c].Fill = new SolidColorBrush(color);
+            }
 
 			if (board.IsInCheck(Player.Black))
 			{
@@ -403,6 +383,8 @@ namespace ChessUI
 
             SetCursor(gameState.CurrentPlayer);
 
+			Debug.WriteLine($"the bot mode check flag:  {botModeFlag}");
+
 			if (gameState.IsGameOver())
 			{
 				if (gameState.Result.Reason == EndReason.Checkmate)
@@ -423,17 +405,25 @@ namespace ChessUI
                         Debug.WriteLine($"Game Over: Checkmate, Winner: Black");
                         Debug.WriteLine($"Write: {playerWon}");
                     }
-                    int currElo = PlayerData.LoadElo();
-					Debug.WriteLine($"Current Bot: {currentBot.BotElo}");
-                    int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.botElo, playerWon);
 
-                    Debug.WriteLine($"Elo updated: {currElo} -> {newElo}");
-					Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}");
-					Debug.WriteLine($"Write: {playerWon}");
-					//, currElo, newElo);
-					Debug.WriteLine($"Write: {currElo}");
-					Debug.WriteLine($"Write: {newElo}");
+					if (botModeFlag == true)
+					{
+						int currElo = PlayerData.LoadElo();
+						//
+						Debug.WriteLine($"Current Bot: {currentBot.BotElo}");
+						int newElo = PlayerData.UpdateEloAfterMatch(currElo, currentBot.botElo, playerWon);
 
+						Debug.WriteLine($"Elo updated: {currElo} -> {newElo}");
+						Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}");
+						Debug.WriteLine($"Write: {playerWon}");
+						//, currElo, newElo);
+						Debug.WriteLine($"Write: {currElo}");
+						Debug.WriteLine($"Write: {newElo}");
+					}
+					else
+					{
+						Debug.WriteLine($"Game Over: {gameState.Result.Reason}, Winner: {gameState.Result.Winner}, in Human Mode");
+					}
 
                 }
                 ShowGameOver();
@@ -604,6 +594,7 @@ namespace ChessUI
 			gameState = new GameState(Player.White, Board.Initial());
 			DrawBoard(gameState.Board);
 			SetCursor(gameState.CurrentPlayer);
+			//SetUpGameMode();
 		}
 
 		private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -611,11 +602,6 @@ namespace ChessUI
 			if (!IsMenuOnScreen() && e.Key == Key.Escape)
 			{
 				ShowPauseMenu();
-			}
-			else if (!IsMenuOnScreen() && e.Key == Key.A)
-			{
-				//play vs bot
-				ShowBot();
 			}
 		}
 
@@ -789,7 +775,8 @@ namespace ChessUI
 			CloseGameMode();
 			try
 			{
-				InitializeBoard();
+                botModeFlag = true;
+                InitializeBoard();
 				ShowBot();
 			}
 			catch (Exception ex)
@@ -800,7 +787,8 @@ namespace ChessUI
 			}
 		}
 
-		public void HumanMode()
+		private bool botModeFlag = false;
+        public void HumanMode()
 		{
 			CloseGameMode();
 			ShowPopUp();
