@@ -56,15 +56,21 @@ namespace ChessUI
 		public MainWindow()
 		{
 			InitializeComponent();
-            var pgnReader = new readPGN();
-            pgnReader.LoadPGNfile("D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn");
-            pgnReader.DisplayGameDetails();
+            //var pgnReader = new readPGN();
+            string input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn";
+            //pgnReader.DisplayGameDetails();
 
             string output = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\output.pgn";
-            pgnReader.SaveToPGN(output);
+            //pgnReader.SaveToPGN(output);
 
-			Debug.WriteLine("MainWindow constructor called");
-			SetUpGameMode();
+			var moves = readPGN.ReadMovesFromPGN(input_);
+			foreach (var move in moves)
+			{
+				Debug.WriteLine(move);
+			}
+
+            Debug.WriteLine("MainWindow constructor called");
+			//SetUpGameMode();
 
 		}
 

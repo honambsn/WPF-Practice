@@ -12,7 +12,7 @@ namespace ChessAI.Tests
         {
             // Arrange
             var pgnReader = new readPGN();
-            string testFilePath = "test.pgn"; // Provide a valid PGN test file path
+            string testFilePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn"; // Provide a valid PGN test file path
 
             // Create a temporary test file (optional, can be done manually too)
             File.WriteAllText(testFilePath, "[Event \"Test Event\"]\n[White \"Player 1\"]\n1. e4 e5");
@@ -39,7 +39,7 @@ namespace ChessAI.Tests
             pgnReader.Moves_.Add("e4");
             pgnReader.Moves_.Add("e5");
 
-            string outputFilePath = "output.pgn";
+            string outputFilePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\output.pgn";
 
             // Act
             pgnReader.SaveToPGN(outputFilePath);

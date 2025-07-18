@@ -8,84 +8,49 @@ using System.Threading.Tasks;
 
 namespace ChessAI.Utilities
 {
-    public class readPGN
+    public static class readPGN
     {
-        public string GameHeader { get; set; }
-        public List<string> Moves_ { get; set; }
-
-        public readPGN()
+        public static List<string> ReadMovesFromPGN(string filePath)
         {
-            Moves_ = new List<string>();
-        }
-
-        public void LoadPGNfile(string filePath)
-        {
-            if (File.Exists(filePath))
-            {
-                string pgnContent = File.ReadAllText(filePath);
-                ParsePGN(pgnContent);
-            }
-            else
+            if (!File.Exists(filePath))
             {
                 Debug.WriteLine($"File not found: {filePath}");
+                throw new FileNotFoundException("The specified PGN file does not exist.", filePath);
             }
-        }
 
-        private void ParsePGN(string pgnContent)
-        {
-            var headerRegex = new Regex(@"(\[.*?\])", RegexOptions.Singleline);
-            var headers = headerRegex.Matches(pgnContent);
+            var lines = File.ReadAllLines(filePath);
+            Debug.WriteLine($"Lines in PGN file: {lines.Length}");
 
-            foreach (Match header in headers)
+            Debug.WriteLine($"Line: {lines}");
+
+            foreach (var line in lines)
             {
-                GameHeader += header.Value + "\n";
+                Debug.WriteLine($"Line: {line}");
             }
+            
+            var moves = new List<string>();
 
-            var movesRegex = new Regex(@"([a-hA-H1-8\-+x#]+[\s]*)", RegexOptions.Singleline);
-            var moves = movesRegex.Matches(pgnContent);
+            var movePattern = new Regex(@"\d+\.\s*([^\s]+)\s+([^\s]+)?");
 
-            foreach (Match move in moves)
+            foreach (var line in lines)
             {
-                Moves_.Add(move.Value.Trim());
+                if (line.StartsWith("[") || string.IsNullOrWhiteSpace(line))
+                {
+                    continue;
+                }
+
+                var matches = movePattern.Matches(line);
+
+                foreach (Match match in matches)
+                {
+                    if (match.Groups.Count >= 2)
+                        moves.Add(match.Groups[1].Value); // Add the first move
+
+                    if (match.Groups.Count >= 3 && !string.IsNullOrEmpty(match.Groups[2].Value))
+                        moves.Add(match.Groups[2].Value); // Add the second move if it exists
+                }
             }
-        }
-
-        public void DisplayGameDetails()
-        {
-            Debug.WriteLine("Game Header:");
-            Debug.WriteLine(GameHeader);
-
-            Debug.WriteLine("Moves:");
-            foreach (var move in Moves_)
-            {
-                Debug.WriteLine(move);
-            }
-        }
-
-        public void SaveToPGN(string output)
-        {
-            string pgnContent = GameHeader + "\n";
-
-            foreach (var move in Moves_)
-            {
-                pgnContent += move + " ";
-            }
-
-            File.WriteAllText(output, pgnContent.Trim());
-            Debug.WriteLine($"PGN saved to {output}");
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            readPGN pgnReader = new readPGN();
-            pgnReader.LoadPGNfile("file.pgn");
-            pgnReader.DisplayGameDetails();
-
-            string output = "output.pgn";
-            pgnReader.SaveToPGN(output);
+            return moves;
         }
     }
 }

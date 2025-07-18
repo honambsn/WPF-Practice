@@ -1,0 +1,7 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\bin\Debug\net8.0-windows\CoverletSourceRootsMapping_chessTest
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.AssemblyInfoInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.AssemblyInfo.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\chessTest\obj\Debug\net8.0-windows\chessTest.sourcelink.json
