@@ -11,5 +11,7 @@ namespace ChessAI.OpeningBook
         public string StateString { get; set; }
         public string BestMove { get; set; }
         public int Frequency { get; set; } = 1;
+        public string FEN { get; set; } = string.Empty;
+        public string Move { get; set; } = string.Empty;
     }
 }

@@ -6,6 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using ChessAI.OpeningBook;
+using System.Text.Json;
+using System.Security.Cryptography;
 namespace ChessLogic.OpeningBook
 {
     public class OpeningBook
@@ -17,6 +19,34 @@ namespace ChessLogic.OpeningBook
         //private readonly Dictionary<string, Dictionary<string, int>> book = new();
         //private readonly Dictionary<string, Move> book = new();
         private Dictionary<string, List<OpeningEntry>> book = new();
+        private Dictionary<string, List<string>> _book = new();
+
+        public void AddEntry(OpeningEntry entry)
+        {
+            if (!_book.ContainsKey(entry.FEN))
+                _book[entry.FEN] = new List<string>();
+
+            if (!_book[entry.FEN].Contains(entry.Move))
+                _book[entry.FEN].Add(entry.Move);
+        }
+
+        public List<string>? GetMoves(string fen)
+        {
+            return _book.TryGetValue(fen, out var moves) ? moves : null;
+        }
+
+
+        public void LoadFromJson(string path)
+        {
+            var json = File.ReadAllText(path);
+            _book = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json) ?? new Dictionary<string, List<string>>();
+        }
+
+        public void SaveToJson(string path)
+        {
+            var json = JsonSerializer.Serialize(_book, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(path, json);
+        }
 
         public void Add(string stateString, string move)
         {
