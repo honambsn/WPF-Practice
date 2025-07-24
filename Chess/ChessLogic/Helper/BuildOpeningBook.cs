@@ -38,7 +38,7 @@ namespace ChessLogic.OpeningBook
 
         private void AddGameToBook(List<string> moveNotations)
         {
-            var state = new GameState();
+            var state = new GameState(Player.White, Board.Initial());
             var sequence = new List<string>();
 
             foreach(var notation in moveNotations)
