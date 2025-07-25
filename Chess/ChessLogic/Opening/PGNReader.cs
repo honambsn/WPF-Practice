@@ -10,6 +10,7 @@ namespace ChessAI.Utilities
 {
     public static class PGNReader
     {
+        // read 1 game
         public static List<string> ReadMovesFromPGN(string filePath)
         {
             if (!File.Exists(filePath))
@@ -53,6 +54,9 @@ namespace ChessAI.Utilities
             return moves;
         }
 
+
+        // read all games in PGN file
+        // no remove time
         public static List<List<string>> ReadPGN(string filePath)
         {
             List<List<string>> gameMoves = new List<List<string>>();
@@ -108,6 +112,7 @@ namespace ChessAI.Utilities
             return gameMoves;
         }
 
+        // remove time
         public static List<List<string>> ReadGamesFromPGN(string filePath)
         {
             if (!File.Exists(filePath))

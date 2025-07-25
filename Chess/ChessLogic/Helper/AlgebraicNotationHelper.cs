@@ -212,19 +212,43 @@ namespace ChessLogic.Helper
 
         }
 
-        private static PieceType CharToPiece(char firstChar)
+        private static PieceType CharToPiece(char c)
         {
-            throw new NotImplementedException();
+            return c switch
+            {
+                'N' => PieceType.Knight,
+                'B' => PieceType.Bishop,
+                'R' => PieceType.Rook,
+                'Q' => PieceType.Queen,
+                'K' => PieceType.King,
+                _ => PieceType.Pawn
+            };
         }
 
-        private static char PieceToChar(PieceType promotedPiece)
+        private static char PieceToChar(Piece piece)
         {
-            throw new NotImplementedException();
+            return piece.Type switch
+            {
+                PieceType.Queen => 'Q',
+                PieceType.Rook => 'R',
+                PieceType.Bishop => 'B',
+                PieceType.Knight => 'N',
+                PieceType.King => 'K',
+                _ => ' '
+            };
         }
 
         private static Move GetCastleMove(GameState state, bool kingside)
         {
-            throw new NotImplementedException();
+            var moves = state.GetAllLegalMoves().OfType<Castle>();
+            
+            foreach (var move in moves)
+            {
+                if (move.IsKingside == kingside)
+                    return move;
+            }
+
+            return null;
         }
     }
 }
