@@ -74,5 +74,44 @@ namespace ChessLogic.OpeningBook
             File.WriteAllText(outputPath, json);
             Debug.WriteLine("Opening book saved to " + outputPath);
         }
+
+        public static void GenerateBook(string pgnFile, string outputFile)
+        {
+            var games = PGNReader.ReadPGN(pgnFile);
+            var book = new Dictionary<ulong, Dictionary<Move, int>>();
+
+            foreach (var game in games)
+            {
+                var state = new GameState(Player.White, Board.Initial());
+
+                foreach (var notation in game.MoveNotations)
+                {
+                    try
+                    {
+                        var move = AlgebraicNotationHelper.FromAlgebraic(notation, state);
+                        var hash = state.ZobristKey;
+
+                        if (!book.ContainsKey(hash))
+                            book[hash] = new();
+
+                        if (!book[hash].ContainsKey(move))
+                            book[hash][move] = 0;
+
+                        book[hash][move]++;
+                        state.ApplyMove(move);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Error processing move '{notation}': {ex.Message}");
+                        //continue;
+                        break;
+                    }
+
+                }
+            }
+
+            OpeningBookFormat.Save(book, outputFile);
+        }
+
     }
 }

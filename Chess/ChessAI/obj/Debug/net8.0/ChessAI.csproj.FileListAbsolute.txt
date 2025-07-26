@@ -1,0 +1,5 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessAI\obj\Debug\net8.0\ChessAI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessAI\obj\Debug\net8.0\ChessAI.AssemblyInfoInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessAI\obj\Debug\net8.0\ChessAI.AssemblyInfo.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessAI\obj\Debug\net8.0\ChessAI.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Chess\ChessAI\obj\Debug\net8.0\ChessAI.sourcelink.json

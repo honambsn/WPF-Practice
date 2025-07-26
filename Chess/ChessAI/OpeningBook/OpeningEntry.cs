@@ -13,5 +13,7 @@ namespace ChessAI.OpeningBook
         public int Frequency { get; set; } = 1;
         public string FEN { get; set; } = string.Empty;
         public string Move { get; set; } = string.Empty;
+
+        public Move Move { get; set; }
     }
 }

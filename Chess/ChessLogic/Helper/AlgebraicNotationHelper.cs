@@ -250,5 +250,20 @@ namespace ChessLogic.Helper
 
             return null;
         }
+
+
+        public static Move FromAlgebraic(string notation, GameState state)
+        {
+            var legalMoves = state.GetAllLegalMoves();
+
+            foreach (var move in legalMoves)
+            {
+                if (move.ToString() == notation || move.GetAlgebraicNotation(state) == notation)
+                    return move;
+            }
+
+
+            throw new Exception($"No legal move found for notation: {notation} in current game state.");
+        }
     }
 }

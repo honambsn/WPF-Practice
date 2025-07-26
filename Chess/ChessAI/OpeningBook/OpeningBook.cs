@@ -121,3 +121,30 @@ namespace ChessLogic.OpeningBook
         //}
     }
 }
+
+
+namespace ChessAI.OpeningBook
+{
+    public class OpeningBook
+    {
+        private Dictionary<ulong, List<OpeningEntry>> _entries;
+
+        public OpeningBook(string filePath)
+        {
+            _entries = OpeningBookFormat.Load(filePath);
+        }
+
+        public Move? GetBestMove(GameState state)
+        {
+            var hash = state.ZobristKey;
+            if (!_entries.ContainsKey(hash))
+            {
+                return null; // No entry for this position
+            }
+
+            var list  = _entries[hash];
+            return list.OrderByDescending(e => e.Frequency).First().Move;
+        }
+
+    }
+}
