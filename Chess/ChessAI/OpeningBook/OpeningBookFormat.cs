@@ -19,6 +19,7 @@ namespace ChessAI.OpeningBook
                 foreach (var moveFreq in kvp.Value)
                 {
                     //list.Add($"{kvp.Key:X16} {moveFreq.Key} {moveFreq.Value}");
+                    //list.Add($"{kvp.Key};{moveFreq.Key.ToAlgebraic()};{moveFreq.Value}");
                     list.Add($"{kvp.Key};{moveFreq.Key.ToAlgebraic()};{moveFreq.Value}");
                 }
             }
@@ -40,8 +41,8 @@ namespace ChessAI.OpeningBook
                 var notation = parts[1];
                 var freq = int.Parse(parts[2]);
 
-                var state = new GameState(Player.White, Board.Initial());
-                var move = AlgebraicNotationHelper.FromAlgebraic(notation, state);
+                //var state = new GameState(Player.White, Board.Initial());
+                //var move = AlgebraicNotationHelper.FromAlgebraic(notation, state);
 
                 if (!dict.ContainsKey(hash))
                 {
@@ -49,7 +50,7 @@ namespace ChessAI.OpeningBook
                     dict[hash] = new();
                 }
 
-                dict[hash].Add(new OpeningEntry(move, freq));
+                dict[hash].Add(new OpeningEntry(notation, freq));
 
             }
 

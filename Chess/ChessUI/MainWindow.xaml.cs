@@ -17,15 +17,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
-using ChessLogic.Helper;
-using ChessAI.Utilities;
+using ChessLogic.Helper.PGN;
+using ChessLogic.Helper.OpeningBook;
 
 namespace ChessUI
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window, INotifyPropertyChanged
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window, INotifyPropertyChanged
 	{
 		private readonly Image[,] pieceImages = new Image[8, 8];
 		private readonly Rectangle[,] highlights = new Rectangle[8, 8];

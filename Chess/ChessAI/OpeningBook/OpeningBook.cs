@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ChessAI.OpeningBook;
 using System.Text.Json;
 using System.Security.Cryptography;
+using ChessLogic.Helper.OpeningBook;
 namespace ChessLogic.OpeningBook
 {
     public class OpeningBook
@@ -48,23 +49,23 @@ namespace ChessLogic.OpeningBook
             File.WriteAllText(path, json);
         }
 
-        public void Add(string stateString, string move)
-        {
-            if (!book.ContainsKey(stateString))
-            {
-                book[stateString] = new List<OpeningEntry>();
-            }
+        //public void Add(string stateString, string move)
+        //{
+        //    if (!book.ContainsKey(stateString))
+        //    {
+        //        book[stateString] = new List<OpeningEntry>();
+        //    }
 
-            var existing = book[stateString].FirstOrDefault(e => e.BestMove == move);
+        //    var existing = book[stateString].FirstOrDefault(e => e.BestMove == move);
 
-            if (existing != null) existing.Frequency++;
-            else book[stateString].Add(new OpeningEntry
-            {
-                StateString = stateString,
-                BestMove = move,
-                Frequency = 1
-            });
-        }
+        //    if (existing != null) existing.Frequency++;
+        //    else book[stateString].Add(new OpeningEntry
+        //    {
+        //        StateString = stateString,
+        //        BestMove = move,
+        //        Frequency = 1
+        //    });
+        //}
 
         public string GetBestMove(string stateString)
         {
@@ -143,7 +144,17 @@ namespace ChessAI.OpeningBook
             }
 
             var list  = _entries[hash];
-            return list.OrderByDescending(e => e.Frequency).First().Move;
+            var bestNotation = list.OrderByDescending(e => e.Frequency).FirstOrDefault()?.MoveNotation;
+
+
+            try
+            {
+                return AlgebraicNotationHelper.FromAlgebraic(bestNotation, state);
+            }
+            catch
+            {
+                return null; // Invalid move notation
+            }
         }
 
     }
