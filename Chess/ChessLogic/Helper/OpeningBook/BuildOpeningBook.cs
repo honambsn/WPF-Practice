@@ -10,106 +10,138 @@ using ChessLogic.Helper.PGN;
 
 namespace ChessLogic.Helper.OpeningBook
 {
-    public class BuildOpeningBook
+    #region old version
+    //public class BuildOpeningBook
+    //{
+    //    private Dictionary<string, Dictionary<string, int>> openingBook = new();
+
+    //    public void BuildFromPGN(string pgnFilePath)
+    //    {
+    //        if (!File.Exists(pgnFilePath))
+    //        {
+    //            Debug.WriteLine(pgnFilePath + " does not exist. Please provide a valid PGN file path.");
+    //            return;
+    //        }
+
+    //        var games = PGNReader.ReadGamesFromPGN(pgnFilePath);
+    //        Debug.WriteLine("Number of games read: " + games.Count);
+    //        Debug.WriteLine(games.Count + " games read from PGN file.");
+
+    //        foreach (var moveList in games)
+    //        {
+    //            AddGameToBook(moveList);
+    //        }
+
+    //        Debug.WriteLine($"Opening book built with {openingBook.Count} unique positions.");
+    //    }
+
+    //    private void AddGameToBook(List<string> moveNotations)
+    //    {
+    //        var state = new GameState(Player.White, Board.Initial());
+    //        var sequence = new List<string>();
+
+    //        foreach (var notation in moveNotations)
+    //        {
+    //            var move = AlgebraicNotationHelper.ToAlgebraicNotation(notation, state);
+
+    //            if (move == null) break;
+
+    //            string key = string.Join(" ", sequence);
+    //            string moveKey = move.ToString();
+
+    //            if (!openingBook.ContainsKey(key))
+    //            {
+    //                openingBook[key] = new Dictionary<string, int>();
+    //            }
+
+    //            if (!openingBook[key].ContainsKey(moveKey))
+    //            {
+    //                openingBook[key][moveKey] = 0;
+    //            }
+
+    //            openingBook[key][moveKey]++;
+
+    //            state.ApplyMove(move);
+    //            sequence.Add(moveKey);
+    //        }
+    //    }
+
+    //    public void SaveToFile(string outputPath)
+    //    {
+    //        var json = JsonSerializer.Serialize(openingBook, new JsonSerializerOptions { WriteIndented = true });
+
+    //        File.WriteAllText(outputPath, json);
+    //        Debug.WriteLine("Opening book saved to " + outputPath);
+    //    }
+
+    //    public static void GenerateBook(string pgnFile, string outputFile)
+    //    {
+    //        var games = PGNReader.ReadPGN(pgnFile);
+    //        var book = new Dictionary<ulong, Dictionary<Move, int>>();
+
+    //        foreach (var game in games)
+    //        {
+    //            var state = new GameState(Player.White, Board.Initial());
+
+    //            foreach (var notation in game.MoveNotations)
+    //            {
+    //                try
+    //                {
+    //                    var move = AlgebraicNotationHelper.FromAlgebraic(notation, state);
+    //                    var hash = state.ZobristKey;
+
+    //                    if (!book.ContainsKey(hash))
+    //                        book[hash] = new();
+
+    //                    if (!book[hash].ContainsKey(move))
+    //                        book[hash][move] = 0;
+
+    //                    book[hash][move]++;
+    //                    state.ApplyMove(move);
+    //                }
+    //                catch (Exception ex)
+    //                {
+    //                    Debug.WriteLine($"Error processing move '{notation}': {ex.Message}");
+    //                    //continue;
+    //                    break;
+    //                }
+
+    //            }
+    //        }
+
+    //        OpeningBookFormat.Save(book, outputFile);
+    //    }
+
+    //}
+    #endregion
+
+    public static class BuildOpeningBook
     {
-        private Dictionary<string, Dictionary<string, int>> openingBook = new();
-
-        public void BuildFromPGN(string pgnFilePath)
+        public static void BuildFromPGN(string pgnPath, string outputPath)
         {
-            if (!File.Exists(pgnFilePath))
+            var allGames = PGNReader.ReadGamesFromPGN(pgnPath);
+            var book = new Dictionary<string, OpeningEntry>();
+
+            foreach (var moves in allGames)
             {
-                Debug.WriteLine(pgnFilePath + " does not exist. Please provide a valid PGN file path.");
-                return;
-            }
+                var sequence = new List<string>();
 
-            var games = PGNReader.ReadGamesFromPGN(pgnFilePath);
-            Debug.WriteLine("Number of games read: " + games.Count);
-            Debug.WriteLine(games.Count + " games read from PGN file.");
-
-            foreach (var moveList in games)
-            {
-                AddGameToBook(moveList);
-            }
-
-            Debug.WriteLine($"Opening book built with {openingBook.Count} unique positions.");
-        }
-
-        private void AddGameToBook(List<string> moveNotations)
-        {
-            var state = new GameState(Player.White, Board.Initial());
-            var sequence = new List<string>();
-
-            foreach (var notation in moveNotations)
-            {
-                var move = AlgebraicNotationHelper.ToAlgebraicNotation(notation, state);
-
-                if (move == null) break;
-
-                string key = string.Join(" ", sequence);
-                string moveKey = move.ToString();
-
-                if (!openingBook.ContainsKey(key))
+                foreach (var notation in moves)
                 {
-                    openingBook[key] = new Dictionary<string, int>();
+                    sequence.Add(notation);
+                    string key = string.Join(" ", sequence);
+
+                    if (!book.ContainsKey(key))
+                    {
+                        book[key] = new OpeningEntry(sequence);
+                    }
+                    else
+                        book[key].Frequency++;
                 }
-
-                if (!openingBook[key].ContainsKey(moveKey))
-                {
-                    openingBook[key][moveKey] = 0;
-                }
-
-                openingBook[key][moveKey]++;
-
-                state.ApplyMove(move);
-                sequence.Add(moveKey);
             }
-        }
 
-        public void SaveToFile(string outputPath)
-        {
-            var json = JsonSerializer.Serialize(openingBook, new JsonSerializerOptions { WriteIndented = true });
-
+            string json = JsonSerializer.Serialize(book.Values, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(outputPath, json);
-            Debug.WriteLine("Opening book saved to " + outputPath);
         }
-
-        public static void GenerateBook(string pgnFile, string outputFile)
-        {
-            var games = PGNReader.ReadPGN(pgnFile);
-            var book = new Dictionary<ulong, Dictionary<Move, int>>();
-
-            foreach (var game in games)
-            {
-                var state = new GameState(Player.White, Board.Initial());
-
-                foreach (var notation in game.MoveNotations)
-                {
-                    try
-                    {
-                        var move = AlgebraicNotationHelper.FromAlgebraic(notation, state);
-                        var hash = state.ZobristKey;
-
-                        if (!book.ContainsKey(hash))
-                            book[hash] = new();
-
-                        if (!book[hash].ContainsKey(move))
-                            book[hash][move] = 0;
-
-                        book[hash][move]++;
-                        state.ApplyMove(move);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"Error processing move '{notation}': {ex.Message}");
-                        //continue;
-                        break;
-                    }
-
-                }
-            }
-
-            OpeningBookFormat.Save(book, outputFile);
-        }
-
     }
 }

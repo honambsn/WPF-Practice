@@ -18,7 +18,6 @@ using System.ComponentModel;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
 using ChessLogic.Helper.PGN;
-using ChessLogic.Helper.OpeningBook;
 
 namespace ChessUI
 {

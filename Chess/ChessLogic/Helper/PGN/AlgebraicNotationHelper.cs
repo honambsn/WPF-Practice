@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessLogic.Helper.OpeningBook;
 
-namespace ChessLogic.Helper.OpeningBook
+namespace ChessLogic.Helper.PGN
 {
     public class AlgebraicNotationHelper
     {
