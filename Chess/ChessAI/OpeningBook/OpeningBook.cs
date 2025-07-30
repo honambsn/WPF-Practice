@@ -198,4 +198,9 @@ namespace ChessAI.OpeningBook
         }
     }
 
+    public class OpeningEntry
+    {
+        public List<string> MoveNotations { get; set; } = new();
+        public int Frequency { get; set; }
+    }
 }
