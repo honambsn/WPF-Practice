@@ -311,6 +311,6 @@ namespace ChessLogic.Helper.PGN
     }
 }
 
-baordposition
+//baordposition
 
 
