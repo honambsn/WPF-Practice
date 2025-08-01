@@ -13,6 +13,7 @@ namespace ChessLogic.Helper.OpeningBook
         public int Frequency { get; set; } = 1;
         public string FEN { get; set; } = string.Empty;
         public string Move { get; set; } = string.Empty;
+        public Move Movee { get; set; }
 
         public string MoveNotation { get; set; }
 
@@ -37,10 +38,16 @@ namespace ChessLogic.Helper.OpeningBook
             return string.Join(",", MoveNotations).GetHashCode();
         }
 
-        public OpeningEntry(string notation, int frequency)
+        //public OpeningEntry(string notation, int frequency)
+        //{
+        //    MoveNotation = notation;
+        //    Frequency = frequency;
+        //}
+
+        public OpeningEntry(Move move)
         {
-            MoveNotation = notation;
-            Frequency = frequency;
+            Movee = move;
+            Frequency = 1;
         }
     }
 }

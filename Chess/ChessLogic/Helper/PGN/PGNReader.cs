@@ -162,5 +162,73 @@ namespace ChessLogic.Helper.PGN
 
             return allGames;
         }
-    }
+
+        // read all games in PGN file
+        public static List<List<string>> ReadMovesFromPGN(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                Debug.WriteLine($"File not found: {filePath}");
+                throw new FileNotFoundException("The specified PGN file does not exist.", filePath);
+            }
+
+            string content = File.ReadAllText(filePath);
+
+            // Split the content into individual games based on the PGN format
+            var games = content.Split(new[] { "[Event " }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<List<string>> allGameMoves = new();
+
+            foreach (var game in games)
+            {
+                // add [Event to restore the game format if needed
+                string fullGame = "[Event " + game.Trim();
+
+                // Find the last closing bracket to isolate the moves
+                int lastBracketIndex = fullGame.LastIndexOf(']');
+                if (lastBracketIndex == -1 || lastBracketIndex + 1 >= fullGame.Length) continue;
+
+                // Extract the moves part of the game
+                string moveSection = fullGame.Substring(lastBracketIndex + 1).Trim();
+
+                // Remove time annotations and other non-move text
+                moveSection = Regex.Replace(moveSection, @"\{[^}]*\}", ""); // remove time annotations
+
+                // remove result annotations
+                moveSection = moveSection.Replace("1-0", "")
+                                         .Replace("0-1", "")
+                                         .Replace("1/2-1/2", "");
+
+                // remove move numbers
+                moveSection = Regex.Replace(moveSection, @"\d+\.", ""); // remove move numbers
+
+
+                // split moves
+                var tokens = moveSection.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+                var gameMoves = new List<string>();
+                foreach (var token in tokens)
+                {
+                    if (!string.IsNullOrEmpty(token))
+                    {
+                        gameMoves.Add(token.Trim());
+                    }
+                }
+                
+                if (gameMoves.Count > 0)
+                {
+                    allGameMoves.Add(gameMoves);
+                }
+
+            }
+
+            return allGameMoves;
+        } // use =>
+        //var allGames = ReadMovesFromPGN("path_to_your_pgn_file.pgn");
+        //foreach (var game in allGames)
+        //{
+        //    console.WriteLine("New game");
+        //    Console.WriteLine(string.Join(" ", game));
+        //}
+}
 }
