@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Text.Json;
 using ChessLogic.Helper.PGN;
+using System.Xml;
 
 
 namespace ChessLogic.Helper.OpeningBook
@@ -115,33 +116,81 @@ namespace ChessLogic.Helper.OpeningBook
     //}
     #endregion
 
-    public static class BuildOpeningBook
+    #region version 1.1
+    //public static class BuildOpeningBook
+    //{
+    //    public static void BuildFromPGN(string pgnPath, string outputPath)
+    //    {
+    //        var allGames = PGNReader.ReadGamesFromPGN(pgnPath);
+    //        var book = new Dictionary<string, OpeningEntry>();
+
+    //        foreach (var moves in allGames)
+    //        {
+    //            var sequence = new List<string>();
+
+    //            foreach (var notation in moves)
+    //            {
+    //                sequence.Add(notation);
+    //                string key = string.Join(" ", sequence);
+
+    //                if (!book.ContainsKey(key))
+    //                {
+    //                    book[key] = new OpeningEntry(sequence);
+    //                }
+    //                else
+    //                    book[key].Frequency++;
+    //            }
+    //        }
+
+    //        string json = JsonSerializer.Serialize(book.Values, new JsonSerializerOptions { WriteIndented = true });
+    //        File.WriteAllText(outputPath, json);
+    //    }
+    //}
+    #endregion
+
+
+    public class BuildOpeningBook
     {
-        public static void BuildFromPGN(string pgnPath, string outputPath)
+        public static void Build(string pgnFile, string outputFile)
         {
-            var allGames = PGNReader.ReadGamesFromPGN(pgnPath);
-            var book = new Dictionary<string, OpeningEntry>();
+            var lines = File.ReadAllLines(pgnFile);
+            Dictionary<ulong, List<OpeningEntry>> book = new();
 
-            foreach (var moves in allGames)
+            GameState state = new(Player.White, Board.Initial());
+            ZobristHasing zobrist = new();
+
+            foreach (var line lines)
             {
-                var sequence = new List<string>();
+                if (line.StartsWith("[")) continue;
 
-                foreach (var notation in moves)
+                var tokens = line.Split(' ');
+                state = new GameState(Player.White, Board.Initial());
+
+                foreach (var token in tokens)
                 {
-                    sequence.Add(notation);
-                    string key = string.Join(" ", sequence);
+                    if (string.IsNullOrWhiteSpace(token) || token.Contains(".") || token == "1-0" || token == "0-1" || token == "1/2-1/2")
+                        continue;
+
+                    var move = AlgebraicNotationHelper.ParseMove(token, state);
+                    ulong key = zobrist.ComputeHash(state);
 
                     if (!book.ContainsKey(key))
                     {
-                        book[key] = new OpeningEntry(sequence);
+                        book[key] = new();
                     }
+
+                    var entry = book[key].FirstOrDefault(e => e.Move.Equals(move));
+                    if (entry == null)
+                        book[key].Add(new OpeningEntry(move));
                     else
-                        book[key].Frequency++;
+                        entry.Frequency++;
+
+                    state.ApplyMove(move);
                 }
             }
 
-            string json = JsonSerializer.Serialize(book.Values, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(outputPath, json);
+            File.WriteAllText(outputFile, JsonConvert.SerializeObject(book, Formatting.Indented));
+
         }
     }
 }

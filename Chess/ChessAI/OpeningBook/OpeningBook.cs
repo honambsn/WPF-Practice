@@ -166,41 +166,78 @@ using ChessLogic.Helper.OpeningBook;
 
 namespace ChessAI.OpeningBook
 {
+
+    #region old ver 1.1
+    //public class OpeningBook
+    //{
+    //    private Dictionary<string, List<string>> book = new();
+
+    //    public OpeningBook(string jsonPath)
+    //    {
+    //        var entries = JsonSerializer.Deserialize<List<OpeningEntry>>(File.ReadAllText(jsonPath));
+
+    //        foreach (var entry in entries)
+    //        {
+    //            string key = string.Join(" ", entry.MoveNotations.Take(entry.MoveNotations.Count - 1));
+    //            string nextMove = entry.MoveNotations.Last();
+
+    //            if (!book.ContainsKey(key))
+    //                book[key] = new List<string>();
+
+    //            book[key].Add(nextMove);
+    //        }
+    //    }
+    //    public string? GetNextMove(List<string> playedMoves)
+    //    {
+    //        string key = string.Join(" ", playedMoves);
+
+    //        if (!book.ContainsKey(key)) return null;
+
+    //        var possible = book[key];
+    //        Random rng = new Random();
+
+    //        return possible[rng.Next(possible.Count)];
+    //    }
+    //}
+
+    //public class OpeningEntry
+    //{
+    //    public List<string> MoveNotations { get; set; } = new();
+    //    public int Frequency { get; set; }
+    //}
+
+    #endregion 
+
     public class OpeningBook
     {
-        private Dictionary<string, List<string>> book = new();
+        private Dictionary<ulong, List<OpeningEntry>> _book;
 
-        public OpeningBook(string jsonPath)
+        public OpeningBook(string filePath)
         {
-            var entries = JsonSerializer.Deserialize<List<OpeningEntry>>(File.ReadAllText(jsonPath));
+            var json = File.ReadAllText(filePath);
+            _book = JsonSerializer.DeserializeObject<Dictionary<ulong, List<OpeningEntry>>>(json)
+                    ?? new Dictionary<ulong, List<OpeningEntry>>();
+        }
 
-            foreach (var entry in entries)
+        public Move GetBookMove(GameState state, ZobristHasing zobrist)
+        {
+            ulong key = zobrist.ComputeHash(state);
+
+            if (_book.TryGetValue(key, out var entries))
             {
-                string key = string.Join(" ", entry.MoveNotations.Take(entry.MoveNotations.Count - 1));
-                string nextMove = entry.MoveNotations.Last();
+                int total = entries.Sum(e => e.Frequency);
+                int pick = Random.Shared.Next(total);
+                int sum = 0;
 
-                if (!book.ContainsKey(key))
-                    book[key] = new List<string>();
-
-                book[key].Add(nextMove);
+                foreach (var entry in entries)
+                {
+                    sum += entry.Frequency;
+                    if (pick < sum)
+                        return entry.Move;
+                }
             }
+
+            return null;
         }
-        public string? GetNextMove(List<string> playedMoves)
-        {
-            string key = string.Join(" ", playedMoves);
-
-            if (!book.ContainsKey(key)) return null;
-
-            var possible = book[key];
-            Random rng = new Random();
-
-            return possible[rng.Next(possible.Count)];
-        }
-    }
-
-    public class OpeningEntry
-    {
-        public List<string> MoveNotations { get; set; } = new();
-        public int Frequency { get; set; }
     }
 }

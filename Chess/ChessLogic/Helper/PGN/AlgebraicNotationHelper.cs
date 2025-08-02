@@ -277,37 +277,24 @@ namespace ChessLogic.Helper.PGN
             @"^(?<piece>[KQRNB])?(?<fromFile>[a-h])?(?<fromRank>[1-8])?x?(?<to>[a-h][1-8])(=(?<promotion>[QRNB]))?(?<check>[+#])?$",
             RegexOptions.Compiled);
 
-        public static Move? FromAlgebraic(string notation, GameState state)
+        public static Move ParseMove(string notation, GameState state)
         {
-            // handle casting
-            if (notation == "O-O" || notation == "0-0")
-                return GetCastleMove(true, state);
-
-            else if (notation == "O-O-O" || notation == "0-0-0")
-                return GetCastleMove(false, state);
-
-            var match = moveRegex.Match(notation);
-            if (!match.Success) return null;
-
-            string pieceStr = match.Groups["piece"].Value;
-            string fromFileStr = match.Groups["fromFile"].Value;
-            string fromRankStr = match.Groups["fromRank"].Value;
-            string toStr = match.Groups["to"].Value;
-            string promotionStr = match.Groups["promotion"].Value;
-
-            PieceType pieceType = string.IsNullOrEmpty(pieceStr) ? PieceType.Pawn : PieceTypeFromSymbol(pieceStr[0]);
-
+            var legalMoves = state.GetAllLegalMoves();
+            foreach (var move in legalMoves)
+            {
+                if (move.ToString() == notation) return move;
+            }
+            throw new Exception($"No legal move found for notation: {notation} in current game state.");
         }
+        //    private static PieceType PieceTypeFromSymbol(char v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private static PieceType PieceTypeFromSymbol(char v)
-        {
-            throw new NotImplementedException();
-        }
-
-        private static Move GetCastleMove(bool v, GameState state)
-        {
-            throw new NotImplementedException();
-        }
+        //private static Move GetCastleMove(bool v, GameState state)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
 
