@@ -148,49 +148,63 @@ namespace ChessLogic.Helper.OpeningBook
     //}
     #endregion
 
+    #region version 1.2
+    //public class BuildOpeningBook
+    //{
+    //    public static void Build(string pgnFile, string outputFile)
+    //    {
+    //        var lines = File.ReadAllLines(pgnFile);
+    //        Dictionary<ulong, List<OpeningEntry>> book = new();
 
-    public class BuildOpeningBook
+    //        GameState state = new(Player.White, Board.Initial());
+    //        ZobristHasing zobrist = new();
+
+    //        foreach (var line lines)
+    //        {
+    //            if (line.StartsWith("[")) continue;
+
+    //            var tokens = line.Split(' ');
+    //            state = new GameState(Player.White, Board.Initial());
+
+    //            foreach (var token in tokens)
+    //            {
+    //                if (string.IsNullOrWhiteSpace(token) || token.Contains(".") || token == "1-0" || token == "0-1" || token == "1/2-1/2")
+    //                    continue;
+
+    //                var move = AlgebraicNotationHelper.ParseMove(token, state);
+    //                ulong key = zobrist.ComputeHash(state);
+
+    //                if (!book.ContainsKey(key))
+    //                {
+    //                    book[key] = new();
+    //                }
+
+    //                var entry = book[key].FirstOrDefault(e => e.Move.Equals(move));
+    //                if (entry == null)
+    //                    book[key].Add(new OpeningEntry(move));
+    //                else
+    //                    entry.Frequency++;
+
+    //                state.ApplyMove(move);
+    //            }
+    //        }
+
+    //        File.WriteAllText(outputFile, JsonConvert.SerializeObject(book, Formatting.Indented));
+
+    //    }
+    //}
+    #endregion
+
+    public static class BuildOpeningBook
     {
-        public static void Build(string pgnFile, string outputFile)
+        public static void Build(string pgnFile, string outputPath)
         {
-            var lines = File.ReadAllLines(pgnFile);
-            Dictionary<ulong, List<OpeningEntry>> book = new();
+            var allLines = File.ReadAllLines(pgnFile)
+                                .Where(line => !string.IsNullOrWhiteSpace(line) && !line.StartsWith("["))
+                                .ToList();
 
-            GameState state = new(Player.White, Board.Initial());
-            ZobristHasing zobrist = new();
-
-            foreach (var line lines)
-            {
-                if (line.StartsWith("[")) continue;
-
-                var tokens = line.Split(' ');
-                state = new GameState(Player.White, Board.Initial());
-
-                foreach (var token in tokens)
-                {
-                    if (string.IsNullOrWhiteSpace(token) || token.Contains(".") || token == "1-0" || token == "0-1" || token == "1/2-1/2")
-                        continue;
-
-                    var move = AlgebraicNotationHelper.ParseMove(token, state);
-                    ulong key = zobrist.ComputeHash(state);
-
-                    if (!book.ContainsKey(key))
-                    {
-                        book[key] = new();
-                    }
-
-                    var entry = book[key].FirstOrDefault(e => e.Move.Equals(move));
-                    if (entry == null)
-                        book[key].Add(new OpeningEntry(move));
-                    else
-                        entry.Frequency++;
-
-                    state.ApplyMove(move);
-                }
-            }
-
-            File.WriteAllText(outputFile, JsonConvert.SerializeObject(book, Formatting.Indented));
-
+            //List<string> allMoves = PGNReader.ReadMovesFromPGN(allLines);
+            //Dictionary<ulong, HashSet<string>> openingMap = new();
         }
     }
 }
