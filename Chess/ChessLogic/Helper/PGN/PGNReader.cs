@@ -164,7 +164,7 @@ namespace ChessLogic.Helper.PGN
         }
 
         // read all games in PGN file
-        public static List<List<string>> ReadMovesFromPGN(string filePath)
+        public static List<List<string>> ReadMovesPGN(string filePath)
         {
             if (!File.Exists(filePath))
             {
@@ -230,5 +230,5 @@ namespace ChessLogic.Helper.PGN
         //    console.WriteLine("New game");
         //    Console.WriteLine(string.Join(" ", game));
         //}
-}
+    }
 }

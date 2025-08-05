@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessLogic.Helper;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace ChessLogic
 
 			stateString = new StateString(CurrentPlayer, board).ToString();
 			stateHistory[stateString] = 1;
+			zobristKey = ZobristHasher.ComputeHash(board, CurrentPlayer);
 		}
 
 		public IEnumerable<Move> LegalMovesForPiece(Position pos)
@@ -73,9 +75,13 @@ namespace ChessLogic
 			}
 			
             CurrentPlayer = CurrentPlayer.Opponent();
-			UpdateStateString();
+            //UpdateZobristKey();
+			zobristKey = ZobristHasher.ComputeHash(Board, CurrentPlayer);
+			//UpdateZobristKey(Board, CurrentPlayer);
+            UpdateStateString();
 			CheckForGameOver();
-		}
+			
+        }
 
 		public IEnumerable<Move> AllLegalMovesFor(Player player)
 		{
@@ -300,5 +306,12 @@ namespace ChessLogic
 
 			return key;
         }
-	}
+
+        public ulong zobristKey { get; private set; }
+        public void UpdateZobristKey(Board board, Player current)
+        {
+            zobristKey = ZobristHasher.ComputeHash(board, current);
+            Debug.WriteLine($"Zobrist Key Updated: {zobristKey}");
+        }
+    }
 }

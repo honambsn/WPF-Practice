@@ -203,8 +203,9 @@ namespace ChessLogic.Helper.OpeningBook
                                 .Where(line => !string.IsNullOrWhiteSpace(line) && !line.StartsWith("["))
                                 .ToList();
 
+            
             //List<string> allMoves = PGNReader.ReadMovesFromPGN(allLines);
-            //Dictionary<ulong, HashSet<string>> openingMap = new();
+            Dictionary<ulong, HashSet<string>> openingMap = new();
         }
     }
 }
