@@ -214,7 +214,7 @@ namespace ChessLogic.Helper.PGN
                         gameMoves.Add(token.Trim());
                     }
                 }
-                
+
                 if (gameMoves.Count > 0)
                 {
                     allGameMoves.Add(gameMoves);
@@ -224,11 +224,214 @@ namespace ChessLogic.Helper.PGN
 
             return allGameMoves;
         } // use =>
-        //var allGames = ReadMovesFromPGN("path_to_your_pgn_file.pgn");
-        //foreach (var game in allGames)
+          //var allGames = ReadMovesFromPGN("path_to_your_pgn_file.pgn");
+          //foreach (var game in allGames)
+          //{
+          //    console.WriteLine("New game");
+          //    Console.WriteLine(string.Join(" ", game));
+          //}
+
+
+        public static (string eventDetails, List<string> moves) ParsePgn(string pgnContent)
+        {
+            string eventDetails = ExtractEventDetails(pgnContent);
+            List<string> moves = ExtractMoves(pgnContent);
+
+            return (eventDetails, moves);
+        }
+
+        private static string ExtractEventDetails(string pgnContent)
+        {
+            string pattern = @"\[([A-Za-z]+) ""([^""]+)""\]";
+            var matches = Regex.Matches(pgnContent, pattern);
+
+            string eventDetails = "";
+            foreach (Match match in matches)
+            {
+                eventDetails += $"{match.Groups[1].Value}: {match.Groups[2].Value}\n";
+            }
+
+            return eventDetails;
+        }
+
+        private static List<string> ExtractMoves(string pgnContent)
+        {
+            List<string> moves = new List<string>();
+
+            string cleanedPgn = Regex.Replace(pgnContent, @"{\[%clk.*?\]}", string.Empty);
+
+            cleanedPgn = Regex.Replace(cleanedPgn, @"\[[^\]]*\]", string.Empty);
+
+            string[] moveParts = cleanedPgn.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var part in moveParts)
+            {
+                //if (part == "1-0" || part == "0-1" || part == "1/2-1/2" || Regex.IsMatch(part, @"^\d+\.$"))
+                if (part == "1-0" || part == "0-1" || part == "1/2-1/2")
+
+                {
+                    break;
+                }
+
+                moves.Add(part);
+            }
+
+            return moves;
+        }
+
+
+        //public class PgnParser
         //{
-        //    console.WriteLine("New game");
-        //    Console.WriteLine(string.Join(" ", game));
+        //    // Phương thức phân tích PGN và trả về thông tin sự kiện và các nước đi của mỗi ván cờ.
+        //    public static List<(string eventDetails, List<string> moves)> ParsePgn(string pgnContent)
+        //    {
+        //        List<string> pgnGames = ExtractGames(pgnContent);
+
+        //        List<(string eventDetails, List<string> moves)> gameData = new List<(string, List<string>)>();
+
+        //        foreach (var game in pgnGames)
+        //        {
+        //            // Lấy metadata và các nước đi của từng ván cờ
+        //            string eventDetails = ExtractEventDetails(game);
+        //            List<string> moves = ExtractMoves(game);
+
+        //            gameData.Add((eventDetails, moves));
+        //        }
+
+        //        return gameData;
+        //    }
+
+        //    // Phương thức trích xuất các ván cờ từ file PGN
+        //    private static List<string> ExtractGames(string pgnContent)
+        //    {
+        //        var games = new List<string>();
+        //        string[] splitGames = pgnContent.Split(new string[] { "\n\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+        //        foreach (string game in splitGames)
+        //        {
+        //            games.Add(game);
+        //        }
+        //        return games;
+        //    }
+
+        //    // Phương thức trích xuất metadata của sự kiện từ ván cờ
+        //    private static string ExtractEventDetails(string pgnGame)
+        //    {
+        //        string pattern = @"\[([A-Za-z]+) ""([^""]+)""\]";
+        //        var matches = Regex.Matches(pgnGame, pattern);
+
+        //        string eventDetails = "";
+        //        foreach (Match match in matches)
+        //        {
+        //            eventDetails += $"{match.Groups[1].Value}: {match.Groups[2].Value}\n";
+        //        }
+
+        //        return eventDetails;
+        //    }
+
+        //    // Phương thức trích xuất các nước đi của ván cờ
+        //    private static List<string> ExtractMoves(string pgnGame)
+        //    {
+        //        List<string> moves = new List<string>();
+
+        //        // Làm sạch đồng hồ
+        //        string cleanedPgn = Regex.Replace(pgnGame, @"{\[%clk.*?\]}", string.Empty);
+
+        //        // Xóa metadata như Event, Date, v.v.
+        //        cleanedPgn = Regex.Replace(cleanedPgn, @"\[[^\]]*\]", string.Empty);
+
+        //        // Trích xuất các nước đi (mọi thứ sau metadata)
+        //        string[] moveParts = cleanedPgn.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+        //        foreach (var part in moveParts)
+        //        {
+        //            // Bỏ qua kết quả ván cờ (1-0, 0-1, 1/2-1/2)
+        //            if (part == "1-0" || part == "0-1" || part == "1/2-1/2")
+        //            {
+        //                break;
+        //            }
+
+        //            moves.Add(part);
+        //        }
+
+        //        return moves;
+        //    }
         //}
+
+        public class PgnParser
+        {
+            // Phương thức phân tích PGN và trả về thông tin sự kiện và các nước đi của mỗi ván cờ.
+            public static List<(string eventDetails, List<string> moves)> ParsePgn(string pgnContent)
+            {
+                List<string> pgnGames = ExtractGames(pgnContent);
+
+                List<(string eventDetails, List<string> moves)> gameData = new List<(string, List<string>)>();
+
+                foreach (var game in pgnGames)
+                {
+                    // Lấy metadata và các nước đi của từng ván cờ
+                    string eventDetails = ExtractEventDetails(game);
+                    List<string> moves = ExtractMoves(game);
+
+                    gameData.Add((eventDetails, moves));
+                }
+
+                return gameData;
+            }
+
+            // Phương thức trích xuất các ván cờ từ file PGN
+            private static List<string> ExtractGames(string pgnContent)
+            {
+                var games = new List<string>();
+                string[] splitGames = pgnContent.Split(new string[] { "\n\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string game in splitGames)
+                {
+                    games.Add(game);
+                }
+                return games;
+            }
+
+            // Phương thức trích xuất metadata của sự kiện từ ván cờ
+            private static string ExtractEventDetails(string pgnGame)
+            {
+                string pattern = @"\[([A-Za-z]+) ""([^""]+)""\]";
+                var matches = Regex.Matches(pgnGame, pattern);
+
+                string eventDetails = "";
+                foreach (Match match in matches)
+                {
+                    eventDetails += $"{match.Groups[1].Value}: {match.Groups[2].Value}\n";
+                }
+
+                return eventDetails;
+            }
+
+            // Phương thức trích xuất các nước đi của ván cờ
+            private static List<string> ExtractMoves(string pgnGame)
+            {
+                List<string> moves = new List<string>();
+
+                // Làm sạch đồng hồ
+                string cleanedPgn = Regex.Replace(pgnGame, @"{\[%clk.*?\]}", string.Empty);
+
+                // Xóa metadata như Event, Date, v.v.
+                cleanedPgn = Regex.Replace(cleanedPgn, @"\[[^\]]*\]", string.Empty);
+
+                // Trích xuất các nước đi (mọi thứ sau metadata)
+                string[] moveParts = cleanedPgn.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (var part in moveParts)
+                {
+                    // Bỏ qua kết quả ván cờ (1-0, 0-1, 1/2-1/2)
+                    if (part == "1-0" || part == "0-1" || part == "1/2-1/2")
+                    {
+                        break;
+                    }
+
+                    moves.Add(part);
+                }
+
+                return moves;
+            }
+        }
     }
 }

@@ -18,6 +18,7 @@ using System.ComponentModel;
 using System.Windows.Media.Effects;
 using System.Diagnostics;
 using ChessLogic.Helper.PGN;
+using static ChessLogic.Helper.PGN.PGNReader;
 
 namespace ChessUI
 {
@@ -55,71 +56,214 @@ namespace ChessUI
 		public MainWindow()
 		{
 			InitializeComponent();
-            //var pgnReader = new readPGN();
-            string input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn";
-            //pgnReader.DisplayGameDetails();
+			////var pgnReader = new readPGN();
+			//string input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn";
+			////pgnReader.DisplayGameDetails();
 
-            string output = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\output.pgn";
-            //pgnReader.SaveToPGN(output);
+			//string output = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\output.pgn";
+			////pgnReader.SaveToPGN(output);
 
-			var moves = PGNReader.ReadMovesFromPGN(input_);
-			foreach (var move in moves)
-			{
-				Debug.WriteLine(move);
-			}
+			//var moves = PGNReader.ReadMovesFromPGN(input_);
+			//foreach (var move in moves)
+			//{
+			//	Debug.WriteLine(move);
+			//}
 
-			Debug.WriteLine("PGN moves read successfully.");
-			
-			
-			Debug.WriteLine("Multi PGN games.");
+			//Debug.WriteLine("PGN moves read successfully.");
 
-			try
-			{
-				input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
 
-				Console.WriteLine($"read files");
-				var games = PGNReader.ReadGamesFromPGN(input_);
+			//Debug.WriteLine("Multi PGN games.");
 
-				int i = 1;
-				foreach (var game in games)
-				{
-					Console.WriteLine($"Game {i++}:");
-					Console.WriteLine(string.Join("\n", game));
-					Console.WriteLine("------");
-				}
+			//try
+			//{
+			//	string input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
 
-			} 
-			catch {
-                Debug.WriteLine("Error reading PGN file.");
+			//	Debug.WriteLine($"read files");
+			//	var games = PGNReader.ReadGamesFromPGN(input_);
+
+			//	int i = 1;
+			//	foreach (var game in games)
+			//	{
+   //                 Debug.WriteLine($"Game {i++}:");
+   //                 Debug.WriteLine(string.Join("\n", game));
+			//		Debug.WriteLine("------");
+			//	}
+
+			//}
+			//catch
+			//{
+			//	Debug.WriteLine("Error reading PGN file.");
+			//}
+
+
+
+			Debug.WriteLine("MainWindow constructor called");
+
+			string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
+			string pgnContent = System.IO.File.ReadAllText(filePath);
+
+            var gameData = PgnParser.ParsePgn(pgnContent);
+
+            // Hiển thị thông tin sự kiện và các nước đi cho từng ván cờ
+            foreach (var (eventDetails, moves) in gameData)
+            {
+                // Hiển thị thông tin sự kiện
+                Debug.WriteLine("Thông tin sự kiện:");
+                Debug.WriteLine(eventDetails);
+
+                // Hiển thị các nước đi
+                Debug.WriteLine("Các nước đi:");
+                foreach (var move in moves)
+                {
+                    Debug.Write(move + " ");
+                }
+                Debug.WriteLine("\n");
             }
 
 
 
-            Debug.WriteLine("MainWindow constructor called");
-			//SetUpGameMode();
+            //#region test readpgn
+            //// Example 1: Get moves for a single game and display them in the console
+            //string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\ReadMovesFromPGN.pgn";
+            //         List<string> singleGameMoves = GetSingleGameMoves(filePath);
+            //         if (singleGameMoves != null)
+            //         {
+            //             Debug.WriteLine("Moves for a single game:");
+            //             foreach (var move in singleGameMoves)
+            //             {
+            //                 Debug.WriteLine(move);
+            //             }
+            //         }
 
-		}
+            //// Example 2: Get all games in the PGN and display them in the console
+            //filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\ReadPGN.pgn";
+            //         List<List<string>> allGames = GetAllGames(filePath);
+            //         if (allGames != null)
+            //         {
+            //             Debug.WriteLine("Moves for all games:");
+            //             foreach (var game in allGames)
+            //             {
+            //                 Debug.WriteLine("New game:");
+            //                 Debug.WriteLine(string.Join(" ", game));
+            //             }
+            //         }
 
-		//      private void InitializeBoard()
-		//{
-		//	for (int r = 0; r < 8; r++)
-		//	{
-		//		for (int c = 0; c < 8; c++)
-		//		{
-		//			Image image = new Image();
-		//			pieceImages[r, c] = image;
-		//			PieceGrid.Children.Add(image);
+            //         // Example 3: Get all games with time annotations removed and display them in the console
+            //filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
+            //         List<List<string>> gamesWithoutTime = GetGamesWithoutTime(filePath);
+            //         if (gamesWithoutTime != null)
+            //         {
+            //             Debug.WriteLine("Moves for all games (without time annotations):");
+            //	int i = 1;
+            //             foreach (var game in gamesWithoutTime)
+            //             {
 
-		//			Rectangle highlight = new Rectangle();
-		//			highlights[r, c] = highlight;
-		//			HighlightGrid.Children.Add(highlight);
-		//		}
-		//	}
-		//}
+            //		Debug.WriteLine($"Game {i++}:");
+            //                 //Debug.WriteLine("New game:");
+            //                 Debug.WriteLine(string.Join(" ", game));
+            //             }
+            //         }
+
+            //         // Example 4: Get all moves for all games and display them in the console
+            //         filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\ReadMovesPGN.pgn";
+            //         List<List<string>> allGameMoves = GetAllGameMoves(filePath);
+            //         if (allGameMoves != null)
+            //         {
+            //             Debug.WriteLine("Moves for all games:");
+            //             foreach (var gameMoves in allGameMoves)
+            //             {
+            //                 Debug.WriteLine("New game:");
+            //                 Debug.WriteLine(string.Join(" ", gameMoves));
+            //             }
+            //         }
+            //         #endregion
+
+            //SetUpGameMode();
+
+        }
+
+        #region test readpgn func
+        // Function to read moves for a single game
+        private List<string> GetSingleGameMoves(string filePath)
+        {
+            try
+            {
+                Debug.WriteLine($"Reading moves from PGN file: {filePath}");
+                return PGNReader.ReadMovesFromPGN(filePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading moves from PGN: {ex.Message}");
+                return null;
+            }
+        }
+
+        // Function to read all games in the PGN file (with metadata)
+        private List<List<string>> GetAllGames(string filePath)
+        {
+            try
+            {
+                Debug.WriteLine($"Reading all games from PGN file: {filePath}");
+                return PGNReader.ReadPGN(filePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading games from PGN: {ex.Message}");
+                return null;
+            }
+        }
+
+        // Function to read all games and remove time annotations
+        private List<List<string>> GetGamesWithoutTime(string filePath)
+        {
+            try
+            {
+                Debug.WriteLine($"Reading all games from PGN file (without time): {filePath}");
+                return PGNReader.ReadGamesFromPGN(filePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading games from PGN (without time): {ex.Message}");
+                return null;
+            }
+        }
+
+        // Function to read all moves for all games
+        private List<List<string>> GetAllGameMoves(string filePath)
+        {
+            try
+            {
+				Debug.WriteLine($"Reading all moves from PGN file: {filePath}");
+                return PGNReader.ReadMovesPGN(filePath);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error reading moves for all games: {ex.Message}");
+                return null;
+            }
+        }
+        #endregion
+
+        //      private void InitializeBoard()
+        //{
+        //	for (int r = 0; r < 8; r++)
+        //	{
+        //		for (int c = 0; c < 8; c++)
+        //		{
+        //			Image image = new Image();
+        //			pieceImages[r, c] = image;
+        //			PieceGrid.Children.Add(image);
+
+        //			Rectangle highlight = new Rectangle();
+        //			highlights[r, c] = highlight;
+        //			HighlightGrid.Children.Add(highlight);
+        //		}
+        //	}
+        //}
 
 
-		//setup later
-		private void InitializeBoard()
+        //setup later
+        private void InitializeBoard()
 		{
 			for (int r = 0; r < 8; r++)
 			{
