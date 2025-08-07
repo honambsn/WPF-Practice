@@ -433,5 +433,108 @@ namespace ChessLogic.Helper.PGN
                 return moves;
             }
         }
+
+        public class PGN
+        {
+            public static List<Game> ExtractGamesFromPGN(string pgnContent)
+            {
+                List<Game> games = new List<Game>();
+
+                string[] rawGames = pgnContent.Split(new[] { "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+                // Regex to extract metadata (e.g., Event, White, Black, Date, Result)
+                Regex metadataPattern = new Regex(@"\[([A-Za-z]+)\s+\""(.*?)\""]", RegexOptions.Singleline);
+
+                // Regex to match the moves section
+                //Regex movePattern = new Regex(@"1\..*?(\d{1,2}-\d{1,2})", RegexOptions.Singleline);
+
+                foreach (var rawGame in rawGames)
+                {
+                    Game game = new Game();
+
+                    // Extract metadata
+                    MatchCollection metadataMatches = metadataPattern.Matches(rawGame);
+                    foreach (Match match in metadataMatches)
+                    {
+                        string key = match.Groups[1].Value;
+                        string value = match.Groups[2].Value;
+
+                        switch (key)
+                        {
+                            case "Event":
+                                game.Event = value;
+                                break;
+                            case "White":
+                                game.White = value;
+                                break;
+                            case "Black":
+                                game.Black = value;
+                                break;
+                            case "Date":
+                                game.Date = value;
+                                break;
+                            case "Result":
+                                game.Result = NormalizeResult(value);
+                                break;
+                        }
+                    }
+
+                    // Extract moves
+                    string gameMoves = rawGame;
+
+
+                    // Remove any metadata (i.e., things in [ ]), clock times, and annotations like { }
+                    gameMoves = Regex.Replace(gameMoves, @"\[[^\]]*\]", ""); // Remove all metadata in [ ]
+                    gameMoves = Regex.Replace(gameMoves, @"\{[^\}]*\}", ""); // Remove anything inside { }
+                    gameMoves = Regex.Replace(gameMoves, @"\d{1,2}-\d{1,2}", ""); // Remove game result like 1-0, 0-1, 1/2-1/2
+                    gameMoves = Regex.Replace(gameMoves, @"\s+", " "); // Remove extra spaces (in case multiple spaces exist)
+
+                    // remove the move numbers (e.g., "1.", "2.", etc.)
+                    gameMoves = Regex.Replace(gameMoves, @"\d+\.", ""); // Remove move numbers like 1., 2., etc.
+
+                    // Trim to get rid of any leading or trailing spaces
+                    gameMoves = gameMoves.Trim();
+
+                    gameMoves = Regex.Replace(gameMoves, @"\s+(1-0|0-1|1/2-1/2|1//2)$", "");
+
+                    game.Moves = gameMoves;
+
+                    games.Add(game);
+                }
+
+                return games;
+            }
+
+            public static string NormalizeResult(string result)
+            {
+                if (result.Contains("//"))
+                {
+                    // Normalize any double slash result format (like '1//2')
+                    result = result.Replace("//", "/"); // Normalize double slashes to single slash
+                }
+                if (result == "1/2-1")
+                {
+                    return "1/2-1/2"; // Normalize to standard PGN format
+                }
+                else if (result == "1-0" || result == "0-1" || result == "1/2-1/2")
+                {
+                    return result; // Already in standard format
+                }
+                else
+                {
+                    return "Unknown"; // Handle unexpected formats
+                }
+            }
+        }
+
+        public class Game
+        {
+            public string Event { get; set; }
+            public string Date { get; set; }
+            public string White { get; set; }
+            public string Black { get; set; }
+            public string Result { get; set; }
+            public string Moves { get; set; }
+        }
     }
 }

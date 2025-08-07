@@ -102,21 +102,20 @@ namespace ChessUI
 			string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
 			string pgnContent = System.IO.File.ReadAllText(filePath);
 
-            var gameData = PgnParser.ParsePgn(pgnContent);
+            // Parse the PGN content and extract the games with metadata and moves
+            List<Game> games = PGN.ExtractGamesFromPGN(pgnContent);
 
-            // Hiển thị thông tin sự kiện và các nước đi cho từng ván cờ
-            foreach (var (eventDetails, moves) in gameData)
+
+            // Print the metadata and moves for each game
+            foreach (var game in games)
             {
-                // Hiển thị thông tin sự kiện
-                Debug.WriteLine("Thông tin sự kiện:");
-                Debug.WriteLine(eventDetails);
-
-                // Hiển thị các nước đi
-                Debug.WriteLine("Các nước đi:");
-                foreach (var move in moves)
-                {
-                    Debug.Write(move + " ");
-                }
+                Debug.WriteLine($"Event: {game.Event}");
+                Debug.WriteLine($"Date: {game.Date}");
+                Debug.WriteLine($"White: {game.White}");
+                Debug.WriteLine($"Black: {game.Black}");
+                Debug.WriteLine($"Result: {game.Result}");
+                Debug.WriteLine("Moves:");
+                Debug.WriteLine(game.Moves);
                 Debug.WriteLine("\n");
             }
 
