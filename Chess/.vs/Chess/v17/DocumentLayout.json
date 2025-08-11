@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 281,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -55,12 +55,15 @@
               "ViewState": "AgIAADQAAAAAAAAAAAAQwE0AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T02:44:04.299Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -72,8 +75,7 @@
               "RelativeToolTip": "ChessAI\\Utilities\\master_games.pgn",
               "ViewState": "AgIAAM0BAAAAAAAAAAAAANYBAAClBgAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-07T02:33:12.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-07T02:33:12.361Z"
             },
             {
               "$type": "Document",
@@ -83,7 +85,7 @@
               "RelativeDocumentMoniker": "ChessLogic\\Helper\\PGN\\PGNReader.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\PGN\\PGNReader.cs",
               "RelativeToolTip": "ChessLogic\\Helper\\PGN\\PGNReader.cs",
-              "ViewState": "AgIAAOYBAAAAAAAAAAAqwO8BAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAO8BAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-05T02:10:57.292Z",
               "EditorCaption": ""
