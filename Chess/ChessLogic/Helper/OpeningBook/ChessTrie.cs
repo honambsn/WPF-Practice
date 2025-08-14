@@ -54,6 +54,20 @@ namespace ChessLogic.Helper.OpeningBook
                 currentNode.IsEndOfWord = true;
             }
 
+            public void AddSingelMove(string move)
+            {
+                TrieNode curNode = root;
+
+                if (!curNode.Children.ContainsKey(move))
+                {
+                    curNode.Children[move] = new TrieNode(move);
+                }
+                
+                curNode = curNode.Children[move];
+
+                curNode.IsEndOfWord = true; // Mark the end of the word
+            }
+
             public bool SearchMove(List<string> moves)
             {
                 TrieNode curNode = root;

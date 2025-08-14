@@ -117,12 +117,15 @@ namespace ChessUI
                 Debug.WriteLine($"Result: {game.Result}");
                 Debug.WriteLine("Moves:");
                 Debug.WriteLine(game.Moves);
+                Debug.WriteLine(game.Moves.GetType());
+                
+                //moveFromPGNToTrie(game.Moves);
                 Debug.WriteLine("\n");
             }
 
 
 
-            //#region test readpgn
+            #region test readpgn
             //// Example 1: Get moves for a single game and display them in the console
             //string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\ReadMovesFromPGN.pgn";
             //         List<string> singleGameMoves = GetSingleGameMoves(filePath);
@@ -176,10 +179,59 @@ namespace ChessUI
             //                 Debug.WriteLine(string.Join(" ", gameMoves));
             //             }
             //         }
-            //         #endregion
+                     #endregion
 
             //SetUpGameMode();
-            Trie();
+            //Trie();
+        }
+
+        private List<string> ConvertMovesToList(string input)
+        {
+            // Split the moves string by spaces and return as a list
+            var moves = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            List<string> formattedMoves = new List<string>();
+
+            for (int i = 0; i < moves.Length; i++)
+            {
+                string move = moves[i];
+
+                if (move.Contains("x"))
+                {
+                    formattedMoves.Add(move[0] + "" + move[move.Length - 1]);
+                }
+                else if (move.Length == 4)
+                {
+                    formattedMoves.Add(move[0] + "" + move[move.Length - 1]);
+                }
+                else if (move.Length == 2)
+                {
+                    formattedMoves.Add(move[0] + "2" + move[0] + "4");
+                }
+            }
+            return formattedMoves;
+        }
+
+        private void moveFromPGNToTrie(string moves) // moves in 1 game
+        {
+            List<string> list = moves.Split(' ').ToList();
+            Debug.WriteLine("this is list: ", list);
+            Trie chessHistory = new Trie();
+            chessHistory.AddMove(list);
+            Debug.WriteLine("Added moves to Trie tree from PGN: " + string.Join(", ", list));
+
+            // In cây Trie
+            Debug.WriteLine("Cây lịch sử các nước đi từ PGN:");
+            chessHistory.PrintTree(chessHistory.root);
+
+            // Kiểm tra xem một chuỗi nước đi có tồn tại không
+            List<string> searchMove = new List<string> { "e2e4", "e7e5", "g1f3", "b8c6", "c2c4" };
+            bool found = chessHistory.SearchMove(searchMove);
+            Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
+
+
+            List<string> searchMove2 = new List<string> { "e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6" };
+            found = chessHistory.SearchMove(searchMove2);
+            Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
         }
 
         #region test trie tree
