@@ -118,7 +118,21 @@ namespace ChessUI
                 Debug.WriteLine("Moves:");
                 Debug.WriteLine(game.Moves);
                 Debug.WriteLine(game.Moves.GetType());
-                
+
+                try {
+                    List<string> moveList = ConvertMovesToList(game.Moves);
+
+                    Debug.WriteLine("Converted Moves List:", moveList);
+                    Debug.WriteLine(string.Join(", ", moveList));
+
+                    addToTree(moveList);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error converting moves: {ex.Message}");
+                }
+
+
                 //moveFromPGNToTrie(game.Moves);
                 Debug.WriteLine("\n");
             }
@@ -185,53 +199,66 @@ namespace ChessUI
             //Trie();
         }
 
-        private List<string> ConvertMovesToList(string input)
+        private List<string> ConvertMovesToList(string moves)
         {
-            // Split the moves string by spaces and return as a list
-            var moves = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            List<string> formattedMoves = new List<string>();
+            var moveList = moves.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-            for (int i = 0; i < moves.Length; i++)
+            List<string> movePairs = new List<string>();
+            
+            for (int i = 0; i < moveList.Count; i += 2)
             {
-                string move = moves[i];
-
-                if (move.Contains("x"))
+                if (i + 1 < moveList.Count)
                 {
-                    formattedMoves.Add(move[0] + "" + move[move.Length - 1]);
+                    string whiteMove = moveList[i];
+                    string blackMove = moveList[i + 1];
+                    movePairs.Add($"{whiteMove}{blackMove}");
                 }
-                else if (move.Length == 4)
-                {
-                    formattedMoves.Add(move[0] + "" + move[move.Length - 1]);
-                }
-                else if (move.Length == 2)
-                {
-                    formattedMoves.Add(move[0] + "2" + move[0] + "4");
-                }
+                else movePairs.Add(moveList[i]);
             }
-            return formattedMoves;
+
+            return movePairs;
+        }
+
+        private void addToTree(List<string> moves)
+        {
+            Debug.WriteLine("Adding moves to Trie tree from PGN: ");
+
+            Trie chessHistory = new Trie();
+            chessHistory.AddMove(moves);
+
+            Debug.WriteLine("Print tree: ");
+            chessHistory.PrintTree(chessHistory.root);
+
+            List<string> searchMove = new List<string> { "c4Nf6", "Nc3e5", "e3Nc6", "a3d5", "cxd5Nxd5", "Qc2Nxc3", "Rb1Qd6", "Bd3Be6", "Rb1O-O-O", "Be2g5", "Nf3Be7", "d4Kb8", "O-Og4", "Nd2f5", "Nc4Qd7", "Rd1Bd5", "Bd3Rhf8", "a4Qe6", "Nd2exd4", "exd4f4", "Ne4g3", "hxg3fxg3", "h5Bf4", "h4Re1", "Qd7Qb2", "b6Nc5", "Bxc5dxc5", "Rxf4cxb6", "gxf4h3", "a5Rg8", "Bf1hxg2"
+ };
+            bool found = chessHistory.SearchMove(searchMove);
+            Debug.WriteLine("\nCó tồn tại chuỗi nước đi : " + found);
         }
 
         private void moveFromPGNToTrie(string moves) // moves in 1 game
         {
+            Debug.WriteLine("Moves: " + moves);
+            Debug.WriteLine(moves.GetType());
+
             List<string> list = moves.Split(' ').ToList();
             Debug.WriteLine("this is list: ", list);
-            Trie chessHistory = new Trie();
-            chessHistory.AddMove(list);
-            Debug.WriteLine("Added moves to Trie tree from PGN: " + string.Join(", ", list));
+            //Trie chessHistory = new Trie();
+            //chessHistory.AddMove(list);
+            //Debug.WriteLine("Added moves to Trie tree from PGN: " + string.Join(", ", list));
 
-            // In cây Trie
-            Debug.WriteLine("Cây lịch sử các nước đi từ PGN:");
-            chessHistory.PrintTree(chessHistory.root);
+            //// In cây Trie
+            //Debug.WriteLine("Cây lịch sử các nước đi từ PGN:");
+            //chessHistory.PrintTree(chessHistory.root);
 
-            // Kiểm tra xem một chuỗi nước đi có tồn tại không
-            List<string> searchMove = new List<string> { "e2e4", "e7e5", "g1f3", "b8c6", "c2c4" };
-            bool found = chessHistory.SearchMove(searchMove);
-            Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
+            //// Kiểm tra xem một chuỗi nước đi có tồn tại không
+            //List<string> searchMove = new List<string> { "e2e4", "e7e5", "g1f3", "b8c6", "c2c4" };
+            //bool found = chessHistory.SearchMove(searchMove);
+            //Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
 
 
-            List<string> searchMove2 = new List<string> { "e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6" };
-            found = chessHistory.SearchMove(searchMove2);
-            Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
+            //List<string> searchMove2 = new List<string> { "e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6" };
+            //found = chessHistory.SearchMove(searchMove2);
+            //Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
         }
 
         #region test trie tree
