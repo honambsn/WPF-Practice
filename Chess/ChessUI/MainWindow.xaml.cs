@@ -229,10 +229,59 @@ namespace ChessUI
             Debug.WriteLine("Print tree: ");
             chessHistory.PrintTree(chessHistory.root);
 
-            List<string> searchMove = new List<string> { "c4Nf6", "Nc3e5", "e3Nc6", "a3d5", "cxd5Nxd5", "Qc2Nxc3", "Rb1Qd6", "Bd3Be6", "Rb1O-O-O", "Be2g5", "Nf3Be7", "d4Kb8", "O-Og4", "Nd2f5", "Nc4Qd7", "Rd1Bd5", "Bd3Rhf8", "a4Qe6", "Nd2exd4", "exd4f4", "Ne4g3", "hxg3fxg3", "h5Bf4", "h4Re1", "Qd7Qb2", "b6Nc5", "Bxc5dxc5", "Rxf4cxb6", "gxf4h3", "a5Rg8", "Bf1hxg2"
- };
+            //List<string> searchMove = new List<string> { "c4Nf6", "Nc3e5", "e3Nc6", "a3d5", "cxd5Nxd5", "Qc2Nxc3", "Rb1Qd6", "Bd3Be6", "Rb1O-O-O", "Be2g5", "Nf3Be7", "d4Kb8", "O-Og4", "Nd2f5", "Nc4Qd7", "Rd1Bd5", "Bd3Rhf8", "a4Qe6", "Nd2exd4", "exd4f4", "Ne4g3", "hxg3fxg3", "h5Bf4", "h4Re1", "Qd7Qb2", "b6Nc5", "Bxc5dxc5", "Rxf4cxb6", "gxf4h3", "a5Rg8", "Bf1hxg2"
+            //            List<string> searchMove = new List<string> {
+            //  "e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6", "Bg5e6",
+            //"f4Qc7", "Bxf6gxf6", "Qf3b5", "a3Nc6", "O-O-ONxd4", "Rxd4Rb8",
+            //"Be2Bd7", "f5Qc5", "Rhd1Qe5", "Qh5Be7", "fxe6Bxe6", "Nd5Qxh5",
+            //"Bxh5Rg8", "Nc7+Kd8", "Nxa6Rb6", "Nb4Rxg2", "R4d2Rxd2", "Kxd2f5",
+            //"exf5Bg5+", "Ke2" }; 
+            //  //          "O-O-Nxd4", "Rxd4Rb8",
+            //  //"Be2Bd7", "f5Qc5", "Rhd1Qe5", "Qh5Be7", "fxe6Bxe6", "Nd5Qxh5",
+            //  //"Bxh5Rg8", "Nc7+Kd8", "Nxa6Rb6", "Nb4Rxg2", "R4d2Rxd2",
+            //  //"Kxd2f5", "exf5Bg5+", "Ke2"};
+            //            bool found = chessHistory.SearchMove(searchMove);
+            //            Debug.WriteLine("\nCó tồn tại chuỗi nước đi : " + found);
+
+
+            IEnumerable<List<string>> listEnumerable = new List<List<string>>()
+            { 
+                new List<string> {"e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6", "Bg5e6",
+"f4Qc7", "Bxf6gxf6", "Qf3b5", "a3Nc6", "O-O-ONxd4", "Rxd4Qc5",
+"Rd3Rb8", "b4Qa7", "f5a5", "Na2Be7", "Be2h5", "Kb1Bd7",
+"Rhd1h4", "bxa5Qxa5", "Nb4Rc8", "Qg4Kf8", "fxe6Bxe6", "Qf3Rc5",
+"Qe3f5", "Bf3fxe4", "Bxe4Rc4", "Bd5Bf6", "Bxc4bxc4", "Rxd6"},
+                new List<string> {"e4c5", "Nf3d6", "d4cxd4", "Nxd4Nf6", "Nc3a6", "Bg5e6",
+"f4Qc7", "Bxf6gxf6", "Qf3b5", "a3Nc6", "Nxc6Qxc6", "f5Qc5",
+"Be2Ra7", "O-O-OQe5", "Rhf1Rc7", "Kb1h5", "h4Be7", "Qe3Qc5",
+"Qg3Kf8", "fxe6fxe6", "Qg6Qe5", "Rd3Bd8", "Rg3Rf7", "Rg5Qd4",
+"Bxh5"},
+                new List<string> {"d4d5", "c4e6", "Nc3c5", "cxd5cxd4", "Qa4+Bd7", "Qxd4exd5",
+"Qxd5Nf6", "Qb3Na6", "Nf3Nc5", "Qd1Nce4", "e3Bb4", "Bd2Bxc3",
+"Bxc3Nxc3", "bxc3Qa5", "Qd4Rc8", "Qb4Qc5", "Bd3Qxc3+", "Qxc3Rxc3",
+"Kd2Ra3", "Rhb1b6", "Rb3Ra5", "Nd4Ke7", "a4Rc8", "f3Ne8",
+"Rb4Nd6", "e4h5", "h4g5", "hxg5Rxg5", "Bf1Rgc5", "Ke3f5",
+"exf5Nxf5+", "Nxf5+Rxf5", "Bd3Re5+", "Kf2Rcc5", "Be4Bc6",
+"Bxc6Rxc6", "Ra2Rcc5", "Rd2Rc6", "Ra2Rcc5", "Rd2Rc6", "Ra2"},
+
+                new List<string> {"c4e6", "d4d5", "Nf3Nf6", "e3Be7", "Bd3O-O", "b3b6",
+"O-OBb7", "Bb2Nbd7", "Nc3a6", "Rc1Bd6", "cxd5exd5", "Ne2Re8",
+"Ng3Ne4", "Qc2Nxg3", "hxg3Nf6", "Ne5Qe7", "b4Ne4", "b5axb5",
+"Bxb5Rec8", "Nc6Qg5", "a4h5", "Qe2h4", "gxh4Qxh4", "g3Qg5",
+"Rc2Re8", "Kg2Re6"},
+
+                new List<string> {"d4d5", "c4dxc4", "e3e5", "Nf3exd4", "Bxc4Nf6", "Qb3Qe7",
+"O-O"}
+            };
+
+
+            Random random = new Random();
+            int randomNumber = random.Next(0, 3);
+
+            List<string> searchMove = listEnumerable.ElementAt(randomNumber);
             bool found = chessHistory.SearchMove(searchMove);
-            Debug.WriteLine("\nCó tồn tại chuỗi nước đi : " + found);
+            Debug.WriteLine("the moves searching :: ", searchMove);
+            Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
         }
 
         private void moveFromPGNToTrie(string moves) // moves in 1 game
