@@ -53,6 +53,7 @@ namespace ChessUI
             public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(255, 72, 118, 255));       // Xanh dương nhạt
         }
 
+        //private Trie chessHistory = new Trie();
 
         public MainWindow()
         {
@@ -227,7 +228,7 @@ namespace ChessUI
             chessHistory.AddMove(moves);
 
             Debug.WriteLine("Print tree: ");
-            chessHistory.PrintTree(chessHistory.root);
+            //chessHistory.PrintTree(chessHistory.root);
 
             //List<string> searchMove = new List<string> { "c4Nf6", "Nc3e5", "e3Nc6", "a3d5", "cxd5Nxd5", "Qc2Nxc3", "Rb1Qd6", "Bd3Be6", "Rb1O-O-O", "Be2g5", "Nf3Be7", "d4Kb8", "O-Og4", "Nd2f5", "Nc4Qd7", "Rd1Bd5", "Bd3Rhf8", "a4Qe6", "Nd2exd4", "exd4f4", "Ne4g3", "hxg3fxg3", "h5Bf4", "h4Re1", "Qd7Qb2", "b6Nc5", "Bxc5dxc5", "Rxf4cxb6", "gxf4h3", "a5Rg8", "Bf1hxg2"
             //            List<string> searchMove = new List<string> {
@@ -280,7 +281,9 @@ namespace ChessUI
 
             List<string> searchMove = listEnumerable.ElementAt(randomNumber);
             bool found = chessHistory.SearchMove(searchMove);
-            Debug.WriteLine("the moves searching :: ", searchMove);
+            Debug.WriteLine("\nthe moves searching :: ");
+            Debug.WriteLine(string.Join(", ", searchMove));
+
             Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
         }
 

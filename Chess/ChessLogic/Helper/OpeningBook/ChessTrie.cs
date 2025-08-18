@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ChessLogic.Helper.OpeningBook
@@ -62,7 +63,7 @@ namespace ChessLogic.Helper.OpeningBook
                 {
                     curNode.Children[move] = new TrieNode(move);
                 }
-                
+
                 curNode = curNode.Children[move];
 
                 curNode.IsEndOfWord = true; // Mark the end of the word
@@ -83,10 +84,10 @@ namespace ChessLogic.Helper.OpeningBook
                 return true; // All moves found in the trie
             }
 
-            public void PrintTree (TrieNode node, List<string> curMove = null, string prefix = "")
+            public void PrintTree(TrieNode node, List<string> curMove = null, string prefix = "")
             {
                 if (node == null) return;
-                 
+
                 //if (node.Move != null && node.Move != string.Empty)
                 //{
                 //    prefix += node.Move + " ";
@@ -129,10 +130,34 @@ namespace ChessLogic.Helper.OpeningBook
 
                 Debug.WriteLine(prefix + string.Join("->", curMove));
 
-                foreach(var child in node.Children.Values)
+                foreach (var child in node.Children.Values)
                 {
                     PrintTree(child, new List<string>(curMove), prefix + " ");
                 }
+            }
+
+            public string ToJSon()
+            {
+                var dict = NodeToDict(root);
+                return JsonSerializer.Serialize(dict, new JsonSerializerOptions { WriteIndented = true });
+            }
+
+            private Dictionary<string, object> NodeToDict(TrieNode node)
+            {
+                var dict = new Dictionary<string, object>();
+                
+
+                foreach (var child in node.Children)
+                {
+                    dict[child.Key] = NodeToDict(child.Value);
+                }
+
+                if (node.IsEndOfWord)
+                {
+                    dict["$"] = true; // Mark this node as the end of a word
+                }
+
+                return dict;
             }
         }
     }
