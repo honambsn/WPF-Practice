@@ -53,7 +53,7 @@ namespace ChessUI
             public static readonly SolidColorBrush LastMove = new SolidColorBrush(Color.FromArgb(255, 72, 118, 255));       // Xanh dương nhạt
         }
 
-        //private Trie chessHistory = new Trie();
+        private Trie chessHistory = new Trie();
 
         public MainWindow()
         {
@@ -109,7 +109,7 @@ namespace ChessUI
 
 
             // Print the metadata and moves for each game
-            foreach (var game in games)
+            foreach (var game in games.Take(10))
             {
                 Debug.WriteLine($"Event: {game.Event}");
                 Debug.WriteLine($"Date: {game.Date}");
@@ -224,11 +224,11 @@ namespace ChessUI
         {
             Debug.WriteLine("Adding moves to Trie tree from PGN: ");
 
-            Trie chessHistory = new Trie();
+            //Trie chessHistory = new Trie();
             chessHistory.AddMove(moves);
 
             Debug.WriteLine("Print tree: ");
-            //chessHistory.PrintTree(chessHistory.root);
+            chessHistory.PrintTree2(chessHistory.root);
 
             //List<string> searchMove = new List<string> { "c4Nf6", "Nc3e5", "e3Nc6", "a3d5", "cxd5Nxd5", "Qc2Nxc3", "Rb1Qd6", "Bd3Be6", "Rb1O-O-O", "Be2g5", "Nf3Be7", "d4Kb8", "O-Og4", "Nd2f5", "Nc4Qd7", "Rd1Bd5", "Bd3Rhf8", "a4Qe6", "Nd2exd4", "exd4f4", "Ne4g3", "hxg3fxg3", "h5Bf4", "h4Re1", "Qd7Qb2", "b6Nc5", "Bxc5dxc5", "Rxf4cxb6", "gxf4h3", "a5Rg8", "Bf1hxg2"
             //            List<string> searchMove = new List<string> {
