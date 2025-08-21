@@ -109,7 +109,7 @@ namespace ChessUI
 
 
             // Print the metadata and moves for each game
-            foreach (var game in games.Take(10))
+            foreach (var game in games)
             {
                 Debug.WriteLine($"Event: {game.Event}");
                 Debug.WriteLine($"Date: {game.Date}");
@@ -285,6 +285,33 @@ namespace ChessUI
             Debug.WriteLine(string.Join(", ", searchMove));
 
             Debug.WriteLine("\nCó tồn tại chuỗi nước đi trong PGN: " + found);
+
+            try
+            {
+                // json moves only
+                string exportFilePath = "openingBook.json";
+                chessHistory.ExportToJson(exportFilePath);
+                Debug.WriteLine($"Trie tree exported to {exportFilePath}");
+                Debug.WriteLine("Current Directory: " + Environment.CurrentDirectory);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error exporting to JSON: {ex.Message}");
+            }
+
+            try
+            {
+                // json moves + count
+                string exportFilePathWithCount = "openingBookWithCount.json";
+                chessHistory.ExportToJsonWithCount(exportFilePathWithCount);
+                Debug.WriteLine($"Trie tree with count exported to {exportFilePathWithCount}");
+                Debug.WriteLine("Current Directory: " + Environment.CurrentDirectory);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error exporting to JSON: {ex.Message}");
+            }
         }
 
         private void moveFromPGNToTrie(string moves) // moves in 1 game

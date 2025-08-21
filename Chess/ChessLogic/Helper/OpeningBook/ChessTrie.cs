@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -190,7 +191,8 @@ namespace ChessLogic.Helper.OpeningBook
 
                 var options = new JsonSerializerOptions
                 {
-                    WriteIndented = true
+                    WriteIndented = true,
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping // To allow special characters in moves
                 };
 
                 string json = JsonSerializer.Serialize(allPaths, options);
@@ -260,7 +262,8 @@ namespace ChessLogic.Helper.OpeningBook
 
                 var options = new JsonSerializerOptions
                 {
-                    WriteIndented = true
+                    WriteIndented = true,
+                    Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping // To allow special characters in moves
                 };
 
                 string json = JsonSerializer.Serialize(paths, options);
