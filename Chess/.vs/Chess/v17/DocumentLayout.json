@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAADwv+IAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAANcAAAAAAAAAAAAgwOIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T02:44:04.299Z",
               "IsPinned": true,
@@ -69,6 +69,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -80,8 +84,7 @@
               "RelativeToolTip": "ChessLogic\\Helper\\OpeningBook\\ChessTrie.cs",
               "ViewState": "AgIAAMEAAAAAAAAAAAAYwOUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T02:19:19.741Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T02:19:19.741Z"
             },
             {
               "$type": "Document",

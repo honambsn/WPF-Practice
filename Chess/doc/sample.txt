@@ -1,0 +1,13 @@
+e4e5 Nf3Nc6 Bb5a6 Bc4
+e4c5 Nf3d6 d4cxd4 Nxd4Nf6 Nc3a6
+
+d4d5 Nf3Nf6 c4e6
+d4d5 c4e6 Nc3Nf6
+
+e4e6 d4d5 Nc3/Nd2Nf6
+e4c6 d4d5 Nc3/Nd2
+
+Nf3d5 g3
+
+
+
