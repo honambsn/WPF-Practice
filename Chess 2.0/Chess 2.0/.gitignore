@@ -1,0 +1,60 @@
+# .NET
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer logs
+*.cab
+*.cab1
+*.msi1
+*.pdb
+
+# JetBrains Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Folder for build artifacts
+/Assets/
+
+# .NET Core SDK folders
+.vs2019/
+.vs2017/
+
+# Windows Installer files
+*.cab
+*.msi
+
+# Windows installer logs
+*.cab
+*.msi1
+*.pdb
+
+# Node modules (if applicable)
+node_modules/
+
+# Ignore files created by Visual Studio for macOS
+.vscode/
+

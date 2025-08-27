@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess_2._0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Width="600">
+    <Grid x:Name="BoardGrid"
+              Width="600"
+              Height="600"
+              MouseDown="BoardGrid_MouseDown">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/Board.png"/>
+        </Grid.Background>
+
+        <UniformGrid x:Name="HighlightGrid"
+                         Rows="10"
+                         Columns="9">
+        </UniformGrid>
+
+        <UniformGrid x:Name="PieceGrid"
+                         Rows="8"
+                         Columns="8"
+                         RenderOptions.BitmapScalingMode="HighQuality">
+        </UniformGrid>
     </Grid>
+    
 </Window>
