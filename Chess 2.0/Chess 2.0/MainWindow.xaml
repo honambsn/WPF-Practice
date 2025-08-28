@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess_2._0"
-        mc:Ignorable="d"
-        Title="MainWindow" Width="600">
+        Title="Chess" Width="650" Height="700"
+SizeToContent="WidthAndHeight"        
+        WindowStartupLocation="CenterScreen"
+        Background="#101010">
+    <!--SizeToContent="WidthAndHeight"-->
     <Grid x:Name="BoardGrid"
               Width="600"
-              Height="600"
-              MouseDown="BoardGrid_MouseDown">
+              Height="600">
+        <!--MouseDown="BoardGrid_MouseDown">-->
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Board.png"/>
         </Grid.Background>
@@ -20,8 +23,8 @@
         </UniformGrid>
 
         <UniformGrid x:Name="PieceGrid"
-                         Rows="8"
-                         Columns="8"
+                         Rows="10"
+                         Columns="9"
                          RenderOptions.BitmapScalingMode="HighQuality">
         </UniformGrid>
     </Grid>
