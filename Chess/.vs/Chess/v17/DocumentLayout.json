@@ -7,52 +7,16 @@
       "RelativeMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|solutionrelative:chess.loginsignup\\view\\loginview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chess.loginsignup\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|solutionrelative:chess.loginsignup\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\chess.loginsignup\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|solutionrelative:chess.loginsignup\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chess.loginsignup\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|solutionrelative:chess.loginsignup\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\chess.loginsignup\\view\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E22695CA-85D4-4842-9DE0-336F91FE8DFB}|Chess.LoginSignUp\\Chess.LoginSignUp.csproj|solutionrelative:chess.loginsignup\\view\\loginview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessui\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{BC42359F-A0D8-4B81-B851-F30DB8048033}|ChessUI\\ChessUI.csproj|solutionrelative:chessui\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\helper\\openingbook\\chesstrie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\helper\\openingbook\\chesstrie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\utilities\\master_games.pgn||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\utilities\\master_games.pgn||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\helper\\pgn\\pgnreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\helper\\pgn\\pgnreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\minimax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\minimax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\helper\\zobristhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\helper\\zobristhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chessai\\openingbook\\openingentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D5927F65-E643-4F39-BF44-2CA8AF21470F}|ChessAI\\ChessAI.csproj|solutionrelative:chessai\\openingbook\\openingentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\gamestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\helper\\pgn\\algebraicnotationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\helper\\pgn\\algebraicnotationhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|d:\\ba nam\\own project\\practice\\c#\\wpf practice\\chess\\chesslogic\\helper\\openingbook\\buildopeningbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0378BED6-1DB9-492B-81B9-0E91FEDE93A9}|ChessLogic\\ChessLogic.csproj|solutionrelative:chesslogic\\helper\\openingbook\\buildopeningbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -72,11 +36,10 @@
               "RelativeDocumentMoniker": "ChessUI\\MainWindow.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "ChessUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAMwMcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T02:44:04.299Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -87,141 +50,32 @@
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\View\\LoginView.xaml",
               "RelativeToolTip": "Chess.LoginSignUp\\View\\LoginView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-03T02:11:07.165Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Chess.LoginSignUp\\MainWindow.xaml",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\MainWindow.xaml",
-              "RelativeToolTip": "Chess.LoginSignUp\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-03T02:02:30.826Z",
+              "WhenOpened": "2025-09-04T02:03:27.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Chess.LoginSignUp\\MainWindow.xaml.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Chess.LoginSignUp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "View\\LoginView.xaml.cs",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\View\\LoginView.xaml.cs",
+              "RelativeDocumentMoniker": "Chess.LoginSignUp\\View\\LoginView.xaml.cs",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\View\\LoginView.xaml.cs",
+              "RelativeToolTip": "Chess.LoginSignUp\\View\\LoginView.xaml.cs",
+              "ViewState": "AgIAAAAAAACAWdEvwqUvwB0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T02:02:30.463Z",
+              "WhenOpened": "2025-09-04T02:11:07.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\App.xaml",
+              "RelativeDocumentMoniker": "Chess.LoginSignUp\\App.xaml",
+              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\App.xaml",
+              "RelativeToolTip": "Chess.LoginSignUp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-04T02:03:37.486Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChessTrie.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\OpeningBook\\ChessTrie.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Helper\\OpeningBook\\ChessTrie.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\OpeningBook\\ChessTrie.cs",
-              "RelativeToolTip": "ChessLogic\\Helper\\OpeningBook\\ChessTrie.cs",
-              "ViewState": "AgIAAMEAAAAAAAAAAAAYwOUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T02:19:19.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Minimax.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Minimax.cs",
-              "RelativeDocumentMoniker": "ChessAI\\Minimax.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Minimax.cs",
-              "RelativeToolTip": "ChessAI\\Minimax.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T02:20:51.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "master_games.pgn",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn",
-              "RelativeDocumentMoniker": "ChessAI\\Utilities\\master_games.pgn",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn",
-              "RelativeToolTip": "ChessAI\\Utilities\\master_games.pgn",
-              "ViewState": "AgIAAM0BAAAAAAAAAAAAANYBAADjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-07T02:33:12.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PGNReader.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\PGN\\PGNReader.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Helper\\PGN\\PGNReader.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\PGN\\PGNReader.cs",
-              "RelativeToolTip": "ChessLogic\\Helper\\PGN\\PGNReader.cs",
-              "ViewState": "AgIAAMIBAAAAAAAAAIAwwNIBAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T02:10:57.292Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "OpeningEntry.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\OpeningBook\\OpeningEntry.cs",
-              "RelativeDocumentMoniker": "ChessAI\\OpeningBook\\OpeningEntry.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\OpeningBook\\OpeningEntry.cs",
-              "RelativeToolTip": "ChessAI\\OpeningBook\\OpeningEntry.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T02:08:10.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ZobristHasher.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\ZobristHasher.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Helper\\ZobristHasher.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\ZobristHasher.cs",
-              "RelativeToolTip": "ChessLogic\\Helper\\ZobristHasher.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAwGkAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T02:42:20.51Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AlgebraicNotationHelper.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\PGN\\AlgebraicNotationHelper.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Helper\\PGN\\AlgebraicNotationHelper.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\PGN\\AlgebraicNotationHelper.cs",
-              "RelativeToolTip": "ChessLogic\\Helper\\PGN\\AlgebraicNotationHelper.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAP4AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T02:36:21.423Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GameState.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\GameState.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\GameState.cs",
-              "RelativeToolTip": "ChessLogic\\GameState.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAqwE8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T01:39:07.288Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BuildOpeningBook.cs",
-              "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\OpeningBook\\BuildOpeningBook.cs",
-              "RelativeDocumentMoniker": "ChessLogic\\Helper\\OpeningBook\\BuildOpeningBook.cs",
-              "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessLogic\\Helper\\OpeningBook\\BuildOpeningBook.cs",
-              "RelativeToolTip": "ChessLogic\\Helper\\OpeningBook\\BuildOpeningBook.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAM4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T02:36:20.89Z"
             }
           ]
         }

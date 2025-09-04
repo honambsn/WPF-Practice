@@ -53,7 +53,7 @@ namespace ChessUI.Views.Menus {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ChessUI;V1.0.0.0;component/views/menus/modeselectmenu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ChessUI;component/views/menus/modeselectmenu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Menus\ModeSelectMenu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -5,8 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess.LoginSignUp.View"
         mc:Ignorable="d"
-        Title="LoginView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="LoginView" Height="600" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border CornerRadius="50">
+        <!--<Border.Background>
+            <ImageBrush ImageSource=""
+        </Border.Background>-->
+        <!--https://youtu.be/pZGcRHgmn8k?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=542-->
+        <Border CornerRadius="50"
+                BorderThickness="5">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#00FFDE" Offset="0"/>
+                    <GradientStop Color="#79D7BE" Offset="0.75"/>
+                    <GradientStop Color="#DDF4E7" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0, 1" EndPoint="1,0">
+                    <GradientStop Color="#ADEED9" Offset="0"/>
+                    <GradientStop Color="#1DCD9F" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+    </Border>
 </Window>

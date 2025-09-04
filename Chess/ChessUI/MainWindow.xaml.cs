@@ -58,6 +58,7 @@ namespace ChessUI
         public MainWindow()
         {
             InitializeComponent();
+            Debug.WriteLine("MainWindow constructor called");
             ////var pgnReader = new readPGN();
             //string input_ = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\file.pgn";
             ////pgnReader.DisplayGameDetails();
@@ -98,48 +99,47 @@ namespace ChessUI
             //}
 
 
+            #region pgn read
 
-            Debug.WriteLine("MainWindow constructor called");
+            //string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
+            //string pgnContent = System.IO.File.ReadAllText(filePath);
 
-            string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\master_games.pgn";
-            string pgnContent = System.IO.File.ReadAllText(filePath);
-
-            // Parse the PGN content and extract the games with metadata and moves
-            List<Game> games = PGN.ExtractGamesFromPGN(pgnContent);
-
-
-            // Print the metadata and moves for each game
-            foreach (var game in games)
-            {
-                Debug.WriteLine($"Event: {game.Event}");
-                Debug.WriteLine($"Date: {game.Date}");
-                Debug.WriteLine($"White: {game.White}");
-                Debug.WriteLine($"Black: {game.Black}");
-                Debug.WriteLine($"Result: {game.Result}");
-                Debug.WriteLine("Moves:");
-                Debug.WriteLine(game.Moves);
-                Debug.WriteLine(game.Moves.GetType());
-
-                try {
-                    List<string> moveList = ConvertMovesToList(game.Moves);
-
-                    Debug.WriteLine("Converted Moves List:", moveList);
-                    Debug.WriteLine(string.Join(", ", moveList));
-
-                    addToTree(moveList);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error converting moves: {ex.Message}");
-                }
+            //// Parse the PGN content and extract the games with metadata and moves
+            //List<Game> games = PGN.ExtractGamesFromPGN(pgnContent);
 
 
-                //moveFromPGNToTrie(game.Moves);
-                Debug.WriteLine("\n");
-            }
+            //// Print the metadata and moves for each game
+            //foreach (var game in games)
+            //{
+            //    Debug.WriteLine($"Event: {game.Event}");
+            //    Debug.WriteLine($"Date: {game.Date}");
+            //    Debug.WriteLine($"White: {game.White}");
+            //    Debug.WriteLine($"Black: {game.Black}");
+            //    Debug.WriteLine($"Result: {game.Result}");
+            //    Debug.WriteLine("Moves:");
+            //    Debug.WriteLine(game.Moves);
+            //    Debug.WriteLine(game.Moves.GetType());
+
+            //    try {
+            //        List<string> moveList = ConvertMovesToList(game.Moves);
+
+            //        Debug.WriteLine("Converted Moves List:", moveList);
+            //        Debug.WriteLine(string.Join(", ", moveList));
+
+            //        addToTree(moveList);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Debug.WriteLine($"Error converting moves: {ex.Message}");
+            //    }
 
 
+            //    //moveFromPGNToTrie(game.Moves);
+            //    Debug.WriteLine("\n");
+            //}
 
+
+            #endregion
             #region test readpgn
             //// Example 1: Get moves for a single game and display them in the console
             //string filePath = "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\ChessAI\\Utilities\\ReadMovesFromPGN.pgn";
@@ -194,9 +194,10 @@ namespace ChessUI
             //                 Debug.WriteLine(string.Join(" ", gameMoves));
             //             }
             //         }
-                     #endregion
+            #endregion
 
-            //SetUpGameMode();
+
+            SetUpGameMode();
             //Trie();
         }
 
