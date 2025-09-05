@@ -56,14 +56,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "View\\LoginView.xaml.cs",
+              "Title": "LoginView.xaml.cs",
               "DocumentMoniker": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\View\\LoginView.xaml.cs",
               "RelativeDocumentMoniker": "Chess.LoginSignUp\\View\\LoginView.xaml.cs",
               "ToolTip": "D:\\Ba Nam\\Own project\\Practice\\c#\\WPF Practice\\Chess\\Chess.LoginSignUp\\View\\LoginView.xaml.cs",
               "RelativeToolTip": "Chess.LoginSignUp\\View\\LoginView.xaml.cs",
-              "ViewState": "AgIAAAAAAACAWdEvwqUvwB0AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAACAWdEvwqUvwCcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-04T02:11:07.243Z"
+              "WhenOpened": "2025-09-04T02:11:07.243Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
