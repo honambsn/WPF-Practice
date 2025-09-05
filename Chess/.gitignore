@@ -1,0 +1,137 @@
+# .gitignore dành cho repo multi-project .NET (dựa trên tree.txt)
+# - Repo có nhiều project/sub-sln (ví dụ: WhiteLagoon, WhiteLagoon.Application, WhiteLagoon.Domain, WhiteLagoon.Infracstructure, WhiteLagoon.Web). fileciteturn2file3
+# - Có nhiều thư mục bin/ obj/ và file .csproj.user, các file tạm do MSBuild tạo. fileciteturn2file3turn2file17
+# - Có các _wpftmp tạm của WPF hot-reload và static web libs ở wwwroot/lib. fileciteturn2file12turn2file1
+# - Có thư mục packages/ (packages.config legacy). fileciteturn2file14
+
+############################
+# IDE / User files
+############################
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.csproj.user
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper*/
+*.DotSettings.user
+
+# VS Code
+.vscode/
+
+############################
+# Build outputs (any depth)
+############################
+# Bin / Obj (mọi project con)
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug*/
+[Rr]elease*/
+x64/
+x86/
+[Aa][Rr][Mm]*/
+artifacts/
+logs/
+**/publish/
+**/out/
+
+############################
+# MSBuild / generated files
+############################
+# Generated source / cache
+*.g.cs
+*.g.i.cs
+*.generated.cs
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.AssemblyInfo.*
+*.GlobalUsings.g.cs
+*.FileListAbsolute.txt
+*.BuildWithSkipAnalyzers
+*.sourcelink.json
+
+# NuGet / restore artifacts
+*.nupkg
+*.snupkg
+*.nuspec
+project.lock.json
+project.assets.json
+project.fragment.lock.json
+project.nuget.cache
+*.nuget.g.props
+*.nuget.g.targets
+packages/
+
+############################
+# WPF temporary / hot-reload files (xuất hiện trong tree.txt)
+############################
+*_wpftmp*/
+*_wpftmp.*
+*_wpftmp/
+
+############################
+# ASP.NET Core / Web specific
+############################
+# Static web assets, scoped css, generated staticwebassets
+staticwebassets/
+scopedcss/
+
+# Thư viện client restore bằng LibMan / npm (thường restore lại được)
+# Nếu bạn muốn giữ wwwroot/lib trong repo thì comment dòng dưới
+wwwroot/lib/
+
+############################
+# Test / Coverage / Tools
+############################
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+.vstest/
+
+############################
+# Packages (legacy packages.config)
+############################
+packages/
+
+############################
+# Common OS / temp files
+############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# backup / swap / logs
+*.log
+*.bak
+*.tmp
+*.swp
+*.orig
+*.pidb
+*.svclog
+
+############################
+# Optional: frontend (nếu có ClientApp)
+############################
+# node_modules, dist, build, lockfiles (uncomment nếu repo có frontend subfolder)
+# ClientApp/node_modules/
+# ClientApp/dist/
+# ClientApp/build/
+# ClientApp/.cache/
+# ClientApp/package-lock.json
+# ClientApp/yarn.lock
+# ClientApp/pnpm-lock.yaml
+
