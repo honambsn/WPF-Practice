@@ -16,25 +16,26 @@
     <Border CornerRadius="15">
         <Border.Background>
             <ImageBrush ImageSource="/Images/bg3.jpg"
+                        Opacity=".3"
                         Stretch="UniformToFill"/>
         </Border.Background>
         <!--https://youtu.be/pZGcRHgmn8k?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1156-->
         
         <Border CornerRadius="15"
                 BorderThickness="1.5"
-                Opacity="0.8">
+                Opacity=".85">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#00FFDE" Offset="0"/>
-                    <GradientStop Color="#79D7BE" Offset="0.75"/>
+                    <GradientStop Color="#7ADAA5" Offset="0"/>
+                    <GradientStop Color="#088C6F" Offset="0.75"/>
                     <GradientStop Color="#DDF4E7" Offset="1"/>
                 </LinearGradientBrush>
             </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0, 1" EndPoint="1,0">
-                    <GradientStop Color="#ADEED9" Offset="0"/>
-                    <GradientStop Color="#1DCD9F" Offset="1"/>
+                    <GradientStop Color="#096B68" Offset="0"/>
+                    <GradientStop Color="#52357B" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -61,7 +62,6 @@
                                Margin="10 0 0 0"/>
 
                     <Button x:Name="btnMinimize"
-                            Background="#28aeed"
                             BorderThickness="0"
                             Content="-"
                             Foreground="BlueViolet"
@@ -75,7 +75,7 @@
                                 <Setter Property="Background" Value="#28aeed"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#278bef"/>
+                                        <Setter Property="Background" Value="#63C8FF"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -98,6 +98,7 @@
                     <Button x:Name="btnClose"
                             BorderThickness="0"
                             Content="X"
+                            FontWeight="SemiBold"
                             Foreground="red"
                             FontSize="12"
                             FontFamily="Montserrat"
@@ -106,10 +107,11 @@
                             Click="btnClose_Click">
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Background" Value="#da34ae"/>
+                                <Setter Property="Background" Value="#F75270"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#c62dae"/>
+                                        <Setter Property="Background" Value="#C71E64"/>
+                                        <Setter Property="Foreground" Value="#FF6F6F"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
@@ -134,14 +136,19 @@
                             Grid.Row="2"
                             Orientation="Vertical"
                             Margin="0 35 0 0">
-                    <Image Source="/images/logo.png"
-                           Width="200" Height="200"/>
+                    <Image Source="/images/logo2.png"
+                           RenderOptions.BitmapScalingMode="HighQuality"
+                           Width="200" Height="200">
+                        <Image.Effect>
+                            <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" BlurRadius="5" Opacity="0.6"/>
+                        </Image.Effect>
+                    </Image>
 
                     <TextBlock Text="CHESS"
                                HorizontalAlignment="Center"
-                               FontWeight="DemiBold"
-                               FontSize="40"
-                               Foreground="DarkRed"
+                               FontWeight="ExtraBold"
+                               FontSize="50"
+                               Foreground="#3E0703"
                                FontFamily="Freestyle Script"/>
 
                     <TextBlock Text='"Check in. Checkmate."'
@@ -155,15 +162,15 @@
 
 
                     <TextBlock Text="Username:"
-                               FontWeight="Bold"
                                FontSize="12"
                                Foreground="red"
-                               FontFamily="Segoe Script"
+                               FontFamily="Arial"
                                Margin="0 35 0 0"/>
+                    
                     <TextBox x:Name="txtUsername"
                              FontSize="13"
                              FontWeight="Medium"
-                             FontFamily="Montserrat"
+                             FontFamily="Arial"
                              Background="Transparent">
                         
                     </TextBox>
