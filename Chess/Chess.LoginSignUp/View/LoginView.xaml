@@ -10,8 +10,8 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
-        Background="Transparent"
-        AllowsTransparency="True">
+        Background="Transparent">
+    <!--AllowsTransparency="True">-->
 
     <Border CornerRadius="15">
         <Border.Background>
@@ -162,18 +162,132 @@
 
 
                     <TextBlock Text="Username:"
-                               FontSize="12"
-                               Foreground="red"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               Foreground="Black"
                                FontFamily="Arial"
                                Margin="0 35 0 0"/>
                     
-                    <TextBox x:Name="txtUsername"
-                             FontSize="13"
+                    <!--<TextBox x:Name="txtUsername"
+                             FontSize="12"
                              FontWeight="Medium"
                              FontFamily="Arial"
-                             Background="Transparent">
-                        
+                             Foreground="Black"
+                             CaretBrush="Black"
+                             Height="28"
+                             VerticalContentAlignment="Center"
+                             Cursor="Hand"
+                             Margin="0 5 0 0">
+                        <TextBox.Template>
+                            <ControlTemplate TargetType="TextBox">
+                                --><!--<Border Background="LightCyan" BorderBrush="BlueViolet" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">--><!--
+                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="LightCyan" Opacity=".3"/>
+                                    </Border.Background>
+                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                </Border>
+                            </ControlTemplate>
+                        </TextBox.Template>
+                    </TextBox>-->
+                    <TextBox x:Name="txtUsername"
+         FontSize="12"
+         FontWeight="Medium"
+         FontFamily="Arial"
+         Foreground="Black"
+         CaretBrush="Black"
+         Height="28"
+         VerticalContentAlignment="Center"
+         Cursor="Hand"
+         Margin="0 5 0 0">
+                        <TextBox.Template>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                                    <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="FocusStates">
+                                            <VisualState x:Name="Unfocused">
+                                                <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                    Storyboard.TargetName="BackgroundBrush"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0.3" Duration="0:0:0.2" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Focused">
+                                                <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                    Storyboard.TargetName="BackgroundBrush"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0.6" Duration="0:0:0.2" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                    </Border.Background>
+
+                                    <!-- ScrollViewer cho nội dung của TextBox -->
+                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                </Border>
+                            </ControlTemplate>
+                        </TextBox.Template>
                     </TextBox>
+                    
+                    <TextBox x:Name="txt2"
+         FontSize="12"
+         FontWeight="Medium"
+         FontFamily="Arial"
+         Foreground="Black"
+         CaretBrush="Black"
+         Height="28"
+         VerticalContentAlignment="Center"
+         Cursor="Hand"
+         Margin="0 5 0 0">
+                        <TextBox.Template>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                                    <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="FocusStates">
+                                            <VisualState x:Name="Unfocused">
+                                                <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                    Storyboard.TargetName="BackgroundBrush"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0.3" Duration="0:0:0.2" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Focused">
+                                                <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                <Storyboard>
+                                                    <DoubleAnimation
+                                    Storyboard.TargetName="BackgroundBrush"
+                                    Storyboard.TargetProperty="Opacity"
+                                    To="0.6" Duration="0:0:0.2" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+
+                                    <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                    </Border.Background>
+
+                                    <!-- ScrollViewer cho nội dung của TextBox -->
+                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                </Border>
+                            </ControlTemplate>
+                        </TextBox.Template>
+                    </TextBox>
+
 
                 </StackPanel>
             </Grid>

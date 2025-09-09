@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,11 @@ namespace Chess.LoginSignUp.View
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.Cursor = Cursors.Hand;
                 this.DragMove();
+            }
+            this.Cursor = Cursors.Arrow;
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -39,5 +44,17 @@ namespace Chess.LoginSignUp.View
         {
             Application.Current.Shutdown();
         }
+        private void Grid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Debug.WriteLine("Grid_PreviewMouseDown triggered");
+            // Kiểm tra xem người dùng có click ra ngoài TextBox không
+            if (!txtUsername.IsMouseOver)
+            {
+                Debug.WriteLine("Click outside TextBox");
+                // Bỏ focus cho TextBox khi click ra ngoài
+                Keyboard.ClearFocus();
+            }
+        }
+
     }
 }
