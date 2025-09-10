@@ -56,5 +56,20 @@ namespace Chess.LoginSignUp.View
             }
         }
 
+        private void DraggableArea_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.Cursor = Cursors.Hand;
+                try
+                {
+                    this.DragMove();
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Arrow;
+                }
+            }
+        }
     }
 }

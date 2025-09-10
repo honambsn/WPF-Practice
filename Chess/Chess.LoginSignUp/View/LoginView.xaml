@@ -9,288 +9,463 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown"
+        
         Background="Transparent">
+    <!--MouseDown="Window_MouseDown"-->
     <!--AllowsTransparency="True">-->
 
-    <Border CornerRadius="15">
-        <Border.Background>
-            <ImageBrush ImageSource="/Images/bg3.jpg"
-                        Opacity=".3"
-                        Stretch="UniformToFill"/>
-        </Border.Background>
-        <!--https://youtu.be/pZGcRHgmn8k?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1156-->
-        
-        <Border CornerRadius="15"
-                BorderThickness="1.5"
-                Opacity=".85">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#7ADAA5" Offset="0"/>
-                    <GradientStop Color="#088C6F" Offset="0.75"/>
-                    <GradientStop Color="#DDF4E7" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
+    <Grid>
+        <Border Name="DraggableArea" Background="Transparent" Width="700" Height="30" VerticalAlignment="Top" MouseDown="DraggableArea_MouseDown" Opacity="1" Panel.ZIndex="1" Margin="43, 0, 55, 0"> 
 
+        </Border>
+        <Border CornerRadius="15">
             <Border.Background>
-                <LinearGradientBrush StartPoint="0, 1" EndPoint="1,0">
-                    <GradientStop Color="#096B68" Offset="0"/>
-                    <GradientStop Color="#52357B" Offset="1"/>
-                </LinearGradientBrush>
+                <ImageBrush ImageSource="/Images/bg3.jpg"
+                             Opacity=".3"
+                             Stretch="UniformToFill"/>
             </Border.Background>
+            <!--https://youtu.be/pZGcRHgmn8k?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1156-->
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <Border CornerRadius="15"
+                     BorderThickness="1.5"
+                     Opacity=".85">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#7ADAA5" Offset="0"/>
+                        <GradientStop Color="#088C6F" Offset="0.75"/>
+                        <GradientStop Color="#DDF4E7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0, 1" EndPoint="1,0">
+                        <GradientStop Color="#096B68" Offset="0"/>
+                        <GradientStop Color="#52357B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
 
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="25"/>
-                        <ColumnDefinition Width="5"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                    <TextBlock Text="LOG IN"
-                               Foreground="DarkGray"
-                               FontSize="10"
-                               FontFamily="Montserrat"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"
-                               Margin="10 0 0 0"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="5"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnMinimize"
-                            BorderThickness="0"
-                            Content="-"
-                            Foreground="BlueViolet"
-                            FontSize="16"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="1"
-                            Click="btnMinimize_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#28aeed"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#63C8FF"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                        <TextBlock Text="LOG IN"
+                                    Foreground="DarkGray"
+                                    FontSize="10"
+                                    FontFamily="Montserrat"
+                                    Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="10 0 0 0"/>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
+                        <!--<Button x:Name="btnMinimize"
+                                 BorderThickness="0"
+                                 Content="-"
+                                 Foreground="BlueViolet"
+                                 FontSize="16"
+                                 FontFamily="Montserrat"
+                                 Cursor="Hand"
+                                 Grid.Column="1"
+                                 Click="btnMinimize_Click">
 
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                        
-                    </Button>
+                            <Button.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1" />
+                            </Button.RenderTransform>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#28aeed"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#63C8FF"/>
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                         To="1.2" Duration="0:0:0:0.2"/>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                         To="1.2" Duration="0:0:0:0.2"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                         To="1.0" Duration="0:0:0:0.2"/>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                         To="1.0" Duration="0:0:0:0.2"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
 
-                    <Button x:Name="btnClose"
-                            BorderThickness="0"
-                            Content="X"
-                            FontWeight="SemiBold"
-                            Foreground="red"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"
-                            Grid.Column="2"
-                            Click="btnClose_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#F75270"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#C71E64"/>
-                                        <Setter Property="Foreground" Value="#FF6F6F"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="18" Height="18"
+                                             CornerRadius="9"
+                                             Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"/>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="18" Height="18"
-                                        CornerRadius="9"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                              HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
 
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+                        </Button>-->
 
-                    </Button>
+                        <Button x:Name="btnMinimize"
+        BorderThickness="0"
+        Content="-"
+        Foreground="BlueViolet"
+        FontSize="16"
+        FontFamily="Montserrat"
+        Cursor="Hand"
+        Grid.Column="1"
+        Click="btnMinimize_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                    Width="18"
+                    Height="18"
+                    CornerRadius="9"
+                    Background="#28aeed"
+                    RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Border.RenderTransform>
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#63C8FF" />
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.2"
+                                                 Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.2"
+                                                 Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.0"
+                                                 Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.0"
+                                                 Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+
+
+                        <Button x:Name="btnClose"
+                                 BorderThickness="0"
+                                 Content="X"
+                                 FontWeight="SemiBold"
+                                 Foreground="red"
+                                 FontSize="12"
+                                 FontFamily="Montserrat"
+                                 Cursor="Hand"
+                                 Grid.Column="2"
+                                 Click="btnClose_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#F75270"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#C71E64"/>
+                                            <Setter Property="Foreground" Value="#FF6F6F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+Width="18"
+Height="18"
+CornerRadius="9"
+Background="#C71E64"
+RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Border.RenderTransform>
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#F75270" />
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                             To="1.2"
+                             Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                             To="1.2"
+                             Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                             To="1.0"
+                             Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                             Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                             To="1.0"
+                             Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                    </Grid>
+
+                    <StackPanel Width="250"
+                                 Grid.Row="2"
+                                 Orientation="Vertical"
+                                 Margin="0 35 0 0">
+                        <Image Source="/images/logo2.png"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Width="200" Height="200">
+                            <Image.Effect>
+                                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" BlurRadius="5" Opacity="0.6"/>
+                            </Image.Effect>
+                        </Image>
+
+                        <TextBlock Text="CHESS"
+                                    HorizontalAlignment="Center"
+                                    FontWeight="ExtraBold"
+                                    FontSize="50"
+                                    Foreground="#3E0703"
+                                    FontFamily="Freestyle Script"/>
+
+                        <TextBlock Text='"Check in. Checkmate."'
+                                    HorizontalAlignment="Center"
+                                    FontWeight="Bold"
+                                    FontSize="20"
+                                    Foreground="red"
+                                    FontFamily="Segoe Script"
+                                    TextAlignment="Center"
+                                    Margin="0 5 0 0"/>
+
+
+                        <!--<TextBlock Text="Username:"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    FontFamily="Arial"
+                    Margin="0 35 0 0"/>-->
+                        <TextBlock Text="Username:"
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    FontFamily="Arial"
+                                    Margin="0 35 0 0"
+                                    HorizontalAlignment="Left">
+                            <TextBlock.RenderTransform>
+                                <ScaleTransform x:Name="scaleTransform" ScaleX="1" ScaleY="1" />
+                            </TextBlock.RenderTransform>
+                            <TextBlock.RenderTransformOrigin>0.5,0.5</TextBlock.RenderTransformOrigin>
+
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                      To="1.2" Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                      To="1.2" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                      To="1.0" Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                      To="1.0" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+
+
+                        <!--<TextBox x:Name="txtUsername"
+                  FontSize="12"
+                  FontWeight="Medium"
+                  FontFamily="Arial"
+                  Foreground="Black"
+                  CaretBrush="Black"
+                  Height="28"
+                  VerticalContentAlignment="Center"
+                  Cursor="Hand"
+                  Margin="0 5 0 0">
+             <TextBox.Template>
+                 <ControlTemplate TargetType="TextBox">
+                     -->
+                        <!--<Border Background="LightCyan" BorderBrush="BlueViolet" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">-->
+                        <!--
+                     <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                         <Border.Background>
+                             <SolidColorBrush Color="LightCyan" Opacity=".3"/>
+                         </Border.Background>
+                         <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                     </Border>
+                 </ControlTemplate>
+             </TextBox.Template>
+         </TextBox>-->
+                        <TextBox x:Name="txtUsername"
+                                  FontSize="12"
+                                  FontWeight="Medium"
+                                  FontFamily="Arial"
+                                  Foreground="Black"
+                                  CaretBrush="Black"
+                                  Height="28"
+                                  VerticalContentAlignment="Center"
+                                  Cursor="Hand"
+                                  Margin="0 5 0 0">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                                        <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Unfocused">
+                                                    <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                             Storyboard.TargetName="BackgroundBrush"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.3" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Focused">
+                                                    <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                             Storyboard.TargetName="BackgroundBrush"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.6" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                        <Border.Background>
+                                            <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                        </Border.Background>
+
+                                        <!-- ScrollViewer cho nội dung của TextBox -->
+                                        <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+
+                        <TextBox x:Name="txt2"
+                                  FontSize="12"
+                                  FontWeight="Medium"
+                                  FontFamily="Arial"
+                                  Foreground="Black"
+                                  CaretBrush="Black"
+                                  Height="28"
+                                  VerticalContentAlignment="Center"
+                                  Cursor="Hand"
+                                  Margin="0 5 0 0">
+                            <TextBox.Template>
+                                <ControlTemplate TargetType="TextBox">
+                                    <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
+                                        <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="FocusStates">
+                                                <VisualState x:Name="Unfocused">
+                                                    <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                            Storyboard.TargetName="BackgroundBrush"
+                                                            Storyboard.TargetProperty="Opacity"
+                                                            To="0.3" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                                <VisualState x:Name="Focused">
+                                                    <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                    <Storyboard>
+                                                        <DoubleAnimation
+                                                             Storyboard.TargetName="BackgroundBrush"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.6" Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+
+                                        <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                        <Border.Background>
+                                            <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                        </Border.Background>
+
+                                        <!-- ScrollViewer cho nội dung của TextBox -->
+                                        <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </TextBox.Template>
+                        </TextBox>
+
+
+                    </StackPanel>
                 </Grid>
-
-                <StackPanel Width="250"
-                            Grid.Row="2"
-                            Orientation="Vertical"
-                            Margin="0 35 0 0">
-                    <Image Source="/images/logo2.png"
-                           RenderOptions.BitmapScalingMode="HighQuality"
-                           Width="200" Height="200">
-                        <Image.Effect>
-                            <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" BlurRadius="5" Opacity="0.6"/>
-                        </Image.Effect>
-                    </Image>
-
-                    <TextBlock Text="CHESS"
-                               HorizontalAlignment="Center"
-                               FontWeight="ExtraBold"
-                               FontSize="50"
-                               Foreground="#3E0703"
-                               FontFamily="Freestyle Script"/>
-
-                    <TextBlock Text='"Check in. Checkmate."'
-                               HorizontalAlignment="Center"
-                               FontWeight="Bold"
-                               FontSize="20"
-                               Foreground="red"
-                               FontFamily="Segoe Script"
-                               TextAlignment="Center"
-                               Margin="0 5 0 0"/>
-
-
-                    <TextBlock Text="Username:"
-                               FontSize="14"
-                               FontWeight="Bold"
-                               Foreground="Black"
-                               FontFamily="Arial"
-                               Margin="0 35 0 0"/>
-                    
-                    <!--<TextBox x:Name="txtUsername"
-                             FontSize="12"
-                             FontWeight="Medium"
-                             FontFamily="Arial"
-                             Foreground="Black"
-                             CaretBrush="Black"
-                             Height="28"
-                             VerticalContentAlignment="Center"
-                             Cursor="Hand"
-                             Margin="0 5 0 0">
-                        <TextBox.Template>
-                            <ControlTemplate TargetType="TextBox">
-                                --><!--<Border Background="LightCyan" BorderBrush="BlueViolet" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">--><!--
-                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="LightCyan" Opacity=".3"/>
-                                    </Border.Background>
-                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
-                                </Border>
-                            </ControlTemplate>
-                        </TextBox.Template>
-                    </TextBox>-->
-                    <TextBox x:Name="txtUsername"
-         FontSize="12"
-         FontWeight="Medium"
-         FontFamily="Arial"
-         Foreground="Black"
-         CaretBrush="Black"
-         Height="28"
-         VerticalContentAlignment="Center"
-         Cursor="Hand"
-         Margin="0 5 0 0">
-                        <TextBox.Template>
-                            <ControlTemplate TargetType="TextBox">
-                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
-                                    <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="FocusStates">
-                                            <VisualState x:Name="Unfocused">
-                                                <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
-                                                <Storyboard>
-                                                    <DoubleAnimation
-                                    Storyboard.TargetName="BackgroundBrush"
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="0.3" Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState x:Name="Focused">
-                                                <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
-                                                <Storyboard>
-                                                    <DoubleAnimation
-                                    Storyboard.TargetName="BackgroundBrush"
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="0.6" Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-
-                                    <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
-                                    </Border.Background>
-
-                                    <!-- ScrollViewer cho nội dung của TextBox -->
-                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
-                                </Border>
-                            </ControlTemplate>
-                        </TextBox.Template>
-                    </TextBox>
-                    
-                    <TextBox x:Name="txt2"
-         FontSize="12"
-         FontWeight="Medium"
-         FontFamily="Arial"
-         Foreground="Black"
-         CaretBrush="Black"
-         Height="28"
-         VerticalContentAlignment="Center"
-         Cursor="Hand"
-         Margin="0 5 0 0">
-                        <TextBox.Template>
-                            <ControlTemplate TargetType="TextBox">
-                                <Border BorderBrush="BlueViolet" BorderThickness="2" CornerRadius="5">
-                                    <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="FocusStates">
-                                            <VisualState x:Name="Unfocused">
-                                                <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
-                                                <Storyboard>
-                                                    <DoubleAnimation
-                                    Storyboard.TargetName="BackgroundBrush"
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="0.3" Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState x:Name="Focused">
-                                                <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
-                                                <Storyboard>
-                                                    <DoubleAnimation
-                                    Storyboard.TargetName="BackgroundBrush"
-                                    Storyboard.TargetProperty="Opacity"
-                                    To="0.6" Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-
-                                    <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
-                                    </Border.Background>
-
-                                    <!-- ScrollViewer cho nội dung của TextBox -->
-                                    <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
-                                </Border>
-                            </ControlTemplate>
-                        </TextBox.Template>
-                    </TextBox>
-
-
-                </StackPanel>
-            </Grid>
+            </Border>
         </Border>
-    </Border>
+    </Grid>
+
 </Window>
