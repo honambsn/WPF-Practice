@@ -1,0 +1,595 @@
+﻿<Window x:Class="Chess.Login_SignUp.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess.Login_SignUp.View"
+        mc:Ignorable="d"
+                Title="LoginView" Height="600" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        
+        Background="Transparent"
+        Icon="/Images/chess.ico">
+    <!--MouseDown="Window_MouseDown"-->
+    <!--AllowsTransparency="True">-->
+
+    <Grid>
+        <Border Name="DraggableArea" Background="Transparent" Width="700" Height="30" VerticalAlignment="Top" MouseDown="DraggableArea_MouseDown" Opacity="1" Panel.ZIndex="1" Margin="43, 0, 55, 0">
+
+        </Border>
+        <Border CornerRadius="15">
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/bg3.jpg"
+                             Opacity=".3"
+                             Stretch="UniformToFill"/>
+            </Border.Background>
+            <!--https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=37-->
+
+            <Border CornerRadius="15"
+                     BorderThickness="1.5"
+                     Opacity=".85">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#7ADAA5" Offset="0"/>
+                        <GradientStop Color="#088C6F" Offset="0.75"/>
+                        <GradientStop Color="#DDF4E7" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0, 1" EndPoint="1,0">
+                        <GradientStop Color="#096B68" Offset="0"/>
+                        <GradientStop Color="#52357B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="5"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="LOG IN"
+                                    FontWeight="ExtraBold"
+                                    Foreground="DarkGray"
+                                    FontSize="10"
+                                    FontFamily="Arial"
+                                    Grid.Column="0"
+                                   HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="10 0 0 0"/>
+
+
+                        <Button x:Name="btnMinimize"
+                                BorderThickness="0"
+                                Content="-"
+                                Foreground="BlueViolet"
+                                FontSize="16"
+                                FontFamily="Montserrat"
+                                Cursor="Hand"
+                                Grid.Column="1"
+                                Click="btnMinimize_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Width="18"
+                                            Height="18"
+                                            CornerRadius="9"
+                                            Background="#28aeed"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Border.RenderTransform>
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#63C8FF" />
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.2"
+                                                 Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.2"
+                                                 Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.0"
+                                                 Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.0"
+                                                 Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+
+
+                        <Button x:Name="btnClose"
+                                 BorderThickness="0"
+                                 Content="X"
+                                 FontWeight="SemiBold"
+                                 Foreground="red"
+                                 FontSize="12"
+                                 FontFamily="Montserrat"
+                                 Cursor="Hand"
+                                 Grid.Column="2"
+                                 Click="btnClose_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#F75270"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#C71E64"/>
+                                            <Setter Property="Foreground" Value="#FF6F6F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Width="18"
+                                            Height="18"
+                                            CornerRadius="9"
+                                            Background="#C71E64"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Border.RenderTransform>
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#F75270" />
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                         To="1.2"
+                                                                         Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                         To="1.2"
+                                                                         Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                         To="1.0"
+                                                                         Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                         Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                         To="1.0"
+                                                                         Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+                    </Grid>
+
+                    <StackPanel Width="250"
+                                 Grid.Row="2"
+                                 Orientation="Vertical"
+                                 Margin="0 0 0 0">
+                        <Image Source="/images/logo2.png"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                Margin="0 5 0 0"
+                                Width="150" Height="150">
+                            <Image.Effect>
+                                <DropShadowEffect Color="Black" Direction="315" ShadowDepth="5" BlurRadius="5" Opacity="0.6"/>
+                            </Image.Effect>
+                        </Image>
+
+                        <TextBlock Text="CHESS"
+                                    HorizontalAlignment="Center"
+                                    FontWeight="ExtraBold"
+                                    FontSize="60"
+                                    Foreground="#3E0703"
+                                    FontFamily="Freestyle Script"/>
+
+                        <TextBlock Text='"Check in. Checkmate."'
+                                    HorizontalAlignment="Center"
+                                    FontWeight="Bold"
+                                    FontSize="20"
+                                    Foreground="red"
+                                    FontFamily="Segoe Script"
+                                    TextAlignment="Center"
+                                    Margin="0 5 0 0"/>
+
+
+                        <StackPanel>
+                            <TextBlock Text="Username:"
+                                        FontSize="16"
+                                        FontWeight="Bold"
+                                        TextDecorations="Underline"
+                                        FontFamily="Arial"
+                                        Foreground="#0D1164"
+                                        Margin="5 20 0 0"
+                                        HorizontalAlignment="Left">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform x:Name="scaleTransformUser" ScaleX="1" ScaleY="1" />
+                                </TextBlock.RenderTransform>
+                                <TextBlock.RenderTransformOrigin>0.5,0.5</TextBlock.RenderTransformOrigin>
+
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.2" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.2" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.0" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.0" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+
+
+                            <Grid>
+                                <Image Source="/Images/user-icon.png"
+                                        Width="15" Height="15"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="5 5 0 0"
+                                        Opacity="1"/>
+
+                                <TextBox x:Name="txtUsername"
+                                            FontSize="12"
+                                            FontWeight="Bold"
+                                            FontFamily="Arial"
+                                            Foreground="Black"
+                                            CaretBrush="Black"
+                                            Height="30"
+                                            VerticalContentAlignment="Center"
+                                            Cursor="Hand"
+                                            Padding="20 0 0 0"
+                                            Margin="0 5 0 0">
+                                    <TextBox.Template>
+                                        <ControlTemplate TargetType="TextBox">
+                                            <Border BorderBrush="BlueViolet" BorderThickness="1.5" CornerRadius="5">
+                                                <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="FocusStates">
+                                                        <VisualState x:Name="Unfocused">
+                                                            <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.1" Duration="0:0:0.2" />
+
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Focused">
+                                                            <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.6" Duration="0:0:0.2" />
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+
+                                                <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                                <Border.Background>
+                                                    <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                                </Border.Background>
+
+                                                <!-- ScrollViewer cho nội dung của TextBox -->
+                                                <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </TextBox.Template>
+                                </TextBox>
+                            </Grid>
+
+
+                            <TextBlock Text="Password:"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       TextDecorations="Underline"
+                                       FontFamily="Arial"
+                                       Foreground="#0D1164"
+                                       Margin="5 15 0 0"
+                                       HorizontalAlignment="Left">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform x:Name="scaleTransformPass" ScaleX="1" ScaleY="1" />
+                                </TextBlock.RenderTransform>
+
+                                <TextBlock.RenderTransformOrigin>0.5,0.5</TextBlock.RenderTransformOrigin>
+
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.2" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.2" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                 To="1.0" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                 To="1.0" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+
+
+                            <Grid>
+                                <Image Source="/Images/key-icon.png"
+                                        Width="15" Height="15"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Margin="5 5 0 0"
+                                        Opacity="1"/>
+
+                                <PasswordBox x:Name="txtPassword"
+                                                FontSize="16"
+                                                FontWeight="Medium"
+                                                FontFamily="Arial"
+                                                Foreground="Black"
+                                                CaretBrush="Black"
+                                                Height="30"
+                                                VerticalContentAlignment="Center"
+                                                Cursor="Hand"
+                                                Padding="20 0 0 0"
+                                                Margin="0 5 0 0">
+                                    <PasswordBox.Template>
+                                        <ControlTemplate TargetType="PasswordBox">
+                                            <Border BorderBrush="BlueViolet" BorderThickness="1.5" CornerRadius="5">
+                                                <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                                <VisualStateManager.VisualStateGroups>
+                                                    <VisualStateGroup x:Name="FocusStates">
+                                                        <VisualState x:Name="Unfocused">
+                                                            <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.1" Duration="0:0:0.2" />
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                        <VisualState x:Name="Focused">
+                                                            <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                            <Storyboard>
+                                                                <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
+                                                     Storyboard.TargetProperty="Opacity"
+                                                     To="0.6" Duration="0:0:0.2" />
+                                                            </Storyboard>
+                                                        </VisualState>
+                                                    </VisualStateGroup>
+                                                </VisualStateManager.VisualStateGroups>
+
+                                                <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                                <Border.Background>
+                                                    <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
+                                                </Border.Background>
+
+                                                <!-- ScrollViewer cho nội dung của TextBox -->
+                                                <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </PasswordBox.Template>
+                                </PasswordBox>
+                            </Grid>
+                        </StackPanel>
+
+                        <Button x:Name="btnLogin"
+                                BorderThickness="0"
+                                Content="LOG IN"
+                                FontWeight="ExtraBold"
+                                Foreground="Aqua"
+                                FontSize="12"
+                                FontFamily="arial"
+                                Cursor="Hand"
+                                Margin="0 50 0 0"
+                                Grid.Column="2"
+                                Click="btnLogin_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#F75270"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#C71E64"/>
+                                            <Setter Property="Foreground" Value="#FF6F6F"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Width="150"
+                                            Height="40"
+                                            CornerRadius="20"
+                                            Background="#52357B"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </Border.RenderTransform>
+                                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#C71E64" />
+                                            <Trigger.EnterActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                            Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                            To="1.2"
+                                                                            Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                            Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                            To="1.2"
+                                                                            Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.EnterActions>
+                                            <Trigger.ExitActions>
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                            Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                            To="1.0"
+                                                                            Duration="0:0:0.2" />
+                                                        <DoubleAnimation Storyboard.TargetName="border"
+                                                                            Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                            To="1.0"
+                                                                            Duration="0:0:0.2" />
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </Trigger.ExitActions>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                    Margin="0 5 0 0">
+                            <TextBlock Text="Forgot Password?"
+                                       FontSize="10"
+                                       TextDecorations="Underline"
+                                       FontWeight="Normal"
+                                       FontFamily="Arial"
+                                       Foreground="DarkGray"
+                                       Margin="0 15 0 0"
+                                       Cursor="Hand"
+                                       HorizontalAlignment="Left">
+                            </TextBlock>
+
+
+
+                            <TextBlock Text="Reset"
+                                       FontSize="10"
+                                       FontWeight="Normal"
+                                       FontFamily="Arial"
+                                       Cursor="Hand"
+                                       Foreground="White"
+                                       Margin="10 15 0 0"
+                                       HorizontalAlignment="Left">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform x:Name="scaleTransformForgotPass" ScaleX="1" ScaleY="1" />
+                                </TextBlock.RenderTransform>
+
+                                <TextBlock.RenderTransformOrigin>0.5,0.5</TextBlock.RenderTransformOrigin>
+
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                             To="1.2" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                             To="1.2" Duration="0:0:0.2" />
+                                                            <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                                                To="Red" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                             To="1.0" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                             To="1.0" Duration="0:0:0.2" />
+                                                            <ColorAnimation Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
+                                                                            To="White" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </StackPanel>
+
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+
+</Window>
