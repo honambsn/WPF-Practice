@@ -16,7 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChessAI", "ChessAI\ChessAI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chessTest", "chessTest\chessTest.csproj", "{5B7B4F7E-B8B7-4062-AF5E-DB3AFB86A84E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Login-SignUp", "Chess.Login-SignUp\Chess.Login-SignUp.csproj", "{974D9FD8-7342-4B67-8D34-20D0446E47AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.Login-SignUp.UI", "Chess.Login-SignUp\Chess.Login-SignUp.UI.csproj", "{974D9FD8-7342-4B67-8D34-20D0446E47AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.LoginSignUp.Domain", "Chess.LoginSignUp.Domain\Chess.LoginSignUp.Domain.csproj", "{C23B4F49-FAD4-4604-9465-D75CD546A80E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.LoginSignUp.Application", "Chess.LoginSignUp.Application\Chess.LoginSignUp.Application.csproj", "{43E79812-13BF-4B6B-AF51-3BE39D7BE05E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chess.LoginSignUp.Infrastructure", "Chess.LoginSignUp.Infrastructure\Chess.LoginSignUp.Infrastructure.csproj", "{6AE4642B-841B-4A32-B079-7F12EE70E3BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,18 @@ Global
 		{974D9FD8-7342-4B67-8D34-20D0446E47AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{974D9FD8-7342-4B67-8D34-20D0446E47AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{974D9FD8-7342-4B67-8D34-20D0446E47AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23B4F49-FAD4-4604-9465-D75CD546A80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23B4F49-FAD4-4604-9465-D75CD546A80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23B4F49-FAD4-4604-9465-D75CD546A80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23B4F49-FAD4-4604-9465-D75CD546A80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E79812-13BF-4B6B-AF51-3BE39D7BE05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E79812-13BF-4B6B-AF51-3BE39D7BE05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E79812-13BF-4B6B-AF51-3BE39D7BE05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E79812-13BF-4B6B-AF51-3BE39D7BE05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AE4642B-841B-4A32-B079-7F12EE70E3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE4642B-841B-4A32-B079-7F12EE70E3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE4642B-841B-4A32-B079-7F12EE70E3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE4642B-841B-4A32-B079-7F12EE70E3BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
