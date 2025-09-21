@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Chess.LoginSignUp.Domain.Entities
 {
-    internal class User
+    public class User
     {
+        public Guid UserID { get; set; } = Guid.NewGuid();
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+
     }
 }
