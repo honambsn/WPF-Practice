@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Chess.LoginSignUp.Domain\Chess.LoginSignUp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
