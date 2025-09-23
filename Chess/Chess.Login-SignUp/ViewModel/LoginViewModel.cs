@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Chess.Login_SignUp.Domain.Entities;
+using Chess.LoginSignUp.Domain.Entities;
 
 
 
