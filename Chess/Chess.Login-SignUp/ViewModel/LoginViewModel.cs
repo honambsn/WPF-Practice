@@ -6,6 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Chess.LoginSignUp.Domain.Entities;
+using System.ComponentModel;
+using Chess.LoginSignUp.Application.Helpers;
+using System.Windows.Input;
+using System.Runtime.CompilerServices;
 
 
 
@@ -16,24 +20,33 @@ namespace Chess.Login_SignUp.ViewModel
         private readonly IUserRepository _userRepository;
         //public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
 
-        public  LoginViewModel(IUserRepository userRepository)
+        public LoginViewModel(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-            LoginCommand = new RelayCommand(async _ => await LoginAsync(), _ => await LoginAsync(), _ => CanLogin());
+            LoginCommand = new RelayCommand(async _ => await LoginAsync(), _ => CanLogin());
         }
 
         private string _username;
         private string Username
         {
             get => _username;
-            set { _username = value; OnpropertyChanged(); }
+            set { 
+                _username = value; 
+                OnPropertyChanged(); 
+                (LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
+            }
         }
 
         private string _password;
         private string Password
         {
             get => _password;
-            set { _password = value; OnPropertyChanged(); }
+            set
+            {
+                _password = value;
+                OnPropertyChanged();
+                (LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
+            }
         }
 
         private string _errorMessage;
@@ -54,7 +67,7 @@ namespace Chess.Login_SignUp.ViewModel
             ErrorMessage = user == null ? "Wrong username or password" : $"Welcome {user.Name}";
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propName = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
     }

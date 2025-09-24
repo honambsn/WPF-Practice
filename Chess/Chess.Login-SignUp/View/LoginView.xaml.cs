@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Chess.LoginSignUp.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -75,6 +77,12 @@ namespace Chess.Login_SignUp.View
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnStartup(object sender, StartupEventArgs e)
+        {
+            //var options = new 
+            //    DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("LoginDemo").Options;
         }
     }
 }

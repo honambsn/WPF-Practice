@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chess.LoginSignUp.Application\Chess.LoginSignUp.Application.csproj" />
     <ProjectReference Include="..\Chess.LoginSignUp.Domain\Chess.LoginSignUp.Domain.csproj" />
   </ItemGroup>
 

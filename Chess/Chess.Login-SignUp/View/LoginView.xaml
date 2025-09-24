@@ -9,7 +9,6 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        
         Background="Transparent"
         Icon="/Images/chess.ico">
     <!--MouseDown="Window_MouseDown"-->

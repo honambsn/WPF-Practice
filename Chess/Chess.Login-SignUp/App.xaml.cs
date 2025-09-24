@@ -1,7 +1,11 @@
 ﻿using Chess.Login_SignUp.Data;
 using Chess.Login_SignUp.Repositories;
 using Chess.Login_SignUp.View;
+using Chess.Login_SignUp.ViewModel;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Chess.LoginSignUp.Application.Interfaces;
+using Chess.LoginSignUp.Infrastructure.Repositories;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -13,31 +17,34 @@ namespace Chess.Login_SignUp
     /// </summary>
     public partial class App : Application
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider? ServiceProvider { get; private set; }
 
         public App() {
             var services = new ServiceCollection();
             ConfigureServices(services);
             ServiceProvider = services.BuildServiceProvider();
-
         }
 
-        private void ConfigureServices(ServiceCollection services)
+        public void ConfigureServices(ServiceCollection services)
         {
+            //dbcontext
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer("YourConnectionStringHere")); // <-- thay bằng chuỗi kết nối thật
+                options.UseSqlServer("YourConnectionStringHere"));
 
 
+            // repository
             services.AddScoped<IUserRepository, UserRepository>();
 
-            services.AddSingleton<LoginViewModel>();
+            //viewmodel
+            services.AddTransient<LoginViewModel>();
 
-            services.AddSingleton<LoginView>();
+            services.AddTransient<LoginView>();
         }
 
-        protected override void OnStartUp(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             var loginView = ServiceProvider.GetRequiredService<LoginView>();
             loginView.Show();
         }
