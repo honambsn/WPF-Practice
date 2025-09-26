@@ -1,5 +1,4 @@
-﻿using Chess.Login_SignUp.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,6 +9,7 @@ using System.ComponentModel;
 using Chess.LoginSignUp.Application.Helpers;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
+using Chess.LoginSignUp.Application.Interfaces;
 
 
 

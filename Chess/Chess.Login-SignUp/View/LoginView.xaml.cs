@@ -1,4 +1,5 @@
-﻿using Chess.LoginSignUp.Infrastructure.Persistence;
+﻿using Chess.Login_SignUp.ViewModel;
+using Chess.LoginSignUp.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,10 @@ namespace Chess.Login_SignUp.View
     /// </summary>
     public partial class LoginView : Window
     {
-        public LoginView()
+        public LoginView(LoginViewModel vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

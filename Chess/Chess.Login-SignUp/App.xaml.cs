@@ -1,6 +1,4 @@
-﻿using Chess.Login_SignUp.Data;
-using Chess.Login_SignUp.Repositories;
-using Chess.Login_SignUp.View;
+﻿using Chess.Login_SignUp.View;
 using Chess.Login_SignUp.ViewModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +7,8 @@ using Chess.LoginSignUp.Infrastructure.Repositories;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using Chess.LoginSignUp.Infrastructure.Persistence;
+using Microsoft.Extensions.Options;
 
 namespace Chess.Login_SignUp
 {
@@ -25,21 +25,23 @@ namespace Chess.Login_SignUp
             ServiceProvider = services.BuildServiceProvider();
         }
 
-        public void ConfigureServices(ServiceCollection services)
+        private void ConfigureServices(IServiceCollection services)
         {
-            //dbcontext
+            // DbContext
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer("YourConnectionStringHere"));
+                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;"));
 
 
-            // repository
+            // Repository
             services.AddScoped<IUserRepository, UserRepository>();
 
-            //viewmodel
+            // ViewModel
             services.AddTransient<LoginViewModel>();
 
+            // View
             services.AddTransient<LoginView>();
         }
+
 
         protected override void OnStartup(StartupEventArgs e)
         {

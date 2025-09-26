@@ -14,5 +14,7 @@ namespace Chess.LoginSignUp.Domain.Entities
         public string Name { get; set; }
         public string Email { get; set; }
 
+        public Guid RoleID { get; set; }
+        public Role Role { get; set; }
     }
 }
