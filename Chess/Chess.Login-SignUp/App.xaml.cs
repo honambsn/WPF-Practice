@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Chess.LoginSignUp.Application.Interfaces;
 using Chess.LoginSignUp.Infrastructure.Repositories;
-using System.Configuration;
 using System.Data;
 using System.Windows;
 using Chess.LoginSignUp.Infrastructure.Persistence;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Chess.Login_SignUp
 {
@@ -18,8 +19,16 @@ namespace Chess.Login_SignUp
     public partial class App : Application
     {
         public static IServiceProvider? ServiceProvider { get; private set; }
-
+        public static IConfiguration Configuration { get; private set; }
         public App() {
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            Configuration = builder.Build();
+
+
             var services = new ServiceCollection();
             ConfigureServices(services);
             ServiceProvider = services.BuildServiceProvider();
@@ -28,8 +37,12 @@ namespace Chess.Login_SignUp
         private void ConfigureServices(IServiceCollection services)
         {
             // DbContext
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;"));
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;"));
+                options.UseSqlServer(connectionString));
 
 
             // Repository
