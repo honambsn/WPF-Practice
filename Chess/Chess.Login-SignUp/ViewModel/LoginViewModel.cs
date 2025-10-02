@@ -10,6 +10,7 @@ using Chess.LoginSignUp.Application.Helpers;
 using System.Windows.Input;
 using System.Runtime.CompilerServices;
 using Chess.LoginSignUp.Application.Interfaces;
+using System.Diagnostics;
 
 
 
@@ -33,7 +34,7 @@ namespace Chess.Login_SignUp.ViewModel
             set { 
                 _username = value; 
                 OnPropertyChanged(); 
-                (LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (LoginCommand as ViewModelCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -45,7 +46,7 @@ namespace Chess.Login_SignUp.ViewModel
             {
                 _password = value;
                 OnPropertyChanged();
-                (LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                (LoginCommand as ViewModelCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -64,7 +65,8 @@ namespace Chess.Login_SignUp.ViewModel
         private async Task LoginAsync()
         {
             var user = await _userRepository.AuthenticateAsync(Username, Password);
-            ErrorMessage = user == null ? "Wrong username or password" : $"Welcome {user.Name}";
+            //Debug.WriteLine(user == null ? "Wrong username or password" : $"Welcome {user.Name}! Role: {user.Role?.Name}");
+            ErrorMessage = user == null ? "Wrong username or password" : $"Welcome {user.Name}! Role: {user.Role?.Name}";
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

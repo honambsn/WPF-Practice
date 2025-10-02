@@ -12,5 +12,7 @@ namespace Chess.LoginSignUp.Application.Interfaces
         Task<User?> AuthenticateAsync(string username, string password);
         Task AddAsync(User user);
         Task<User?> GetUserAsync(string username);
+
+        Task<IEnumerable<User>> GetUserWithRoleAsync();
     }
 }

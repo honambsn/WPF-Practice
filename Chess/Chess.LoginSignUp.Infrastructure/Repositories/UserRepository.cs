@@ -42,5 +42,10 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
         }
+
+        public async Task<IEnumerable<User>> GetUserWithRoleAsync()
+        {
+            return await _context.Users.Include(u => u.Role).ToListAsync();
+        }
     }
 }
