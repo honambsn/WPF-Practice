@@ -45,6 +45,7 @@ namespace Chess.Login_SignUp.ViewModel
             //throw new NotImplementedException();
             _executeAction(parameter);
         }
+
+        public void RaiseCanExecuteChanged() => CommandManager.InvalidateRequerySuggested();
     }
 }
-//https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=398

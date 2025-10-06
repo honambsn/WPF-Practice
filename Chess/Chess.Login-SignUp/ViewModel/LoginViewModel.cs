@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Runtime.CompilerServices;
 using Chess.LoginSignUp.Application.Interfaces;
 using System.Diagnostics;
+using System.Security;
 
 
 
@@ -25,6 +26,7 @@ namespace Chess.Login_SignUp.ViewModel
         {
             _userRepository = userRepository;
             LoginCommand = new RelayCommand(async _ => await LoginAsync(), _ => CanLogin());
+            //LoginCommand = new RelayCommand(async _ => await LoginAsync(), _ => CanLogin());
         }
 
         private string _username;
@@ -35,6 +37,7 @@ namespace Chess.Login_SignUp.ViewModel
                 _username = value; 
                 OnPropertyChanged(); 
                 (LoginCommand as ViewModelCommand)?.RaiseCanExecuteChanged();
+                //(LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -46,7 +49,8 @@ namespace Chess.Login_SignUp.ViewModel
             {
                 _password = value;
                 OnPropertyChanged();
-                (LoginCommand as ViewModelCommand)?.RaiseCanExecuteChanged();
+                (LoginCommand as ViewModelCommand)?.RaiseCanExecuteChanged(); 
+                //(LoginCommand as RelayCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -72,5 +76,15 @@ namespace Chess.Login_SignUp.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propName = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+    }
+
+    public class LoginViewModel2: ViewModelBase
+    {
+        // fields
+        private string _username;
+        private SecureString _password;
+        private string _errorMessage;
+        private bool _isViewVisible = true;
+        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=438
     }
 }
