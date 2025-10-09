@@ -5,15 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess.Login_SignUp.View"
         mc:Ignorable="d"
-                Title="LoginView" Height="600" Width="800"
+        Title="LoginView" Height="600" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
-        Icon="/Images/chess.ico">
+        Icon="/Images/chess.ico"
+        xmlns:viewModel="clr-namespace:Chess.Login_SignUp.ViewModel" 
+        xmlns:customcontrols="clr-namespace:Chess.Login_SignUp.CustomControls">
+        <!--viewModel / change when update another-->
+
     <!--MouseDown="Window_MouseDown"-->
     <!--AllowsTransparency="True">-->
 
+    <Window.DataContext>
+        <viewModel:LoginViewModel2/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
+    
     <Grid>
         <Border Name="DraggableArea" Background="Transparent" Width="700" Height="30" VerticalAlignment="Top" MouseDown="DraggableArea_MouseDown" Opacity="1" Panel.ZIndex="1" Margin="43, 0, 55, 0">
 
@@ -291,6 +307,7 @@
                                         Opacity="1"/>
 
                                 <TextBox x:Name="txtUsername"
+                                         Text="{Binding Username}"
                                             FontSize="12"
                                             FontWeight="Bold"
                                             FontFamily="Arial"
@@ -385,7 +402,7 @@
                                 </TextBlock.Style>
                             </TextBlock>
 
-
+                            <!--#region old ver--><!--
                             <Grid>
                                 <Image Source="/Images/key-icon.png"
                                         Width="15" Height="15"
@@ -408,11 +425,11 @@
                                     <PasswordBox.Template>
                                         <ControlTemplate TargetType="PasswordBox">
                                             <Border BorderBrush="BlueViolet" BorderThickness="1.5" CornerRadius="5">
-                                                <!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm -->
+                                                --><!-- VisualStateManager để xử lý các trạng thái khi có tiêu điểm --><!--
                                                 <VisualStateManager.VisualStateGroups>
                                                     <VisualStateGroup x:Name="FocusStates">
                                                         <VisualState x:Name="Unfocused">
-                                                            <!-- Trạng thái không có tiêu điểm: độ mờ thấp -->
+                                                            --><!-- Trạng thái không có tiêu điểm: độ mờ thấp --><!--
                                                             <Storyboard>
                                                                 <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
                                                      Storyboard.TargetProperty="Opacity"
@@ -420,7 +437,7 @@
                                                             </Storyboard>
                                                         </VisualState>
                                                         <VisualState x:Name="Focused">
-                                                            <!-- Trạng thái có tiêu điểm: độ mờ cao hơn -->
+                                                            --><!-- Trạng thái có tiêu điểm: độ mờ cao hơn --><!--
                                                             <Storyboard>
                                                                 <DoubleAnimation Storyboard.TargetName="BackgroundBrush"
                                                      Storyboard.TargetProperty="Opacity"
@@ -430,21 +447,72 @@
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
 
-                                                <!-- Đặt Brush cho nền với tên để truy cập trong VisualState -->
+                                                --><!-- Đặt Brush cho nền với tên để truy cập trong VisualState --><!--
                                                 <Border.Background>
                                                     <SolidColorBrush x:Name="BackgroundBrush" Color="LightCyan" Opacity="0.3" />
                                                 </Border.Background>
 
-                                                <!-- ScrollViewer cho nội dung của TextBox -->
+                                                --><!-- ScrollViewer cho nội dung của TextBox --><!--
                                                 <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
                                             </Border>
                                         </ControlTemplate>
                                     </PasswordBox.Template>
                                 </PasswordBox>
                             </Grid>
+                            --><!--#endregion-->
+
+                            <customcontrols:BindablePasswordBox Password="{Binding Password}" Height="28" Margin="0 5 0 0">
+
+                            </customcontrols:BindablePasswordBox>
+
+                            <TextBlock Text="{Binding ErrorMessage}"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       TextDecorations="Underline"
+                                       FontFamily="Arial"
+                                       Foreground="#d7596d"
+                                       Margin="0 10 0 0"
+                                       HorizontalAlignment="Left"
+                                       TextWrapping="Wrap">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform x:Name="scaleTransformError" ScaleX="1" ScaleY="1" />
+                                </TextBlock.RenderTransform>
+
+                                <TextBlock.RenderTransformOrigin>0.5,0.5</TextBlock.RenderTransformOrigin>
+
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Trigger.EnterActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                                To="1.2" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                                To="1.2" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.EnterActions>
+                                                <Trigger.ExitActions>
+                                                    <BeginStoryboard>
+                                                        <Storyboard>
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
+                                                                                To="1.0" Duration="0:0:0.2" />
+                                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
+                                                                                To="1.0" Duration="0:0:0.2" />
+                                                        </Storyboard>
+                                                    </BeginStoryboard>
+                                                </Trigger.ExitActions>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
                         </StackPanel>
 
                         <Button x:Name="btnLogin"
+                                Command="{Binding LoginCommand}"
                                 BorderThickness="0"
                                 Content="LOG IN"
                                 FontWeight="ExtraBold"
@@ -452,9 +520,9 @@
                                 FontSize="12"
                                 FontFamily="arial"
                                 Cursor="Hand"
-                                Margin="0 50 0 0"
-                                Grid.Column="2"
-                                Click="btnLogin_Click">
+                                Margin="0 30 0 0"
+                                Grid.Column="2">
+                            <!--Click="btnLogin_Click">-->
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="#F75270"/>
@@ -592,3 +660,6 @@
     </Grid>
 
 </Window>
+
+
+<!--https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1124-->
