@@ -49,7 +49,8 @@ namespace Chess.Login_SignUp
             services.AddScoped<IUserRepository, UserRepository>();
 
             // ViewModel
-            services.AddTransient<LoginViewModel>();
+            //services.AddTransient<LoginViewModel>();
+            services.AddTransient<LoginViewModel2>();
 
             // View
             services.AddTransient<LoginView>();

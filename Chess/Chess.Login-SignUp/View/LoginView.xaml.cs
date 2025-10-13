@@ -23,7 +23,12 @@ namespace Chess.Login_SignUp.View
     /// </summary>
     public partial class LoginView : Window
     {
-        public LoginView(LoginViewModel vm)
+        //public LoginView(LoginViewModel vm)
+        //{
+        //    InitializeComponent();
+        //    DataContext = vm;
+        //}
+        public LoginView(LoginViewModel2 vm)
         {
             InitializeComponent();
             DataContext = vm;

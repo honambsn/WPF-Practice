@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         Icon="/Images/chess.ico"
-        xmlns:viewModel="clr-namespace:Chess.Login_SignUp.ViewModel" 
+        xmlns:viewModel="clr-namespace:Chess.Login_SignUp.ViewModel"
         xmlns:customcontrols="clr-namespace:Chess.Login_SignUp.CustomControls">
         <!--viewModel / change when update another-->
 
@@ -307,7 +307,7 @@
                                         Opacity="1"/>
 
                                 <TextBox x:Name="txtUsername"
-                                         Text="{Binding Username}"
+                                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                             FontSize="12"
                                             FontWeight="Bold"
                                             FontFamily="Arial"
@@ -461,7 +461,8 @@
                             </Grid>
                             --><!--#endregion-->
 
-                            <customcontrols:BindablePasswordBox Password="{Binding Password}" Height="28" Margin="0 5 0 0">
+                            <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                Height="28" Margin="0 5 0 0">
 
                             </customcontrols:BindablePasswordBox>
 

@@ -12,6 +12,10 @@ using System.Runtime.CompilerServices;
 using Chess.LoginSignUp.Application.Interfaces;
 using System.Diagnostics;
 using System.Security;
+using Chess.Login_SignUp.Model;
+using Chess.Login_SignUp.Repositories;
+using System.Net;
+using System.Security.Principal;
 
 
 
@@ -86,6 +90,8 @@ namespace Chess.Login_SignUp.ViewModel
         private string _errorMessage;
         private bool _isViewVisible = true;
 
+        private Model.IUserRepository userRepository;
+
         // properties
         public string Username { get => _username;
             set
@@ -129,6 +135,7 @@ namespace Chess.Login_SignUp.ViewModel
         // Constructor
         public LoginViewModel2()
         {
+            userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
         }
@@ -147,7 +154,17 @@ namespace Chess.Login_SignUp.ViewModel
         }
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+            if (isValidUser)
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity(Username), null);
+                IsViewVisible = false;
+            }
+            else
+            {
+                ErrorMessage = "* Invalid username or password";
+            }
         }
         private void ExecuteRecoverPassCommand(string username, string email)
         {
