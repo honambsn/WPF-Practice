@@ -35,6 +35,7 @@ namespace Chess.Login_SignUp.Repositories
             return validUser;
         }
 
+        // only use  when using applicationdbcontext
         //public bool AuthenticateUser2(NetworkCredential credential)
         //{
         //    using (var context = new YourDbContext()) // Sử dụng DbContext của bạn ở đây
@@ -44,7 +45,6 @@ namespace Chess.Login_SignUp.Repositories
         //        return user != null;
         //    }
         //}
-        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g
 
         public void Edit(UserModel user)
         {

@@ -63,6 +63,17 @@ namespace Chess.Login_SignUp
 
             var loginView = ServiceProvider.GetRequiredService<LoginView>();
             loginView.Show();
+
+            loginView.IsVisibleChanged += (s, ev) =>
+            {
+                if (loginView.IsVisible == false && loginView.IsLoaded)
+                {
+                    //var mainView = new MainView();
+                    //mainView.Show();
+                    loginView.Close(); 
+                    //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1794
+                }
+            };
         }
     }
 

@@ -19,14 +19,15 @@ using System.Security.Principal;
 
 
 
+
 namespace Chess.Login_SignUp.ViewModel
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private readonly IUserRepository _userRepository;
+        private readonly LoginSignUp.Application.Interfaces.IUserRepository _userRepository;
         //public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
 
-        public LoginViewModel(IUserRepository userRepository)
+        public LoginViewModel(LoginSignUp.Application.Interfaces.IUserRepository userRepository)
         {
             _userRepository = userRepository;
             LoginCommand = new RelayCommand(async _ => await LoginAsync(), _ => CanLogin());
