@@ -62,18 +62,32 @@ namespace Chess.Login_SignUp
             base.OnStartup(e);
 
             var loginView = ServiceProvider.GetRequiredService<LoginView>();
+
+            //Version 1
+            loginView.Closed += (s, args) =>
+            {
+                var mainView = ServiceProvider.GetRequiredService<MainView>();
+                mainView.Show();
+            };
+
+            //Version 2
+            //loginView.IsVisibleChanged += (s, ev) =>
+            //{
+            //    if (loginView.IsVisible == false && loginView.IsLoaded)
+            //    {
+            //        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            //        {
+            //            loginView.Close();
+            //        }));
+            //        //var mainView = new MainView();
+            //        //mainView.Show();
+            //        //loginView.Close(); 
+            //        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1794
+            //    }
+            //};
+
             loginView.Show();
 
-            loginView.IsVisibleChanged += (s, ev) =>
-            {
-                if (loginView.IsVisible == false && loginView.IsLoaded)
-                {
-                    //var mainView = new MainView();
-                    //mainView.Show();
-                    loginView.Close(); 
-                    //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1794
-                }
-            };
         }
     }
 
