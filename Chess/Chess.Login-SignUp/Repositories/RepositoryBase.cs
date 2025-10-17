@@ -13,7 +13,7 @@ namespace Chess.Login_SignUp.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=Chess-1;Trusted_Connection=True;";
+            _connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;";
         }
 
         protected SqlConnection GetConnection()

@@ -12,8 +12,13 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
+    
+    
     <Grid>
-        
+        <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                   FontSize="30"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
     </Grid>
 </Window>
 <!--https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=2001-->

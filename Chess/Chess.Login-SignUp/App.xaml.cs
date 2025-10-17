@@ -89,6 +89,11 @@ namespace Chess.Login_SignUp
             loginView.Show();
 
         }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            
+        }
     }
 
 }

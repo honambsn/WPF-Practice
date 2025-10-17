@@ -45,6 +45,7 @@ namespace Chess.Login_SignUp.ViewModel
                     DisplayName = $"Welcome {user.Name} {user.LastName} ;)",
                     ProfilePicture = null
                 };
+                MessageBox.Show("Valided");
             }
             else
             {
