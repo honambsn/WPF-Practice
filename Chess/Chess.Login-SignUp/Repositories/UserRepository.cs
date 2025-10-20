@@ -52,7 +52,7 @@ namespace Chess.Login_SignUp.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<UserModel> GetAll()
+        public IEnumerable<UserModel> GetByAll()
         {
             throw new NotImplementedException();
         }

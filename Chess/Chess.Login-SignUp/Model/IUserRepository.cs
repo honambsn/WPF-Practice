@@ -15,6 +15,6 @@ namespace Chess.Login_SignUp.Model
         void Remove(int id);
         UserModel GetByID(int id);
         UserModel GetByUsername(string username);
-        IEnumerable<UserModel> GetAll();
+        IEnumerable<UserModel> GetByAll();
     }
 }

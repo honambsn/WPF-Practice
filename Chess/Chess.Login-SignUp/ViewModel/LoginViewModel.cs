@@ -16,6 +16,7 @@ using Chess.Login_SignUp.Model;
 using Chess.Login_SignUp.Repositories;
 using System.Net;
 using System.Security.Principal;
+using IUserRepository = Chess.Login_SignUp.Model.IUserRepository;
 
 
 
@@ -91,7 +92,8 @@ namespace Chess.Login_SignUp.ViewModel
         private string _errorMessage;
         private bool _isViewVisible = true;
 
-        private Model.IUserRepository userRepository;
+        //private Model.IUserRepository userRepository;
+        private IUserRepository userRepository;
 
         // properties
         public string Username { get => _username;
@@ -161,9 +163,11 @@ namespace Chess.Login_SignUp.ViewModel
                 Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(Username), null);
                 IsViewVisible = false;
+                Debug.WriteLine("isvalid");
             }
             else
             {
+                Debug.WriteLine("invalid");
                 ErrorMessage = "* Invalid username or password";
             }
         }

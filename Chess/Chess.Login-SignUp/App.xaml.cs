@@ -70,19 +70,20 @@ namespace Chess.Login_SignUp
                 mainView.Show();
             };
 
-            //Version 2
-            //loginView.IsVisibleChanged += (s, ev) =>
-            //{
-            //    if (loginView.IsVisible == false && loginView.IsLoaded)
-            //    {
-            //        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-            //        {
-            //            loginView.Close();
-            //        }));
-            //        //var mainView = new MainView();
-            //        //mainView.Show();
-            //        //loginView.Close(); 
-            //        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1794
+        //Version 2
+        //loginView.IsVisibleChanged += (s, ev) =>
+        //{
+        //    if (loginView.IsVisible == false && loginView.IsLoaded)
+        //    {
+        //        Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+        //        {
+        //            loginView.Close();
+        //        }));
+        //        //var mainView = new MainView();
+        //        //mainView.Show();
+        //        //loginView.Close(); 
+        //        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1794
+                  //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1800
             //    }
             //};
 
@@ -90,10 +91,25 @@ namespace Chess.Login_SignUp
 
         }
 
-        private void Application_Startup(object sender, StartupEventArgs e)
-        {
-            
-        }
+        //protected void ApplicationStart(object sender, StartupEventArgs e)
+        //{
+        //    var loginView = new LoginView();
+        //    loginView.Show();
+        //    loginView.IsVisibleChanged += (s, ev) =>
+        //    {
+        //        if (loginView.IsVisible == false && loginView.IsLoaded)
+        //        {
+        //            var mainView = new MainView();
+        //            mainView.Show();
+        //            loginView.Close();
+        //        }
+        //    };
+
+        //}
+        //private void Application_Startup(object sender, StartupEventArgs e)
+        //{
+
+        //}
     }
 
 }
