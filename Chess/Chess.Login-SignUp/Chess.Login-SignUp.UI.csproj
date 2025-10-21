@@ -39,6 +39,7 @@
     <ProjectReference Include="..\Chess.LoginSignUp.Application\Chess.LoginSignUp.Application.csproj" />
     <ProjectReference Include="..\Chess.LoginSignUp.Domain\Chess.LoginSignUp.Domain.csproj" />
     <ProjectReference Include="..\Chess.LoginSignUp.Infrastructure\Chess.LoginSignUp.Infrastructure.csproj" />
+    <ProjectReference Include="..\ChessUI\ChessUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>

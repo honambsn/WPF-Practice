@@ -71,7 +71,7 @@ namespace Chess.Login_SignUp.Repositories
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = "select * from [User] where username = @username";
+                    command.CommandText = "select * from [Users] where username = @username";
                     command.Parameters.Add("@username", SqlDbType.NVarChar).Value = username;
                     using (var reader = command.ExecuteReader())
                     {
