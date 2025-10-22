@@ -40,7 +40,6 @@
                              Opacity=".3"
                              Stretch="UniformToFill"/>
             </Border.Background>
-            <!--https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=37-->
 
             <Border CornerRadius="15"
                      BorderThickness="1.5"
@@ -661,6 +660,3 @@
     </Grid>
 
 </Window>
-
-
-<!--https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1124-->

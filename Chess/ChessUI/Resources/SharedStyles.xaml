@@ -1,0 +1,155 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="StrokeColor">#260000</SolidColorBrush>
+    <SolidColorBrush x:Key="FillColor">#cc380404</SolidColorBrush>
+    <SolidColorBrush x:Key="TextColor">#ffa274</SolidColorBrush>
+    <SolidColorBrush x:Key="ButtonColor">#730909</SolidColorBrush>
+
+    <!-- Darker hover effect colors -->
+    <SolidColorBrush x:Key="HoverStrokeColor">#190000</SolidColorBrush>
+    <!-- Darker stroke color -->
+    <SolidColorBrush x:Key="HoverFillColor">#a62e2e2e</SolidColorBrush>
+    <!-- Darker fill color -->
+    <SolidColorBrush x:Key="HoverTextColor">#ff7c52</SolidColorBrush>
+    <!-- Darker text color -->
+    <SolidColorBrush x:Key="HoverButtonColor">#5c0505</SolidColorBrush>
+    <!-- Darker button color -->
+
+    <!-- Pressed (clicked) effect colors -->
+    <SolidColorBrush x:Key="PressedStrokeColor">#1a0000</SolidColorBrush>
+    <!-- Even darker stroke color when pressed -->
+    <SolidColorBrush x:Key="PressedFillColor">#7e1e1e1e</SolidColorBrush>
+    <!-- Even darker fill color when pressed -->
+    <SolidColorBrush x:Key="PressedTextColor">#ff3e1e</SolidColorBrush>
+    <!-- Lighter text color when pressed -->
+    <SolidColorBrush x:Key="PressedButtonColor">#3b0505</SolidColorBrush>
+    <!-- Even darker button color when pressed -->
+
+    <Style TargetType="Border" x:Key="BorderStyle">
+        <Setter Property="BorderThickness" Value="4"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+        <Setter Property="Background" Value="{StaticResource FillColor}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextStyle">
+        <Setter Property="FontFamily" Value="Segoe UI Light"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ButtonStyle">
+        <Setter Property="FontFamily" Value="Segoe UI Light"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+        <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="5"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="ListBox" x:Key="ListBoxStyle">
+        <Setter Property="FontFamily" Value="Segoe UI Light"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+        <Setter Property="Background" Value="{StaticResource FillColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Width" Value="200"/>
+        <!-- ControlTemplate for ListBox -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="10">
+                        <!-- Rounded corners for the ListBox -->
+                        <ScrollViewer Margin="4" Padding="4" VerticalScrollBarVisibility="Auto">
+                            <StackPanel>
+                                <ItemsPresenter />
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Resources>
+            <!-- Style for ListBoxItem with rounded corners -->
+            <Style TargetType="ListBoxItem">
+                <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
+                <Setter Property="BorderBrush" Value="{StaticResource StrokeColor}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5"
+                        Padding="{TemplateBinding Padding}">
+                                <!--<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                                <TextBlock 
+                                FontWeight="{TemplateBinding FontWeight}" 
+                                FontSize="{TemplateBinding FontSize}" 
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                                <ContentPresenter 
+                                    Content="{TemplateBinding Content}" 
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                                </TextBlock>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <!-- Trigger for Hover Effect -->
+                <Style.Triggers>
+                    <!-- Hover Effect -->
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{StaticResource HoverButtonColor}"/>
+                        <Setter Property="Foreground" Value="{StaticResource HoverTextColor}"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
+                    </Trigger>
+
+                    <!-- Selected State (Optional) -->
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="FontWeight" Value="Medium"/>
+                        <Setter Property="FontFamily" Value="Segoe UI"/>
+                        <!--<Setter Property="Background" Value="{StaticResource HoverFillColor}"/>-->
+                        <Setter Property="Background" Value="red"/>
+                        <Setter Property="Foreground" Value="Yellow"/>
+                        <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="Border" x:Key="BorderPanel">
+        <Setter Property="Background" Value="#80000000"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Panel.ZIndex" Value="100"/>
+        <Setter Property="Opacity" Value="1"/>
+    </Style>
+
+
+</ResourceDictionary>

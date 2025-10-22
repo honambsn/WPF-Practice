@@ -3,31 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ChessUI"
              StartupUri="MainWindow.xaml">
-    <Application.Resources>
+    
+    <!--<Application.Resources>
         <SolidColorBrush x:Key="StrokeColor">#260000</SolidColorBrush>
         <SolidColorBrush x:Key="FillColor">#cc380404</SolidColorBrush>
         <SolidColorBrush x:Key="TextColor">#ffa274</SolidColorBrush>
         <SolidColorBrush x:Key="ButtonColor">#730909</SolidColorBrush>
 
-        <!-- Darker hover effect colors -->
+        --><!-- Darker hover effect colors --><!--
         <SolidColorBrush x:Key="HoverStrokeColor">#190000</SolidColorBrush>
-        <!-- Darker stroke color -->
+        --><!-- Darker stroke color --><!--
         <SolidColorBrush x:Key="HoverFillColor">#a62e2e2e</SolidColorBrush>
-        <!-- Darker fill color -->
+        --><!-- Darker fill color --><!--
         <SolidColorBrush x:Key="HoverTextColor">#ff7c52</SolidColorBrush>
-        <!-- Darker text color -->
+        --><!-- Darker text color --><!--
         <SolidColorBrush x:Key="HoverButtonColor">#5c0505</SolidColorBrush>
-        <!-- Darker button color -->
+        --><!-- Darker button color -->
 
-        <!-- Pressed (clicked) effect colors -->
+        <!-- Pressed (clicked) effect colors --><!--
         <SolidColorBrush x:Key="PressedStrokeColor">#1a0000</SolidColorBrush>
-        <!-- Even darker stroke color when pressed -->
+        --><!-- Even darker stroke color when pressed --><!--
         <SolidColorBrush x:Key="PressedFillColor">#7e1e1e1e</SolidColorBrush>
-        <!-- Even darker fill color when pressed -->
+        --><!-- Even darker fill color when pressed --><!--
         <SolidColorBrush x:Key="PressedTextColor">#ff3e1e</SolidColorBrush>
-        <!-- Lighter text color when pressed -->
+        --><!-- Lighter text color when pressed --><!--
         <SolidColorBrush x:Key="PressedButtonColor">#3b0505</SolidColorBrush>
-        <!-- Even darker button color when pressed -->
+        --><!-- Even darker button color when pressed --><!--
 
         <Style TargetType="Border" x:Key="BorderStyle">
             <Setter Property="BorderThickness" Value="4"/>
@@ -67,7 +68,7 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Width" Value="200"/>
-            <!-- ControlTemplate for ListBox -->
+            --><!-- ControlTemplate for ListBox --><!--
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBox">
@@ -75,7 +76,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="10">
-                            <!-- Rounded corners for the ListBox -->
+                            --><!-- Rounded corners for the ListBox --><!--
                             <ScrollViewer Margin="4" Padding="4" VerticalScrollBarVisibility="Auto">
                                 <StackPanel>
                                     <ItemsPresenter />
@@ -87,7 +88,7 @@
             </Setter>
 
             <Style.Resources>
-                <!-- Style for ListBoxItem with rounded corners -->
+                --><!-- Style for ListBoxItem with rounded corners --><!--
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Background" Value="{StaticResource ButtonColor}"/>
                     <Setter Property="Foreground" Value="{StaticResource TextColor}"/>
@@ -104,7 +105,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="5"
                                 Padding="{TemplateBinding Padding}">
-                                    <!--<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                                    --><!--<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>--><!--
                                     <TextBlock 
                                         FontWeight="{TemplateBinding FontWeight}" 
                                         FontSize="{TemplateBinding FontSize}" 
@@ -122,21 +123,21 @@
                         </Setter.Value>
                     </Setter>
 
-                    <!-- Trigger for Hover Effect -->
+                    --><!-- Trigger for Hover Effect --><!--
                     <Style.Triggers>
-                        <!-- Hover Effect -->
+                        --><!-- Hover Effect --><!--
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="{StaticResource HoverButtonColor}"/>
                             <Setter Property="Foreground" Value="{StaticResource HoverTextColor}"/>
                             <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
                         </Trigger>
 
-                        <!-- Selected State (Optional) -->
+                        --><!-- Selected State (Optional) --><!--
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="FontSize" Value="15"/>
                             <Setter Property="FontWeight" Value="Medium"/>
                             <Setter Property="FontFamily" Value="Segoe UI"/>
-                            <!--<Setter Property="Background" Value="{StaticResource HoverFillColor}"/>-->
+                            --><!--<Setter Property="Background" Value="{StaticResource HoverFillColor}"/>--><!--
                             <Setter Property="Background" Value="red"/>
                             <Setter Property="Foreground" Value="Yellow"/>
                             <Setter Property="BorderBrush" Value="{StaticResource HoverStrokeColor}"/>
@@ -156,5 +157,15 @@
         </Style>
 
 
+    </Application.Resources>-->
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/SharedStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
+
 </Application>

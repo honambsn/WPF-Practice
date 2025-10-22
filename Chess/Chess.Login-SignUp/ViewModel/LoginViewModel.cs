@@ -176,7 +176,5 @@ namespace Chess.Login_SignUp.ViewModel
             throw new NotImplementedException();
         }
 
-        //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=505
-        //https://github.com/RJCodeAdvance/Login-In-WPF-MVVM-C-Sharp-and-SQL-Server/blob/main/WPF-LoginForm/ViewModels/LoginViewModel.cs
     }
 }

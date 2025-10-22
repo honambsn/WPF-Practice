@@ -128,14 +128,25 @@ namespace Chess.Login_SignUp
                 // Khi LoginView không hiển thị và đã được load, mở MainView
                 if (!loginView.IsVisible && loginView.IsLoaded)
                 {
-                    var mainView = ServiceProvider.GetRequiredService<MainView>();
-                    mainView.Show();
+
+                    var uri = new Uri("pack://application:,,,/ChessUI;component/Resources/SharedStyles.xaml", UriKind.Absolute);
+                    var dict = new ResourceDictionary { Source = uri };
+                    Application.Current.Resources.MergedDictionaries.Add(dict);
+
+
+                    //var mainView = ServiceProvider.GetRequiredService<MainView>();
+                    //mainView.Show();
+                    var mainWindow = new ChessUI.MainWindow();
+                    mainWindow.Show();
 
                     //var mainWindow = new ChessUI.MainWindow();
                     //mainWindow.Show();
 
                     // Nếu muốn, có thể làm cho LoginView hiển thị lại ở đây (tùy vào ứng dụng cụ thể)
                     loginView.Show();
+
+
+                //https://youtu.be/FGqj4q09NtA?list=PLwG-AtjFaHdO802QyIrHRwN-StZtKlm9g&t=1978
                 }
             };
         }

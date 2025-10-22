@@ -5,6 +5,11 @@
     <!--Startup="Application_Startup">-->
     <!--StartupUri="View/LoginView.xaml">-->
     <Application.Resources>
-         
+        <!--<ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ChessUI;component/MainWindow.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
     </Application.Resources>
+
 </Application>
