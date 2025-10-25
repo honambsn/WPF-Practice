@@ -29,6 +29,7 @@ namespace Chess.Login_SignUp.ViewModel
             if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
                 userRepository = new UserRepository();
+                CurrentUserAccount = new UserAccountModel();
                 LoadCurrentUserData();
             }
             
@@ -39,18 +40,24 @@ namespace Chess.Login_SignUp.ViewModel
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if (user != null)
             {
-                CurrentUserAccount = new UserAccountModel()
-                {
-                    Username = user.Username,
-                    DisplayName = $"Welcome {user.Name} {user.LastName} ;)",
-                    ProfilePicture = null
-                };
+                //CurrentUserAccount = new UserAccountModel()
+                //{
+                //    Username = user.Username,
+                //    DisplayName = $"Welcome {user.Name} {user.LastName} ;)",
+                //    ProfilePicture = null
+                //};
+
+                CurrentUserAccount.Username = user.Username;
+                CurrentUserAccount.DisplayName = $"Welcome {user.Name} {user.LastName};)";
+                CurrentUserAccount.ProfilePicture = null;
                 MessageBox.Show("Valided");
             }
             else
             {
-                MessageBox.Show("Invalid user");
-                Application.Current.Shutdown();
+                //MessageBox.Show("Invalid user");
+                //Application.Current.Shutdown();
+
+                CurrentUserAccount.DisplayName = "Invalid user, not logged in";
             }
         }
     }

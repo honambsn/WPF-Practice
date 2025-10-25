@@ -134,10 +134,10 @@ namespace Chess.Login_SignUp
                     Application.Current.Resources.MergedDictionaries.Add(dict);
 
 
-                    //var mainView = ServiceProvider.GetRequiredService<MainView>();
-                    //mainView.Show();
-                    var mainWindow = new ChessUI.MainWindow();
-                    mainWindow.Show();
+                    var mainView = ServiceProvider.GetRequiredService<MainView>();
+                    mainView.Show();
+                    //var mainWindow = new ChessUI.MainWindow();
+                    //mainWindow.Show();
 
                     //var mainWindow = new ChessUI.MainWindow();
                     //mainWindow.Show();
