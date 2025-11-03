@@ -17,6 +17,7 @@ using Chess.Login_SignUp.Repositories;
 using System.Net;
 using System.Security.Principal;
 using IUserRepository = Chess.Login_SignUp.Model.IUserRepository;
+using Chess.Login_SignUp.ViewModels.Base;
 
 
 

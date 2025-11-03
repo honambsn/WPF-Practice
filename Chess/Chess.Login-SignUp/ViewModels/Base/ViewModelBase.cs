@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chess.Login_SignUp.ViewModel
+namespace Chess.Login_SignUp.ViewModels.Base
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

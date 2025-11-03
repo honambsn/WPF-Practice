@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Chess.Login_SignUp.Model;
 using Chess.Login_SignUp.Repositories;
+using Chess.Login_SignUp.ViewModels.Base;
 
 namespace Chess.Login_SignUp.ViewModel
 {

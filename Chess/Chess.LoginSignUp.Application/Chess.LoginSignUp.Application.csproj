@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Chess.LoginSignUp.Domain\Chess.LoginSignUp.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
 </Project>
