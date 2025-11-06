@@ -12,7 +12,7 @@ namespace Chess.LoginSignUp.Application.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task<User?> AuthenticateAsync(string username, string password);
+        Task<User?> AuthenticateAsync(string username, byte[] password);
         Task AddAsync(User user);
         Task<User?> GetUserAsync(string username);
 
@@ -21,7 +21,7 @@ namespace Chess.LoginSignUp.Application.Interfaces
         Task GetByUsernameAsync(string username);
         Task GetByEmailAsync(string email);
         Task ExistsAsync(string username, string email);
-        //Task AuthenticateAsync(string username, string password);
+        //Task AuthenticateAsync(string username, string password); 
 
         // Sync methods (giữ tương thích)
         bool AuthenticateUser(NetworkCredential credential);

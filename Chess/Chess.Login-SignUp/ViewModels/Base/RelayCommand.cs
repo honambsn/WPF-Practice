@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Chess.Login_SignUp.ViewModels.Base
 {
-    internal class RelayCommand
+    public class RelayCommand
     {
     }
 }
