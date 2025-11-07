@@ -11,6 +11,7 @@ using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Chess.LoginSignUp.Application.Helpers;
 
 namespace Chess.LoginSignUp.Infrastructure.Repositories
 {
@@ -29,23 +30,30 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
         //        u => u.Username == username && u.PasswordHash == password);
         //}
 
-        public async Task<User?> AuthenticateAsync(string username, byte[] password)
+        public async Task<User?> AuthenticateAsync(string username, string password)
         {
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
             //return await _context.Users.FirstOrDefaultAsync(
             //    u => u.Username == username && u.PasswordHash == password);
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
 
             if (user == null) return null;
 
-            byte[] storedSalt = user.PasswordSalt;
-            byte[] storedHash = user.PasswordHash;
+            //byte[] storedSalt = user.PasswordSalt;
+            //byte[] storedHash = user.PasswordHash;
 
-            using (var pbkdf2 = new Rfc2898DeriveBytes(password, storedSalt, 100_00, HashAlgorithmName.SHA256))
-            {
-                byte[] computeHash = pbkdf2.GetBytes(storedHash.Length);
+            //using (var pbkdf2 = new Rfc2898DeriveBytes(password, storedSalt, 100_00, HashAlgorithmName.SHA256))
+            //{
+            //    byte[] computeHash = pbkdf2.GetBytes(storedHash.Length);
 
-                return computeHash.SequenceEqual(storedHash) ? user : null;
-            }
+            //    return computeHash.SequenceEqual(storedHash) ? user : null;
+            //}
+
+            if (PasswordHasher.VerifyPassword(user.PasswordHash, password))
+                return user;
+            else
+                return null;
+            
         }
 
 
@@ -65,10 +73,10 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
             return await _context.Users.Include(u => u.Role).ToListAsync();
         }
 
-        public Task<User?> AuthenticateAsync(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<User?> AuthenticateAsync(string username, string password)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public Task GetByUsernameAsync(string username)
         {

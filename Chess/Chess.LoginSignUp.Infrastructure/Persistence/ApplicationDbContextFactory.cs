@@ -11,20 +11,32 @@ namespace Chess.LoginSignUp.Infrastructure.Persistence
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false)
+            //var config = new ConfigurationBuilder()
+            //    .SetBasePath(Directory.GetCurrentDirectory())
+            //    .AddJsonFile("appsettings.json", optional: false)
+            //    .Build();
+
+            //var connectionString = config.GetConnectionString("DefaultConnection");
+
+            //var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+
+            ////optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;"));
+            //optionsBuilder.UseSqlServer(connectionString);
+
+
+            //return new ApplicationDbContext(optionsBuilder.Options);
+            var basePath = Path.Combine(Directory.GetCurrentDirectory(), "..", "ChessUI");
+
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(basePath)
+                .AddJsonFile("appsettings.json")
                 .Build();
 
-            var connectionString = config.GetConnectionString("DefaultConnection");
-
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-
-            //optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Chess;Trusted_Connection=True;"));
-            optionsBuilder.UseSqlServer(connectionString);
-
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
             return new ApplicationDbContext(optionsBuilder.Options);
+
         }
     }
 }

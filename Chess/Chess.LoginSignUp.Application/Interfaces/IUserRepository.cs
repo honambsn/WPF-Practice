@@ -12,7 +12,7 @@ namespace Chess.LoginSignUp.Application.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
-        Task<User?> AuthenticateAsync(string username, byte[] password);
+        Task<User?> AuthenticateAsync(string username, string password);
         Task AddAsync(User user);
         Task<User?> GetUserAsync(string username);
 

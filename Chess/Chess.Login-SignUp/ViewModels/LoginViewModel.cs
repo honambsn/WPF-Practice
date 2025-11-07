@@ -19,7 +19,8 @@ using System.Security.Principal;
 using IUserRepository = Chess.Login_SignUp.Model.IUserRepository;
 using Chess.Login_SignUp.ViewModels.Base;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
-using RelayCommand = Chess.Login_SignUp.ViewModels.Base.RelayCommand;
+using RelayCommand = Chess.LoginSignUp.Application.Helpers.RelayCommand;
+//using RelayCommand = Chess.Login_SignUp.ViewModels.Base.RelayCommand;
 
 
 
@@ -77,9 +78,9 @@ namespace Chess.Login_SignUp.ViewModel
 
         private async Task LoginAsync()
         {
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(Password);
+            //byte[] passwordBytes = Encoding.UTF8.GetBytes(Password);
 
-            var user = await _userRepository.AuthenticateAsync(Username, passwordBytes);
+            var user = await _userRepository.AuthenticateAsync(Username, Password);
             //Debug.WriteLine(user == null ? "Wrong username or password" : $"Welcome {user.Name}! Role: {user.Role?.Name}");
             ErrorMessage = user == null ? "Wrong username or password" : $"Welcome {user.Name}! Role: {user.Role?.Name}";
         }
