@@ -27,6 +27,7 @@ namespace Chess.LoginSignUp.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             // seed roles
             var adminRoleID = Guid.NewGuid();
             var guestRoleID = Guid.NewGuid();
@@ -37,77 +38,6 @@ namespace Chess.LoginSignUp.Infrastructure.Persistence
             );
 
             //// seed 
-            //modelBuilder.Entity<User>(entity =>
-            //{
-            //    entity.HasKey(e => e.UserID);
-            //    entity.HasIndex(e => e.Username).IsUnique();
-            //    entity.HasIndex(e => e.Email).IsUnique();
-
-            //    // Thêm dữ liệu mẫu vào bảng User
-            //    entity.HasData(
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "admin",
-            //        PasswordHash = PasswordHasher.HashPassword("123"),  // Dùng PasswordHasher để băm mật khẩu
-            //        Name = "Administrator",
-            //        Email = "admin@example.com",
-            //        RoleID = adminRoleID,
-            //    },
-
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "guest",
-            //        PasswordHash = PasswordHasher.HashPassword("guest"),
-            //        Name = "Guest User",
-            //        Email = "guest@example.com",
-            //        RoleID = guestRoleID,
-            //    },
-
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "user1",
-            //        PasswordHash = PasswordHasher.HashPassword("user1password"),
-            //        Name = "User One",
-            //        Email = "user1@example.com",
-            //        RoleID = guestRoleID,
-            //    },
-
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "user2",
-            //        PasswordHash = PasswordHasher.HashPassword("user2password"),
-            //        Name = "User Two",
-            //        Email = "user2@example.com",
-            //        RoleID = guestRoleID,
-            //    },
-
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "user3",
-            //        PasswordHash = PasswordHasher.HashPassword("user3password"),
-            //        Name = "User Three",
-            //        Email = "user3@example.com",
-            //        RoleID = guestRoleID,
-            //    },
-
-            //    new User
-            //    {
-            //        UserID = Guid.NewGuid(),
-            //        Username = "usertest",
-            //        PasswordHash = PasswordHasher.HashPassword("usertestpassword"),
-            //        Name = "User test",
-            //        Email = "usertest@example.com",
-            //        RoleID = guestRoleID,
-            //    }
-            //);
-
-
-            //});
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.UserID);

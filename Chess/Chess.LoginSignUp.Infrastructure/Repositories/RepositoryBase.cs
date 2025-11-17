@@ -14,45 +14,78 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
     public class RepositoryBase<T> : IRepository<T> where T : class
     {
         private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
-        protected readonly DbSet<T> _dbSet;
+        //protected readonly DbSet<T> _dbSet;
 
         public RepositoryBase(IDbContextFactory<ApplicationDbContext> contextFactory)
         {
             _contextFactory = contextFactory;
-            using (var context = _contextFactory.CreateDbContext())
+            //using (var context = _contextFactory.CreateDbContext())
+            //{
+            //    _dbSet = context.Set<T>();
+            //}
+        }
+
+        public async Task AddAsync(T entity)
+        {
+            using var  context = _contextFactory.CreateDbContext();
+            await context.Set<T>().AddAsync(entity);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            using var context = _contextFactory.CreateDbContext();
+
+            var entity = await context.Set<T>().FindAsync(id);
+
+            if (entity == null)
             {
-                _dbSet = context.Set<T>();
+                throw new InvalidOperationException($"Cant find entity with the ID {id}");
             }
+
+            context.Set<T>().Remove(entity);
+            await context.SaveChangesAsync();
         }
 
-        public Task AddAsync(T entity)
+        //public async Task<IEnumerable> FindAsync(Expression<Func<T, bool>> predicate)
+        //{
+        //    using var context = _contextFactory.CreateDbContext();
+        //    return await context.Set<T>().Where(predicate).ToListAsync();
+        //}
+
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Set<T>().Where(predicate).ToListAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Set<T>().ToListAsync();
         }
 
-        public Task<IEnumerable> FindAsync(Expression<Func<T, bool>> predicate)
+        public async Task<T> GetByIDAsync(int id)
         {
-            throw new NotImplementedException();
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Set<T>().FindAsync(id);
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            using var context = _contextFactory.CreateDbContext();
+            context.Set<T>().Update(entity);
+            await context.SaveChangesAsync();
         }
 
-        public Task GetByIDAsync(int id)
+        public async Task<IEnumerable<T>> GetPagedAsync(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            using var context = _contextFactory.CreateDbContext();
+            return await context.Set<T>()
+                                .Skip((pageNumber - 1) * pageSize)
+                                .Take(pageSize)
+                                .ToListAsync();
         }
 
-        public Task UpdateAsync(T entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

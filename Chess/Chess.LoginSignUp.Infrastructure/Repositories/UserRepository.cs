@@ -15,13 +15,13 @@ using Chess.LoginSignUp.Application.Helpers;
 
 namespace Chess.LoginSignUp.Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : RepositoryBase<User>, IUserRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDbContextFactory<ApplicationDbContext> _contextFactory;
 
-        public UserRepository(ApplicationDbContext context)
+        public UserRepository(IDbContextFactory<ApplicationDbContext> contextFactory) : base(contextFactory)
         {
-            _context = context;
+            _contextFactory = contextFactory;
         }
 
         //public async Task<User>? AuthenticateAsync(string username, string password)
@@ -32,7 +32,6 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
 
         public async Task<User?> AuthenticateAsync(string username, string password)
         {
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
             //return await _context.Users.FirstOrDefaultAsync(
             //    u => u.Username == username && u.PasswordHash == password);
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
@@ -78,9 +77,9 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
         //    throw new NotImplementedException();
         //}
 
-        public Task GetByUsernameAsync(string username)
+        public async Task<User?> GetByUsernameAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
         public Task GetByEmailAsync(string email)
@@ -149,6 +148,21 @@ namespace Chess.LoginSignUp.Infrastructure.Repositories
         }
 
         public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<User> IRepository<User>.GetByIDAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<User>> GetPagedAsync(int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task IUserRepository.GetByUsernameAsync(string username)
         {
             throw new NotImplementedException();
         }
