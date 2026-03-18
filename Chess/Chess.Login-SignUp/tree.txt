@@ -3,9 +3,10 @@ Volume serial number is D428-1106
 D:.
 |   App.xaml
 |   App.xaml.cs
+|   appsettings.json
 |   AssemblyInfo.cs
-|   Chess.Login-SignUp.csproj
-|   Chess.Login-SignUp.csproj.user
+|   Chess.Login-SignUp.UI.csproj
+|   Chess.Login-SignUp.UI.csproj.user
 |   MainWindow.xaml
 |   MainWindow.xaml.cs
 |   tree.txt
@@ -13,9 +14,196 @@ D:.
 +---bin
 |   \---Debug
 |       \---net8.0-windows
-+---Data
-|       ApplicationDbContext.cs
+|           |   appsettings.json
+|           |   Azure.Core.dll
+|           |   Azure.Identity.dll
+|           |   Chess.Login-SignUp.UI.deps.json
+|           |   Chess.Login-SignUp.UI.dll
+|           |   Chess.Login-SignUp.UI.exe
+|           |   Chess.Login-SignUp.UI.pdb
+|           |   Chess.Login-SignUp.UI.runtimeconfig.json
+|           |   Chess.LoginSignUp.Application.dll
+|           |   Chess.LoginSignUp.Application.pdb
+|           |   Chess.LoginSignUp.Domain.dll
+|           |   Chess.LoginSignUp.Domain.pdb
+|           |   Chess.LoginSignUp.Infrastructure.dll
+|           |   Chess.LoginSignUp.Infrastructure.pdb
+|           |   ChessAI.dll
+|           |   ChessAI.pdb
+|           |   ChessLogic.dll
+|           |   ChessLogic.pdb
+|           |   ChessUI.deps.json
+|           |   ChessUI.dll
+|           |   ChessUI.exe
+|           |   ChessUI.pdb
+|           |   ChessUI.runtimeconfig.json
+|           |   Humanizer.dll
+|           |   Microsoft.Bcl.AsyncInterfaces.dll
+|           |   Microsoft.CodeAnalysis.CSharp.dll
+|           |   Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+|           |   Microsoft.CodeAnalysis.dll
+|           |   Microsoft.CodeAnalysis.Workspaces.dll
+|           |   Microsoft.Data.SqlClient.dll
+|           |   Microsoft.EntityFrameworkCore.Abstractions.dll
+|           |   Microsoft.EntityFrameworkCore.Design.dll
+|           |   Microsoft.EntityFrameworkCore.dll
+|           |   Microsoft.EntityFrameworkCore.Relational.dll
+|           |   Microsoft.EntityFrameworkCore.SqlServer.dll
+|           |   Microsoft.Extensions.Caching.Abstractions.dll
+|           |   Microsoft.Extensions.Caching.Memory.dll
+|           |   Microsoft.Extensions.Configuration.Abstractions.dll
+|           |   Microsoft.Extensions.Configuration.Binder.dll
+|           |   Microsoft.Extensions.Configuration.dll
+|           |   Microsoft.Extensions.Configuration.FileExtensions.dll
+|           |   Microsoft.Extensions.Configuration.Json.dll
+|           |   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+|           |   Microsoft.Extensions.DependencyInjection.dll
+|           |   Microsoft.Extensions.DependencyModel.dll
+|           |   Microsoft.Extensions.FileProviders.Abstractions.dll
+|           |   Microsoft.Extensions.FileProviders.Physical.dll
+|           |   Microsoft.Extensions.FileSystemGlobbing.dll
+|           |   Microsoft.Extensions.Logging.Abstractions.dll
+|           |   Microsoft.Extensions.Logging.dll
+|           |   Microsoft.Extensions.Options.dll
+|           |   Microsoft.Extensions.Primitives.dll
+|           |   Microsoft.Identity.Client.dll
+|           |   Microsoft.Identity.Client.Extensions.Msal.dll
+|           |   Microsoft.IdentityModel.Abstractions.dll
+|           |   Microsoft.IdentityModel.JsonWebTokens.dll
+|           |   Microsoft.IdentityModel.Logging.dll
+|           |   Microsoft.IdentityModel.Protocols.dll
+|           |   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+|           |   Microsoft.IdentityModel.Tokens.dll
+|           |   Microsoft.SqlServer.Server.dll
+|           |   Mono.TextTemplating.dll
+|           |   System.ClientModel.dll
+|           |   System.Composition.AttributedModel.dll
+|           |   System.Composition.Convention.dll
+|           |   System.Composition.Hosting.dll
+|           |   System.Composition.Runtime.dll
+|           |   System.Composition.TypedParts.dll
+|           |   System.Formats.Asn1.dll
+|           |   System.IdentityModel.Tokens.Jwt.dll
+|           |   System.IO.Pipelines.dll
+|           |   System.Memory.Data.dll
+|           |   System.Runtime.Caching.dll
+|           |   xunit.abstractions.dll
+|           |   xunit.assert.dll
+|           |   xunit.core.dll
+|           |   xunit.execution.dotnet.dll
+|           |   xunit.runner.visualstudio.testadapter.dll
+|           |   
+|           +---cs
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---de
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---es
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---fr
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---it
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---ja
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---ko
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---pl
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---pt-BR
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---ru
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---runtimes
+|           |   +---unix
+|           |   |   \---lib
+|           |   |       \---net6.0
+|           |   |               Microsoft.Data.SqlClient.dll
+|           |   |               
+|           |   +---win
+|           |   |   \---lib
+|           |   |       \---net6.0
+|           |   |               Microsoft.Data.SqlClient.dll
+|           |   |               System.Runtime.Caching.dll
+|           |   |               
+|           |   +---win-arm
+|           |   |   \---native
+|           |   |           Microsoft.Data.SqlClient.SNI.dll
+|           |   |           
+|           |   +---win-arm64
+|           |   |   \---native
+|           |   |           Microsoft.Data.SqlClient.SNI.dll
+|           |   |           
+|           |   +---win-x64
+|           |   |   \---native
+|           |   |           Microsoft.Data.SqlClient.SNI.dll
+|           |   |           
+|           |   \---win-x86
+|           |       \---native
+|           |               Microsoft.Data.SqlClient.SNI.dll
+|           |               
+|           +---tr
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           +---zh-Hans
+|           |       Microsoft.CodeAnalysis.CSharp.resources.dll
+|           |       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|           |       Microsoft.CodeAnalysis.resources.dll
+|           |       Microsoft.CodeAnalysis.Workspaces.resources.dll
+|           |       
+|           \---zh-Hant
+|                   Microsoft.CodeAnalysis.CSharp.resources.dll
+|                   Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+|                   Microsoft.CodeAnalysis.resources.dll
+|                   Microsoft.CodeAnalysis.Workspaces.resources.dll
+|                   
++---CustomControls
+|       BindablePasswordBox.xaml
+|       BindablePasswordBox.xaml.cs
 |       
++---Data
 +---Images
 |       back-image.jpg
 |       bg1.jpg
@@ -29,12 +217,86 @@ D:.
 |       user-icon.png
 |       
 +---Model
-|       User.cs
+|       IUserRepository.cs
+|       UserAccountModel.cs
+|       UserModel.cs
 |       
 +---obj
 |   |   Chess.Login-SignUp.csproj.nuget.dgspec.json
 |   |   Chess.Login-SignUp.csproj.nuget.g.props
 |   |   Chess.Login-SignUp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.csproj.nuget.g.targets
+|   |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.csproj.nuget.dgspec.json
+|   |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.csproj.nuget.g.props
+|   |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.csproj.nuget.g.targets
 |   |   Chess.Login-SignUp_c22buetr_wpftmp.csproj.nuget.dgspec.json
 |   |   Chess.Login-SignUp_c22buetr_wpftmp.csproj.nuget.g.props
 |   |   Chess.Login-SignUp_c22buetr_wpftmp.csproj.nuget.g.targets
@@ -44,8 +306,10 @@ D:.
 |   \---Debug
 |       \---net8.0-windows
 |           |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|           |   App.g.cs
 |           |   App.g.i.cs
 |           |   apphost.exe
+|           |   Chess.Lo.A6406248.Up2Date
 |           |   Chess.Login-SignUp.AssemblyInfo.cs
 |           |   Chess.Login-SignUp.AssemblyInfoInputs.cache
 |           |   Chess.Login-SignUp.assets.cache
@@ -55,6 +319,590 @@ D:.
 |           |   Chess.Login-SignUp.designer.runtimeconfig.json
 |           |   Chess.Login-SignUp.GeneratedMSBuildEditorConfig.editorconfig
 |           |   Chess.Login-SignUp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI.assets.cache
+|           |   Chess.Login-SignUp.UI.csproj.AssemblyReference.cache
+|           |   Chess.Login-SignUp.UI.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI.csproj.CoreCompileInputs.cache
+|           |   Chess.Login-SignUp.UI.csproj.FileListAbsolute.txt
+|           |   Chess.Login-SignUp.UI.designer.deps.json
+|           |   Chess.Login-SignUp.UI.designer.runtimeconfig.json
+|           |   Chess.Login-SignUp.UI.dll
+|           |   Chess.Login-SignUp.UI.g.resources
+|           |   Chess.Login-SignUp.UI.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI.genruntimeconfig.cache
+|           |   Chess.Login-SignUp.UI.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI.pdb
+|           |   Chess.Login-SignUp.UI.sourcelink.json
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_0dfp5l2s_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_0ng1rsbc_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_0oepitus_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_1l1rv013_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_2r3un0jv_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_3fsczsvm_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_3mwecmna_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_3nndaddd_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_3qe1d2d5_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_45fj4dtj_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4a4xh2bp_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4hhk453m_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4jh2jpjl_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4jyan01t_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4korh0r4_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4tlmuarc_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_4ucmnc4h_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_5gjctuqy_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_5zsmozc4_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_a3dsdhpq_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_a54giayd_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_aejk5t4p_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_afvxfukk_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_avzrbbxc_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ayq52xft_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_bohbcbss_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_brjsvg04_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ccd5lj00_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_cptlrcpk_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ctkvhbot_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_cu5eazhu_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_d0zhpvkr_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_dejvp130_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_eenuqu1t_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_euepbjnh_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_f1i0hiiq_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_g1ccojy0_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_g5c4vw1r_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_gd51gnyu_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_geupbw2g_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_gmmm5zaz_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_gqqk5zqb_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_gzhcxgj5_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_i2v52u2c_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ijshahrr_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_imgtgoeu_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_jue0si5c_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_k00nc2r2_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_k5orjzaa_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_kfzgrwap_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_krnc24gi_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_kx0vyy1m_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_lagrkf3g_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_lozfgfmx_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_lvx1cojm_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_MarkupCompile.cache
+|           |   Chess.Login-SignUp.UI_MarkupCompile.i.cache
+|           |   Chess.Login-SignUp.UI_MarkupCompile.i.lref
+|           |   Chess.Login-SignUp.UI_MarkupCompile.lref
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_mxpdfrbg_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_n2m3pqvr_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ofwm2mh4_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ornbjwgx_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_otwvop2u_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_p4rsfh2j_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_p504rocr_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_q0kjtljv_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_qid3rcch_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_rbh5glpu_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_rep1nciz_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_rn5l0krg_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_rpv1ip0m_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_sbtjony1_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_skiv4g4e_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_skrdwls3_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_smombx53_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_tcg0v10v_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_tu0pwagd_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_ulmng3w3_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_uxwkbp2j_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_uyl4l3pg_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_wakxn3sp_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_wvs4asxx_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_xpvw11vv_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_xqj31uyi_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_yere5ak0_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_yniz1i4s_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_yq251lvq_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.csproj.BuildWithSkipAnalyzers
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_yqcseeck_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_zdlc33fz_wpftmp.sourcelink.json
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.AssemblyInfo.cs
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.AssemblyInfoInputs.cache
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.assets.cache
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.GlobalUsings.g.cs
+|           |   Chess.Login-SignUp.UI_zjgcjt21_wpftmp.sourcelink.json
 |           |   Chess.Login-SignUp_c22buetr_wpftmp.AssemblyInfo.cs
 |           |   Chess.Login-SignUp_c22buetr_wpftmp.AssemblyInfoInputs.cache
 |           |   Chess.Login-SignUp_c22buetr_wpftmp.assets.cache
@@ -83,7 +931,6 @@ D:.
 |           |   Chess.Login-SignUp_eredvmks_wpftmp.GlobalUsings.g.cs
 |           |   Chess.Login-SignUp_eredvmks_wpftmp.sourcelink.json
 |           |   Chess.Login-SignUp_MarkupCompile.i.cache
-|           |   Chess.Login-SignUp_MarkupCompile.i.lref
 |           |   Chess.Login-SignUp_qqoll0cf_wpftmp.AssemblyInfo.cs
 |           |   Chess.Login-SignUp_qqoll0cf_wpftmp.AssemblyInfoInputs.cache
 |           |   Chess.Login-SignUp_qqoll0cf_wpftmp.assets.cache
@@ -98,19 +945,44 @@ D:.
 |           |   Chess.Login-SignUp_re500s0y_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
 |           |   Chess.Login-SignUp_re500s0y_wpftmp.GlobalUsings.g.cs
 |           |   Chess.Login-SignUp_re500s0y_wpftmp.sourcelink.json
+|           |   GeneratedInternalTypeHelper.g.cs
+|           |   GeneratedInternalTypeHelper.g.i.cs
+|           |   MainWindow.baml
+|           |   MainWindow.g.cs
 |           |   MainWindow.g.i.cs
 |           |   
+|           +---CustomControls
+|           |       BindablePasswordBox.baml
+|           |       BindablePasswordBox.g.cs
+|           |       BindablePasswordBox.g.i.cs
+|           |       
 |           +---ref
+|           |       Chess.Login-SignUp.UI.dll
+|           |       
 |           +---refint
+|           |       Chess.Login-SignUp.UI.dll
+|           |       
 |           \---View
+|                   LoginView.baml
+|                   LoginView.g.cs
 |                   LoginView.g.i.cs
+|                   MainView.baml
+|                   MainView.g.cs
+|                   MainView.g.i.cs
 |                   
 +---Repositories
-|       IUserRepository.cs
+|       RepositoryBase.cs
 |       UserRepository.cs
 |       
 +---View
 |       LoginView.xaml
 |       LoginView.xaml.cs
+|       MainView.xaml
+|       MainView.xaml.cs
 |       
 \---ViewModel
+        LoginViewModel.cs
+        MainViewModel.cs
+        ViewModelBase.cs
+        ViewModelCommand.cs
+        

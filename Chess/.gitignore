@@ -23,7 +23,8 @@
 _ReSharper*/
 *.[Rr]e[Ss]harper*/
 *.DotSettings.user
-
+bin/
+obj/
 # VS Code
 .vscode/
 
