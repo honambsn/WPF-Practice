@@ -1,0 +1,15 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\bin\Debug\Sidebar Menu.exe.config
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\bin\Debug\Sidebar Menu.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\bin\Debug\Sidebar Menu.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.csproj.AssemblyReference.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\MainWindow.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\App.g.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu_MarkupCompile.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu_MarkupCompile.lref
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\MainWindow.baml
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.g.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar_Menu.Properties.Resources.resources
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.csproj.GenerateResource.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.exe
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Sidebar Menu\obj\Debug\Sidebar Menu.pdb

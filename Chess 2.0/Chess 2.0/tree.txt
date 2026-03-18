@@ -1,0 +1,36 @@
+Folder PATH listing for volume New Volume
+Volume serial number is D428-1106
+D:.
+|   App.config
+|   App.xaml
+|   App.xaml.cs
+|   Chess 2.0.csproj
+|   Chess 2.0.sln
+|   MainWindow.xaml
+|   MainWindow.xaml.cs
+|   tree.txt
+|   
++---Assets
+|       Board.png
+|       
++---bin
+|   +---Debug
+|   \---Release
++---obj
+|   \---Debug
+|       |   .NETFramework,Version=v4.8.AssemblyAttributes.cs
+|       |   App.g.i.cs
+|       |   Chess 2.0.csproj.AssemblyReference.cache
+|       |   Chess 2.0.csproj.FileListAbsolute.txt
+|       |   Chess 2.0_MarkupCompile.i.cache
+|       |   DesignTimeResolveAssemblyReferencesInput.cache
+|       |   MainWindow.g.i.cs
+|       |   
+|       \---TempPE
+\---Properties
+        AssemblyInfo.cs
+        Resources.Designer.cs
+        Resources.resx
+        Settings.Designer.cs
+        Settings.settings
+        

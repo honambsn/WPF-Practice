@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Go.Application/1.0.0": {
+        "dependencies": {
+          "Go.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Go.Application.dll": {}
+        }
+      },
+      "Go.Domain/1.0.0": {
+        "runtime": {
+          "Go.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Go.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Go.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

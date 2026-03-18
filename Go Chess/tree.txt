@@ -1,0 +1,621 @@
+Folder PATH listing for volume New Volume
+Volume serial number is D428-1106
+D:.
+|   tree.txt
+|   
++---Go.Application
+|   |   Go.Application.csproj
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---net8.0
+|   +---Game
+|   |       GameManager.cs
+|   |       
+|   \---obj
+|       |   Go.Application.csproj.nuget.dgspec.json
+|       |   Go.Application.csproj.nuget.g.props
+|       |   Go.Application.csproj.nuget.g.targets
+|       |   project.assets.json
+|       |   
+|       \---Debug
+|           \---net8.0
+|               |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|               |   Go.Application.assets.cache
+|               |   Go.Application.csproj.BuildWithSkipAnalyzers
+|               |   Go.Application.csproj.FileListAbsolute.txt
+|               |   Go.Application.GlobalUsings.g.cs
+|               |   
+|               +---ref
+|               \---refint
++---Go.Domain
+|   |   Go.Domain.csproj
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---net8.0
+|   +---Board
+|   |       GoBoard.cs
+|   |       
+|   +---Enums
+|   |       StoneColor.cs
+|   |       
+|   \---obj
+|       |   Go.Domain.csproj.nuget.dgspec.json
+|       |   Go.Domain.csproj.nuget.g.props
+|       |   Go.Domain.csproj.nuget.g.targets
+|       |   project.assets.json
+|       |   
+|       \---Debug
+|           \---net8.0
+|               |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|               |   Go.Domain.assets.cache
+|               |   Go.Domain.csproj.BuildWithSkipAnalyzers
+|               |   Go.Domain.csproj.FileListAbsolute.txt
+|               |   Go.Domain.GlobalUsings.g.cs
+|               |   
+|               +---ref
+|               \---refint
++---Go.Infrastructure
+|   |   Go.Infrastructure.csproj
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       \---net8.0
+|   \---obj
+|       |   Go.Infrastructure.csproj.nuget.dgspec.json
+|       |   Go.Infrastructure.csproj.nuget.g.props
+|       |   Go.Infrastructure.csproj.nuget.g.targets
+|       |   project.assets.json
+|       |   
+|       \---Debug
+|           \---net8.0
+|               |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|               |   Go.Infrastructure.AssemblyInfo.cs
+|               |   Go.Infrastructure.AssemblyInfoInputs.cache
+|               |   Go.Infrastructure.assets.cache
+|               |   Go.Infrastructure.csproj.FileListAbsolute.txt
+|               |   Go.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+|               |   Go.Infrastructure.GlobalUsings.g.cs
+|               |   
+|               +---ref
+|               \---refint
+\---Go.UI
+    |   App.xaml
+    |   App.xaml.cs
+    |   AssemblyInfo.cs
+    |   Go.UI.csproj
+    |   Go.UI.csproj.user
+    |   Go.UI.sln
+    |   MainWindow.xaml
+    |   MainWindow.xaml.cs
+    |   
+    +---bin
+    |   \---Debug
+    |       \---net8.0-windows
+    +---Board
+    |       BoardInteractionController.cs
+    |       BoardRenderer.cs
+    |       StoneRenderer.cs
+    |       
+    +---obj
+    |   |   Go.UI.csproj.nuget.dgspec.json
+    |   |   Go.UI.csproj.nuget.g.props
+    |   |   Go.UI.csproj.nuget.g.targets
+    |   |   Go.UI_mp04fr35_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_mp04fr35_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_mp04fr35_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_qrrrk3id_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_qrrrk3id_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_qrrrk3id_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_rfqanom0_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_rfqanom0_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_rfqanom0_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_rxnj3hco_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_rxnj3hco_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_rxnj3hco_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_t5cx3juu_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_t5cx3juu_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_t5cx3juu_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_th5rvkfh_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_th5rvkfh_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_th5rvkfh_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_va3sfuga_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_va3sfuga_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_va3sfuga_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_xptyk4qd_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_xptyk4qd_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_xptyk4qd_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_y0hrzogd_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_y0hrzogd_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_y0hrzogd_wpftmp.csproj.nuget.g.targets
+    |   |   Go.UI_y2op3zep_wpftmp.csproj.nuget.dgspec.json
+    |   |   Go.UI_y2op3zep_wpftmp.csproj.nuget.g.props
+    |   |   Go.UI_y2op3zep_wpftmp.csproj.nuget.g.targets
+    |   |   project.assets.json
+    |   |   
+    |   \---Debug
+    |       \---net8.0-windows
+    |           |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+    |           |   App.g.i.cs
+    |           |   apphost.exe
+    |           |   Demo.g.i.cs
+    |           |   Go.UI.assets.cache
+    |           |   Go.UI.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI.csproj.FileListAbsolute.txt
+    |           |   Go.UI.designer.deps.json
+    |           |   Go.UI.designer.runtimeconfig.json
+    |           |   Go.UI.GlobalUsings.g.cs
+    |           |   Go.UI_10ekb4m1_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_10ekb4m1_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_10ekb4m1_wpftmp.assets.cache
+    |           |   Go.UI_10ekb4m1_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_10ekb4m1_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_10ekb4m1_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_10ekb4m1_wpftmp.sourcelink.json
+    |           |   Go.UI_1ovqwp1v_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_1ovqwp1v_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_1ovqwp1v_wpftmp.assets.cache
+    |           |   Go.UI_1ovqwp1v_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_1ovqwp1v_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_1ovqwp1v_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_1ovqwp1v_wpftmp.sourcelink.json
+    |           |   Go.UI_2vmf3gsg_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_2vmf3gsg_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_2vmf3gsg_wpftmp.assets.cache
+    |           |   Go.UI_2vmf3gsg_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_2vmf3gsg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_2vmf3gsg_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_2vmf3gsg_wpftmp.sourcelink.json
+    |           |   Go.UI_33zfkjl3_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_33zfkjl3_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_33zfkjl3_wpftmp.assets.cache
+    |           |   Go.UI_33zfkjl3_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_33zfkjl3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_33zfkjl3_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_33zfkjl3_wpftmp.sourcelink.json
+    |           |   Go.UI_3pzamzmb_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_3pzamzmb_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_3pzamzmb_wpftmp.assets.cache
+    |           |   Go.UI_3pzamzmb_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_3pzamzmb_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_3pzamzmb_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_3pzamzmb_wpftmp.sourcelink.json
+    |           |   Go.UI_a24tc04u_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_a24tc04u_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_a24tc04u_wpftmp.assets.cache
+    |           |   Go.UI_a24tc04u_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_a24tc04u_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_a24tc04u_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_a24tc04u_wpftmp.sourcelink.json
+    |           |   Go.UI_aqzfohx3_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_aqzfohx3_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_aqzfohx3_wpftmp.assets.cache
+    |           |   Go.UI_aqzfohx3_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_aqzfohx3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_aqzfohx3_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_aqzfohx3_wpftmp.sourcelink.json
+    |           |   Go.UI_awg3pvih_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_awg3pvih_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_awg3pvih_wpftmp.assets.cache
+    |           |   Go.UI_awg3pvih_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_awg3pvih_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_awg3pvih_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_awg3pvih_wpftmp.sourcelink.json
+    |           |   Go.UI_bgpynghs_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_bgpynghs_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_bgpynghs_wpftmp.assets.cache
+    |           |   Go.UI_bgpynghs_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_bgpynghs_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_bgpynghs_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_bgpynghs_wpftmp.sourcelink.json
+    |           |   Go.UI_bixgwvuf_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_bixgwvuf_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_bixgwvuf_wpftmp.assets.cache
+    |           |   Go.UI_bixgwvuf_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_bixgwvuf_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_bixgwvuf_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_bixgwvuf_wpftmp.sourcelink.json
+    |           |   Go.UI_bysrvojm_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_bysrvojm_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_bysrvojm_wpftmp.assets.cache
+    |           |   Go.UI_bysrvojm_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_bysrvojm_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_bysrvojm_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_bysrvojm_wpftmp.sourcelink.json
+    |           |   Go.UI_c4edee5d_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_c4edee5d_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_c4edee5d_wpftmp.assets.cache
+    |           |   Go.UI_c4edee5d_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_c4edee5d_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_c4edee5d_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_c4edee5d_wpftmp.sourcelink.json
+    |           |   Go.UI_cpl0202e_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_cpl0202e_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_cpl0202e_wpftmp.assets.cache
+    |           |   Go.UI_cpl0202e_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_cpl0202e_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_cpl0202e_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_cpl0202e_wpftmp.sourcelink.json
+    |           |   Go.UI_dwkrmilo_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_dwkrmilo_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_dwkrmilo_wpftmp.assets.cache
+    |           |   Go.UI_dwkrmilo_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_dwkrmilo_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_dwkrmilo_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_dwkrmilo_wpftmp.sourcelink.json
+    |           |   Go.UI_eekx5s2r_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_eekx5s2r_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_eekx5s2r_wpftmp.assets.cache
+    |           |   Go.UI_eekx5s2r_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_eekx5s2r_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_eekx5s2r_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_eekx5s2r_wpftmp.sourcelink.json
+    |           |   Go.UI_einlshwd_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_einlshwd_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_einlshwd_wpftmp.assets.cache
+    |           |   Go.UI_einlshwd_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_einlshwd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_einlshwd_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_einlshwd_wpftmp.sourcelink.json
+    |           |   Go.UI_expwnfjd_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_expwnfjd_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_expwnfjd_wpftmp.assets.cache
+    |           |   Go.UI_expwnfjd_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_expwnfjd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_expwnfjd_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_expwnfjd_wpftmp.sourcelink.json
+    |           |   Go.UI_f5l5m1r3_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_f5l5m1r3_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_f5l5m1r3_wpftmp.assets.cache
+    |           |   Go.UI_f5l5m1r3_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_f5l5m1r3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_f5l5m1r3_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_f5l5m1r3_wpftmp.sourcelink.json
+    |           |   Go.UI_fmjpjnr4_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_fmjpjnr4_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_fmjpjnr4_wpftmp.assets.cache
+    |           |   Go.UI_fmjpjnr4_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_fmjpjnr4_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_fmjpjnr4_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_fmjpjnr4_wpftmp.sourcelink.json
+    |           |   Go.UI_gbicirl5_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_gbicirl5_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_gbicirl5_wpftmp.assets.cache
+    |           |   Go.UI_gbicirl5_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_gbicirl5_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_gbicirl5_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_gbicirl5_wpftmp.sourcelink.json
+    |           |   Go.UI_ggch3wud_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ggch3wud_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ggch3wud_wpftmp.assets.cache
+    |           |   Go.UI_ggch3wud_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ggch3wud_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ggch3wud_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ggch3wud_wpftmp.sourcelink.json
+    |           |   Go.UI_golm1meh_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_golm1meh_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_golm1meh_wpftmp.assets.cache
+    |           |   Go.UI_golm1meh_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_golm1meh_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_golm1meh_wpftmp.sourcelink.json
+    |           |   Go.UI_gqpvnguc_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_gqpvnguc_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_gqpvnguc_wpftmp.assets.cache
+    |           |   Go.UI_gqpvnguc_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_gqpvnguc_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_gqpvnguc_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_gqpvnguc_wpftmp.sourcelink.json
+    |           |   Go.UI_hin0qnm0_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_hin0qnm0_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_hin0qnm0_wpftmp.assets.cache
+    |           |   Go.UI_hin0qnm0_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_hin0qnm0_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_hin0qnm0_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_hin0qnm0_wpftmp.sourcelink.json
+    |           |   Go.UI_hrpj3e45_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_hrpj3e45_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_hrpj3e45_wpftmp.assets.cache
+    |           |   Go.UI_hrpj3e45_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_hrpj3e45_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_hrpj3e45_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_hrpj3e45_wpftmp.sourcelink.json
+    |           |   Go.UI_i0dbbygg_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_i0dbbygg_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_i0dbbygg_wpftmp.assets.cache
+    |           |   Go.UI_i0dbbygg_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_i0dbbygg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_i0dbbygg_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_i0dbbygg_wpftmp.sourcelink.json
+    |           |   Go.UI_ibbdx2mj_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ibbdx2mj_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ibbdx2mj_wpftmp.assets.cache
+    |           |   Go.UI_ibbdx2mj_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ibbdx2mj_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ibbdx2mj_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ibbdx2mj_wpftmp.sourcelink.json
+    |           |   Go.UI_iedddsds_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_iedddsds_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_iedddsds_wpftmp.assets.cache
+    |           |   Go.UI_iedddsds_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_iedddsds_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_iedddsds_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_iedddsds_wpftmp.sourcelink.json
+    |           |   Go.UI_ig2huoht_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ig2huoht_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ig2huoht_wpftmp.assets.cache
+    |           |   Go.UI_ig2huoht_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ig2huoht_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ig2huoht_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ig2huoht_wpftmp.sourcelink.json
+    |           |   Go.UI_ij3esnxo_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ij3esnxo_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ij3esnxo_wpftmp.assets.cache
+    |           |   Go.UI_ij3esnxo_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ij3esnxo_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ij3esnxo_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ij3esnxo_wpftmp.sourcelink.json
+    |           |   Go.UI_ir0exes4_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ir0exes4_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ir0exes4_wpftmp.assets.cache
+    |           |   Go.UI_ir0exes4_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ir0exes4_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ir0exes4_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ir0exes4_wpftmp.sourcelink.json
+    |           |   Go.UI_jkxxeroz_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_jkxxeroz_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_jkxxeroz_wpftmp.assets.cache
+    |           |   Go.UI_jkxxeroz_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_jkxxeroz_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_jkxxeroz_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_jkxxeroz_wpftmp.sourcelink.json
+    |           |   Go.UI_jpi2gh2q_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_jpi2gh2q_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_jpi2gh2q_wpftmp.assets.cache
+    |           |   Go.UI_jpi2gh2q_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_jpi2gh2q_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_jpi2gh2q_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_jpi2gh2q_wpftmp.sourcelink.json
+    |           |   Go.UI_kftcg1av_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_kftcg1av_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_kftcg1av_wpftmp.assets.cache
+    |           |   Go.UI_kftcg1av_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_kftcg1av_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_kftcg1av_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_kftcg1av_wpftmp.sourcelink.json
+    |           |   Go.UI_kindpn2w_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_kindpn2w_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_kindpn2w_wpftmp.assets.cache
+    |           |   Go.UI_kindpn2w_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_kindpn2w_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_kindpn2w_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_kindpn2w_wpftmp.sourcelink.json
+    |           |   Go.UI_kxlj2btb_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_kxlj2btb_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_kxlj2btb_wpftmp.assets.cache
+    |           |   Go.UI_kxlj2btb_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_kxlj2btb_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_kxlj2btb_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_kxlj2btb_wpftmp.sourcelink.json
+    |           |   Go.UI_lfivoy5r_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_lfivoy5r_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_lfivoy5r_wpftmp.assets.cache
+    |           |   Go.UI_lfivoy5r_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_lfivoy5r_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_lfivoy5r_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_lfivoy5r_wpftmp.sourcelink.json
+    |           |   Go.UI_lqf3a5bt_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_lqf3a5bt_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_lqf3a5bt_wpftmp.assets.cache
+    |           |   Go.UI_lqf3a5bt_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_lqf3a5bt_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_lqf3a5bt_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_lqf3a5bt_wpftmp.sourcelink.json
+    |           |   Go.UI_MarkupCompile.i.cache
+    |           |   Go.UI_mp04fr35_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_mp04fr35_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_mp04fr35_wpftmp.assets.cache
+    |           |   Go.UI_mp04fr35_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_mp04fr35_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_mp04fr35_wpftmp.sourcelink.json
+    |           |   Go.UI_pnjgvcgu_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_pnjgvcgu_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_pnjgvcgu_wpftmp.assets.cache
+    |           |   Go.UI_pnjgvcgu_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_pnjgvcgu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_pnjgvcgu_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_pnjgvcgu_wpftmp.sourcelink.json
+    |           |   Go.UI_pq2sbuvg_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_pq2sbuvg_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_pq2sbuvg_wpftmp.assets.cache
+    |           |   Go.UI_pq2sbuvg_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_pq2sbuvg_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_pq2sbuvg_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_pq2sbuvg_wpftmp.sourcelink.json
+    |           |   Go.UI_qboer1cu_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_qboer1cu_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_qboer1cu_wpftmp.assets.cache
+    |           |   Go.UI_qboer1cu_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_qboer1cu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_qboer1cu_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_qboer1cu_wpftmp.sourcelink.json
+    |           |   Go.UI_qrrrk3id_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_qrrrk3id_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_qrrrk3id_wpftmp.assets.cache
+    |           |   Go.UI_qrrrk3id_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_qrrrk3id_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_qrrrk3id_wpftmp.sourcelink.json
+    |           |   Go.UI_rdwydqod_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_rdwydqod_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_rdwydqod_wpftmp.assets.cache
+    |           |   Go.UI_rdwydqod_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_rdwydqod_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_rdwydqod_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_rdwydqod_wpftmp.sourcelink.json
+    |           |   Go.UI_rfqanom0_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_rfqanom0_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_rfqanom0_wpftmp.assets.cache
+    |           |   Go.UI_rfqanom0_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_rfqanom0_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_rfqanom0_wpftmp.sourcelink.json
+    |           |   Go.UI_rxnj3hco_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_rxnj3hco_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_rxnj3hco_wpftmp.assets.cache
+    |           |   Go.UI_rxnj3hco_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_rxnj3hco_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_rxnj3hco_wpftmp.sourcelink.json
+    |           |   Go.UI_sxdckwry_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_sxdckwry_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_sxdckwry_wpftmp.assets.cache
+    |           |   Go.UI_sxdckwry_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_sxdckwry_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_sxdckwry_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_sxdckwry_wpftmp.sourcelink.json
+    |           |   Go.UI_t5cx3juu_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_t5cx3juu_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_t5cx3juu_wpftmp.assets.cache
+    |           |   Go.UI_t5cx3juu_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_t5cx3juu_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_t5cx3juu_wpftmp.sourcelink.json
+    |           |   Go.UI_tbtezdzv_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_tbtezdzv_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_tbtezdzv_wpftmp.assets.cache
+    |           |   Go.UI_tbtezdzv_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_tbtezdzv_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_tbtezdzv_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_tbtezdzv_wpftmp.sourcelink.json
+    |           |   Go.UI_tf53byhb_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_tf53byhb_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_tf53byhb_wpftmp.assets.cache
+    |           |   Go.UI_tf53byhb_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_tf53byhb_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_tf53byhb_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_tf53byhb_wpftmp.sourcelink.json
+    |           |   Go.UI_th5rvkfh_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_th5rvkfh_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_th5rvkfh_wpftmp.assets.cache
+    |           |   Go.UI_th5rvkfh_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_th5rvkfh_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_th5rvkfh_wpftmp.sourcelink.json
+    |           |   Go.UI_tyinku1j_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_tyinku1j_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_tyinku1j_wpftmp.assets.cache
+    |           |   Go.UI_tyinku1j_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_tyinku1j_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_tyinku1j_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_tyinku1j_wpftmp.sourcelink.json
+    |           |   Go.UI_ufafhagz_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ufafhagz_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ufafhagz_wpftmp.assets.cache
+    |           |   Go.UI_ufafhagz_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ufafhagz_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ufafhagz_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ufafhagz_wpftmp.sourcelink.json
+    |           |   Go.UI_ukx3ggn5_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ukx3ggn5_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ukx3ggn5_wpftmp.assets.cache
+    |           |   Go.UI_ukx3ggn5_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ukx3ggn5_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ukx3ggn5_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ukx3ggn5_wpftmp.sourcelink.json
+    |           |   Go.UI_ulcwp4ym_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_ulcwp4ym_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_ulcwp4ym_wpftmp.assets.cache
+    |           |   Go.UI_ulcwp4ym_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_ulcwp4ym_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_ulcwp4ym_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_ulcwp4ym_wpftmp.sourcelink.json
+    |           |   Go.UI_uozuuhk3_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_uozuuhk3_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_uozuuhk3_wpftmp.assets.cache
+    |           |   Go.UI_uozuuhk3_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_uozuuhk3_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_uozuuhk3_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_uozuuhk3_wpftmp.sourcelink.json
+    |           |   Go.UI_uxwop4ej_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_uxwop4ej_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_uxwop4ej_wpftmp.assets.cache
+    |           |   Go.UI_uxwop4ej_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_uxwop4ej_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_uxwop4ej_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_uxwop4ej_wpftmp.sourcelink.json
+    |           |   Go.UI_v4b3hgyo_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_v4b3hgyo_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_v4b3hgyo_wpftmp.assets.cache
+    |           |   Go.UI_v4b3hgyo_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_v4b3hgyo_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_v4b3hgyo_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_v4b3hgyo_wpftmp.sourcelink.json
+    |           |   Go.UI_va3sfuga_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_va3sfuga_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_va3sfuga_wpftmp.assets.cache
+    |           |   Go.UI_va3sfuga_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_va3sfuga_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_va3sfuga_wpftmp.sourcelink.json
+    |           |   Go.UI_wxvrnx3l_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_wxvrnx3l_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_wxvrnx3l_wpftmp.assets.cache
+    |           |   Go.UI_wxvrnx3l_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_wxvrnx3l_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_wxvrnx3l_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_wxvrnx3l_wpftmp.sourcelink.json
+    |           |   Go.UI_xbgdepmj_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_xbgdepmj_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_xbgdepmj_wpftmp.assets.cache
+    |           |   Go.UI_xbgdepmj_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_xbgdepmj_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_xbgdepmj_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_xbgdepmj_wpftmp.sourcelink.json
+    |           |   Go.UI_xptyk4qd_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_xptyk4qd_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_xptyk4qd_wpftmp.assets.cache
+    |           |   Go.UI_xptyk4qd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_xptyk4qd_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_xptyk4qd_wpftmp.sourcelink.json
+    |           |   Go.UI_y0hrzogd_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_y0hrzogd_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_y0hrzogd_wpftmp.assets.cache
+    |           |   Go.UI_y0hrzogd_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_y0hrzogd_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_y0hrzogd_wpftmp.sourcelink.json
+    |           |   Go.UI_y2op3zep_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_y2op3zep_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_y2op3zep_wpftmp.assets.cache
+    |           |   Go.UI_y2op3zep_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_y2op3zep_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_y2op3zep_wpftmp.sourcelink.json
+    |           |   Go.UI_zbuairr2_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_zbuairr2_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_zbuairr2_wpftmp.assets.cache
+    |           |   Go.UI_zbuairr2_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_zbuairr2_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_zbuairr2_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_zbuairr2_wpftmp.sourcelink.json
+    |           |   Go.UI_zf4stjt0_wpftmp.AssemblyInfo.cs
+    |           |   Go.UI_zf4stjt0_wpftmp.AssemblyInfoInputs.cache
+    |           |   Go.UI_zf4stjt0_wpftmp.assets.cache
+    |           |   Go.UI_zf4stjt0_wpftmp.csproj.BuildWithSkipAnalyzers
+    |           |   Go.UI_zf4stjt0_wpftmp.GeneratedMSBuildEditorConfig.editorconfig
+    |           |   Go.UI_zf4stjt0_wpftmp.GlobalUsings.g.cs
+    |           |   Go.UI_zf4stjt0_wpftmp.sourcelink.json
+    |           |   MainWindow.g.i.cs
+    |           |   
+    |           +---ref
+    |           +---refint
+    |           +---Resources
+    |           \---Views
+    |                   Demo.g.i.cs
+    |                   
+    +---Resources
+    |   |   Styles.xaml
+    |   |   
+    |   \---Images
+    |           board_1.png
+    |           board_2.png
+    |           icon.ico
+    |           layer2.png
+    |           
+    \---Views
+            Demo.xaml
+            Demo.xaml.cs
+            
