@@ -1,0 +1,12 @@
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\bin\Debug\net8.0\Go.Domain.deps.json
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\bin\Debug\net8.0\Go.Domain.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\bin\Debug\net8.0\Go.Domain.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.AssemblyInfoInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.AssemblyInfo.cs
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.csproj.CoreCompileInputs.cache
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.sourcelink.json
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\refint\Go.Domain.dll
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\Go.Domain.pdb
+D:\Ba Nam\Own project\Practice\c#\WPF Practice\Go Chess\Go.Domain\obj\Debug\net8.0\ref\Go.Domain.dll

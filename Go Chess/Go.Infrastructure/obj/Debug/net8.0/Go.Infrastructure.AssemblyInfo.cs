@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Go.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f2944b1d6b426157ea9e3475649108b843eccfe2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61d51f1c4af670ca7b425247f2215495d59ed8ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("Go.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Go.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
