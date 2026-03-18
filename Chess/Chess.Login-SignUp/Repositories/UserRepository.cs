@@ -27,7 +27,7 @@ namespace Chess.Login_SignUp.Repositories
                 {
                     connection.Open();
                     command.Connection = connection;
-                    command.CommandText = "select * from [Users] where Username=@username and PasswordHash=@password";
+                    command.CommandText = "select * from [Users] where Username=@username and Password=@password";
                     command.Parameters.Add("@username", System.Data.SqlDbType.NVarChar).Value = credential.UserName;
                     command.Parameters.Add("@password", System.Data.SqlDbType.NVarChar).Value = credential.Password;
                     validUser = command.ExecuteScalar() == null ? false : true;

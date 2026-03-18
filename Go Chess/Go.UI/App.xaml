@@ -1,0 +1,11 @@
+﻿<Application x:Class="Go.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Go.UI"
+             StartupUri="./Views/Demo.xaml">
+             <!--StartupUri="MainWindow.xaml">-->
+             
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

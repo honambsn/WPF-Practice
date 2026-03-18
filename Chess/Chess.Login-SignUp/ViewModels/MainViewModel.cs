@@ -41,6 +41,10 @@ namespace Chess.Login_SignUp.ViewModel
             var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
             if (user != null)
             {
+                if (CurrentUserAccount == null)
+                {
+                    CurrentUserAccount = new UserAccountModel();
+                }
                 //CurrentUserAccount = new UserAccountModel()
                 //{
                 //    Username = user.Username,
